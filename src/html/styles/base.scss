@@ -1,1 +1,27 @@
+// body
+$font: "Roboto";
+$body-font: #424242;
+$body-bg: #f9f9f9;
+// header
+$header-font: #424242;
+$header-bg: #f5f5f5;
+$header-box-border: #949393;
+$header-box-shadow: #949393;
+// link
+$link-hover: #9a0cc5;
 
+* {
+  font-family: $font;
+  text-align: center;
+  font-size: 62.5%;
+  line-height: 1.5;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  color: $body-font;
+  background-color: $body-bg;
+}
