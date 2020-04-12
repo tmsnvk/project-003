@@ -3,28 +3,28 @@
 
 .container-grid {
  display: grid;
- grid-template-columns: 1fr 1fr;
- grid-template-rows: 1fr 1fr;
- grid-column-gap: 1em;
- grid-row-gap: 1rem;
+ grid-template-columns: 1fr 1fr 1fr 1fr;
+ grid-column-gap: 5em;
+ grid-row-gap: 5rem;
  grid-template-areas: 
- "header header"
- "item-a item-b"
- "footer footer";
+ "header-grid header-grid header-grid header-grid"
+ ". item-head item-head ."
+ "item item item item"
+ "footer-grid footer-grid footer-grid footer-grid";
 }
 
 .container-grid-nav {
- grid-area: header;
+ grid-area: header-grid;
 }
 
-.container-grid-item-a {
- grid-area: item-a;
+.container-grid-item-head {
+ grid-area: item-head;
 }
 
-.container-grid-item-b {
- grid-area: item-b;
+.container-grid-item {
+ grid-area: item;
 }
 
 .container-grid-footer {
- grid-area: footer;
+ grid-area: footer-grid;
 }
