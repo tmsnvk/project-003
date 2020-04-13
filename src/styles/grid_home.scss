@@ -1,0 +1,44 @@
+@import "base.scss";
+@import "mediaq.scss";
+
+.container-grid {
+ display: grid;
+ grid-template-columns: 1fr 1fr 1fr 1fr;
+ grid-column-gap: 5em;
+ grid-row-gap: 5rem;
+ grid-template-areas: 
+ "header-grid header-grid header-grid header-grid"
+ ". item-head item-head ."
+ "item item item item"
+ "img img img img"
+ "how-image how how ."
+ "footer-grid footer-grid footer-grid footer-grid";
+}
+
+.container-grid-nav {
+ grid-area: header-grid;
+}
+
+.container-grid-item-head {
+ grid-area: item-head;
+}
+
+.container-grid-item {
+ grid-area: item;
+}
+
+.container-grid-img {
+ grid-area: img;
+}
+
+.container-grid-how-image {
+ grid-area: how-image;
+}
+
+.container-grid-how {
+ grid-area: how;
+}
+
+.container-grid-footer {
+ grid-area: footer-grid;
+}
