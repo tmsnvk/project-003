@@ -26,7 +26,7 @@
     |- STYLES
         |- base.scss
         |- footer.scss
-        |- grid.scss
+        |- grid_home.scss
         |- mediaq.scss
         |- navbar.scss
         |- page_home.scss
