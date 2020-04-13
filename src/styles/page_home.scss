@@ -1,0 +1,142 @@
+@import "base.scss";
+@import "mediaq.scss";
+
+.container-grid-item-head {
+    margin-top: 30rem;
+    text-align: center;
+    
+    .item-head-title {
+        font-size: 3rem;
+        text-transform: uppercase;
+        padding: 0 0 5rem 0;
+        font-weight: normal;
+
+        &:after {
+            content: " ";
+            display: block;
+            padding: 3rem 0 0 0;
+            border-bottom: 2px solid $purple;
+            width: 50%;
+            margin: 0 auto;
+        }
+    }
+
+    .item-head-message {
+        font-size: 2rem;
+    }
+}
+
+.container-grid-item {
+    display: flex;
+    flex-direction: row;
+    margin: 10rem 0 0 0;
+    padding: 0 5rem 0 5rem;
+    
+    .article {
+        font-size: 2rem;
+        text-align: center;
+        width: 50%;
+        margin: 0 3rem 0 3rem;
+        padding: 1rem 1rem 1rem 1rem;
+        
+        .icons {
+            display: inline-block;
+            padding: 1rem 0 1rem 0;
+            font-size: 4rem;
+            color: $purple;
+        }
+        
+        h3 {
+            font-size: 2rem;
+            padding: 0 0 2rem 0;
+        }
+    }
+}
+
+.container-grid-img {
+    border: 1px;
+    display: flex;
+    flex-direction: row;
+    font-size: 2rem;
+    margin: 10rem 0 0 0;
+
+    .image-holder {
+        font-size: 2rem;
+        text-align: center;
+        width: 50%;
+        margin: 0 3rem 0 3rem;
+        padding: 1rem 1rem 1rem 1rem;
+    }
+
+    img {
+        max-width: 60%;
+
+        &:hover {
+            transform: scale(1.3);
+            transition: transform 0.5s, opacity 0.5s;
+        }
+    }
+}
+
+.container-grid-how {
+    margin: 10rem 0 0 0;
+    text-align: center;
+    
+    .how-title {
+        font-size: 3rem;
+        text-transform: uppercase;
+        padding: 0 0 5rem 0;
+        font-weight: normal;
+
+        &:after {
+            content: " ";
+            display: block;
+            padding: 2rem 0 0 0;
+            border-bottom: 2px solid $purple;
+            width: 50%;
+            margin: 0 auto;
+        }
+    }
+
+    .how-steps {
+        font-size: 3rem;
+        text-align: left;
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 5rem;
+
+        .icons {    
+            font-size: 4rem;
+            color: $purple;
+            padding: 0 2rem 0 0;
+        }
+    }
+}
+
+.container-grid-how-image {
+    margin: auto;
+    
+    img {
+        width: 30rem;
+        transform: scaleX(-1);
+
+    }
+}
+
+.icon-scroll {
+    font-size: 8rem;
+    color: $purple;
+    opacity: 0.7;
+    position: fixed;
+    bottom: 15vh;
+    right: 15vh;
+    
+    &:hover {
+        box-shadow: 0 1rem 5rem rgba(0, 0, 0, 0.2);
+        border-radius: 50%;
+    }
+}
+
+.no-show {
+    display: none;
+}
