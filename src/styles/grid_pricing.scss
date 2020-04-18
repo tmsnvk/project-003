@@ -8,11 +8,8 @@
  grid-row-gap: 5rem;
  grid-template-areas: 
  "header-grid header-grid header-grid header-grid"
- ". item-head item-head ."
- "item item item item"
- "img img img img"
- "how-image how how ."
- ". text text ."
+ ". head-text head-text ."
+ "pricing pricing pricing ."
  "footer-grid footer-grid footer-grid footer-grid";
 }
 
@@ -20,28 +17,12 @@
  grid-area: header-grid;
 }
 
-.container-grid-item-head {
- grid-area: item-head;
+.container-grid-headline {
+ grid-area: head-text;
 }
 
-.container-grid-item {
- grid-area: item;
-}
-
-.container-grid-img {
- grid-area: img;
-}
-
-.container-grid-how-image {
- grid-area: how-image;
-}
-
-.container-grid-how {
- grid-area: how;
-}
-
-.container-grid-text {
- grid-area: text;
+.container-grid-pricing {
+ grid-area: pricing;
 }
 
 .container-grid-footer {
