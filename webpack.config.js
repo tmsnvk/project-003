@@ -1,21 +1,49 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: {
+    index: "./src/index.js",
+    pricing: "./src/pricing.js"
+  },
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "js/bundle.js"
+    filename: "[name].bundle.js",
+    path: __dirname + "/dist",
   },
   devServer: {
-    contentBase: "./dist",
+    contentBase: path.join(__dirname, "dist"),
     port: 3003
   },
   plugins: [
     new HtmlWebpackPlugin({
+      template: "./src/html/index.html",
       filename: "index.html",
-      template: "./src/html/index.html"
-    })
+      inject: 'body',
+      chunks: ['index']
+    }),
+    new HtmlWebpackPlugin({
+      filename: "page_pricing.html",
+      template: "./src/html/page_pricing.html",
+      inject: 'body',
+      chunks: ['pricing']
+    }),
+    new HtmlWebpackPlugin({
+      filename: "page_search.html",
+      template: "./src/html/page_search.html"
+    }),
+    new HtmlWebpackPlugin({
+      filename: "page_about.html",
+      template: "./src/html/page_about.html"
+    }),
+    new HtmlWebpackPlugin({
+      filename: "page_contact.html",
+      template: "./src/html/page_contact.html"
+    }),
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+      chunkFilename: "[id].css"
+     })
   ],
   module: {
     rules: [
@@ -31,8 +59,8 @@ module.exports = {
         use: ["html-loader"],
       },
       {
-        test: /\.scss$/,
-        use: [ "style-loader", "css-loader", "sass-loader" ]
+        test: [/.css$|.scss$/],
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
@@ -55,7 +83,7 @@ module.exports = {
             }
           }
         ],
-      }
+      },
     ]
   }
 };
