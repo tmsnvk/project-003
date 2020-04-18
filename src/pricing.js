@@ -4,9 +4,9 @@ import "./styles/navbar.scss";
 import "./styles/footer.scss";
 import "./styles/mediaq.scss";
 
-// import page-specific styles;
-import "./styles/grid_home.scss";
-import "./styles/page_home.scss";
+// import page-specific css styles;
+import "./styles/grid_pricing.scss";
+import "./styles/page_pricing.scss";
 
 // import fontawesome;
 import '@fortawesome/fontawesome-free/js/fontawesome.js'
