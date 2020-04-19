@@ -6,13 +6,13 @@ const addClass = () => header.classList.add("heading-transform");
 const removeClass = () => header.classList.remove("heading-transform");
 
 const toggleClass = () => {
- let scrollPosition = window.scrollY;
+	let scrollPosition = window.scrollY;
 
- if (scrollPosition >= headerHeight) { 
-  addClass();
- } else { 
-  removeClass();
- }
+	if (scrollPosition >= headerHeight) { 
+  	addClass();
+	} else { 
+  	removeClass();
+	}
 }
 
 // export
