@@ -5,7 +5,10 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
   entry: {
     index: "./src/index.js",
-    pricing: "./src/pricing.js"
+    pricing: "./src/pricing.js",
+    search: "./src/search.js",
+    about: "./src/about.js",
+    contact: "./src/contact.js"
   },
   output: {
     filename: "[name].bundle.js",
@@ -30,15 +33,21 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       filename: "page_search.html",
-      template: "./src/html/page_search.html"
+      template: "./src/html/page_search.html",
+      inject: 'body',
+      chunks: ['search']
     }),
     new HtmlWebpackPlugin({
       filename: "page_about.html",
-      template: "./src/html/page_about.html"
+      template: "./src/html/page_about.html",
+      inject: 'body',
+      chunks: ['about']
     }),
     new HtmlWebpackPlugin({
       filename: "page_contact.html",
-      template: "./src/html/page_contact.html"
+      template: "./src/html/page_contact.html",
+      inject: 'body',
+      chunks: ['contact']
     }),
     new MiniCssExtractPlugin({
       filename: "[name].css",
