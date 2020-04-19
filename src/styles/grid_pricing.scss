@@ -1,30 +1,38 @@
 @import "base.scss";
-@import "mediaq.scss";
 
 .container-grid {
- display: grid;
- grid-template-columns: 1fr 1fr 1fr 1fr;
- grid-column-gap: 5em;
- grid-row-gap: 5rem;
- grid-template-areas: 
- "header-grid header-grid header-grid header-grid"
- ". head-text head-text ."
- "pricing pricing pricing ."
- "footer-grid footer-grid footer-grid footer-grid";
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-column-gap: 5em;
+  grid-row-gap: 5rem;
+  grid-template-areas: 
+  "header-grid header-grid header-grid header-grid"
+  "head-img head-text head-text ."
+  "pricing pricing pricing pricing"
+  ". signup signup ."
+  "footer-grid footer-grid footer-grid footer-grid";
 }
 
 .container-grid-nav {
- grid-area: header-grid;
+  grid-area: header-grid;
+}
+
+.container-grid-headline-img {
+  grid-area: head-img;
 }
 
 .container-grid-headline {
- grid-area: head-text;
+  grid-area: head-text;
 }
 
 .container-grid-pricing {
- grid-area: pricing;
+  grid-area: pricing;
+}
+
+.container-grid-signup {
+  grid-area: signup;
 }
 
 .container-grid-footer {
- grid-area: footer-grid;
+  grid-area: footer-grid;
 }
