@@ -3,6 +3,9 @@ import styled from "styled-components";
 import GridHeadContainer from "../layoutcomponents/home/GridHeadContainer";
 import GridItemContainer from "../layoutcomponents/home/GridItemContainer";
 import GridImageContainer from "../layoutcomponents/home/GridImageContainer";
+import GridHowImageContainer from "../layoutcomponents/home/GridHowImageContainer";
+import GridHowContainer from "../layoutcomponents/home/GridHowContainer";
+import GridTextContainer from "../layoutcomponents/home/GridTextContainer";
 
 const GridMainContainer = styled.div`
   display: grid;
@@ -13,8 +16,8 @@ const GridMainContainer = styled.div`
     ". grid-head grid-head ."
     "grid-item grid-item grid-item grid-item"
     "grid-image grid-image grid-image grid-image"
-    "how-image how how ."
-    ". text text ."
+    "grid-how-image grid-how grid-how ."
+    ". grid-text grid-text ."
 `;
 
 const HomeLayout = () => {
@@ -23,6 +26,9 @@ const HomeLayout = () => {
       <GridHeadContainer />
       <GridItemContainer />
       <GridImageContainer />
+      <GridHowImageContainer />
+      <GridHowContainer />
+      <GridTextContainer />
     </GridMainContainer>
   );
 };

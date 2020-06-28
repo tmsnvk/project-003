@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ComponentContainer = styled.section`
   grid-area: grid-item;
-  padding: 5rem 0 0 0;
+  margin: 3rem 0 3rem 0;
   text-align: center;
   display: flex;
   flex-direction: row;

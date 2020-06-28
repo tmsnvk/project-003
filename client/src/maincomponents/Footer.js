@@ -39,14 +39,13 @@ const StyledIcon = styled(FontAwesomeIcon)`
 `;
 
 const Copyright = styled.div`
-
+  margin: 2rem 0 0 0;
 `;
 
 const CopyrightDiv = styled.p`
-  font-family: "Montserrat", sans-serif;
-  font-weight: bold;
-  font-size: 1rem;
-  letter-spacing: 0.15rem;
+  font-size: 1.2rem;
+  letter-spacing: 0.3rem;
+  padding: 0.5rem 0 0 0;
 `;
 
 const Footer = () => {
@@ -64,7 +63,7 @@ const Footer = () => {
         <Copyright>
           <CopyrightDiv>&copy; 2020 by tamasnvk</CopyrightDiv>
           <CopyrightDiv>built with &#x2764;</CopyrightDiv>
-          <CopyrightDiv>using react & APINAME</CopyrightDiv> 
+          <CopyrightDiv>using react & pokebastion & pokeapi.co</CopyrightDiv> 
         </Copyright>
       </FooterContainer>
     </GridFooterContainer>

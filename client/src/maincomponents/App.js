@@ -12,8 +12,8 @@ import ContactLayout from "../layouts/ContactLayout";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
-import { faInfinity, faServer, faComments, faLifeRing } from "@fortawesome/free-solid-svg-icons";
-library.add(fab, faInfinity, faServer, faComments, faLifeRing);
+import { faInfinity, faServer, faComments, faLifeRing, faAngleDoubleRight } from "@fortawesome/free-solid-svg-icons";
+library.add(fab, faInfinity, faServer, faComments, faLifeRing, faAngleDoubleRight);
 
 const GlobalStyle = createGlobalStyle`
   * {
