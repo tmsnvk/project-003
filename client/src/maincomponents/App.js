@@ -15,7 +15,6 @@ import { fab } from "@fortawesome/free-brands-svg-icons";
 import { faInfinity, faServer, faComments, faLifeRing } from "@fortawesome/free-solid-svg-icons";
 library.add(fab, faInfinity, faServer, faComments, faLifeRing);
 
-
 const GlobalStyle = createGlobalStyle`
   * {
     --font-color-primary: #3d3d3d; // almost black
