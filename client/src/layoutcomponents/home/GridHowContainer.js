@@ -60,7 +60,7 @@ const GridHowContainer = () => {
       text: "Take part in our buzzing online community and get invited to our offline meetups - exhange valuable information with your peers and share how your hunts turn out."
     },
     {
-      text: "Test your mettle in our regular competitions & win great prizes."
+      text: "Test your mettle in our regular community competitions & win great prizes."
     },
     {
       text: "Contact our 24/7 support team with any issue."

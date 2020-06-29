@@ -34,6 +34,7 @@ const StyledIcon = styled(FontAwesomeIcon)`
 const ItemTitle = styled.h3`
   font-size: 2rem;
   padding: 0 0 2rem 0;
+  font-family: "Open Sans", sans-serif;
 `;
 
 const ItemMessage = styled.p`
@@ -46,25 +47,29 @@ const GridItemContainer = () => {
       icon: "infinity",
       title: "Running 7/24 & 365 days/year",
       paragraphOne: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A amet ratione omnis, voluptate facere commodi rerum optio. Magnam perspiciatis odit nisi sit asperiores sunt deseruntmagni saepe, quo ipsam maxime!",
-      paragraphTwo: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A amet ratione omnis, voluptate facere commodi rerum optio. Magnam perspiciatis odit nisi sit asperiores sunt deseruntmagni saepe, quo ipsam maxime! Lorem ipsum dolor sit amet, consectetur adipisicing elit. A amet ratione omnis, voluptate facere commodi rerum optio. Magnam perspiciatis odit nisi sit asperiores sunt deseruntmagni saepe, quo ipsam maxime!"
+      paragraphTwo: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A amet ratione omnis, voluptate facere commodi rerum optio. Magnam perspiciatis odit nisi sit asperiores sunt deseruntmagni saepe, quo ipsam maxime! Lorem ipsum dolor sit amet, consectetur adipisicing elit. A amet ratione omnis, voluptate facere commodi rerum optio. ",
+      paragraphThree: "Magnam perspiciatis odit nisi sit asperiores sunt deseruntmagni saepe, quo ipsam maxime!"
     },
     {
       icon: "server",
       title: "Neat & clear data presentation",
       paragraphOne: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A amet ratione omnis, voluptate facere commodi rerum optio. Magnam perspiciatis odit nisi sit asperiores sunt deseruntmagni saepe, quo ipsam maxime!",
-      paragraphTwo: ""
+      paragraphTwo: "",
+      paragraphThree: ""
     },
     {
       icon: "comments",
       title: "Great community",
       paragraphOne: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A amet ratione omnis, voluptate facere commodi rerum optio. Magnam perspiciatis odit nisi sit asperiores sunt deseruntmagni saepe, quo ipsam maxime!",
-      paragraphTwo: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A amet ratione omnis, voluptate facere commodi rerum optio. Magnam perspiciatis odit nisi sit asperiores sunt deseruntmagni saepe, quo ipsam maxime!"
+      paragraphTwo: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A amet ratione omnis, voluptate facere commodi rerum optio. Magnam perspiciatis odit nisi sit asperiores sunt deseruntmagni saepe, quo ipsam maxime!",
+      paragraphThree: ""
     },
     {
       icon: "life-ring",
-      title: "Excellent email, chat and phone support",
+      title: "Email, chat and phone support",
       paragraphOne: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A amet ratione omnis, voluptate facere commodi rerum optio. Magnam perspiciatis odit nisi sit asperiores sunt deseruntmagni saepe, quo ipsam maxime!",
-      paragraphTwo: ""
+      paragraphTwo: "",
+      paragraphThree: ""
     }
   ]
 
@@ -75,6 +80,7 @@ const GridItemContainer = () => {
         <ItemTitle>{item.title}</ItemTitle>
         <ItemMessage>{item.paragraphOne}</ItemMessage>
         <ItemMessage>{item.paragraphTwo}</ItemMessage>
+        <ItemMessage>{item.paragraphThree}</ItemMessage>
       </ItemContainer>
     );
   });

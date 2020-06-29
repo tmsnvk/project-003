@@ -12,14 +12,15 @@ import ContactLayout from "../layouts/ContactLayout";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
-import { faInfinity, faServer, faComments, faLifeRing, faAngleDoubleRight } from "@fortawesome/free-solid-svg-icons";
-library.add(fab, faInfinity, faServer, faComments, faLifeRing, faAngleDoubleRight);
+import { faInfinity, faServer, faComments, faLifeRing, faAngleDoubleRight, faCaretUp } from "@fortawesome/free-solid-svg-icons";
+library.add(fab, faInfinity, faServer, faComments, faLifeRing, faAngleDoubleRight, faCaretUp );
 
 const GlobalStyle = createGlobalStyle`
   * {
     --font-color-primary: #3d3d3d; // almost black
     --font-color-secondary: #edebeb; // white
     --font-color-tertiary: #0c2cbb; // dark blue
+    --font-color-quaternary: #eb9800; // orange
     --body-color-primary: #edebeb; // white
     --body-color-secondary: #0c2cbb; // dark blue
     --body-color-tertiary: #e3e3e3; // gray

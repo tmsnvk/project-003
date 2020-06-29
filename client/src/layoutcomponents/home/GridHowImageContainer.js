@@ -19,7 +19,6 @@ const Image = styled.img`
 `;
 
 const GridHowImageContainer = () => {
-
   return (
     <ComponentContainer>
       <Image src="https://pokeres.bastionbot.org/images/pokemon/25.png" alt="pikachu image" />

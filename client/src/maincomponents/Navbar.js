@@ -26,14 +26,6 @@ const WelcomeTitle = styled.h1`
     width: 50%;
     margin: 0 auto;
   }
-
-  // .active {
-  //   visibility: visible
-  // }
-
-  // .hidden {
-  //   visibility: hidden;
-  // }
 `;
 
 const LanguageLinksList = styled.ul`

@@ -31,11 +31,10 @@ const TextLink = styled(Link)`
 `;
 
 const GridTextContainer = () => {
-
   return (
     <ComponentContainer>
-      <TextTitle>Like what you see? Subscribe on our <TextLink to="/pricing">Pricing</TextLink> page!</TextTitle>
-      <TextTitle>Have further questions? Get in touch with a customer agent on our <TextLink to="/contact">Contact</TextLink> page!</TextTitle>
+      <TextTitle>Like what you see? Subscribe on our <TextLink to="/pricing">Pricing</TextLink> page and join our community immediately!</TextTitle>
+      <TextTitle>Have further questions? Get in touch with one of our customer agents on our <TextLink to="/contact">Contact</TextLink> page!</TextTitle>
     </ComponentContainer>
   );
 };

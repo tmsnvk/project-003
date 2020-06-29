@@ -40,6 +40,9 @@ const StyledIcon = styled(FontAwesomeIcon)`
 
 const Copyright = styled.div`
   margin: 2rem 0 0 0;
+  color: var(--font-color-quaternary);
+  font-weight: bold;
+  font-family: "Open Sans", sans-serif;
 `;
 
 const CopyrightDiv = styled.p`
