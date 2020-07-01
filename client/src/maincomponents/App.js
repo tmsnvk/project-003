@@ -12,8 +12,8 @@ import ContactLayout from "../layouts/ContactLayout";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
-import { faInfinity, faServer, faComments, faLifeRing, faAngleDoubleRight, faCaretUp, faAngleRight } from "@fortawesome/free-solid-svg-icons";
-library.add(fab, faInfinity, faServer, faComments, faLifeRing, faAngleDoubleRight, faCaretUp, faAngleRight );
+import { faInfinity, faServer, faComments, faLifeRing, faAngleDoubleRight, faCaretUp, faAngleRight, faEuroSign } from "@fortawesome/free-solid-svg-icons";
+library.add(fab, faInfinity, faServer, faComments, faLifeRing, faAngleDoubleRight, faCaretUp, faAngleRight, faEuroSign );
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -23,7 +23,7 @@ const GlobalStyle = createGlobalStyle`
     --font-color-quaternary: #eb9800; // orange
     --body-color-primary: #edebeb; // white
     --body-color-secondary: #0c2cbb; // dark blue
-    --body-color-tertiary: #e3e3e3; // gray
+    --body-color-tertiary: #dbdbdb; // gray
     --body-shadow: #424242; // almost black
     font-family: "Roboto", sans-serif;
     font-size: 62.5%;

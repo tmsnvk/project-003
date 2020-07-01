@@ -1,19 +1,23 @@
 import React from "react";
 import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ComponentContainer = styled.div`
   grid-area: grid-pricing;
 	display: flex;
-	flex-direction: row;
-	font-size: 2rem;
+  flex-direction: row;
 `;
 
 const PricingBoxContainer = styled.div`
-  width: 70%;
+  width: 100%;
   margin: 0 5rem 0 5rem;
-  background-color: var(--font-color-secondary);
+  background-color: var(--body-color-tertiary);
   box-shadow: 0px 2px 2px 0px var(--body-shadow);
   border-radius: 1rem;
+`;
+
+const BestOfferContainer = styled(PricingBoxContainer)`
+  transform: scale(1.05);
 `;
 
 const PricingTitle = styled.h3`
@@ -26,60 +30,129 @@ const PricingTitle = styled.h3`
   border-radius: 1.5rem 1.5rem 0 0;
 `;
 
+const BestOfferTitle = styled(PricingTitle)`
+  background-color: var(--font-color-quaternary);
+`;
+
+const PricingTagContainer = styled.p`
+  text-align: center;
+  padding: 2rem 0 2rem 0;
+  font-size: 1.5rem;
+`;
+
+const PriceTagSpan = styled.span`
+  font-size: 3.5rem;
+`;
+
+const StyledIconPricing = styled(FontAwesomeIcon)`
+  padding: 0 1rem 0 0;
+  font-size: 3.5rem;
+  vertical-align: super;
+`;
+
+const StyledIcon = styled(FontAwesomeIcon)`
+  padding: 0 1rem 0 0;
+  font-size: 4rem;
+  vertical-align: middle;
+`;
+
+const PricingBody = styled.p`
+  font-size: 2rem;
+  padding: 0 2rem 2rem 2rem;
+`;
+
+const PricingBodyLastofType = styled(PricingBody)`
+  padding: 1rem 0 2rem 0;
+  text-align: center;
+`;
+
+const PricingBodyLastParagraph = styled(PricingBody)`
+  padding: 0 2rem 1rem 2rem;
+`;
+
+const MostPopularOffer = styled.div`
+  background-color: var(--font-color-quaternary);
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  font-size: 3rem;
+  text-align: center;
+  border-radius: 0 0 1rem 1rem;
+  font-weight: bold;
+  padding: 1rem 0 1rem 0;
+`;
+
+const SignUpButton = styled.button`
+  font-size: 2.5rem;
+  background-color: var(--body-color-secondary);
+  color: var(--font-color-secondary);
+  padding: 1rem 1rem 1rem 1rem;
+  border-radius: 1rem;
+  display: block;
+  width: 50%;
+  margin: 1rem auto;
+  opacity: 0.7;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+
+  &:hover {
+    background-color: var(--font-color-primary);
+    opacity: 1;
+  }
+
+  &:focus {
+    outline: none;
+  }
+`;
+
+const BestOfferButton = styled(SignUpButton)`
+  background-color: var(--font-color-quaternary);
+`;
+
 const GridPricingContainer = () => {
   return (
     <ComponentContainer>
       <PricingBoxContainer>
         <PricingTitle>Free</PricingTitle>
-
+        <PricingTagContainer><PriceTagSpan><StyledIconPricing icon="euro-sign"></StyledIconPricing>0</PriceTagSpan></PricingTagContainer>
+        <PricingBody><StyledIcon icon="angle-right"></StyledIcon>Free without registration.</PricingBody>
+        <PricingBody><StyledIcon icon="angle-right"></StyledIcon>Search with limited access.</PricingBody>
+        <PricingBody><StyledIcon icon="angle-right"></StyledIcon>No access to the community.</PricingBody>
+        <PricingBody><StyledIcon icon="angle-right"></StyledIcon>Limited support.</PricingBody>
       </PricingBoxContainer>
-
+      <PricingBoxContainer>
+        <PricingTitle>Solo</PricingTitle>
+        <PricingTagContainer><PriceTagSpan><StyledIconPricing icon="euro-sign"></StyledIconPricing>24.95</PriceTagSpan> / month</PricingTagContainer>
+        <PricingBody><StyledIcon icon="angle-right"></StyledIcon>Single registration.</PricingBody>
+        <PricingBody><StyledIcon icon="angle-right"></StyledIcon>Search with full access.</PricingBody>
+        <PricingBody><StyledIcon icon="angle-right"></StyledIcon>Access to private communities.</PricingBody>
+        <PricingBodyLastParagraph><StyledIcon icon="angle-right"></StyledIcon>Full technical support.</PricingBodyLastParagraph>
+        <SignUpButton>Sign me up!</SignUpButton>
+        <PricingBodyLastofType>30-day money back guarantee.</PricingBodyLastofType>
+      </PricingBoxContainer>
+      <BestOfferContainer>
+        <BestOfferTitle>Duo</BestOfferTitle>
+        <PricingTagContainer><PriceTagSpan><StyledIconPricing icon="euro-sign"></StyledIconPricing>39.95</PriceTagSpan> / month</PricingTagContainer>
+        <PricingBody><StyledIcon icon="angle-right"></StyledIcon>Register together with a buddy.</PricingBody>
+        <PricingBody><StyledIcon icon="angle-right"></StyledIcon>Search with full access.</PricingBody>
+        <PricingBody><StyledIcon icon="angle-right"></StyledIcon>Access to private communities.</PricingBody>
+        <PricingBodyLastParagraph><StyledIcon icon="angle-right"></StyledIcon>Full technical support.</PricingBodyLastParagraph>
+        <BestOfferButton>Sign me up!</BestOfferButton>
+        <PricingBodyLastofType>30-day money back guarantee.</PricingBodyLastofType>
+        <MostPopularOffer>Most popular!</MostPopularOffer>
+      </BestOfferContainer>
+      <PricingBoxContainer>
+        <PricingTitle>Gym</PricingTitle>
+        <PricingTagContainer><PriceTagSpan>Gym tailored! *</PriceTagSpan></PricingTagContainer>
+        <PricingBody><StyledIcon icon="angle-right"></StyledIcon>* Contact us for further details!</PricingBody>
+        <PricingBody><StyledIcon icon="angle-right"></StyledIcon>* Fee based on gym size.</PricingBody>
+        <PricingBody><StyledIcon icon="angle-right"></StyledIcon>* Access to special features.</PricingBody>
+        <PricingBodyLastParagraph><StyledIcon icon="angle-right"></StyledIcon>* Dedicated support agent.</PricingBodyLastParagraph>
+        <SignUpButton>Contact us!</SignUpButton>
+        <PricingBodyLastofType>30-day money back guarantee.</PricingBodyLastofType>
+      </PricingBoxContainer>
     </ComponentContainer>
   );
 };
 
 export default GridPricingContainer;
-
-/* <section class="container-grid-pricing">
-    <div class="pricing-holder">
-      <h3>Free</h3>
-      <p><span><sup><i class="icons fas fa-euro-sign"></i></sup>0</span></p>
-      <p><i class="icons fas fa-angle-right"></i>Free without registration.</p>
-      <p><i class="icons fas fa-angle-right"></i>Search with limited access.</p>
-      <p><i class="icons fas fa-angle-right"></i>No access to the community.</p>
-      <p class="lastparag"><i class="icons fas fa-angle-right"></i>Limited support.</p>
-      <button class="signup">Sign me up!</button>
-      <p>30-day money back guarantee.</p>
-    </div>
-    <div class="pricing-holder">
-      <h3>Solo</h3>
-      <p><span><sup><i class="icons fas fa-euro-sign"></i></sup>24.95</span> / month</p>
-      <p><i class="icons fas fa-angle-right"></i>Single registration.</p>
-      <p><i class="icons fas fa-angle-right"></i>Search with full access.</p>
-      <p><i class="icons fas fa-angle-right"></i>Access to private communities.</p>
-      <p class="lastparag"><i class="icons fas fa-angle-right"></i>Full technical support.</p>
-      <button class="signup">Sign me up!</button>
-      <p>30-day money back guarantee.</p>
-    </div>
-    <div class="pricing-holder" id="best-offer">
-      <h3>Duo</h3>
-      <p><span><sup><i class="icons fas fa-euro-sign"></i></sup>39.95</span> / month</p>
-      <p><i class="icons fas fa-angle-right"></i>Register together with one buddy.</p>
-      <p><i class="icons fas fa-angle-right"></i>Search with full access.</p>
-      <p><i class="icons fas fa-angle-right"></i>Access to private communities.</p>
-      <p class="lastparag"><i class="icons fas fa-angle-right"></i>Full technical support.</p>
-      <button class="signup">Sign me up!</button>
-      <p>30-day money back guarantee.</p>
-      <div>Most popular!</div>
-    </div>
-    <div class="pricing-holder">
-      <h3>Gym</h3>
-      <p><span>Gym tailored! *</span></p>
-      <p><i class="icons fas fa-angle-right"></i>* Contact us for further details!</p>
-      <p><i class="icons fas fa-angle-right"></i>* Fee based on gym size.</p>
-      <p><i class="icons fas fa-angle-right"></i>* Access to special features.</p>
-      <p class="lastparag"><i class="icons fas fa-angle-right"></i>* Dedicated support agent.</p>
-      <a class="contact" href="./contact">Contact us!</a>
-      <p>30-day money back guarantee.</p>
-    </div>
-  </section> */

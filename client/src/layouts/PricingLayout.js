@@ -3,6 +3,7 @@ import styled from "styled-components";
 import GridHeadImageContainer from "../layoutcomponents/pricing/GridHeadImageContainer";
 import GridHeadTextContainer from "../layoutcomponents/pricing/GridHeadTextContainer";
 import GridPricingContainer from "../layoutcomponents/pricing/GridPricingContainer";
+import GridSignUpForm from "../layoutcomponents/pricing/GridSignUpForm";
 
 const GridMainContainer = styled.section`
   display: grid;
@@ -23,6 +24,7 @@ const PricingLayout = () => {
       <GridHeadImageContainer />
       <GridHeadTextContainer />
       <GridPricingContainer />
+      <GridSignUpForm />
     </GridMainContainer>
   );
 };
