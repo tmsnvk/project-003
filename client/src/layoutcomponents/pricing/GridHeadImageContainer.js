@@ -9,7 +9,7 @@ const ComponentContainer = styled.div`
 `;
 
 const Image = styled.img`
-  width: 50%;
+  width: 60%;
   transform: scaleX(-1);
 `;
 

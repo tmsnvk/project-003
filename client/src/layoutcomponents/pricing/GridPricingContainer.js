@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ComponentContainer = styled.div`
@@ -118,7 +119,8 @@ const GridPricingContainer = () => {
         <PricingBody><StyledIcon icon="angle-right"></StyledIcon>Free without registration.</PricingBody>
         <PricingBody><StyledIcon icon="angle-right"></StyledIcon>Search with limited access.</PricingBody>
         <PricingBody><StyledIcon icon="angle-right"></StyledIcon>No access to the community.</PricingBody>
-        <PricingBody><StyledIcon icon="angle-right"></StyledIcon>Limited support.</PricingBody>
+        <PricingBodyLastParagraph><StyledIcon icon="angle-right"></StyledIcon>Limited support.</PricingBodyLastParagraph>
+        <SignUpButton as={Link} to="/search">Search now!</SignUpButton>
       </PricingBoxContainer>
       <PricingBoxContainer>
         <PricingTitle>Solo</PricingTitle>
@@ -148,7 +150,7 @@ const GridPricingContainer = () => {
         <PricingBody><StyledIcon icon="angle-right"></StyledIcon>* Fee based on gym size.</PricingBody>
         <PricingBody><StyledIcon icon="angle-right"></StyledIcon>* Access to special features.</PricingBody>
         <PricingBodyLastParagraph><StyledIcon icon="angle-right"></StyledIcon>* Dedicated support agent.</PricingBodyLastParagraph>
-        <SignUpButton>Contact us!</SignUpButton>
+        <SignUpButton as={Link} to="/contact">Contact us!</SignUpButton>
         <PricingBodyLastofType>30-day money back guarantee.</PricingBodyLastofType>
       </PricingBoxContainer>
     </ComponentContainer>

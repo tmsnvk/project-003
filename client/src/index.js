@@ -9,3 +9,6 @@ ReactDOM.render(
   </BrowserRouter>,
   document.querySelector("#root")
 );
+
+// todo:
+// - scroll to top when clicking on links
