@@ -15,7 +15,6 @@ const GridMainContainer = styled.section`
   "grid-head-img grid-head-text grid-head-text ."
   "grid-pricing grid-pricing grid-pricing grid-pricing"
   ". grid-signup grid-signup ."
-  "grid-footer grid-footer grid-footer grid-footer";
 `;
 
 const PricingLayout = () => {

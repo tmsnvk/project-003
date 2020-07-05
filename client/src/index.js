@@ -11,4 +11,4 @@ ReactDOM.render(
 );
 
 // todo:
-// - scroll to top when clicking on links
+// - scroll to top when clicking on links - https://reactrouter.com/web/guides/scroll-restoration
