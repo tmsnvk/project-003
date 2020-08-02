@@ -4,15 +4,40 @@ const bodyParser = require("body-parser");
 const helmet = require("helmet");
 const axios = require("axios");
 
+const mongoose = require("mongoose");
+const FormSubmission = require("./models/Form");
+
 require("dotenv").config();
 
 const app = express();
-
 app.use(cors());
 app.use(helmet());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static("public"));
+
+mongoose.connect(process.env.DB_CONNECTION, { useUnifiedTopology: true, useNewUrlParser: true }, () => {
+  console.log("Connected to MongoDB database");
+});
+
+app.post("/formsignup", async (request, response) => {
+  const newForm = new FormSubmission({
+    name: request.body.name,
+    pokedex: request.body.pokedex,
+    email: request.body.email,
+    phone: request.body.phone,
+    dropdown: request.body.dropdown
+  });
+  console.log(request.body);
+  try {
+    const savedForm = await newForm.save();
+    response.json(savedForm);
+    console.log(savedForm);
+  } catch (error) {
+    response.json(error);
+    console.log(error);
+  }
+});
 
 // const baseURL = "https://newsapi.org/v2/top-headlines?";
 // const country = "country=";

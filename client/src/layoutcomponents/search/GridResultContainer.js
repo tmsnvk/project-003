@@ -29,7 +29,7 @@ const ResultBoxContainer = styled.div`
   margin: 0 5rem 0 0;
   letter-spacing: 0.2rem;
   width: 30%;
-  background-color: var(--body-color-primary);
+  background-color: var(--body-color-one);
   padding: 2rem 2rem 2rem 2rem;
   box-shadow: 0px 2px 2px 0px var(--body-shadow);
   border-radius: 1rem;

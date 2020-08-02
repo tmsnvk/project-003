@@ -3,13 +3,10 @@ import { BrowserRouter as Router, Link } from "react-router-dom";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const GridFooterContainer = styled.section`
-  grid-area: grid-footer;
-`;
 
 const FooterContainer = styled.footer`
-  color: var(--font-color-secondary);
-  background-color: var(--body-color-secondary);
+  color: var(--font-color-two);
+  background-color: var(--body-color-two);
   text-align: center;
   padding: 0 0 1rem 0;
 `;
@@ -40,36 +37,34 @@ const StyledIcon = styled(FontAwesomeIcon)`
 
 const Copyright = styled.div`
   margin: 2rem 0 0 0;
-  color: var(--font-color-quaternary);
+  color: var(--font-color-two);
   font-weight: bold;
   font-family: "Open Sans", sans-serif;
 `;
 
 const CopyrightDiv = styled.p`
   font-size: 1.2rem;
-  letter-spacing: 0.3rem;
+  letter-spacing: 0.2rem;
   padding: 0.5rem 0 0 0;
 `;
 
 const Footer = () => {
   return (
-    <GridFooterContainer>
-      <FooterContainer>
-        <Router>
-          <SocialLinks>
-            <FooterLinks to="/"><StyledIcon icon={["fab", "facebook"]}></StyledIcon></FooterLinks>
-            <FooterLinks to="/"><StyledIcon icon={["fab", "twitter"]}></StyledIcon></FooterLinks>
-            <FooterLinks to="/"><StyledIcon icon={["fab", "instagram"]}></StyledIcon></FooterLinks>
-            <FooterLinks to="/"><StyledIcon icon={["fab", "youtube"]}></StyledIcon></FooterLinks>
-          </SocialLinks>
-        </Router>
-        <Copyright>
-          <CopyrightDiv>&copy; 2020 by tamasnvk</CopyrightDiv>
-          <CopyrightDiv>built with &#x2764;</CopyrightDiv>
-          <CopyrightDiv>using react & pokebastion & pokeapi.co</CopyrightDiv> 
-        </Copyright>
-      </FooterContainer>
-    </GridFooterContainer>
+    <FooterContainer>
+      <Router>
+        <SocialLinks>
+          <FooterLinks to="/"><StyledIcon icon={["fab", "facebook"]}></StyledIcon></FooterLinks>
+          <FooterLinks to="/"><StyledIcon icon={["fab", "twitter"]}></StyledIcon></FooterLinks>
+          <FooterLinks to="/"><StyledIcon icon={["fab", "instagram"]}></StyledIcon></FooterLinks>
+          <FooterLinks to="/"><StyledIcon icon={["fab", "youtube"]}></StyledIcon></FooterLinks>
+        </SocialLinks>
+      </Router>
+      <Copyright>
+        <CopyrightDiv>&copy; 2020 by tamasnvk</CopyrightDiv>
+        <CopyrightDiv>built with &#x2764;</CopyrightDiv>
+        <CopyrightDiv>using react & pokebastion & pokeapi.co</CopyrightDiv> 
+      </Copyright>
+    </FooterContainer>
   );
 };
 

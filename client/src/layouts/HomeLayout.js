@@ -19,7 +19,7 @@ const GridMainContainer = styled.div`
     "grid-image grid-image grid-image grid-image"
     "grid-how-image grid-how grid-how ."
     ". grid-stat grid-stat ."
-    ". grid-text grid-text ."
+    ". grid-text grid-text .";
 `;
 
 const HomeLayout = () => {

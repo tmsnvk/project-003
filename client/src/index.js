@@ -9,6 +9,3 @@ ReactDOM.render(
   </BrowserRouter>,
   document.querySelector("#root")
 );
-
-// todo:
-// - scroll to top when clicking on links - https://reactrouter.com/web/guides/scroll-restoration

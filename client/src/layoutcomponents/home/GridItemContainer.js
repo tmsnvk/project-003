@@ -4,31 +4,39 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ComponentContainer = styled.section`
   grid-area: grid-item;
-  margin: 3rem 0 3rem 0;
   text-align: center;
   display: flex;
   flex-direction: row;
 `;
 
 const ItemContainer = styled.div`
-  background-color: var(--body-color-tertiary);
+  background-color: var(--body-color-three);
   font-size: 2rem;
-  margin: 0 3rem 0 3rem;
+  margin: 0 2.5rem 0 2.5rem;
   padding: 1rem 1rem 1rem 1rem;
   box-shadow: 1px 2px 5px 1px var(--body-shadow);
   width: 100%;
+  border-radius: 1rem;
 
   &:hover {
     transform: scale(1.05);
     transition: transform 0.2s;
   }
+
+  &:first-of-type {
+    margin: 0 2.5rem 0 5rem;
+  }
+
+  &:last-of-type {
+    margin: 0 5rem 0 2.5rem;
+  }
 `;
 
 const StyledIcon = styled(FontAwesomeIcon)`
   display: inline-block;
-  font-size: 5rem;
+  color: var(--font-color-three);
+  font-size: 5.5rem;
   padding: 1rem 0 1rem 0;
-  color: var(--font-color-tertiary);
 `;
 
 const ItemTitle = styled.h3`
@@ -66,7 +74,7 @@ const GridItemContainer = () => {
     },
     {
       icon: "life-ring",
-      title: "Email, chat and phone support",
+      title: "Email, chat & phone support",
       paragraphOne: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A amet ratione omnis, voluptate facere commodi rerum optio. Magnam perspiciatis odit nisi sit asperiores sunt deseruntmagni saepe, quo ipsam maxime!",
       paragraphTwo: "",
       paragraphThree: ""

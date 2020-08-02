@@ -4,24 +4,24 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ComponentContainer = styled.section`
   grid-area: grid-how;
-  margin: 3rem 3rem 3rem 3rem;
+  margin: 5rem 0 0 0;
   padding: 1rem 1rem 1rem 1rem;
-  background-color: var(--body-color-tertiary);
+  background-color: var(--body-color-three);
   box-shadow: 1px 2px 5px 1px var(--body-shadow);
+  border-radius: 1rem;
 `;
   
 const HowTitle = styled.h2`
   text-align: center;
-  font-size: 3rem;
+  font-size: 2rem;
   text-transform: uppercase;
   padding: 1rem 0 3rem 0;
-  font-weight: normal;
 
   &:after {
     content: " ";
     display: block;
     padding: 2rem 0 0 0;
-    border-bottom: 2px solid var(--font-color-tertiary);
+    border-bottom: 2px solid var(--font-color-three);
     width: 50%;
     margin: 0 auto;
   }
@@ -36,22 +36,23 @@ const HowSteps = styled.div`
 `;
 
 const IconWrapper = styled.div`
-  color: var(--font-color-tertiary);
+  color: var(--font-color-three);
   font-size: 3rem;
   padding: 0 2rem 0 5rem;
 `;
 
 const StyledIcon = styled(FontAwesomeIcon)`
+  font-size: 4rem;
 `;
 
 const InfoText = styled.p`
-  font-size: 1.8rem;
+  font-size: 1.5rem;
 `;
 
 const GridHowContainer = () => {
   const itemData = [
     {
-      text: "Register your Pokedex ID, immediately start using the search function."
+      text: "Request a subscription, register your Pokedex ID & immediately start using the search function."
     },
     {
       text: "Receive always up-to-date information about any given Kanto Pokemon."
@@ -78,7 +79,7 @@ const GridHowContainer = () => {
 
   return (
     <ComponentContainer>
-      <HowTitle>How does it work? - It's simple as 1, 2, 3!</HowTitle>
+      <HowTitle>How does it work? - It's simple as 1 - 2 - 3!</HowTitle>
       {renderItems}
     </ComponentContainer>
   );

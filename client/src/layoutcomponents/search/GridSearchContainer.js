@@ -18,7 +18,7 @@ const FormLabel = styled.label`
   font-size: 3rem;
   font-weight: bold;
   letter-spacing: 0.3rem;
-  color: var(--font-color-tertiary);
+  color: var(--font-color-three);
   text-align: center;
   margin: 0 0 3rem 0;
 `;
@@ -33,7 +33,7 @@ const FormInputContainer = styled.div`
 const FormInputText = styled.input`
   width: 30rem;
   font-size: 2rem;
-  background-color: var(--body-color-tertiary);
+  background-color: var(--body-color-three);
   padding: 1rem 1rem 1rem 1rem;
   border-radius: 1rem;
   box-shadow: 0px 2px 2px 0px var(--body-shadow);
@@ -47,7 +47,7 @@ const FormInputText = styled.input`
 const FormInputSubmit = styled.button`
   width: 20rem;
   font-size: 2rem;
-  background-color: var(--body-color-primary);
+  background-color: var(--body-color-one);
   margin: 3rem 0 0 0;
   padding: 1rem 1rem 1rem 1rem;
   box-shadow: 0px 2px 2px 0px var(--body-shadow);
@@ -74,14 +74,14 @@ const TutorialText = styled.p`
 `;
 
 const TutorialLink = styled(Link)`
-  color: var(--font-color-tertiary);
+  color: var(--font-color-three);
   font-size: 2rem;
   text-decoration: none;
   cursor: pointer;
   font-weight: bold;
 
   &:hover {
-    color: var(--font-color-tertiary);
+    color: var(--font-color-three);
   }
 `;
 

@@ -5,7 +5,6 @@ const ComponentContainer = styled.section`
   grid-area: grid-image;
   display: flex;
   flex-direction: row;
-  margin: 3rem 0 3rem 0;
 `;
 
 const ImageHolder = styled.div`
@@ -13,14 +12,23 @@ const ImageHolder = styled.div`
   text-align: center;
   width: 50%;
   height: auto;
-  margin: 0 3rem 0 3rem;
+  margin: 0 2.5rem 0 2.5rem;
   padding: 1rem 1rem 1rem 1rem;
-  background-color: var(--body-color-tertiary);
+  background-color: var(--body-color-three);
   box-shadow: 1px 2px 5px 1px var(--body-shadow);
+  border-radius: 1rem;
 
   &:hover {
     transform: scale(1.05);
     transition: transform 0.2s;
+  }
+
+  &:first-of-type {
+    margin: 0 2.5rem 0 5rem;
+  }
+
+  &:last-of-type {
+    margin: 0 5rem 0 2.5rem;
   }
 `;
 

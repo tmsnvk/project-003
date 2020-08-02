@@ -11,10 +11,18 @@ const ComponentContainer = styled.div`
 
 const PricingBoxContainer = styled.div`
   width: 100%;
-  margin: 0 5rem 0 5rem;
-  background-color: var(--body-color-tertiary);
+  margin: 0 2.5rem 0 2.5rem;
+  background-color: var(--body-color-three);
   box-shadow: 0px 2px 2px 0px var(--body-shadow);
   border-radius: 1rem;
+
+  &:first-of-type {
+    margin: 0 2.5rem 0 5rem;
+  }
+
+  &:last-of-type {
+    margin: 0 5rem 0 2.5rem;
+  }
 `;
 
 const BestOfferContainer = styled(PricingBoxContainer)`
@@ -26,13 +34,13 @@ const PricingTitle = styled.h3`
   text-transform: uppercase;
   letter-spacing: 1rem;
   font-size: 5rem;
-  background-color: var(--body-color-secondary);
-  color: var(--font-color-secondary);
+  background-color: var(--body-color-two);
+  color: var(--font-color-two);
   border-radius: 1.5rem 1.5rem 0 0;
 `;
 
 const BestOfferTitle = styled(PricingTitle)`
-  background-color: var(--font-color-quaternary);
+  background-color: var(--font-color-four);
 `;
 
 const PricingTagContainer = styled.p`
@@ -58,8 +66,8 @@ const StyledIcon = styled(FontAwesomeIcon)`
 `;
 
 const PricingBody = styled.p`
-  font-size: 2rem;
-  padding: 0 2rem 2rem 2rem;
+  font-size: 1.7rem;
+  padding: 0 2rem 2rem 5rem;
 `;
 
 const PricingBodyLastofType = styled(PricingBody)`
@@ -68,11 +76,11 @@ const PricingBodyLastofType = styled(PricingBody)`
 `;
 
 const PricingBodyLastParagraph = styled(PricingBody)`
-  padding: 0 2rem 1rem 2rem;
+  padding: 0 2rem 1rem 5rem;
 `;
 
 const MostPopularOffer = styled.div`
-  background-color: var(--font-color-quaternary);
+  background-color: var(--font-color-four);
   text-transform: uppercase;
   letter-spacing: 0.5rem;
   font-size: 3rem;
@@ -84,8 +92,8 @@ const MostPopularOffer = styled.div`
 
 const SignUpButton = styled.button`
   font-size: 2.5rem;
-  background-color: var(--body-color-secondary);
-  color: var(--font-color-secondary);
+  background-color: var(--body-color-two);
+  color: var(--font-color-two);
   padding: 1rem 1rem 1rem 1rem;
   border-radius: 1rem;
   display: block;
@@ -97,7 +105,7 @@ const SignUpButton = styled.button`
   text-align: center;
 
   &:hover {
-    background-color: var(--font-color-primary);
+    background-color: var(--font-color-one);
     opacity: 1;
   }
 
@@ -107,7 +115,7 @@ const SignUpButton = styled.button`
 `;
 
 const BestOfferButton = styled(SignUpButton)`
-  background-color: var(--font-color-quaternary);
+  background-color: var(--font-color-four);
 `;
 
 const GridPricingContainer = () => {
@@ -115,30 +123,30 @@ const GridPricingContainer = () => {
     <ComponentContainer>
       <PricingBoxContainer>
         <PricingTitle>Free</PricingTitle>
-        <PricingTagContainer><PriceTagSpan><StyledIconPricing icon="euro-sign"></StyledIconPricing>0</PriceTagSpan></PricingTagContainer>
-        <PricingBody><StyledIcon icon="angle-right"></StyledIcon>Free without registration.</PricingBody>
-        <PricingBody><StyledIcon icon="angle-right"></StyledIcon>Search with limited access.</PricingBody>
-        <PricingBody><StyledIcon icon="angle-right"></StyledIcon>No access to the community.</PricingBody>
-        <PricingBodyLastParagraph><StyledIcon icon="angle-right"></StyledIcon>Limited support.</PricingBodyLastParagraph>
+        <PricingTagContainer><PriceTagSpan><StyledIconPricing icon={["fas", "euro-sign"]}></StyledIconPricing>0</PriceTagSpan></PricingTagContainer>
+        <PricingBody><StyledIcon icon={["fas", "angle-right"]}></StyledIcon>Free without registration.</PricingBody>
+        <PricingBody><StyledIcon icon={["fas", "angle-right"]}></StyledIcon>Search with limited access.</PricingBody>
+        <PricingBody><StyledIcon icon={["fas", "angle-right"]}></StyledIcon>No access to the community.</PricingBody>
+        <PricingBodyLastParagraph><StyledIcon icon={["fas", "angle-right"]}></StyledIcon>Limited support.</PricingBodyLastParagraph>
         <SignUpButton as={Link} to="/search">Search now!</SignUpButton>
       </PricingBoxContainer>
       <PricingBoxContainer>
         <PricingTitle>Solo</PricingTitle>
-        <PricingTagContainer><PriceTagSpan><StyledIconPricing icon="euro-sign"></StyledIconPricing>24.95</PriceTagSpan> / month</PricingTagContainer>
-        <PricingBody><StyledIcon icon="angle-right"></StyledIcon>Single registration.</PricingBody>
-        <PricingBody><StyledIcon icon="angle-right"></StyledIcon>Search with full access.</PricingBody>
-        <PricingBody><StyledIcon icon="angle-right"></StyledIcon>Access to private communities.</PricingBody>
-        <PricingBodyLastParagraph><StyledIcon icon="angle-right"></StyledIcon>Full technical support.</PricingBodyLastParagraph>
+        <PricingTagContainer><PriceTagSpan><StyledIconPricing icon={["fas", "euro-sign"]}></StyledIconPricing>24.95</PriceTagSpan> / month</PricingTagContainer>
+        <PricingBody><StyledIcon icon={["fas", "angle-right"]}></StyledIcon>Single registration.</PricingBody>
+        <PricingBody><StyledIcon icon={["fas", "angle-right"]}></StyledIcon>Search with full access.</PricingBody>
+        <PricingBody><StyledIcon icon={["fas", "angle-right"]}></StyledIcon>Access to communities.</PricingBody>
+        <PricingBodyLastParagraph><StyledIcon icon={["fas", "angle-right"]}></StyledIcon>Full technical support.</PricingBodyLastParagraph>
         <SignUpButton>Sign me up!</SignUpButton>
         <PricingBodyLastofType>30-day money back guarantee.</PricingBodyLastofType>
       </PricingBoxContainer>
       <BestOfferContainer>
         <BestOfferTitle>Duo</BestOfferTitle>
-        <PricingTagContainer><PriceTagSpan><StyledIconPricing icon="euro-sign"></StyledIconPricing>39.95</PriceTagSpan> / month</PricingTagContainer>
-        <PricingBody><StyledIcon icon="angle-right"></StyledIcon>Register together with a buddy.</PricingBody>
-        <PricingBody><StyledIcon icon="angle-right"></StyledIcon>Search with full access.</PricingBody>
-        <PricingBody><StyledIcon icon="angle-right"></StyledIcon>Access to private communities.</PricingBody>
-        <PricingBodyLastParagraph><StyledIcon icon="angle-right"></StyledIcon>Full technical support.</PricingBodyLastParagraph>
+        <PricingTagContainer><PriceTagSpan><StyledIconPricing icon={["fas", "euro-sign"]}></StyledIconPricing>39.95</PriceTagSpan> / month</PricingTagContainer>
+        <PricingBody><StyledIcon icon={["fas", "angle-right"]}></StyledIcon>Register together with a buddy.</PricingBody>
+        <PricingBody><StyledIcon icon={["fas", "angle-right"]}></StyledIcon>Search with full access.</PricingBody>
+        <PricingBody><StyledIcon icon={["fas", "angle-right"]}></StyledIcon>Access to communities.</PricingBody>
+        <PricingBodyLastParagraph><StyledIcon icon={["fas", "angle-right"]}></StyledIcon>Full technical support.</PricingBodyLastParagraph>
         <BestOfferButton>Sign me up!</BestOfferButton>
         <PricingBodyLastofType>30-day money back guarantee.</PricingBodyLastofType>
         <MostPopularOffer>Most popular!</MostPopularOffer>
@@ -146,10 +154,10 @@ const GridPricingContainer = () => {
       <PricingBoxContainer>
         <PricingTitle>Gym</PricingTitle>
         <PricingTagContainer><PriceTagSpan>Gym tailored! *</PriceTagSpan></PricingTagContainer>
-        <PricingBody><StyledIcon icon="angle-right"></StyledIcon>* Contact us for further details!</PricingBody>
-        <PricingBody><StyledIcon icon="angle-right"></StyledIcon>* Fee based on gym size.</PricingBody>
-        <PricingBody><StyledIcon icon="angle-right"></StyledIcon>* Access to special features.</PricingBody>
-        <PricingBodyLastParagraph><StyledIcon icon="angle-right"></StyledIcon>* Dedicated support agent.</PricingBodyLastParagraph>
+        <PricingBody><StyledIcon icon={["fas", "angle-right"]}></StyledIcon>* Contact us for further details!</PricingBody>
+        <PricingBody><StyledIcon icon={["fas", "angle-right"]}></StyledIcon>* Fee based on gym size.</PricingBody>
+        <PricingBody><StyledIcon icon={["fas", "angle-right"]}></StyledIcon>* Access to special features.</PricingBody>
+        <PricingBodyLastParagraph><StyledIcon icon={["fas", "angle-right"]}></StyledIcon>* Dedicated support agent.</PricingBodyLastParagraph>
         <SignUpButton as={Link} to="/contact">Contact us!</SignUpButton>
         <PricingBodyLastofType>30-day money back guarantee.</PricingBodyLastofType>
       </PricingBoxContainer>
