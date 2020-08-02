@@ -26,13 +26,12 @@ app.post("/formsignup", async (request, response) => {
     pokedex: request.body.pokedex,
     email: request.body.email,
     phone: request.body.phone,
-    dropdown: request.body.dropdown
+    radio: request.body.radio
   });
-  console.log(request.body);
+  
   try {
     const savedForm = await newForm.save();
     response.json(savedForm);
-    console.log(savedForm);
   } catch (error) {
     response.json(error);
     console.log(error);

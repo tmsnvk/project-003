@@ -68,39 +68,47 @@ const FormInputText = styled.input`
 	}
 `;
 
-const DropdownContainer = styled.div`
+const RadioContainer = styled.div`
+
 `;
 
-const DropdownText = styled.div`
+const RadioText = styled.div`
   font-size: 1.5rem;
   color: var(--font-color-three);
   margin: 5rem 0 0 0;
 `;
 
-const Select = styled.select`
-  color: var(--font-color-tertiary);
-  background-color: var(--body-color-one);
-  font-size: 1.5rem;
-  width: 15rem;
-  margin: 1rem 0 0 0;
-  padding: 1rem 1rem 1rem 1rem;
-  box-shadow: 0px 2px 2px 0px var(--body-shadow);
-  border: 1px solid var(--font-color-three);
-  border-radius: 1rem;
-  cursor: pointer;
+const RadioOne = styled.div`
 
-  &:hover,
-	&:focus {
-    background-color: var(--body-color-three);
-    outline: none;
-	}
 `;
 
-const Option = styled.option`
-  font-size: 1.5rem;
+const RadioSolo = styled.input`
+  margin: 0 1rem 0 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--font-color-three);
+
+  &:checked {
+    color: var(--font-color-three);
+  }
 `;
 
-const FormInputCheckboxContainer = styled(FormInputContainer)`
+const RadioTwo = styled.div`
+
+`;
+
+const RadioDuo = styled.input`
+  margin: 0 1rem 0 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--font-color-three);
+
+  &:checked {
+    color: var(--font-color-three);
+  }
+`;
+
+const RequiredCheckboxContainer = styled(FormInputContainer)`
   &:after {
     content: " ";
     display: block;
@@ -111,7 +119,7 @@ const FormInputCheckboxContainer = styled(FormInputContainer)`
   }
 `;
 
-const FormInputCheckbox = styled.input`
+const RequiredCheckbox = styled.input`
   margin: 0 1rem 0 0;
   width: 1.5rem;
   height: 1.5rem;
@@ -128,7 +136,7 @@ const FormLink = styled(Link)`
   font-size: 1.5rem;
 `;
 
-const FormLabelCheckBox = styled.label`
+const FormLabelCheckbox = styled.label`
   color: var(--font-color-three);
   font-size: 1.5rem;
 `;
@@ -166,6 +174,7 @@ const FormInputSubmit = styled.input`
 `;
 
 const GridSignUpForm = () => {
+
   return (
     <ComponentContainer>
       <SignUpContainer>
@@ -183,18 +192,21 @@ const GridSignUpForm = () => {
           <FormInputContainer>
             <FormInputText type="text" id="phone" name="phone" placeholder="* Your Phone Number" autoComplete="off" />
           </FormInputContainer>
-          <DropdownContainer>
-            <DropdownText>* Which plan would you like to subscribe to?</DropdownText>
-            <Select>
-              <Option value="" id="dropdown" hidden>Select a plan:</Option>
-              <Option value="solo">Solo</Option>
-              <Option value="duo">Duo</Option>
-            </Select>
-          </DropdownContainer>
-          <FormInputCheckboxContainer>
-            <FormInputCheckbox type="checkbox" id="checkbox" name="checkbox" />
-            <FormLabelCheckBox htmlFor="checkbox">* By submitting data to us you give your consent that data you submit may be processed for the purposes described in the <FormLink to="/pricing">Terms & Conditions</FormLink> & <FormLink to="/pricing">Privacy Policy</FormLink>.</FormLabelCheckBox>
-          </FormInputCheckboxContainer>
+          <RadioContainer>
+            <RadioText>* Which plan would you like to subscribe to?</RadioText>
+              <RadioOne>
+                <RadioSolo type="radio" value="solo" id="radiosolo" name="radio" />
+                <FormLabelCheckbox htmlFor="radiosolo">Solo.</FormLabelCheckbox>
+              </RadioOne>
+              <RadioTwo>
+                <RadioDuo type="radio" value="duo" id="radioduo" name="radio" />
+                <FormLabelCheckbox htmlFor="radioduo">Duo.</FormLabelCheckbox>
+              </RadioTwo>
+          </RadioContainer>
+          <RequiredCheckboxContainer>
+            <RequiredCheckbox type="checkbox" id="checkbox" name="checkbox" />
+            <FormLabelCheckbox htmlFor="checkbox">* By submitting data to us you give your consent that data you submit may be processed for the purposes described in the <FormLink to="/pricing">Terms & Conditions</FormLink> & <FormLink to="/pricing">Privacy Policy</FormLink>.</FormLabelCheckbox>
+          </RequiredCheckboxContainer>
           <RequiredFields>
             <RequiredFieldsText>* Required fields.</RequiredFieldsText>
           </RequiredFields>

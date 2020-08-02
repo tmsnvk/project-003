@@ -24,8 +24,9 @@ const FormSchema = new mongoose.Schema({
     maxLength: 20,
     required: true
   },
-  dropdown: {
-    enum: ["Solo", "Duo"]
+  radio: {
+    type: String,
+    required: true
   }
 });
 
