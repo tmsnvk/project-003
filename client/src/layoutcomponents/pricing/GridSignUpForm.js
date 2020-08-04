@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const ComponentContainer = styled.div`
   grid-area: grid-signup;
@@ -174,43 +175,67 @@ const FormInputSubmit = styled.input`
 `;
 
 const GridSignUpForm = () => {
+  const [name, setName] = useState("");
+  const [pokedex, setPokedex] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [radioOne, setRadioOne] = useState(false);
+  const [radioTwo, setRadioTwo] = useState(false);
+  const [checkbox, setCheckbox] = useState(false);
+
+  const submitHandler = async (event) => {
+    event.preventDefault();
+    alert("you have submmitted it!!");
+
+    const sendData = {
+      name,
+      pokedex,
+      email,
+      phone,
+      radioOne,
+      radioTwo,
+      checkbox
+    }
+    
+    await axios.post("/formsignup", sendData);
+  };
 
   return (
     <ComponentContainer>
       <SignUpContainer>
-        <Form method="POST" action="/formsignup" id="signupform">
+        <Form method="POST" action="/formsignup" id="signupform" onSubmit={submitHandler}>
           <FormLabel htmlFor="signupform">Ready to take action? - Subscribe up here!</FormLabel>
           <FormInputContainer>
-            <FormInputText type="text" id="name" name="name" placeholder="* Your Name" autoComplete="off" />
+            <FormInputText type="text" id="name" name="name" placeholder="* Your Name" autoComplete="off" value={name} onChange={(event) => setName(event.target.value)} />
           </FormInputContainer>
           <FormInputContainer>
-            <FormInputText type="text" id="pokedex" name="pokedex" placeholder="* Your PokedexID" autoComplete="off" />
+            <FormInputText type="text" id="pokedex" name="pokedex" placeholder="* Your PokedexID" autoComplete="off" value={pokedex} onChange={(event) => setPokedex(event.target.value)} />
           </FormInputContainer>
           <FormInputContainer>
-            <FormInputText type="email" id="email" name="email" placeholder="* Your Email" autoComplete="off" />
+            <FormInputText type="email" id="email" name="email" placeholder="* Your Email" autoComplete="off" value={email} onChange={(event) => setEmail(event.target.value)} />
           </FormInputContainer>
           <FormInputContainer>
-            <FormInputText type="text" id="phone" name="phone" placeholder="* Your Phone Number" autoComplete="off" />
+            <FormInputText type="text" id="phone" name="phone" placeholder="* Your Phone Number" autoComplete="off" value={phone} onChange={(event) => setPhone(event.target.value)} />
           </FormInputContainer>
           <RadioContainer>
             <RadioText>* Which plan would you like to subscribe to?</RadioText>
               <RadioOne>
-                <RadioSolo type="radio" value="solo" id="radiosolo" name="radio" />
+                <RadioSolo type="radio" id="radiosolo" name="radio" value={radioOne} onChange={(event) => setRadioOne(event.target.value ? true : false)} />
                 <FormLabelCheckbox htmlFor="radiosolo">Solo.</FormLabelCheckbox>
               </RadioOne>
               <RadioTwo>
-                <RadioDuo type="radio" value="duo" id="radioduo" name="radio" />
+                <RadioDuo type="radio" id="radioduo" name="radio" value={radioTwo} onChange={(event) => setRadioTwo(event.target.value ? true : false)} />
                 <FormLabelCheckbox htmlFor="radioduo">Duo.</FormLabelCheckbox>
               </RadioTwo>
           </RadioContainer>
           <RequiredCheckboxContainer>
-            <RequiredCheckbox type="checkbox" id="checkbox" name="checkbox" />
+            <RequiredCheckbox type="checkbox" id="checkbox" name="checkbox" value={checkbox} onChange={(event) => setCheckbox(true)} />
             <FormLabelCheckbox htmlFor="checkbox">* By submitting data to us you give your consent that data you submit may be processed for the purposes described in the <FormLink to="/pricing">Terms & Conditions</FormLink> & <FormLink to="/pricing">Privacy Policy</FormLink>.</FormLabelCheckbox>
           </RequiredCheckboxContainer>
           <RequiredFields>
             <RequiredFieldsText>* Required fields.</RequiredFieldsText>
           </RequiredFields>
-          <FormInputSubmit type="submit" />
+          <FormInputSubmit type="submit" name="submit" />
         </Form>
       </SignUpContainer>
     </ComponentContainer>

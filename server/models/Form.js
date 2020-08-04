@@ -10,8 +10,8 @@ const FormSchema = new mongoose.Schema({
   },
   pokedex: {
     type: Number,
-    minLength: [12, "Your PokedexID is 12 characters long."],
-    maxLength: [12, "Your PokedexID is 12 characters long."],
+    minLength: [2, "Your PokedexID is 12 characters long."],
+    maxLength: [2, "Your PokedexID is 12 characters long."],
     required: true
   },
   email: {
@@ -25,7 +25,15 @@ const FormSchema = new mongoose.Schema({
     maxLength: 20,
     required: true
   },
-  radio: {
+  radioOne: {
+    type: String,
+    required: true
+  },
+  radioTwo: {
+    type: String,
+    required: true
+  },
+  checkbox: {
     type: String,
     required: true
   }

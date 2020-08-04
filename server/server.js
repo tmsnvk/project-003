@@ -26,7 +26,9 @@ app.post("/formsignup", async (request, response) => {
     pokedex: request.body.pokedex,
     email: request.body.email,
     phone: request.body.phone,
-    radio: request.body.radio
+    radioOne: request.body.radioOne,
+    radioTwo: request.body.radioTwo,
+    checkbox: request.body.checkbox
   });
   
   try {
