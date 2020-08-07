@@ -26,8 +26,8 @@ app.post("/formsignup", async (request, response) => {
     pokedex: request.body.pokedex,
     email: request.body.email,
     phone: request.body.phone,
-    radioOne: request.body.radioOne,
-    radioTwo: request.body.radioTwo,
+    radioSolo: request.body.radioSolo,
+    radioDuo: request.body.radioDuo,
     checkbox: request.body.checkbox
   });
   
@@ -39,17 +39,6 @@ app.post("/formsignup", async (request, response) => {
     console.log(error);
   }
 });
-
-// const baseURL = "https://newsapi.org/v2/top-headlines?";
-// const country = "country=";
-// const category = "category=";
-// const apiKey = `apiKey=${process.env.REACT_APP_API_KEY}`;
-
-// app.get("/country/:countryId/category/:categoryId", async (req, res) => {
-//   const response = await axios.get(`${baseURL}${country}${req.params.countryId}&${category}${req.params.categoryId}&${apiKey}`);
-
-//   res.send(response.data.articles);
-// });
 
 const port = process.env.PORT || 3011;
 app.listen(port, () => {
