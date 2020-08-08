@@ -20,6 +20,7 @@ const GlobalStyle = createGlobalStyle`
     --font-color-two: #edebeb; /* white */
     --font-color-three: #0c2cbb; /* dark blue */
     --font-color-four: #eb9800; /* orange */
+    --font-color-five: #d90e00; /* red */
     --body-color-one: #edebeb; /* white */
     --body-color-two: #0c2cbb; /* dark blue */
     --body-color-three: #dbdbdb; /* gray */

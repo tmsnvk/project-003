@@ -41,13 +41,13 @@ const FormLabel = styled.label`
 `;
 
 const FormInputContainer = styled.div`
-  font-size: 3rem;
   margin: 2rem 0 0 0;
 `;
 
 const FormInputText = styled.input`
-  width: 35rem;
+  width: 30rem;
   height: 5rem;
+  font-size: 1.5rem;
   padding: 0.5rem 0.5rem 0.5rem 2rem;
   background-color: var(--body-color-one);
   border: 1px solid var(--font-color-three);
@@ -68,6 +68,12 @@ const FormInputText = styled.input`
 		padding: 1rem 1rem 1rem 1rem;
 		color: var(--font-color-three);
 	}
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 `;
 
 const RadioContainer = styled.div`
@@ -77,59 +83,50 @@ const RadioContainer = styled.div`
 const RadioText = styled.div`
   font-size: 1.5rem;
   color: var(--font-color-three);
-  margin: 5rem 0 0 0;
+  margin: 2.5rem 0 0 0;
 `;
 
 const RadioOne = styled.div`
-
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 `;
 
 const RadioSolo = styled.input`
   margin: 0 1rem 0 0;
-  width: 1.5rem;
-  height: 1.5rem;
-  color: var(--font-color-three);
-
-  &:checked {
-    color: var(--font-color-three);
-  }
 `;
 
 const RadioTwo = styled.div`
-
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 `;
 
 const RadioDuo = styled.input`
   margin: 0 1rem 0 0;
-  width: 1.5rem;
-  height: 1.5rem;
-  color: var(--font-color-three);
-
-  &:checked {
-    color: var(--font-color-three);
-  }
 `;
 
-const RequiredCheckboxContainer = styled(FormInputContainer)`
+const RequiredCheckboxMainContainer = styled(FormInputContainer)`
+  margin: 2.5rem 0 0 0;
+
   &:after {
     content: " ";
     display: block;
-    padding: 5rem 0 0 0;
+    padding: 2.5rem 0 0 0;
     border-bottom: 2px solid var(--font-color-three);
     width: 50%;
     margin: 0 auto;
   }
 `;
 
+const RequiredCheckboxContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+
 const RequiredCheckbox = styled.input`
   margin: 0 1rem 0 0;
-  width: 1.5rem;
-  height: 1.5rem;
-  color: var(--font-color-three);
-
-  &:checked {
-    color: var(--font-color-three);
-  }
 `;
 
 const FormLink = styled(Link)`
@@ -139,12 +136,13 @@ const FormLink = styled(Link)`
 `;
 
 const FormLabelCheckbox = styled.label`
+  display: block;
   color: var(--font-color-three);
   font-size: 1.5rem;
 `;
 
 const RequiredFields = styled.div`
-  margin: 5rem 0 0 0;
+  margin: 2.5rem 0 0 0;
   align-self: center;
 `;
 
@@ -175,47 +173,52 @@ const FormInputSubmit = styled.input`
   }
 `;
 
+const ErrorMessage = styled.div`
+  color: var(--font-color-five);
+  font-size: 1.2rem;
+  padding: 1rem 0 0 0;
+`;
+
 const GridSignUpForm = () => {
   const { register, handleSubmit, errors, formState } = useForm();
 
   const onSubmit = async (data) => {
     alert("you have submmitted it!!");
 
-    const response = await axios.post("/formsignup", data);
-    console.log(response);
+    await axios.post("/formsignup", data);
   };
 
   return (
     <ComponentContainer>
       <SignUpContainer>
         <Form method="POST" action="/formsignup" id="signupform" onSubmit={handleSubmit(onSubmit)}>
-          <FormLabel htmlFor="signupform">Ready to take action? - Subscribe up here!</FormLabel>
+          <FormLabel htmlFor="signupform">Ready to take action? - Subscribe here!</FormLabel>
           <FormInputContainer>
             <FormInputText 
               type="text"
               id="name"
               name="name"
-              placeholder="* Your Name."
+              placeholder="* Your Name"
               autoComplete="off"
               ref={register({
                 required: {
                   value: true,
                   message: "NAME is required."
                 }, 
-                pattern: /^[A-Za-z]+$/i, 
+                pattern: /^[A-Za-z ]+$/i, 
                 maxLength: {
                   value: 30,
                   message: "Enter maximum 30 characters."
                 } 
               })} />
-            {errors.name && <span>{errors.name.message}</span>}
+            {errors.name && <ErrorMessage>{errors.name.message}</ErrorMessage>}
           </FormInputContainer>
           <FormInputContainer>
             <FormInputText 
               type="number"
               id="pokedex"
               name="pokedex"
-              placeholder="* Your PokedexID number."
+              placeholder="* Your PokedexID number"
               autoComplete="off"
               ref={register({ 
                 required: {
@@ -231,19 +234,19 @@ const GridSignUpForm = () => {
                   message: "Your POKEDEX ID must be 14 characters long."
                 }
               })} />
-            {errors.pokedex && <span>{errors.pokedex.message}</span>}
+            {errors.pokedex && <ErrorMessage>{errors.pokedex.message}</ErrorMessage>}
           </FormInputContainer>
           <FormInputContainer>
             <FormInputText 
               type="email"
               id="email"
               name="email"
-              placeholder="* Your Email."
+              placeholder="* Your Email"
               autoComplete="off"
               ref={register({
                 required: {
                   value: true,
-                  message: "EMAIL is required."
+                  message: "EMAIL is required. Enter a valid email address."
                 }, 
                 pattern: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/, 
                 maxLength: {
@@ -251,27 +254,27 @@ const GridSignUpForm = () => {
                   message: "Enter maximum 30 characters."
                 } 
               })} />
-            {errors.email && <span>{errors.email.message}</span>}
+            {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
           </FormInputContainer>
           <FormInputContainer>
             <FormInputText 
               type="text"
               id="phone"
               name="phone"
-              placeholder="* Your Phone Number."
+              placeholder="* Your Phone Number"
               autoComplete="off"
               ref={register({
                 required: {
                   value: true,
-                  message: "PHONE NUMBER is required."
+                  message: "PHONE NUMBER is required. Use only numbers."
                 }, 
                 pattern: /^[0-9]*$/i,
                 maxLength: {
                   value: 20,
-                  message: "Enter maximum 20 characters."
+                  message: "Enter maximum 20 characters. Use only numbers."
                 }
               })} />
-            {errors.phone && <span>{errors.phone.message}</span>}
+            {errors.phone && <ErrorMessage>{errors.phone.message}</ErrorMessage>}
           </FormInputContainer>
           <RadioContainer>
             <RadioText>* Which plan would you like to subscribe to?</RadioText>
@@ -304,22 +307,24 @@ const GridSignUpForm = () => {
                   })} />
                 <FormLabelCheckbox htmlFor="radio">Duo.</FormLabelCheckbox>
               </RadioTwo>
-              {errors.radio && <span>{errors.radio.message}</span>}
+              {errors.radio && <ErrorMessage>{errors.radio.message}</ErrorMessage>}
           </RadioContainer>
-          <RequiredCheckboxContainer>
-            <RequiredCheckbox 
-              type="checkbox"
-              id="checkbox"
-              name="checkbox"
-              ref={register({
-                required: {
-                  value: true,
-                  message: "CONSENT is required."
-                }
-              })} />
-            <FormLabelCheckbox htmlFor="checkbox">* By submitting data to us you give your consent that data you submit may be processed for the purposes described in the <FormLink to="/pricing">Terms & Conditions</FormLink> & <FormLink to="/pricing">Privacy Policy</FormLink>.</FormLabelCheckbox>
-            {errors.checkbox && <span>{errors.checkbox.message}</span>}
-          </RequiredCheckboxContainer>
+          <RequiredCheckboxMainContainer>
+            <RequiredCheckboxContainer>
+              <RequiredCheckbox 
+                type="checkbox"
+                id="checkbox"
+                name="checkbox"
+                ref={register({
+                  required: {
+                    value: true,
+                    message: "CONSENT is required."
+                  }
+                })} />
+              <FormLabelCheckbox htmlFor="checkbox">* By submitting data to us you give your consent that data you submit may be processed for the purposes described in the <FormLink to="/pricing">Terms & Conditions</FormLink> & <FormLink to="/pricing">Privacy Policy</FormLink>.</FormLabelCheckbox>
+            </RequiredCheckboxContainer>
+            {errors.checkbox && <ErrorMessage>{errors.checkbox.message}</ErrorMessage>}
+          </RequiredCheckboxMainContainer>
           <RequiredFields>
             <RequiredFieldsText>* Required fields.</RequiredFieldsText>
           </RequiredFields>
