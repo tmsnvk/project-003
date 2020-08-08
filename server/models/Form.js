@@ -18,11 +18,7 @@ const FormSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
-  radioSolo: {
-    type: String,
-    required: true
-  },
-  radioDuo: {
+  radio: {
     type: String,
     required: true
   },

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -176,13 +176,13 @@ const FormInputSubmit = styled.input`
 `;
 
 const GridSignUpForm = () => {
-  const { register, handleSubmit, watch, errors } = useForm();
+  const { register, handleSubmit, errors, formState } = useForm();
 
   const onSubmit = async (data) => {
     alert("you have submmitted it!!");
 
     const response = await axios.post("/formsignup", data);
-    console.log(data);
+    console.log(response);
   };
 
   return (
@@ -191,41 +191,139 @@ const GridSignUpForm = () => {
         <Form method="POST" action="/formsignup" id="signupform" onSubmit={handleSubmit(onSubmit)}>
           <FormLabel htmlFor="signupform">Ready to take action? - Subscribe up here!</FormLabel>
           <FormInputContainer>
-            <FormInputText type="text" id="name" name="name" placeholder="* Your Name" autoComplete="off" ref={register({ required: true, pattern: /^[A-Za-z]+$/i, maxLength: 30 })} />
-            {errors.name && <span>This field is required</span>}
+            <FormInputText 
+              type="text"
+              id="name"
+              name="name"
+              placeholder="* Your Name."
+              autoComplete="off"
+              ref={register({
+                required: {
+                  value: true,
+                  message: "NAME is required."
+                }, 
+                pattern: /^[A-Za-z]+$/i, 
+                maxLength: {
+                  value: 30,
+                  message: "Enter maximum 30 characters."
+                } 
+              })} />
+            {errors.name && <span>{errors.name.message}</span>}
           </FormInputContainer>
           <FormInputContainer>
-            <FormInputText type="text" id="pokedex" name="pokedex" placeholder="* Your PokedexID" autoComplete="off" ref={register({ required: true, maxLength: 12 })} />
-            {errors.pokedex && <span>This field is required</span>}
+            <FormInputText 
+              type="number"
+              id="pokedex"
+              name="pokedex"
+              placeholder="* Your PokedexID number."
+              autoComplete="off"
+              ref={register({ 
+                required: {
+                  value: true,
+                  message: "POKEDEX ID is required."
+                },
+                minLength: {
+                  value: 14,
+                  message: "Your POKEDEX ID must be 14 characters long."
+                },
+                maxLength: {
+                  value: 14,
+                  message: "Your POKEDEX ID must be 14 characters long."
+                }
+              })} />
+            {errors.pokedex && <span>{errors.pokedex.message}</span>}
           </FormInputContainer>
           <FormInputContainer>
-            <FormInputText type="email" id="email" name="email" placeholder="* Your Email" autoComplete="off" ref={register({ required: true, pattern: /^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/, maxLength: 40 })} />
-            {errors.email && <span>This field is required</span>}
+            <FormInputText 
+              type="email"
+              id="email"
+              name="email"
+              placeholder="* Your Email."
+              autoComplete="off"
+              ref={register({
+                required: {
+                  value: true,
+                  message: "EMAIL is required."
+                }, 
+                pattern: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/, 
+                maxLength: {
+                  value: 40,
+                  message: "Enter maximum 30 characters."
+                } 
+              })} />
+            {errors.email && <span>{errors.email.message}</span>}
           </FormInputContainer>
           <FormInputContainer>
-            <FormInputText type="text" id="phone" name="phone" placeholder="* Your Phone Number" autoComplete="off" ref={register({ required: true, pattern: /^[0-9]*$/i, maxLength: 20 })} />
-            {errors.phone && <span>This field is required</span>}
+            <FormInputText 
+              type="text"
+              id="phone"
+              name="phone"
+              placeholder="* Your Phone Number."
+              autoComplete="off"
+              ref={register({
+                required: {
+                  value: true,
+                  message: "PHONE NUMBER is required."
+                }, 
+                pattern: /^[0-9]*$/i,
+                maxLength: {
+                  value: 20,
+                  message: "Enter maximum 20 characters."
+                }
+              })} />
+            {errors.phone && <span>{errors.phone.message}</span>}
           </FormInputContainer>
           <RadioContainer>
             <RadioText>* Which plan would you like to subscribe to?</RadioText>
               <RadioOne>
-                <RadioSolo type="radio" id="radiosolo" name="radio" />
-                <FormLabelCheckbox htmlFor="radiosolo">Solo.</FormLabelCheckbox>
+                <RadioSolo 
+                  type="radio"
+                  id="radiosolo"
+                  name="radio"
+                  value={"solo"}
+                  ref={register({
+                    required: {
+                      value: true,
+                      message: "PLAN is required."
+                    }
+                  })} 
+                  />
+                <FormLabelCheckbox htmlFor="radio">Solo.</FormLabelCheckbox>
               </RadioOne>
               <RadioTwo>
-                <RadioDuo type="radio" id="radioduo" name="radio" />
-                <FormLabelCheckbox htmlFor="radioduo">Duo.</FormLabelCheckbox>
+                <RadioDuo 
+                  type="radio"
+                  id="radioduo"
+                  name="radio"
+                  value={"duo"}
+                  ref={register({
+                    required: {
+                      value: true,
+                      message: "PLAN is required."
+                    }
+                  })} />
+                <FormLabelCheckbox htmlFor="radio">Duo.</FormLabelCheckbox>
               </RadioTwo>
+              {errors.radio && <span>{errors.radio.message}</span>}
           </RadioContainer>
           <RequiredCheckboxContainer>
-            <RequiredCheckbox type="checkbox" id="checkbox" name="checkbox" ref={register({ required: true })} />
+            <RequiredCheckbox 
+              type="checkbox"
+              id="checkbox"
+              name="checkbox"
+              ref={register({
+                required: {
+                  value: true,
+                  message: "CONSENT is required."
+                }
+              })} />
             <FormLabelCheckbox htmlFor="checkbox">* By submitting data to us you give your consent that data you submit may be processed for the purposes described in the <FormLink to="/pricing">Terms & Conditions</FormLink> & <FormLink to="/pricing">Privacy Policy</FormLink>.</FormLabelCheckbox>
-            {errors.checkbox && <span>This field is required</span>}
+            {errors.checkbox && <span>{errors.checkbox.message}</span>}
           </RequiredCheckboxContainer>
           <RequiredFields>
             <RequiredFieldsText>* Required fields.</RequiredFieldsText>
           </RequiredFields>
-          <FormInputSubmit type="submit" name="submit" />
+          <FormInputSubmit type="submit" name="submit" disabled={formState.isSubmitting} />
         </Form>
       </SignUpContainer>
     </ComponentContainer>
