@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Link } from "react-router-dom";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-
 const FooterContainer = styled.footer`
   color: var(--font-color-two);
   background-color: var(--body-color-two);

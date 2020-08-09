@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 
@@ -181,11 +181,13 @@ const ErrorMessage = styled.div`
 
 const GridSignUpForm = () => {
   const { register, handleSubmit, errors, formState } = useForm();
+  
+  const history = useHistory();
 
   const onSubmit = async (data) => {
-    alert("you have submmitted it!!");
-
     await axios.post("/formsignup", data);
+
+    history.push("/success");
   };
 
   return (

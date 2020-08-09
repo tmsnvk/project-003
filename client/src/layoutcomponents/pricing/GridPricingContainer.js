@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ComponentContainer = styled.div`
@@ -137,7 +137,7 @@ const GridPricingContainer = () => {
         <PricingBody><StyledIcon icon={["fas", "angle-right"]}></StyledIcon>Search with full access.</PricingBody>
         <PricingBody><StyledIcon icon={["fas", "angle-right"]}></StyledIcon>Access to communities.</PricingBody>
         <PricingBodyLastParagraph><StyledIcon icon={["fas", "angle-right"]}></StyledIcon>Full technical support.</PricingBodyLastParagraph>
-        <SignUpButton as={Link} to="/pricing">Sign me up!</SignUpButton>
+        <SignUpButton as={Link} to="/pricing/#signupform">Sign me up!</SignUpButton>
         <PricingBodyLastofType>30-day money back guarantee.</PricingBodyLastofType>
       </PricingBoxContainer>
       <BestOfferContainer>
@@ -147,7 +147,7 @@ const GridPricingContainer = () => {
         <PricingBody><StyledIcon icon={["fas", "angle-right"]}></StyledIcon>Search with full access.</PricingBody>
         <PricingBody><StyledIcon icon={["fas", "angle-right"]}></StyledIcon>Access to communities.</PricingBody>
         <PricingBodyLastParagraph><StyledIcon icon={["fas", "angle-right"]}></StyledIcon>Full technical support.</PricingBodyLastParagraph>
-        <BestOfferButton as={Link} to="">Sign me up!</BestOfferButton>
+        <BestOfferButton as={Link} to="/pricing/#signupform">Sign me up!</BestOfferButton>
         <PricingBodyLastofType>30-day money back guarantee.</PricingBodyLastofType>
         <MostPopularOffer>Most popular!</MostPopularOffer>
       </BestOfferContainer>
