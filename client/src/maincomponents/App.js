@@ -9,6 +9,7 @@ import PricingLayout from "../layouts/PricingLayout";
 import SearchLayout from "../layouts/SearchLayout";
 import ContactLayout from "../layouts/ContactLayout";
 import SuccessLayout from "../layouts/SuccessLayout";
+import ErrorLayout from "../layouts/ErrorLayout";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faFacebook,faTwitter, faYoutube, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faInfinity, faServer, faComments, faLifeRing, faAngleDoubleRight, faCaretUp, faAngleRight, faEuroSign, faTag, faCodeBranch, faHeart, faHamsa, faScroll, faRocket } from "@fortawesome/free-solid-svg-icons";
@@ -55,10 +56,11 @@ const App = () => {
       <Navbar />
       <Switch>
         <Route exact path="/" component={HomeLayout} />
-        <Route path="/pricing" component={PricingLayout} />
-        <Route path="/search" component={SearchLayout} />
-        <Route path="/contact" component={ContactLayout} />
-        <Route path="/success" component={SuccessLayout} />
+        <Route exact path="/pricing" component={PricingLayout} />
+        <Route exact path="/search" component={SearchLayout} />
+        <Route exact path="/contact" component={ContactLayout} />
+        <Route exact path="/success" component={SuccessLayout} />
+        <Route path="*" component={ErrorLayout} />
       </Switch>
       <Footer />
     </Router>

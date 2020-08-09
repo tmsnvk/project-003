@@ -61,7 +61,7 @@ const Footer = () => {
       <Copyright>
         <CopyrightDiv>&copy; 2020 by tamasnvk</CopyrightDiv>
         <CopyrightDiv>built with &#x2764;</CopyrightDiv>
-        <CopyrightDiv>using react & pokebastion & pokeapi.co</CopyrightDiv> 
+        <CopyrightDiv>using react & pokeapi.co</CopyrightDiv> 
       </Copyright>
     </FooterContainer>
   );

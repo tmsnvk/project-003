@@ -39,6 +39,15 @@ app.post("/formsignup", async (request, response) => {
   }
 });
 
+app.get("/:pokeId", async (request, response) => {
+  try {
+    const { data } = await axios.get(`https://pokeapi.co/api/v2/pokemon/${request.params.pokeId}`);
+    response.send(data.name);
+  } catch (error) {
+    return console.log(error);
+  }
+});
+
 const port = process.env.PORT || 3011;
 app.listen(port, () => {
   console.log(`central_kanto_pokemon_database project @ port ${port}!`);
