@@ -20,6 +20,8 @@ mongoose.connect(process.env.DB_CONNECTION, { useUnifiedTopology: true, useNewUr
   console.log("Connected to MongoDB database");
 });
 
+app.get('/favicon.ico', (req, res) => res.status(204));
+
 app.post("/formsignup", async (request, response) => {
   const newForm = new FormSubmission({
     name: request.body.name,
@@ -47,6 +49,9 @@ app.get("/:pokeId", async (request, response) => {
     return console.log(error);
   }
 });
+
+
+
 
 const port = process.env.PORT || 3011;
 app.listen(port, () => {

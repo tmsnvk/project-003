@@ -12,9 +12,9 @@ import SuccessLayout from "../layouts/SuccessLayout";
 import ErrorLayout from "../layouts/ErrorLayout";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faFacebook,faTwitter, faYoutube, faInstagram } from "@fortawesome/free-brands-svg-icons";
-import { faInfinity, faServer, faComments, faLifeRing, faAngleDoubleRight, faCaretUp, faAngleRight, faEuroSign, faTag, faCodeBranch, faHeart, faHamsa, faScroll, faRocket } from "@fortawesome/free-solid-svg-icons";
+import { faInfinity, faServer, faComments, faLifeRing, faAngleDoubleRight, faCaretUp, faAngleRight, faEuroSign, faTag, faCodeBranch, faHeart, faHamsa, faScroll, faRocket, faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { faDotCircle } from "@fortawesome/free-regular-svg-icons";
-library.add(faFacebook,faTwitter, faYoutube, faInstagram, faDotCircle, faInfinity, faServer, faComments, faLifeRing, faAngleDoubleRight, faCaretUp, faAngleRight, faEuroSign, faTag, faCodeBranch, faHeart, faHamsa, faScroll, faRocket );
+library.add(faFacebook,faTwitter, faYoutube, faInstagram, faDotCircle, faInfinity, faServer, faComments, faLifeRing, faAngleDoubleRight, faCaretUp, faAngleRight, faEuroSign, faTag, faCodeBranch, faHeart, faHamsa, faScroll, faRocket, faSpinner );
 
 const GlobalStyle = createGlobalStyle`
   * {

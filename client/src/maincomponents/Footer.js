@@ -7,7 +7,7 @@ const FooterContainer = styled.footer`
   color: var(--font-color-two);
   background-color: var(--body-color-two);
   text-align: center;
-  padding: 0 0 1rem 0;
+  padding: 1rem 0 1rem 0;
 `;
 
 const SocialLinks = styled.div`

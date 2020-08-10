@@ -3,7 +3,7 @@
   "version": "2.1.0",
   "private": true,
   "author": "tamasnvk",
-  "proxy": "http://localhost:3011",
+  "proxy": "http://127.0.0.1:3011",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.29",
     "@fortawesome/free-brands-svg-icons": "^5.13.1",
