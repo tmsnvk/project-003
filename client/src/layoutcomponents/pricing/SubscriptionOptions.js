@@ -1,10 +1,14 @@
 import React from "react";
 import styled from "styled-components";
+import { color, font, fontsize, mediaq } from "../../variables/styling";
 import { HashLink as Link } from "react-router-hash-link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ComponentContainer = styled.div`
-  grid-area: grid-pricing;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
 	display: flex;
   flex-direction: row;
 `;
@@ -118,7 +122,7 @@ const BestOfferButton = styled(SignUpButton)`
   background-color: var(--font-color-four);
 `;
 
-const GridPricingContainer = () => {
+const SubscriptionOptions = () => {
   return (
     <ComponentContainer>
       <PricingBoxContainer>
@@ -165,4 +169,4 @@ const GridPricingContainer = () => {
   );
 };
 
-export default GridPricingContainer;
+export default SubscriptionOptions;

@@ -50,9 +50,6 @@ app.get("/:pokeId", async (request, response) => {
   }
 });
 
-
-
-
 const port = process.env.PORT || 3011;
 app.listen(port, () => {
   console.log(`central_kanto_pokemon_database project @ port ${port}!`);

@@ -1,11 +1,15 @@
 import React from "react";
 import styled from "styled-components";
+import { color, font, fontsize, mediaq } from "../../variables/styling";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 
 const ComponentContainer = styled.div`
-  grid-area: grid-signup;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 3;
+  grid-row-end: 4;
   margin: 5rem 0 5rem 0;
   padding: 5rem 5rem 5rem 5rem;
   background-color: var(--body-color-three);
@@ -179,7 +183,7 @@ const ErrorMessage = styled.div`
   padding: 1rem 0 0 0;
 `;
 
-const GridSignUpForm = () => {
+const SignupForm = () => {
   const { register, handleSubmit, errors, formState } = useForm();
   
   const history = useHistory();
@@ -337,4 +341,4 @@ const GridSignUpForm = () => {
   );
 };
 
-export default GridSignUpForm;
+export default SignupForm;

@@ -1,11 +1,11 @@
 {
   "name": "central_kanto_pokemon_database_backend",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server/server.js"
+    "start": "nodemon server.js"
   },
   "author": "tamasnvk",
   "license": "ISC",

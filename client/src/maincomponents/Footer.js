@@ -1,12 +1,14 @@
 import React from "react";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import styled from "styled-components";
+import { color, font, fontsize, mediaq } from "../variables/styling";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const FooterContainer = styled.footer`
-  color: var(--font-color-two);
-  background-color: var(--body-color-two);
+  color: ${color.font.mainLight};
+  background-color: ${color.background.secondary};
   text-align: center;
+  margin: 5rem 0 0 0;
   padding: 1rem 0 1rem 0;
 `;
 
@@ -18,7 +20,6 @@ const SocialLinks = styled.div`
 
 const FooterLinks = styled(Link)`
   color: inherit;
-  font-size: 2rem;
   padding: 0 2rem 0 2rem;
   text-decoration: none;
   cursor: pointer;
@@ -30,20 +31,24 @@ const FooterLinks = styled(Link)`
 `;
 
 const StyledIcon = styled(FontAwesomeIcon)`
-  font-size: 3rem;
+  font-size: ${fontsize.large};
   margin: 1rem 0 1rem 0;
+
+  @media only screen and (min-width: ${mediaq.small}) {
+    font-size: ${fontsize.extraLarge};
+  }
 `;
 
 const Copyright = styled.div`
-  margin: 2rem 0 0 0;
-  color: var(--font-color-two);
+  color: ${color.font.mainLight};
+  font-family: ${font.secondary};
+  font-size: ${fontsize.small};
   font-weight: bold;
-  font-family: "Open Sans", sans-serif;
+  letter-spacing: 0.2rem;
+  margin: 2rem 0 0 0;
 `;
 
 const CopyrightDiv = styled.p`
-  font-size: 1.2rem;
-  letter-spacing: 0.2rem;
   padding: 0.5rem 0 0 0;
 `;
 

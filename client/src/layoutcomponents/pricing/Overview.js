@@ -1,8 +1,12 @@
 import React from "react";
 import styled from "styled-components";
+import { color, font, fontsize, mediaq } from "../../variables/styling";
 
 const ComponentContainer = styled.div`
-  grid-area: grid-head;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
   margin: 10rem 5rem 0 5rem;
   padding: 1rem 1rem 1rem 1rem;
   background-color: var(--body-color-three);
@@ -35,7 +39,7 @@ const GridHeadTitle = styled.h2`
   }
 `;
 
-const GridHeadContainer = () => {
+const Overview = () => {
   return (
     <ComponentContainer>
         <Image src="https://pokeres.bastionbot.org/images/pokemon/133.png" alt="eevee" />
@@ -44,4 +48,4 @@ const GridHeadContainer = () => {
   );
 };
 
-export default GridHeadContainer;
+export default Overview;
