@@ -1,16 +1,17 @@
 import React from "react";
 import styled from "styled-components";
-import { color, font, fontsize, mediaq } from "../../variables/styling";
+import { color, fontsize, mediaq } from "../../variables/styling";
 
 const ComponentContainer = styled.div`
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 1;
   grid-row-end: 2;
-  margin: 10rem 5rem 0 5rem;
+  width: 90%;
+  margin: 10rem auto 0;
   padding: 1rem 1rem 1rem 1rem;
-  background-color: var(--body-color-three);
-  box-shadow: 1px 2px 5px 1px var(--body-shadow);
+  background-color: ${color.background.mainDark};
+  box-shadow: 1px 2px 5px 1px ${color.shadow.main};
   border-radius: 1rem;
   display: flex;
   flex-direction: row;
@@ -19,13 +20,14 @@ const ComponentContainer = styled.div`
 `;
 
 const Image = styled.img`
+  display: none;
   width: 20%;
   transform: scaleX(-1);
-  padding: 0 0 0 10rem;
+  padding: 0 0 0 1rem;
 `;
 
-const GridHeadTitle = styled.h2`
-  font-size: 3rem;
+const Title = styled.h2`
+  font-size: ${fontsize.small};
   text-transform: uppercase;
   letter-spacing: 0.2rem;
 
@@ -33,7 +35,7 @@ const GridHeadTitle = styled.h2`
     content: " ";
     padding: 3rem 0 0 0;
   	width: 100%;
-    border-bottom: 2px solid var(--font-color-one);
+    border-bottom: 2px solid ${color.font.mainDark};
     display: block;
 		margin: 0 auto;
   }
@@ -43,7 +45,7 @@ const Overview = () => {
   return (
     <ComponentContainer>
         <Image src="https://pokeres.bastionbot.org/images/pokemon/133.png" alt="eevee" />
-        <GridHeadTitle>Pricing overview - Select your plan!</GridHeadTitle>
+        <Title>Pricing overview - Select your plan!</Title>
     </ComponentContainer>
   );
 };

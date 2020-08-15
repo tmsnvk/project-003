@@ -9,7 +9,8 @@ export const color = {
   background: {
     mainDark: "#dbdbdb", // gray
     mainLight: "#edebeb", // light gray
-    secondary: "#0c2cbb" // dark blue
+    secondary: "#0c2cbb", // dark blue
+    alternate: "#eb9800", // orange
   },
   shadow: {
     main: "#424242" // almost black
