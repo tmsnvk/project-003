@@ -1,9 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import { color, font, fontsize, mediaq } from "../../variables/styling";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ComponentContainer = styled.section`
-  grid-area: grid-results;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -24,7 +28,7 @@ const GridResultData = styled.div`
 `;
 
 const ResultBoxContainer = styled.div`
-  font-size: 3rem;
+  font-size: 1rem;
   font-weight: bold;
   margin: 0 5rem 0 0;
   letter-spacing: 0.2rem;
@@ -52,7 +56,7 @@ const StyledIcon = styled(FontAwesomeIcon)`
   padding: 0 1rem 0 0;
 `;
 
-const GridSearchContainer = () => {
+const Result = ({ pokemonData }) => {
   return (
     <ComponentContainer>
       <GridResultImage>
@@ -61,20 +65,23 @@ const GridSearchContainer = () => {
       <GridResultData>
         <ResultBoxContainer>
           <ResultTitle>Main Information:</ResultTitle>
-          <ResultBaseData><StyledIcon icon="id-card"></StyledIcon>Name:&nbsp;</ResultBaseData>
-          <ResultBaseData><StyledIcon icon="tag"></StyledIcon>ID:&nbsp;</ResultBaseData>
-          <ResultBaseData><StyledIcon icon="code-branch"></StyledIcon>Type:&nbsp;</ResultBaseData>
+          <ResultBaseData><StyledIcon icon="id-card"></StyledIcon>Name:&nbsp;{pokemonData.name}</ResultBaseData>
+          <ResultBaseData><StyledIcon icon="tag"></StyledIcon>ID:&nbsp;{pokemonData.id}</ResultBaseData>
+          {pokemonData.typeTwo ? 
+            <ResultBaseData><StyledIcon icon="code-branch"></StyledIcon>Type:&nbsp;{pokemonData.typeOne} / {pokemonData.typeTwo}</ResultBaseData> : 
+            <ResultBaseData><StyledIcon icon="code-branch"></StyledIcon>Type:&nbsp;{pokemonData.typeOne}</ResultBaseData>
+          }
         </ResultBoxContainer>
         <ResultBoxContainer>
         <ResultTitle>Statistics:</ResultTitle>
-          <ResultStatsData><StyledIcon icon="heart"></StyledIcon>HP:&nbsp;</ResultStatsData>
-          <ResultStatsData><StyledIcon icon="hamsa"></StyledIcon>Attack:&nbsp;</ResultStatsData>
-          <ResultStatsData><StyledIcon icon="scroll"></StyledIcon>Defense:&nbsp;</ResultStatsData>
-          <ResultStatsData><StyledIcon icon="rocket"></StyledIcon>Speed:&nbsp;</ResultStatsData>
+          <ResultStatsData><StyledIcon icon="heart"></StyledIcon>HP:&nbsp;{pokemonData.statistics[0].base_stat}</ResultStatsData>
+          <ResultStatsData><StyledIcon icon="hamsa"></StyledIcon>Attack:&nbsp;{pokemonData.statistics[1].base_stat}</ResultStatsData>
+          <ResultStatsData><StyledIcon icon="scroll"></StyledIcon>Defense:&nbsp;{pokemonData.statistics[2].base_stat}</ResultStatsData>
+          <ResultStatsData><StyledIcon icon="rocket"></StyledIcon>Speed:&nbsp;{pokemonData.statistics[5].base_stat}</ResultStatsData>
         </ResultBoxContainer>
       </GridResultData>
     </ComponentContainer>
   );
 };
 
-export default GridSearchContainer;
+export default Result;

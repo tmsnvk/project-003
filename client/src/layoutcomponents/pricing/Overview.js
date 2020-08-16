@@ -17,19 +17,40 @@ const ComponentContainer = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
+
+  @media only screen and (min-width: ${mediaq.medium}) {
+    grid-column-end: 3;
+  }
+
+  @media only screen and (min-width: ${mediaq.large}) {
+    grid-column-end: 5;
+  }
 `;
 
 const Image = styled.img`
   display: none;
-  width: 20%;
-  transform: scaleX(-1);
-  padding: 0 0 0 1rem;
+
+  @media only screen and (min-width: ${mediaq.small}) {
+    display: flex;
+    width: 20%;
+    transform: scaleX(-1);
+    padding: 0 0 0 1rem;
+  }
+
+  @media only screen and (min-width: ${mediaq.medium}) {
+    padding: 0 0 0 3rem;
+  }
+
+  @media only screen and (min-width: ${mediaq.medium}) {
+    width: 15%;
+  }
 `;
 
 const Title = styled.h2`
   font-size: ${fontsize.small};
   text-transform: uppercase;
   letter-spacing: 0.2rem;
+  text-align: center;
 
   &:after {
     content: " ";
@@ -38,6 +59,14 @@ const Title = styled.h2`
     border-bottom: 2px solid ${color.font.mainDark};
     display: block;
 		margin: 0 auto;
+  }
+
+  @media only screen and (min-width: ${mediaq.medium}) {
+    font-size: ${fontsize.medium};
+  }
+
+  @media only screen and (min-width: ${mediaq.large}) {
+    font-size: ${fontsize.large};
   }
 `;
 

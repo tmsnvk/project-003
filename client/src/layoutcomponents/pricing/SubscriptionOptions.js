@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { color, font, fontsize, mediaq } from "../../variables/styling";
+import { color, fontsize, mediaq } from "../../variables/styling";
 import { HashLink as Link } from "react-router-hash-link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -13,36 +13,75 @@ const ComponentContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @media only screen and (min-width: ${mediaq.medium}) {
+    grid-column-end: 3;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  @media only screen and (min-width: ${mediaq.large}) {
+    grid-column-end: 5;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: 100%;
+  }
+
+  @media only screen and (min-width: ${mediaq.xLarge}) {
+    width: 90%;
+  }
 `;
 
 const NormalOfferContainer = styled.div`
   width: 90%;
-  margin: 0 auto;
+  margin: 0 auto 2rem;
   background-color: ${color.font.mainLight};
   box-shadow: 0px 2px 2px 0px ${color.shadow.main};
   border-radius: 1rem;
 
-  /* &:first-of-type {
-    margin: 0 2.5rem 0 5rem;
+  
+
+  @media only screen and (min-width: ${mediaq.small}) {
+    width: 60%;
   }
 
-  &:last-of-type {
-    margin: 0 5rem 0 2.5rem;
-  } */
+  @media only screen and (min-width: ${mediaq.medium}) {
+    margin: 0 1rem 0 1rem;
+    width: 45%;
+  }
+
+  @media only screen and (min-width: ${mediaq.large}) {
+    width: 100%;
+    margin: 0 2rem 0 2rem;
+  }
+
+  @media only screen and (min-width: ${mediaq.xLarge}) {
+    width: 90%;
+  }
 `;
 
 const BestOfferContainer = styled(NormalOfferContainer)`
-  /* transform: scale(1.05); */
+  @media only screen and (min-width: ${mediaq.small}) {
+    transform: scale(1.05);
+  }
 `;
 
 const PricingTitle = styled.h3`
-  font-size: ${fontsize.large};
+  font-size: ${fontsize.xLarge};
   color: ${color.font.mainLight};
   background-color: ${color.background.secondary};
   border-radius: 1.5rem 1.5rem 0 0;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 1rem;
+
+  @media only screen and (min-width: ${mediaq.xLarge}) {
+    font-size: ${fontsize.xxLarge};
+  }
 `;
 
 const BestOfferTitle = styled(PricingTitle)`
@@ -52,10 +91,11 @@ const BestOfferTitle = styled(PricingTitle)`
 const PricingTagContainer = styled.p`
   text-align: center;
   padding: 2rem 0 2rem 0;
+  font-size: ${fontsize.small};
 `;
 
 const PriceTagSpan = styled.span`
-  font-size: ${fontsize.medium};
+  font-size: ${fontsize.large};
 `;
 
 const StyledIconPricing = styled(FontAwesomeIcon)`
@@ -66,11 +106,28 @@ const StyledIconPricing = styled(FontAwesomeIcon)`
 const StyledIcon = styled(FontAwesomeIcon)`
   font-size: ${fontsize.small};
   vertical-align: middle;
+  margin: 0 1rem 0 0;
+
+  @media only screen and (min-width: ${mediaq.xLarge}) {
+    font-size: ${fontsize.medium};
+  }
 `;
 
 const PricingBody = styled.p`
+  font-size: ${fontsize.small};
+  padding: 0 0 1rem 2rem;
+
+  @media only screen and (min-width: ${mediaq.small}) {
+    font-size: ${fontsize.medium};
+  }
+
+  @media only screen and (min-width: ${mediaq.large}) {
     font-size: ${fontsize.small};
-  /* padding: 0 2rem 2rem 5rem; */
+  }
+
+  @media only screen and (min-width: ${mediaq.xLarge}) {
+    font-size: ${fontsize.medium};
+  }
 `;
 
 const PricingBodyLastofType = styled(PricingBody)`
@@ -108,12 +165,16 @@ const SignUpButton = styled.button`
   text-align: center;
 
   &:hover {
-    background-color: ${color.background.mainDark};
+    background-color: ${color.font.mainDark};
     opacity: 1;
   }
 
   &:focus {
     outline: none;
+  }
+
+  @media only screen and (min-width: ${mediaq.small}) {
+    font-size: ${fontsize.medium};
   }
 `;
 
@@ -126,7 +187,9 @@ const SubscriptionOptions = () => {
     <ComponentContainer>
       <NormalOfferContainer>
         <PricingTitle>Free</PricingTitle>
-        <PricingTagContainer><PriceTagSpan><StyledIconPricing icon={["fas", "euro-sign"]}></StyledIconPricing> 0</PriceTagSpan></PricingTagContainer>
+        <PricingTagContainer>
+          <PriceTagSpan><StyledIconPricing icon={["fas", "euro-sign"]}></StyledIconPricing> 0</PriceTagSpan>
+        </PricingTagContainer>
         <PricingBody><StyledIcon icon={["fas", "angle-right"]}></StyledIcon>Free without registration.</PricingBody>
         <PricingBody><StyledIcon icon={["fas", "angle-right"]}></StyledIcon>Search with limited access.</PricingBody>
         <PricingBody><StyledIcon icon={["fas", "angle-right"]}></StyledIcon>No access to the community.</PricingBody>
@@ -135,7 +198,9 @@ const SubscriptionOptions = () => {
       </NormalOfferContainer>
       <NormalOfferContainer>
         <PricingTitle>Solo</PricingTitle>
-        <PricingTagContainer><PriceTagSpan><StyledIconPricing icon={["fas", "euro-sign"]}></StyledIconPricing> 24.95</PriceTagSpan> / month</PricingTagContainer>
+        <PricingTagContainer>
+          <PriceTagSpan><StyledIconPricing icon={["fas", "euro-sign"]}></StyledIconPricing> 24.95 </PriceTagSpan>/ month
+        </PricingTagContainer>
         <PricingBody><StyledIcon icon={["fas", "angle-right"]}></StyledIcon>Single registration.</PricingBody>
         <PricingBody><StyledIcon icon={["fas", "angle-right"]}></StyledIcon>Search with full access.</PricingBody>
         <PricingBody><StyledIcon icon={["fas", "angle-right"]}></StyledIcon>Access to communities.</PricingBody>
@@ -145,7 +210,9 @@ const SubscriptionOptions = () => {
       </NormalOfferContainer>
       <BestOfferContainer>
         <BestOfferTitle>Duo</BestOfferTitle>
-        <PricingTagContainer><PriceTagSpan><StyledIconPricing icon={["fas", "euro-sign"]}></StyledIconPricing> 39.95</PriceTagSpan> / month</PricingTagContainer>
+        <PricingTagContainer>
+          <PriceTagSpan><StyledIconPricing icon={["fas", "euro-sign"]}></StyledIconPricing> 39.95 </PriceTagSpan>/ month
+        </PricingTagContainer>
         <PricingBody><StyledIcon icon={["fas", "angle-right"]}></StyledIcon>Register together with a buddy.</PricingBody>
         <PricingBody><StyledIcon icon={["fas", "angle-right"]}></StyledIcon>Search with full access.</PricingBody>
         <PricingBody><StyledIcon icon={["fas", "angle-right"]}></StyledIcon>Access to communities.</PricingBody>
@@ -156,7 +223,9 @@ const SubscriptionOptions = () => {
       </BestOfferContainer>
       <NormalOfferContainer>
         <PricingTitle>Gym</PricingTitle>
-        <PricingTagContainer><PriceTagSpan>Gym tailored! *</PriceTagSpan></PricingTagContainer>
+        <PricingTagContainer>
+          <PriceTagSpan>Gym tailored! *</PriceTagSpan>
+        </PricingTagContainer>
         <PricingBody><StyledIcon icon={["fas", "angle-right"]}></StyledIcon>* Contact us for further details!</PricingBody>
         <PricingBody><StyledIcon icon={["fas", "angle-right"]}></StyledIcon>* Fee based on gym size.</PricingBody>
         <PricingBody><StyledIcon icon={["fas", "angle-right"]}></StyledIcon>* Access to special features.</PricingBody>

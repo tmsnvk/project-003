@@ -1,3 +1,4 @@
+const path = require("path");
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
@@ -9,18 +10,20 @@ const FormSubmission = require("./models/Form");
 
 require("dotenv").config();
 
+const publicPath = path.join(__dirname, "..", "client/public");
+
 const app = express();
 app.use(cors());
 app.use(helmet());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static("public"));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(publicPath));
 
 mongoose.connect(process.env.DB_CONNECTION, { useUnifiedTopology: true, useNewUrlParser: true }, () => {
   console.log("Connected to MongoDB database");
 });
 
-app.get('/favicon.ico', (req, res) => res.status(204));
+app.get('/favicon.ico', (request, response) => response.status(204));
 
 app.post("/formsignup", async (request, response) => {
   const newForm = new FormSubmission({
@@ -41,12 +44,12 @@ app.post("/formsignup", async (request, response) => {
   }
 });
 
-app.get("/:pokeId", async (request, response) => {
+app.get("/pokemon/:pokeId", async (request, response) => {
   try {
-    const { data } = await axios.get(`https://pokeapi.co/api/v2/pokemon/${request.params.pokeId}`);
-    response.send(data.name);
+    const getPokemonData = await axios.get(`https://pokeapi.co/api/v2/pokemon/${request.params.pokeId}`);
+    response.send(getPokemonData.data);
   } catch (error) {
-    return console.log(error);
+    console.log(error);
   }
 });
 

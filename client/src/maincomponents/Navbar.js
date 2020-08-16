@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { color, font, fontsize, mediaq } from "../variables/styling";
+import { color, fontsize, mediaq } from "../variables/styling";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ComponentContainer = styled.section`

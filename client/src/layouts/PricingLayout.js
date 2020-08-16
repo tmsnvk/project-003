@@ -26,7 +26,7 @@ const PricingLayout = () => {
     <LayoutContainer>
       <Overview />
       <SubscriptionOptions />
-      {/* <SignupForm /> */}
+      <SignupForm />
     </LayoutContainer>
   );
 };
