@@ -44,6 +44,15 @@ app.post("/formsignup", async (request, response) => {
   }
 });
 
+// app.get("/pokemonnames", async (request, response) => {
+//   try {
+//     const getPokemonData = await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=151`);
+//     response.send(getPokemonData.data);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// });
+
 app.get("/pokemon/:pokeId", async (request, response) => {
   try {
     const getPokemonData = await axios.get(`https://pokeapi.co/api/v2/pokemon/${request.params.pokeId}`);

@@ -12,43 +12,53 @@ const LayoutContainer = styled.div`
   grid-column-gap: 2.5em;
   grid-row-gap: 5rem;
 
-  @media only screen and (min-width: ${mediaq.medium}) {
+  @media only screen and (min-width: ${mediaq.large}) {
     grid-template-columns: 1fr 1fr 1fr;
   }
 `;
 
 const SearchLayout = () => {
-  const [flag, setFlag] = useState(false);
-  const [pokemon, setPokemon] = useState("");
-  const [pokemonData, setPokemonData] = useState({ name: "", id: "", typeOne: [], typeTwo: [], statistics: [0, 1, 2, 3, 4, 5] });
+  const [initiateData, setInitiateData] = useState(false);
+  const [selectedPokemon, setSelectedPokemon] = useState("");
+  const [getPokemonData, setGetPokemonData] = useState({ name: "", id: "", typeOne: [], typeTwo: [], statistics: [0, 1, 2, 3, 4, 5] });
+  const [hideTutorial, setHideTutorial] = useState(false);
 
   useEffect(() => {
     const response = async () => {
       try {
-        const { data } = await axios.get(`/pokemon/${pokemon}`);
-
+        const { data } = await axios.get(`/pokemon/${selectedPokemon}`);
         if (data.types.length === 1) {
-          setPokemonData({ name: data.name, id: data.id, typeOne: data.types[0].type.name, statistics: data.stats });
+          setGetPokemonData({ name: data.name, id: data.id, typeOne: data.types[0].type.name, statistics: data.stats });
         } else {
-          setPokemonData({ name: data.name, id: data.id, typeOne: data.types[0].type.name, typeTwo: data.types[1].type.name, statistics: data.stats });
+          setGetPokemonData({ name: data.name, id: data.id, typeOne: data.types[0].type.name, typeTwo: data.types[1].type.name, statistics: data.stats });
         }
       } catch (error) {
         console.log(error);
       }
     }
     
-    console.log(pokemonData);
-    if (flag) {
+    if (initiateData) {
       response();
-      setFlag(false);
+      setInitiateData(false);
     }
-  }, [pokemon, pokemonData, flag]);
+  }, [selectedPokemon, getPokemonData, initiateData]);
 
-console.log(pokemonData.types);
+  const handleSelectedPokemon = (selectedPokemon) => {
+    setSelectedPokemon(selectedPokemon.toLowerCase());
+  };
+
+  const handleInitiateData = (initiateData) => {
+    setInitiateData(initiateData);
+  };
+
+  const tutorial = () => {
+    setHideTutorial(true);
+  };
+
   return (
     <LayoutContainer>
-      <Search pokemonSelection={(pokemon) => {setPokemon(pokemon)}} flagSelection={(flag) => {setFlag(flag)}} />
-      <Result pokemonData={pokemonData} />
+      <Search propSelectedPokemon={handleSelectedPokemon} propInitiateData={handleInitiateData} propHideTutorial={hideTutorial} propTutorial={tutorial} />
+      {hideTutorial && <Result propPokemonData={getPokemonData} />}
     </LayoutContainer>
   );
 };
