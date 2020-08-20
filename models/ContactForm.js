@@ -1,24 +1,20 @@
 const mongoose = require("mongoose");
 
-const FormSchema = new mongoose.Schema({
+const ContactFormSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true
   },
   pokedex: {
     type: Number,
-    required: true
+    required: false
   },
   email: {
     type: String,
     lowercase: true,
     required: true
   },
-  phone: {
-    type: Number,
-    required: true
-  },
-  radio: {
+  textarea: {
     type: String,
     required: true
   },
@@ -26,6 +22,6 @@ const FormSchema = new mongoose.Schema({
     type: String,
     required: true
   }
-});
+}, { collection: "contactform" });
 
-module.exports = mongoose.model("FormSubmission", FormSchema);
+module.exports = mongoose.model("ContactForm", ContactFormSchema);

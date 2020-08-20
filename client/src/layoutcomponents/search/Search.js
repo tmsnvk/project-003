@@ -132,17 +132,11 @@ const Search = ({ propSelectedPokemon, propInitiateData, propTutorial, propHideT
     mode: "onChange"
   });
   
-  const onSubmit = (data) => {
-    console.log(data);
-  };
+  const onSubmit = (data) => console.log(data);
 
-  const handleSearchOnChange = (event) => {
-    propSelectedPokemon(event.target.value);
-  };
-
-  const handleInitiateData = () => {
-    propInitiateData(true);
-  };
+  const handleSearchOnChange = (event) => propSelectedPokemon(event.target.value);
+  
+  const handleInitiateData = () => propInitiateData(true);
 
   const handleSubmitOnClick = () => {
     handleInitiateData(); 

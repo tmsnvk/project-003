@@ -1,16 +1,16 @@
 import React from "react";
 import styled from "styled-components";
-import { color, fontsize, mediaq } from "../../variables/styling";
+import { color, font, fontsize, mediaq } from "../../variables/styling";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 
-const ComponentContainer = styled.div`
+const ComponentContainer = styled.section`
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 3;
   grid-row-end: 4;
-  width: 95%;
+  width: 90%;
   margin: 0 auto;
   padding: 1rem 1rem 1rem 1rem;
   background-color: ${color.background.mainDark};
@@ -18,15 +18,8 @@ const ComponentContainer = styled.div`
   border-radius: 1rem;
 
   @media only screen and (min-width: ${mediaq.medium}) {
-    grid-column-end: 3;
-    width: 80%;
-  }
-
-  @media only screen and (min-width: ${mediaq.large}) {
-    grid-column-start: 2;
     grid-column-end: 4;
-    width: 100%;
-    padding: 5rem 5rem 5rem 5rem;
+    width: 60%;
   }
 `;
 
@@ -83,46 +76,27 @@ const InputField = styled.input`
 		outline: none;
 		background-color: ${color.background.mainLight};
   }
-
-  &::placeholder {
-		letter-spacing: 0.2rem;
-		padding: 1rem 1rem 1rem 1rem;
-		color: ${color.font.secondary};
-	}
-
-  &::-webkit-outer-spin-button,
-  &::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-
-  @media only screen and (min-width: ${mediaq.medium}) {
-    width: 30rem;
-  }
 `;
 
-const MainRadioButtonContainer = styled.div`
-
-`;
-
-const RadioText = styled.div`
+const TextareaInputField = styled.textarea`
+  width: 25rem;
+  height: 5rem;
+  font-family: ${font.main};
   font-size: ${fontsize.small};
-  color: ${color.font.secondary};
-  margin: 2.5rem 0 0 0;
-`;
+  padding: 1.5rem 0.5rem 0.5rem 2rem;
+  background-color: ${color.background.mainDark};
+  border: 1px solid ${color.font.secondary};
+  box-shadow: 0px 2px 2px 0px ${color.shadow.main};
+  border-radius: 1rem;
 
-const RadioContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-`;
+  &:hover {
+    background-color: ${color.background.mainLight};
+  }
 
-const RadioSolo = styled.input`
-  margin: 0 1rem 0 0;
-`;
-
-const RadioDuo = styled.input`
-  margin: 0 1rem 0 0;
+  &:focus {
+		outline: none;
+		background-color: ${color.background.mainLight};
+  }
 `;
 
 const MainCheckboxContainer = styled(IndividualInputFieldContainer)`
@@ -154,7 +128,13 @@ const FormLink = styled(Link)`
   font-size: ${fontsize.small};
 `;
 
-const RadioAndCheckboxFormLabel = styled.label`
+const ErrorMessage = styled.div`
+  color: ${color.font.warning};
+  font-size: ${fontsize.default};
+  padding: 1rem 0 0 0;
+`;
+
+const CheckboxFormLabel = styled.label`
   display: block;
   color: ${color.font.secondary};
   font-size: ${fontsize.small};
@@ -189,27 +169,21 @@ const FormInputSubmit = styled.input`
   }
 `;
 
-const ErrorMessage = styled.div`
-  color: ${color.font.warning};
-  font-size: ${fontsize.default};
-  padding: 1rem 0 0 0;
-`;
-
-const SignupForm = () => {
+const ContactForm = () => {
   const { register, handleSubmit, errors, formState } = useForm();
   
   const history = useHistory();
 
   const onSubmit = async (data) => {
-    await axios.post("/signupform", data);
+    await axios.post("/contactform", data);
 
     history.push("/success");
   };
 
   return (
     <ComponentContainer>
-      <FormContainer method="POST" action="/signupform" id="signupform" onSubmit={handleSubmit(onSubmit)}>
-        <FormLabel htmlFor="signupform">Ready to take action? - Subscribe here!</FormLabel>
+      <FormContainer method="POST" action="/contactform" id="contactform" onSubmit={handleSubmit(onSubmit)}>
+        <FormLabel htmlFor="contactform">Have a question you didn't find in the FAQ? - Write us!</FormLabel>
         <IndividualInputFieldContainer>
           <InputField 
             type="text"
@@ -227,8 +201,7 @@ const SignupForm = () => {
                 value: 30,
                 message: "Enter maximum 30 characters."
               } 
-            })} 
-          />
+            })} />
           {errors.name && <ErrorMessage>{errors.name.message}</ErrorMessage>}
         </IndividualInputFieldContainer>
         <IndividualInputFieldContainer>
@@ -236,24 +209,19 @@ const SignupForm = () => {
             type="number"
             id="pokedex"
             name="pokedex"
-            placeholder="* Your PokedexID number"
+            placeholder="Your PokedexID number"
             autoComplete="off"
             ref={register({ 
               required: {
-                value: true,
-                message: "POKEDEX ID is required."
+                value: false
               },
               minLength: {
-                value: 14,
-                message: "Your POKEDEX ID must be 14 characters long."
+                value: 0
               },
               maxLength: {
-                value: 14,
-                message: "Your POKEDEX ID must be 14 characters long."
+                value: 14
               }
-            })} 
-          />
-          {errors.pokedex && <ErrorMessage>{errors.pokedex.message}</ErrorMessage>}
+            })} />
         </IndividualInputFieldContainer>
         <IndividualInputFieldContainer>
           <InputField 
@@ -276,60 +244,23 @@ const SignupForm = () => {
           {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
         </IndividualInputFieldContainer>
         <IndividualInputFieldContainer>
-          <InputField 
-            type="text"
-            id="phone"
-            name="phone"
-            placeholder="* Your Phone Number"
+          <TextareaInputField
+            id="textarea"
+            name="textarea"
+            placeholder="* Your Message"
             autoComplete="off"
             ref={register({
               required: {
                 value: true,
-                message: "PHONE NUMBER is required. Use only numbers."
-              }, 
-              pattern: /^[0-9]*$/i,
+                message: "MESSAGE is required."
+              },
               maxLength: {
-                value: 20,
-                message: "Enter maximum 20 characters. Use only numbers."
-              }
-            })} 
-          />
-          {errors.phone && <ErrorMessage>{errors.phone.message}</ErrorMessage>}
+                value: 1000,
+                message: "Enter maximum 1000 characters."
+              } 
+            })} />
+          {errors.textarea && <ErrorMessage>{errors.textarea.message}</ErrorMessage>}
         </IndividualInputFieldContainer>
-        <MainRadioButtonContainer>
-          <RadioText>* Which plan would you like to subscribe to?</RadioText>
-          <RadioContainer>
-            <RadioSolo 
-              type="radio"
-              id="radiosolo"
-              name="radio"
-              value={"solo"}
-              ref={register({
-                required: {
-                  value: true,
-                  message: "PLAN is required."
-                }
-              })} 
-            />
-            <RadioAndCheckboxFormLabel htmlFor="radio">Solo.</RadioAndCheckboxFormLabel>
-          </RadioContainer>
-          <RadioContainer>
-            <RadioDuo 
-              type="radio"
-              id="radioduo"
-              name="radio"
-              value={"duo"}
-              ref={register({
-                required: {
-                  value: true,
-                  message: "PLAN is required."
-                }
-              })} 
-            />
-            <RadioAndCheckboxFormLabel htmlFor="radio">Duo.</RadioAndCheckboxFormLabel>
-          </RadioContainer>
-          {errors.radio && <ErrorMessage>{errors.radio.message}</ErrorMessage>}
-        </MainRadioButtonContainer>
         <MainCheckboxContainer>
           <CheckboxContainer>
             <Checkbox 
@@ -341,9 +272,8 @@ const SignupForm = () => {
                   value: true,
                   message: "CONSENT is required."
                 }
-              })} 
-            />
-            <RadioAndCheckboxFormLabel htmlFor="checkbox">* By submitting data to us you give your consent that data you submit may be processed for the purposes described in the <FormLink to="/pricing">Terms & Conditions</FormLink> & <FormLink to="/pricing">Privacy Policy</FormLink>.</RadioAndCheckboxFormLabel>
+              })} />
+            <CheckboxFormLabel htmlFor="checkbox">* By submitting data to us you give your consent that data you submit may be processed for the purposes described in the <FormLink to="/pricing">Terms & Conditions</FormLink> & <FormLink to="/pricing">Privacy Policy</FormLink>.</CheckboxFormLabel>
           </CheckboxContainer>
           {errors.checkbox && <ErrorMessage>{errors.checkbox.message}</ErrorMessage>}
         </MainCheckboxContainer>
@@ -354,4 +284,4 @@ const SignupForm = () => {
   );
 };
 
-export default SignupForm;
+export default ContactForm;

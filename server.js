@@ -6,7 +6,8 @@ const helmet = require("helmet");
 const axios = require("axios");
 
 const mongoose = require("mongoose");
-const FormSubmission = require("./models/Form");
+const SignupForm = require("./models/SignupForm");
+const ContactForm = require("./models/ContactForm");
 
 require("dotenv").config();
 
@@ -25,13 +26,31 @@ mongoose.connect(process.env.DB_CONNECTION, { useUnifiedTopology: true, useNewUr
 
 app.get('/favicon.ico', (request, response) => response.status(204));
 
-app.post("/formsignup", async (request, response) => {
-  const newForm = new FormSubmission({
+app.post("/signupform", async (request, response) => {
+  const newForm = new SignupForm({
     name: request.body.name,
     pokedex: request.body.pokedex,
     email: request.body.email,
     phone: request.body.phone,
     radio: request.body.radio,
+    checkbox: request.body.checkbox
+  });
+  
+  try {
+    const savedForm = await newForm.save();
+    response.json(savedForm);
+  } catch (error) {
+    response.json(error);
+    console.log(error);
+  }
+});
+
+app.post("/contactform", async (request, response) => {
+  const newForm = new ContactForm({
+    name: request.body.name,
+    pokedex: request.body.pokedex,
+    email: request.body.email,
+    textarea: request.body.textarea,
     checkbox: request.body.checkbox
   });
   
