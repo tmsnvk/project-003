@@ -1,26 +1,25 @@
 import React from "react";
 import styled from "styled-components";
-import { mediaq } from "../variables/styling";
-import WelcomeText from "../layoutcomponents/home/WelcomeText";
-import Summary from "../layoutcomponents/home/Summary";
-import PokemonImages from "../layoutcomponents/home/PokemonImages";
+import Header from "../layoutcomponents/home/Header";
+import SummaryCards from "../layoutcomponents/home/SummaryCards";
+import PokemonCards from "../layoutcomponents/home/PokemonCards";
 import HowImage from "../layoutcomponents/home/HowImage";
 import HowText from "../layoutcomponents/home/HowText";
-import Stats from "../layoutcomponents/home/Stats";
+import Statistics from "../layoutcomponents/home/Statistics";
 import Options from "../layoutcomponents/home/Options";
 
-const LayoutContainer = styled.div`
+const LayoutContainer = styled.section`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto;
   grid-column-gap: 2.5em;
   grid-row-gap: 5rem;
 
-  @media only screen and (min-width: ${mediaq.medium}) {
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.medium}) {
     grid-template-columns: 1fr 1fr;
   }
 
-  @media only screen and (min-width: ${mediaq.large}) {
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.large}) {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 `;
@@ -28,12 +27,12 @@ const LayoutContainer = styled.div`
 const HomeLayout = () => {
   return (
     <LayoutContainer>
-      <WelcomeText />
-      <Summary />
-      <PokemonImages />
+      <Header />
+      <SummaryCards />
+      <PokemonCards />
       <HowImage />
       <HowText />
-      <Stats />
+      <Statistics />
       <Options />
     </LayoutContainer>
   );

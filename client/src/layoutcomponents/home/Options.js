@@ -1,54 +1,50 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { color, fontsize, mediaq } from "../../variables/styling";
+import ElementContainer from "../common/ElementContainer";
 
-const ComponentContainer = styled.section`
+const ComponentContainer = styled(ElementContainer)`
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 5;
   grid-row-end: 6;
   margin: 0 auto;
   width: 90%;
-  padding: 1rem 1rem 1rem 1rem;
-  background-color: ${color.background.mainDark};
-  box-shadow: 1px 2px 5px 1px ${color.shadow.main};
-  border-radius: 1rem;
 
-  @media only screen and (min-width: ${mediaq.medium}) {
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.medium}) {
     grid-column-end: 3;
     grid-row-start: 6;
     grid-row-end: 7;
     width: auto;
   }
 
-  @media only screen and (min-width: ${mediaq.large}) {
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.large}) {
     grid-column-end: 5;
   }
 `;
 
 const TextTitle = styled.h2`
-  font-size: ${fontsize.small};
+  font-size: ${props => props.theme.fontSize.small};
   padding: 1rem 0 1rem 0;
   text-align: center;
 
-  @media only screen and (min-width: ${mediaq.medium}) {
-    font-size: ${fontsize.medium};
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.medium}) {
+    font-size: ${props => props.theme.fontSize.medium};
   }
 `;
 
 const TextLink = styled(Link)`
-  color: ${color.font.secondary};
+  color: ${props => props.theme.fontColor.secondary};
   font-size: inherit;
   text-decoration: none;
   cursor: pointer;
 
   &:hover {
-    color: ${color.font.alternate};
+    color: ${props => props.theme.fontColor.alternate};
   }
 
-  @media only screen and (min-width: ${mediaq.medium}) {
-    font-size: ${fontsize.medium};
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.medium}) {
+    font-size: ${props => props.theme.fontSize.medium};
   }
 `;
 

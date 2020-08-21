@@ -1,85 +1,102 @@
 import React from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { color, font, fontsize, mediaq } from "../../variables/styling";
+import ElementContainer from "../common/ElementContainer";
 
-const ComponentContainer = styled.section`
+const ComponentContainer = styled.div`
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 2;
   grid-row-end: 3;
-  text-align: center;
+  width: 95%;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
 
-  @media only screen and (min-width: ${mediaq.medium}) {
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.small}) {
+    width: 80%;
+  }
+
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.medium}) {
     grid-column-end: 3;
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-    width: 95%;
-    margin: 0 auto;
+    width: 100%;
   }
 
-  @media only screen and (min-width: ${mediaq.large}) {
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.large}) {
     grid-column-end: 5;
   }
 
-  @media only screen and (min-width: ${mediaq.xLarge}) {
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.xLarge}) {
     flex-wrap: nowrap;
+    width: 95%;
   }
 `;
 
-const ItemContainer = styled.div`
-  background-color: ${color.background.mainDark};
+const ItemContainer = styled(ElementContainer)`
+  width: 95%;
   margin: 0 auto 2rem;
-  padding: 1rem 1rem 1rem 1rem;
-  box-shadow: 1px 2px 5px 1px ${color.shadow.main};
-  width: 90%;
-  border-radius: 1rem;
+  text-align: center;
 
   &:hover {
     transform: scale(1.05);
     transition: transform 0.2s;
   }
 
-  @media only screen and (min-width: ${mediaq.medium}) {
-    margin: 2rem 1rem 0 1rem;
-    width: 45%;
+  &:last-of-type {
+    margin: 0 auto;
   }
 
-  @media only screen and (min-width: ${mediaq.xLarge}) {
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.medium}) {
+    margin: 2rem 1rem 0 1rem;
+    width: 45%;
+
+    &:last-of-type {
+      margin: 2rem 1rem 0 1rem;
+    }
+  }
+
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.xLarge}) {
     width: 100%;
   }
 `;
 
-const StyledIcon = styled(FontAwesomeIcon)`
+const ItemIcon = styled(FontAwesomeIcon)`
   display: inline-block;
-  color: ${color.font.secondary};
-  font-size: ${fontsize.xxLarge};
-  padding: 1rem 0 1rem 0;
+  color: ${props => props.theme.fontColor.secondary};
+  font-size: ${props => props.theme.fontSize.xLarge};
+  margin: 1rem 0 1rem 0;
 `;
 
 const ItemTitle = styled.h3`
-  font-size: ${fontsize.medium};
+  font-size: ${props => props.theme.fontSize.medium};
+  font-family: ${props => props.theme.fontFamily.secondary};
   padding: 0 0 2rem 0;
-  font-family: ${font.secondary};
+
+  &:after {
+    content: " ";
+    display: block;
+    padding: 1.5rem 0 0 0;
+    border-bottom: 2px solid ${props => props.theme.fontColor.secondary};
+    width: 25%;
+    margin: 0 auto;
+  }
 `;
 
 const ItemParagraph = styled.p`
-  padding: 0 0 1rem 0;
-  font-size: ${fontsize.small};
+  font-size: ${props => props.theme.fontSize.small};
 `;
 
 const Summary = () => {
-  const itemData = [
+  const componentData = [
     {
       icon: ["fas", "infinity"],
       title: "Running 7/24 & 365 days/year",
       paragraphs: {
         one: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A amet ratione omnis, voluptate facere commodi rerum optio. Magnam perspiciatis odit nisi sit asperiores sunt deseruntmagni saepe, quo ipsam maxime!",
-        two: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A amet ratione omnis, voluptate facere commodi rerum optio. Magnam perspiciatis odit nisi sit asperiores sunt deseruntmagni saepe, quo ipsam maxime! Lorem ipsum dolor sit amet, consectetur adipisicing elit. A amet ratione omnis, voluptate facere commodi rerum optio. ",
-        three: "Magnam perspiciatis odit nisi sit asperiores sunt deseruntmagni saepe, quo ipsam maxime!"
+        two: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A amet ratione omnis, voluptate facere commodi rerum optio. Magnam perspiciatis odit nisi sit asperiores sunt deseruntmagni saepe, quo ipsam maxime! Lorem ipsum dolor sit amet, consectetur adipisicing elit. A amet ratione omnis, voluptate facere commodi rerum optio. "
       }
     },
     {
@@ -87,8 +104,7 @@ const Summary = () => {
       title: "Neat & clear data presentation",
       paragraphs: {
         one: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A amet ratione omnis, voluptate facere commodi rerum optio. Magnam perspiciatis odit nisi sit asperiores sunt deseruntmagni saepe, quo ipsam maxime!",
-        two: "",
-        three: ""
+        two: ""
       }
     },
     {
@@ -96,8 +112,7 @@ const Summary = () => {
       title: "Great community",
       paragraphs: {
         one: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A amet ratione omnis, voluptate facere commodi rerum optio. Magnam perspiciatis odit nisi sit asperiores sunt deseruntmagni saepe, quo ipsam maxime!",
-        two: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A amet ratione omnis, voluptate facere commodi rerum optio. Magnam perspiciatis odit nisi sit asperiores sunt deseruntmagni saepe, quo ipsam maxime!",
-        three: ""
+        two: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A amet ratione omnis, voluptate facere commodi rerum optio. Magnam perspiciatis odit nisi sit asperiores sunt deseruntmagni saepe, quo ipsam maxime!"
       }
     },
     {
@@ -105,27 +120,25 @@ const Summary = () => {
       title: "Email, chat & phone support",
       paragraphs: {
         one: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A amet ratione omnis, voluptate facere commodi rerum optio. Magnam perspiciatis odit nisi sit asperiores sunt deseruntmagni saepe, quo ipsam maxime!",
-        two: "",
-        three: ""
+        two: ""
       }
     }
-  ]
+  ];
 
-  const renderItems = itemData.map(({ icon, title, paragraphs }) => {
+  const renderComponentData = componentData.map(({ icon, title, paragraphs }) => {
     return (
       <ItemContainer key={icon}>
-        <StyledIcon icon={icon}></StyledIcon>
+        <ItemIcon icon={icon}></ItemIcon>
         <ItemTitle>{title}</ItemTitle>
-        <ItemParagraph>{paragraphs?.one}</ItemParagraph>
+        <ItemParagraph>{paragraphs.one}</ItemParagraph>
         <ItemParagraph>{paragraphs?.two}</ItemParagraph>
-        <ItemParagraph>{paragraphs?.three}</ItemParagraph>
       </ItemContainer>
     );
   });
 
   return (
     <ComponentContainer>
-      {renderItems}
+      {renderComponentData}
     </ComponentContainer>
   );
 };

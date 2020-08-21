@@ -4,6 +4,7 @@ import { color, fontsize, mediaq } from "../../variables/styling";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import { useForm } from "react-hook-form";
+import ElementContainer from "../common/ElementContainer";
 
 const ComponentContainer = styled.div`
   grid-column-start: 1;

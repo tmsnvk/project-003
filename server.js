@@ -24,8 +24,6 @@ mongoose.connect(process.env.DB_CONNECTION, { useUnifiedTopology: true, useNewUr
   console.log("Connected to MongoDB database");
 });
 
-app.get('/favicon.ico', (request, response) => response.status(204));
-
 app.post("/signupform", async (request, response) => {
   const newForm = new SignupForm({
     name: request.body.name,

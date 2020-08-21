@@ -1,28 +1,24 @@
 import React from "react";
 import styled from "styled-components";
-import { color, fontsize, mediaq } from "../../variables/styling";
+import ElementContainer from "../common/ElementContainer";
 
-const ComponentContainer = styled.div`
+const ComponentContainer = styled(ElementContainer)`
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 1;
   grid-row-end: 2;
   width: 90%;
   margin: 10rem auto 0;
-  padding: 1rem 1rem 1rem 1rem;
-  background-color: ${color.background.mainDark};
-  box-shadow: 1px 2px 5px 1px ${color.shadow.main};
-  border-radius: 1rem;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 
-  @media only screen and (min-width: ${mediaq.medium}) {
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.medium}) {
     grid-column-end: 3;
   }
 
-  @media only screen and (min-width: ${mediaq.large}) {
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.large}) {
     grid-column-end: 5;
   }
 `;
@@ -30,24 +26,24 @@ const ComponentContainer = styled.div`
 const Image = styled.img`
   display: none;
 
-  @media only screen and (min-width: ${mediaq.small}) {
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.small}) {
     display: flex;
-    width: 20%;
+    width: 25%;
     transform: scaleX(-1);
     padding: 0 0 0 1rem;
   }
 
-  @media only screen and (min-width: ${mediaq.medium}) {
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.medium}) {
     padding: 0 0 0 3rem;
   }
 
-  @media only screen and (min-width: ${mediaq.medium}) {
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.large}) {
     width: 15%;
   }
 `;
 
 const Title = styled.h2`
-  font-size: ${fontsize.small};
+  font-size: ${props => props.theme.fontSize.medium};
   text-transform: uppercase;
   letter-spacing: 0.2rem;
   text-align: center;
@@ -56,17 +52,21 @@ const Title = styled.h2`
     content: " ";
     padding: 3rem 0 0 0;
   	width: 100%;
-    border-bottom: 2px solid ${color.font.mainDark};
+    border-bottom: 2px solid ${props => props.theme.fontColor.mainDark};
     display: block;
 		margin: 0 auto;
   }
 
-  @media only screen and (min-width: ${mediaq.medium}) {
-    font-size: ${fontsize.medium};
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.medium}) {
+    font-size: ${props => props.theme.fontSize.large};
   }
 
-  @media only screen and (min-width: ${mediaq.large}) {
-    font-size: ${fontsize.large};
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.large}) {
+    font-size: ${props => props.theme.fontSize.large};
+  }
+
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.xLarge}) {
+    font-size: ${props => props.theme.fontSize.xLarge};
   }
 `;
 

@@ -1,22 +1,20 @@
 import React from "react";
 import styled from "styled-components";
 import { color, fontsize, mediaq } from "../../variables/styling";
+import ElementContainer from "../common/ElementContainer";
 
-const ComponentContainer = styled.section`
+const ComponentContainer = styled(ElementContainer)`
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 1;
   grid-row-end: 2;
   margin: 10rem auto 0;
-  padding: 1rem 1rem 1rem 1rem;
-  background-color: ${color.background.mainDark};
-  box-shadow: 1px 2px 5px 1px ${color.shadow.main};
-  border-radius: 1rem;
   width: 90%;
   text-align: center;
 
   @media only screen and (min-width: ${mediaq.medium}) {
     grid-column-end: 3;
+    width: 60%;
   }
 
   @media only screen and (min-width: ${mediaq.large}) {
@@ -28,15 +26,12 @@ const ComponentContainer = styled.section`
 
 const WelcomeTitleMain = styled.h1`
   font-size: ${fontsize.large};
-  text-align: center;
+  text-transform: uppercase;
   padding: 2rem 0 2rem 0;
-  transition: all 0.4s ease;
-
 `;
 
 const WelcomeTitleSub = styled.h2`
   font-size: ${fontsize.medium};
-  text-transform: uppercase;
   padding: 0 0 3rem 0;
   font-weight: normal;
 
@@ -62,7 +57,7 @@ const WelcomeMessage = styled.div`
   }
 `;
 
-const WelcomeText = () => {
+const Header = () => {
   return (
     <ComponentContainer>
       <WelcomeTitleMain>Welcome to Central Kanto Pokemon Database!</WelcomeTitleMain>
@@ -72,4 +67,4 @@ const WelcomeText = () => {
   );
 };
 
-export default WelcomeText;
+export default Header;

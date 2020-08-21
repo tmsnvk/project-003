@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { color, font, fontsize, mediaq } from "../variables/styling";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const FooterContainer = styled.footer`
+const FooterContainer = styled.section`
   color: ${color.font.mainLight};
   background-color: ${color.background.secondary};
   text-align: center;

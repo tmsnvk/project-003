@@ -1,19 +1,19 @@
 export const color = {
   font: {
-    mainDark: "rgba(61, 61, 61, 1)", // almost black
-    mainLight: "rgba(230, 230, 230, 1)", // light gray
-    secondary: "rgba(12, 44, 187, 1)", // dark blue
-    alternate: "rgba(235, 152, 0, 1)", // orange
-    warning: "rgba(217, 14, 0, 1)" // red
+    mainDark: "#3f3b3b", // almost black
+    mainLight: "#e6e6e6", // light gray
+    secondary: "#0c2cbb", // dark blue
+    alternate: "#e79727", // orange
+    warning: "#d90e00" // red
   },
   background: {
-    mainDark: "rgba(223, 221, 221, 1)", // gray
-    mainLight: "rgba(243, 241, 237, 1)", // light gray
-    secondary: "rgba(12, 44, 187, 1)", // dark blue
-    alternate: "rgba(235, 152, 0, 1)", // orange
+    mainDark: "#d2d0d0", // gray
+    mainLight: "#e6e7e4", // light gray/green
+    secondary: "#0c2cbb", // dark blue
+    alternate: "#e79727", // orange
   },
   shadow: {
-    main: "rgba(66, 66, 66, 1)" // almost black
+    main: "#424242" // almost black
   }
 };
 

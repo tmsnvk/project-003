@@ -1,51 +1,47 @@
 import React from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { color, fontsize, mediaq } from "../../variables/styling";
+import ElementContainer from "../common/ElementContainer";
 
-const ComponentContainer = styled.section`
+const ComponentContainer = styled(ElementContainer)`
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 3;
   grid-row-end: 4;
-  width: 90%;
+  width: 95%;
   margin: 0 auto;
-  padding: 1rem 1rem 1rem 1rem;
-  background-color: ${color.background.mainDark};
-  box-shadow: 1px 2px 5px 1px ${color.shadow.main};
-  border-radius: 1rem;
 
-  @media only screen and (min-width: ${mediaq.medium}) {
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.medium}) {
     grid-column-start: 2;
     grid-column-end: 3;
     grid-row-start: 4;
     grid-row-end: 5;
   }
 
-  @media only screen and (min-width: ${mediaq.large}) {
-    grid-column-end: 5;
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.large}) {
+    grid-column-end: 4;
   }
 
-  @media only screen and (min-width: ${mediaq.xLarge}) {
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.xLarge}) {
     width: 95%;
   }
 `;
 
-const HowStepsContainer = styled.div`
+const ItemContainer = styled.div`
   text-align: left;
   padding: 0 0 2rem 0;
   display: flex;
   flex-direction: row;
   align-items: center;
 
-  @media only screen and (min-width: ${mediaq.xLarge}) {
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.xLarge}) {
     width: 100%;
   }
 `;
 
-const HowStepsTitle = styled.h2`
+const ItemTitle = styled.h2`
   text-align: center;
-  font-size: ${fontsize.medium};
+  font-size: ${props => props.theme.fontSize.medium};
   text-transform: uppercase;
   padding: 0 0 2rem 0;
 
@@ -53,35 +49,32 @@ const HowStepsTitle = styled.h2`
     content: " ";
     display: block;
     padding: 2rem 0 0 0;
-    border-bottom: 2px solid ${color.font.secondary};
+    border-bottom: 2px solid ${props => props.theme.fontColor.secondary};
     width: 50%;
     margin: 0 auto;
   }
 
-  @media only screen and (min-width: ${mediaq.large}) {
-    font-size: ${fontsize.large};
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.large}) {
+    font-size: ${props => props.theme.fontSize.large};
   }
 `;
 
-const HowStepsIcon = styled.div`
-  color: ${color.font.secondary};
-  padding: 0 1rem 0 2rem;
+const ItemIcon = styled(FontAwesomeIcon)`
+  color: ${props => props.theme.fontColor.secondary};
+  margin: 0 1rem 0 1.5rem;
+  font-size: ${props => props.theme.fontSize.large};
 `;
 
-const StyledIcon = styled(FontAwesomeIcon)`
-  font-size: ${fontsize.large};
-`;
+const ItemText = styled.p`
+  font-size: ${props => props.theme.fontSize.small};
 
-const HowStepsText = styled.p`
-  font-size: ${fontsize.small};
-
-  @media only screen and (min-width: ${mediaq.large}) {
-    font-size: ${fontsize.medium};
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.large}) {
+    font-size: ${props => props.theme.fontSize.medium};
   }
 `;
 
 const HowText = () => {
-  const itemData = [
+  const ComponentData = [
     {
       text: "Request a subscription, register your Pokedex ID & immediately start using the search function.",
       id: 1
@@ -104,19 +97,19 @@ const HowText = () => {
     }
   ]
 
-  const renderItems = itemData.map(({ text, id }) => {
+  const renderComponentData = ComponentData.map(({ text, id }) => {
     return (
-      <HowStepsContainer key={id}>
-        <HowStepsIcon><StyledIcon icon={["fas", "angle-double-right"]}></StyledIcon></HowStepsIcon>
-        <HowStepsText>{text}</HowStepsText>
-      </HowStepsContainer>
+      <ItemContainer key={id}>
+        <ItemIcon icon={["fas", "angle-double-right"]}></ItemIcon>
+        <ItemText>{text}</ItemText>
+      </ItemContainer>
     );
   });
 
   return (
     <ComponentContainer>
-      <HowStepsTitle>How does it work? - It's simple as 1 - 2 - 3!</HowStepsTitle>
-      {renderItems}
+      <ItemTitle>How does it work? - It's simple as 1 - 2 - 3!</ItemTitle>
+      {renderComponentData}
     </ComponentContainer>
   );
 };
