@@ -142,26 +142,26 @@ const handleType = (type) => {
   }
 };
 
-const Result = ({ propPokemonData }) => {
+const Result = ({ pokemonData }) => {
   return (
     <ComponentContainer>
-      <PokemonImageContainer type={propPokemonData.typeOne}>
-        <PokemonImage src={`https://pokeres.bastionbot.org/images/pokemon/${propPokemonData.id}.png`} alt="random pokemon image" />
+      <PokemonImageContainer type={pokemonData.typeOne}>
+        <PokemonImage src={`https://pokeres.bastionbot.org/images/pokemon/${pokemonData.id}.png`} alt="random pokemon image" />
       </PokemonImageContainer>
-      <DataContainer type={propPokemonData.typeOne}>
+      <DataContainer type={pokemonData.typeOne}>
         <DataTitle>Main Information:</DataTitle>
-        <DataRow><StyledIcon icon={["fas", "id-card"]}></StyledIcon>Name:&nbsp;<DataSpan>{propPokemonData.name}</DataSpan></DataRow>
-        <DataRow><StyledIcon icon={["fas", "tag"]}></StyledIcon>ID:&nbsp;<DataSpan>{propPokemonData.id}</DataSpan></DataRow>
-          {propPokemonData.typeTwo ? 
-        <DataRow><StyledIcon icon={["fas", "code-branch"]}></StyledIcon>Type:&nbsp;<DataSpan>{propPokemonData.typeOne}</DataSpan> / <DataSpan>{propPokemonData.typeTwo}</DataSpan></DataRow> : 
-        <DataRow><StyledIcon icon={["fas", "code-branch"]}></StyledIcon>Type:&nbsp;<DataSpan>{propPokemonData.typeOne}</DataSpan></DataRow>}
+        <DataRow><StyledIcon icon={["fas", "id-card"]}></StyledIcon>Name:&nbsp;<DataSpan>{pokemonData.name}</DataSpan></DataRow>
+        <DataRow><StyledIcon icon={["fas", "tag"]}></StyledIcon>ID:&nbsp;<DataSpan>{pokemonData.id}</DataSpan></DataRow>
+          {pokemonData.typeTwo ? 
+        <DataRow><StyledIcon icon={["fas", "code-branch"]}></StyledIcon>Type:&nbsp;<DataSpan>{pokemonData.typeOne}</DataSpan> / <DataSpan>{pokemonData.typeTwo}</DataSpan></DataRow> : 
+        <DataRow><StyledIcon icon={["fas", "code-branch"]}></StyledIcon>Type:&nbsp;<DataSpan>{pokemonData.typeOne}</DataSpan></DataRow>}
       </DataContainer>
-      <DataContainer type={propPokemonData.typeOne}>
+      <DataContainer type={pokemonData.typeOne}>
       <DataTitle>Statistics:</DataTitle>
-        <DataRow><StyledIcon icon={["fas", "heart"]}></StyledIcon>HP:&nbsp;<DataSpan>{propPokemonData.statistics[0].base_stat}</DataSpan></DataRow>
-        <DataRow><StyledIcon icon={["fas", "hamsa"]}></StyledIcon>Attack:&nbsp;<DataSpan>{propPokemonData.statistics[1].base_stat}</DataSpan></DataRow>
-        <DataRow><StyledIcon icon={["fas", "scroll"]}></StyledIcon>Defense:&nbsp;<DataSpan>{propPokemonData.statistics[2].base_stat}</DataSpan></DataRow>
-        <DataRow><StyledIcon icon={["fas", "rocket"]}></StyledIcon>Speed:&nbsp;<DataSpan>{propPokemonData.statistics[5].base_stat}</DataSpan></DataRow>
+        <DataRow><StyledIcon icon={["fas", "heart"]}></StyledIcon>HP:&nbsp;<DataSpan>{pokemonData.statistics[0].base_stat}</DataSpan></DataRow>
+        <DataRow><StyledIcon icon={["fas", "hamsa"]}></StyledIcon>Attack:&nbsp;<DataSpan>{pokemonData.statistics[1].base_stat}</DataSpan></DataRow>
+        <DataRow><StyledIcon icon={["fas", "scroll"]}></StyledIcon>Defense:&nbsp;<DataSpan>{pokemonData.statistics[2].base_stat}</DataSpan></DataRow>
+        <DataRow><StyledIcon icon={["fas", "rocket"]}></StyledIcon>Speed:&nbsp;<DataSpan>{pokemonData.statistics[5].base_stat}</DataSpan></DataRow>
       </DataContainer>
     </ComponentContainer>
   );

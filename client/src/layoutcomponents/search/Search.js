@@ -14,7 +14,7 @@ const ComponentContainer = styled.section`
   align-items: center;
   justify-content: center;
 
-  @media only screen and (min-width: ${mediaq.medium}) {
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.medium}) {
     grid-column-end: 4;
   }
 `;
@@ -33,7 +33,7 @@ const FormLabel = styled.label`
   text-align: center;
   margin: 0 0 3rem 0;
 
-  @media only screen and (min-width: ${mediaq.large}) {
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.large}) {
     font-size: ${fontsize.large};
   }
 `;
@@ -58,7 +58,7 @@ const FormInputText = styled.input`
     outline: none;
   }
 
-  @media only screen and (min-width: ${mediaq.large}) {
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.large}) {
     font-size: ${fontsize.medium};
   }
 `;
@@ -77,7 +77,7 @@ const FormInputSubmit = styled.button`
     outline: none;
   }
 
-  @media only screen and (min-width: ${mediaq.large}) {
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.large}) {
     font-size: ${fontsize.medium};
   }
 `;
@@ -88,7 +88,7 @@ const TutorialContainer = styled.div`
   padding: 5rem 0 0 0;
   width: 90%;
 
-  @media only screen and (min-width: ${mediaq.large}) {
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.large}) {
     font-size: ${fontsize.medium};
   }
 `;
@@ -112,7 +112,7 @@ const TutorialLink = styled(Link)`
     color: ${color.background.secondary};
   }
 
-  @media only screen and (min-width: ${mediaq.large}) {
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.large}) {
     font-size: ${fontsize.medium};
   }
 `;
@@ -122,25 +122,27 @@ const ErrorMessage = styled.div`
   font-size: ${fontsize.default};
   padding: 1rem 0 0 0;
 
-  @media only screen and (min-width: ${mediaq.large}) {
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.large}) {
     font-size: ${fontsize.small};
   }
 `;
 
-const Search = ({ propSelectedPokemon, propInitiateData, propTutorial, propHideTutorial }) => {
+const Search = ({ selectedPokemon, initiateData, tutorial, hideTutorial }) => {
   const { register, handleSubmit, errors, formState } = useForm({
     mode: "onChange"
   });
   
   const onSubmit = (data) => console.log(data);
 
-  const handleSearchOnChange = (event) => propSelectedPokemon(event.target.value);
+  const handleSearchOnChange = (event) => {
+    selectedPokemon(event.target.value); 
+  };
   
-  const handleInitiateData = () => propInitiateData(true);
+  const handleInitiateData = () => initiateData(true);
 
   const handleSubmitOnClick = () => {
     handleInitiateData(); 
-    propTutorial();
+    tutorial();
   };
   
   return (
@@ -164,7 +166,7 @@ const Search = ({ propSelectedPokemon, propInitiateData, propTutorial, propHideT
             <FormInputSubmit type="submit" name="submit" disabled={formState.isSubmitting || !formState.isValid} onClick={handleSubmitOnClick}>Search Database!</FormInputSubmit>
           </FormInputContainer>
       </SearchContainer>
-      {!propHideTutorial && <TutorialContainer>
+      {!hideTutorial && <TutorialContainer>
         <TutorialText>To use our free database search, enter either the valid name or ID of the Pokemon you would like to look up!</TutorialText>
         <TutorialText>To start getting detailed search results, please sign up to one of our <TutorialLink to="/pricing">subscription</TutorialLink> options.</TutorialText>
         <TutorialText>To get more information, you are always more than welcome to <TutorialLink to="/contact">contact</TutorialLink> our support agents.</TutorialText>

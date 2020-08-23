@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { mediaq } from "../variables/styling";
 import Search from "../layoutcomponents/search/Search";
 import Result from "../layoutcomponents/search/Result";
 import axios from "axios";
@@ -12,7 +11,7 @@ const LayoutContainer = styled.div`
   grid-column-gap: 2.5em;
   grid-row-gap: 5rem;
 
-  @media only screen and (min-width: ${mediaq.large}) {
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.large}) {
     grid-template-columns: 1fr 1fr 1fr;
   }
 `;
@@ -20,7 +19,7 @@ const LayoutContainer = styled.div`
 const SearchLayout = () => {
   const [initiateData, setInitiateData] = useState(false);
   const [selectedPokemon, setSelectedPokemon] = useState("");
-  const [getPokemonData, setGetPokemonData] = useState({ name: "", id: "", typeOne: [], typeTwo: [], statistics: [0, 1, 2, 3, 4, 5] });
+  const [getPokemonData, setGetPokemonData] = useState({ name: "", id: "", typeOne: [], typeTwo: [], statistics: ["", "", "", "", "", ""] });
   const [hideTutorial, setHideTutorial] = useState(false);
 
   useEffect(() => {
@@ -36,7 +35,7 @@ const SearchLayout = () => {
         console.log(error);
       }
     }
-    
+
     if (initiateData) {
       response();
       setInitiateData(false);
@@ -57,8 +56,8 @@ const SearchLayout = () => {
 
   return (
     <LayoutContainer>
-      <Search propSelectedPokemon={handleSelectedPokemon} propInitiateData={handleInitiateData} propHideTutorial={hideTutorial} propTutorial={tutorial} />
-      {hideTutorial && <Result propPokemonData={getPokemonData} />}
+      <Search selectedPokemon={handleSelectedPokemon} initiateData={handleInitiateData} hideTutorial={hideTutorial} tutorial={tutorial} />
+      {hideTutorial && <Result pokemonData={getPokemonData} />}
     </LayoutContainer>
   );
 };
