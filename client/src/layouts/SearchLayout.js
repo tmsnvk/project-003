@@ -17,9 +17,9 @@ const LayoutContainer = styled.div`
 `;
 
 const SearchLayout = () => {
-  const [initiateData, setInitiateData] = useState(false);
+  const [initiateAPICall, setInitiateAPICall] = useState(false);
   const [selectedPokemon, setSelectedPokemon] = useState("");
-  const [getPokemonData, setGetPokemonData] = useState({ name: "", id: "", typeOne: [], typeTwo: [], statistics: ["", "", "", "", "", ""] });
+  const [pokemonData, setPokemonData] = useState({ name: "", id: "", typeOne: [], typeTwo: [], statistics: ["", "", "", "", "", ""] });
   const [hideTutorial, setHideTutorial] = useState(false);
 
   useEffect(() => {
@@ -27,27 +27,27 @@ const SearchLayout = () => {
       try {
         const { data } = await axios.get(`/pokemon/${selectedPokemon}`);
         if (data.types.length === 1) {
-          setGetPokemonData({ name: data.name, id: data.id, typeOne: data.types[0].type.name, statistics: data.stats });
+          setPokemonData({ name: data.name, id: data.id, typeOne: data.types[0].type.name, statistics: data.stats });
         } else {
-          setGetPokemonData({ name: data.name, id: data.id, typeOne: data.types[0].type.name, typeTwo: data.types[1].type.name, statistics: data.stats });
+          setPokemonData({ name: data.name, id: data.id, typeOne: data.types[0].type.name, typeTwo: data.types[1].type.name, statistics: data.stats });
         }
       } catch (error) {
         console.log(error);
       }
     }
 
-    if (initiateData) {
+    if (initiateAPICall) {
       response();
-      setInitiateData(false);
-    }
-  }, [selectedPokemon, getPokemonData, initiateData]);
+      setInitiateAPICall(false);
+    };
+  }, [selectedPokemon, pokemonData, initiateAPICall]);
 
   const handleSelectedPokemon = (selectedPokemon) => {
     setSelectedPokemon(selectedPokemon.toLowerCase());
   };
 
-  const handleInitiateData = (initiateData) => {
-    setInitiateData(initiateData);
+  const handleInitiateData = (initiateAPICall) => {
+    setInitiateAPICall(initiateAPICall);
   };
 
   const tutorial = () => {
@@ -56,8 +56,8 @@ const SearchLayout = () => {
 
   return (
     <LayoutContainer>
-      <Search selectedPokemon={handleSelectedPokemon} initiateData={handleInitiateData} hideTutorial={hideTutorial} tutorial={tutorial} />
-      {hideTutorial && <Result pokemonData={getPokemonData} />}
+      <Search selectedPokemon={handleSelectedPokemon} initiateAPICall={handleInitiateData} hideTutorial={hideTutorial} tutorial={tutorial} />
+      {hideTutorial && <Result pokemonData={pokemonData} />}
     </LayoutContainer>
   );
 };

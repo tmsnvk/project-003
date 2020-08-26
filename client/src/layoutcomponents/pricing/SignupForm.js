@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import ElementContainer from "../common/ElementContainer";
-import InputField from "../common/InputField";
-import FormSubmitButton from "../common/FormSubmitButton";
+import ElementContainer from "../../commoncomponents/ElementContainer";
+import InputField from "../../commoncomponents/InputField";
+import FormSubmitButton from "../../commoncomponents/FormSubmitButton";
 import { Link, useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";

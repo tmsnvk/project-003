@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { color, fontsize, mediaq } from "../../variables/styling";
-import ElementContainer from "../common/ElementContainer";
+import ElementContainer from "../../commoncomponents/ElementContainer";
 
 const ComponentContainer = styled(ElementContainer)`
   grid-column-start: 1;

@@ -28,11 +28,6 @@ const Answer = styled.p`
   }
 `;
 
-const QuestionIcon = styled(FontAwesomeIcon)`
-  font-size: ${fontsize.medium};
-  margin: 0 1rem 0 0;
-`;
-
 const AnswerIcon = styled(FontAwesomeIcon)`
   font-size: ${fontsize.medium};
   margin: 0 1rem 0 0;
@@ -45,7 +40,7 @@ const FaqItem = ({ faq, i, toggle }) => {
 
 	return (
 		<ComponentContainer key={faq.id} onClick={handleToggle}>
-			<Question><QuestionIcon icon={["fas", "question"]}></QuestionIcon>{faq.question}</Question>
+			<Question>{faq.question}</Question>
 			<Answer hidden={!faq.open}><AnswerIcon icon={["fas", "reply"]}></AnswerIcon>{faq.answer}</Answer>
 		</ComponentContainer>
 	);

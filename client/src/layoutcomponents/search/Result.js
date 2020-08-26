@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { color, font, fontsize, mediaq } from "../../variables/styling";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ComponentContainer = styled.section`
@@ -13,7 +12,7 @@ const ComponentContainer = styled.section`
   align-items: center;
   justify-content: center;
 
-  @media only screen and (min-width: ${mediaq.medium}) {
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.medium}) {
     grid-column-end: 4;
     flex-direction: row;
     justify-content: space-evenly;
@@ -24,23 +23,23 @@ const PokemonImageContainer = styled.div`
   width: 90%;
   background-color: ${({ type }) => handleType(type)};
   padding: 2rem 2rem 2rem 2rem;
-  box-shadow: 0px 2px 2px 0px ${color.shadow.main};
+  box-shadow: 0px 2px 2px 0px ${props => props.theme.shadowColor.main};
   border-radius: 1rem;
 
-  @media only screen and (min-width: ${mediaq.extraSmall}) {
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.extraSmall}) {
     width: 60%;
   }
 
-  @media only screen and (min-width: ${mediaq.small}) {
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.small}) {
     width: 40%;
   }
 
-  @media only screen and (min-width: ${mediaq.medium}) {
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.medium}) {
     width: 30%;
     margin: 1rem;
   }
 
-  @media only screen and (min-width: ${mediaq.xLarge}) {
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.xLarge}) {
     width: 20%;
   }
 `;
@@ -53,54 +52,54 @@ const DataContainer = styled(PokemonImageContainer)`
   text-transform: uppercase;
   display: flex;
   flex-direction: column;
-  font-size: ${fontsize.small};
+  font-size: ${props => props.theme.fontSize.small};
   font-weight: bold;
   letter-spacing: 0.2rem;
   margin: 2.5rem 0 0 0;
 
-  @media only screen and (min-width: ${mediaq.extraSmall}) {
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.extraSmall}) {
     width: 80%;
   }
 
-  @media only screen and (min-width: ${mediaq.small}) {
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.small}) {
     width: 50%;
     margin: 1rem;
   }
 
-  @media only screen and (min-width: ${mediaq.xLarge}) {
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.xLarge}) {
     width: 30%;
   }
 `;
 
 const DataTitle = styled.div`
-  font-family: ${font.secondary};
-  font-size: ${fontsize.large};
-  color: ${color.font.secondary};
+  font-family: ${props => props.theme.fontFamily.secondary};
+  font-size: ${props => props.theme.fontSize.large};
+  color: ${props => props.theme.fontColor.secondary};
 `;
 
 const DataRow = styled.div`
-  font-family: ${font.secondary};
-  font-size: ${fontsize.medium};
-  color: ${color.font.secondary};
+  font-family: ${props => props.theme.fontFamily.secondary};
+  font-size: ${props => props.theme.fontSize.medium};
+  color: ${props => props.theme.fontColor.secondary};
   padding: 0.5rem 0 0.5rem 0;
 
-  @media only screen and (min-width: ${mediaq.large}) {
-    font-size: ${fontsize.large};
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.large}) {
+    font-size: ${props => props.theme.fontSize.large};
   }
 `;
 
 const DataSpan = styled.span`
-  font-family: ${font.main};
-  font-size: ${fontsize.small};
-  color: ${color.font.mainDark};
+  font-family: ${props => props.theme.fontFamily.main};
+  font-size: ${props => props.theme.fontSize.small};
+  color: ${props => props.theme.fontColor.mainDark};
 
-  @media only screen and (min-width: ${mediaq.large}) {
-    font-size: ${fontsize.medium};
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.large}) {
+    font-size: ${props => props.theme.fontSize.medium};
   }
 `;
 
 const StyledIcon = styled(FontAwesomeIcon)`
-  font-size: ${fontsize.medium};
+  font-size: ${props => props.theme.fontSize.medium};
   margin: 0 1rem 0 0;
   vertical-align: middle;
 `;
@@ -139,7 +138,7 @@ const handleType = (type) => {
       return "rgba(0, 30, 205, 0.1)"; // blue
     default:
       return "white";
-  }
+  };
 };
 
 const Result = ({ pokemonData }) => {
@@ -152,7 +151,7 @@ const Result = ({ pokemonData }) => {
         <DataTitle>Main Information:</DataTitle>
         <DataRow><StyledIcon icon={["fas", "id-card"]}></StyledIcon>Name:&nbsp;<DataSpan>{pokemonData.name}</DataSpan></DataRow>
         <DataRow><StyledIcon icon={["fas", "tag"]}></StyledIcon>ID:&nbsp;<DataSpan>{pokemonData.id}</DataSpan></DataRow>
-          {pokemonData.typeTwo ? 
+        {pokemonData.typeTwo ? 
         <DataRow><StyledIcon icon={["fas", "code-branch"]}></StyledIcon>Type:&nbsp;<DataSpan>{pokemonData.typeOne}</DataSpan> / <DataSpan>{pokemonData.typeTwo}</DataSpan></DataRow> : 
         <DataRow><StyledIcon icon={["fas", "code-branch"]}></StyledIcon>Type:&nbsp;<DataSpan>{pokemonData.typeOne}</DataSpan></DataRow>}
       </DataContainer>

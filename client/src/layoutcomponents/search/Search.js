@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { color, fontsize, mediaq } from "../../variables/styling";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import ElementContainer from "../../commoncomponents/ElementContainer";
 
 const ComponentContainer = styled.section`
   grid-column-start: 1;
@@ -26,15 +26,15 @@ const SearchContainer = styled.form`
 
 const FormLabel = styled.label`
   display: block;
-  color: ${color.font.secondary};
-  font-size: ${fontsize.medium};
+  color: ${props => props.theme.fontColor.secondary};
+  font-size: ${props => props.theme.fontSize.medium};
   font-weight: bold;
   letter-spacing: 0.3rem;
   text-align: center;
   margin: 0 0 3rem 0;
 
   @media only screen and (min-width: ${props => props.theme.mediaQueries.large}) {
-    font-size: ${fontsize.large};
+    font-size: ${props => props.theme.fontSize.large};
   }
 `;
 
@@ -47,10 +47,10 @@ const FormInputContainer = styled.div`
 
 const FormInputText = styled.input`
   width: 20rem;
-  font-size: ${fontsize.small};
+  font-size: ${props => props.theme.fontSize.small};
   padding: 1rem 1rem 1rem 1rem;
-  background-color: ${color.background.mainDark};
-  box-shadow: 0px 2px 2px 0px ${color.shadow.main};
+  background-color: ${props => props.theme.backgroundColor.mainDark};
+  box-shadow: 0px 2px 2px 0px ${props => props.theme.shadowColor.main};
   border-radius: 1rem;
   cursor: text;
 
@@ -59,7 +59,7 @@ const FormInputText = styled.input`
   }
 
   @media only screen and (min-width: ${props => props.theme.mediaQueries.large}) {
-    font-size: ${fontsize.medium};
+    font-size: ${props => props.theme.fontSize.medium};
   }
 `;
 
@@ -67,9 +67,9 @@ const FormInputSubmit = styled.button`
   width: 20rem;
   margin: 3rem 0 0 0;
   padding: 1rem 1rem 1rem 1rem;
-  font-size: ${fontsize.small};
-  background-color: ${color.background.mainDark};
-  box-shadow: 0px 2px 2px 0px ${color.shadow.main};
+  font-size: ${props => props.theme.fontSize.small};
+  background-color: ${props => props.theme.backgroundColor.mainDark};
+  box-shadow: 0px 2px 2px 0px ${props => props.theme.shadowColor.main};
   border-radius: 1rem;
   cursor: pointer;
 
@@ -78,18 +78,18 @@ const FormInputSubmit = styled.button`
   }
 
   @media only screen and (min-width: ${props => props.theme.mediaQueries.large}) {
-    font-size: ${fontsize.medium};
+    font-size: ${props => props.theme.fontSize.medium};
   }
 `;
 
-const TutorialContainer = styled.div`
-  font-size: ${fontsize.small};
+const TutorialContainer = styled(ElementContainer)`
+  font-size: ${props => props.theme.fontSize.small};
   text-align: center;
-  padding: 5rem 0 0 0;
-  width: 90%;
+  margin: 5rem 0 0 0;
+  width: auto;
 
   @media only screen and (min-width: ${props => props.theme.mediaQueries.large}) {
-    font-size: ${fontsize.medium};
+    font-size: ${props => props.theme.fontSize.medium};
   }
 `;
 
@@ -97,57 +97,55 @@ const TutorialText = styled.p`
   padding: 3rem 0 0 0;
 
   &:last-of-type {
-    padding: 3rem 0 10rem 0;
+    padding: 3rem 0 3rem 0;
   }
 `;
 
 const TutorialLink = styled(Link)`
-  color: ${color.font.secondary};
-  font-size: ${fontsize.small};
+  color: ${props => props.theme.fontColor.secondary};
+  font-size: ${props => props.theme.fontSize.small};
   text-decoration: none;
   cursor: pointer;
   font-weight: bold;
 
   &:hover {
-    color: ${color.background.secondary};
+    color: ${props => props.theme.backgroundColor.secondary};
   }
 
   @media only screen and (min-width: ${props => props.theme.mediaQueries.large}) {
-    font-size: ${fontsize.medium};
+    font-size: ${props => props.theme.fontSize.medium};
   }
 `;
 
 const ErrorMessage = styled.div`
-  color: ${color.font.warning};
-  font-size: ${fontsize.default};
+  color: ${props => props.theme.fontColor.warning};
+  font-size: ${props => props.theme.fontSize.default};
   padding: 1rem 0 0 0;
 
   @media only screen and (min-width: ${props => props.theme.mediaQueries.large}) {
-    font-size: ${fontsize.small};
+    font-size: ${props => props.theme.fontSize.small};
   }
 `;
 
-const Search = ({ selectedPokemon, initiateData, tutorial, hideTutorial }) => {
+const Search = ({ selectedPokemon, initiateAPICall, tutorial, hideTutorial }) => {
   const { register, handleSubmit, errors, formState } = useForm({
     mode: "onChange"
   });
   
-  const onSubmit = (data) => console.log(data);
-
-  const handleSearchOnChange = (event) => {
-    selectedPokemon(event.target.value); 
-  };
-  
-  const handleInitiateData = () => initiateData(true);
-
-  const handleSubmitOnClick = () => {
-    handleInitiateData(); 
-    tutorial();
+  const onSubmit = (data, event) => {
+    console.log(`This is what you searched for - ${data.pokemon}`);
+    selectedPokemon(data.pokemon);
+    initiateAPICall(true);
+    event.target.reset();
+    
+    if (!hideTutorial) {
+      tutorial();
+    };
   };
   
   return (
     <ComponentContainer>
-      <SearchContainer id="pokemondata" onSubmit={handleSubmit(onSubmit)} onChange={handleSearchOnChange}>
+      <SearchContainer id="pokemondata" onSubmit={handleSubmit(onSubmit)}>
         <FormLabel htmlFor="pokemondata">Which Kanto Pokemon are you interested in?</FormLabel>
           <FormInputContainer>
             <FormInputText
@@ -158,15 +156,16 @@ const Search = ({ selectedPokemon, initiateData, tutorial, hideTutorial }) => {
               autoComplete="off"
               ref={register({
                 required:  true,
-                pattern: /\b(bulbasaur|ivysaur|venusaur|charmander|charmeleon|charizard|squirtle|wartortle|blastoise|caterpie|metapod|butterfree|weedle|kakuna|beedrill|pidgey|pidgeotto|pidgeot|rattata|raticate|spearow|fearow|ekans|arbok|pikachu|raichu|sandshrew|sandslash|nidoran-f|nidorina|nidoqueen|nidoran-m|nidorino|nidoking|clefairy|clefable|vulpix|ninetales|jigglypuff|wigglytuff|zubat|golbat|oddish|gloom|vileplume|paras|parasect|venonat|venomoth|diglett|dugtrio|meowth|persian|psyduck|golduck|mankey|primeape|growlithe|arcanine|poliwag|poliwhirl|poliwrath|abra|kadabra|alakazam|machop|machoke|machamp|bellsprout|weepinbell|victreebel|tentacool|tentacruel|geodude|graveler|golem|ponyta|rapidash|slowpoke|slowbro|magnemite|magneton|farfetchd|doduo|dodrio|seel|dewgong|grimer|muk|shellder|cloyster|gastly|haunter|gengar|onix|drowzee|hypno|krabby|kingler|voltorb|electrode|exeggcute|exeggutor|cubone|marowak|hitmonlee|hitmonchan|lickitung|koffing|weezing|rhyhorn|rhydon|chansey|tangela|kangaskhan|horsea|seadra|goldeen|seaking|staryu|starmie|mr-mime|scyther|jynx|electabuzz|magmar|pinsir|tauros|magikarp|gyarados|lapras|ditto|eevee|vaporeon|jolteon|flareon|porygon|omanyte|omastar|kabuto|kabutops|aerodactyl|snorlax|articuno|zapdos|moltres|dratini|dragonair|dragonite|mewtwo|mew)\b|\b([1-9]|[1-8][0-9]|9[0-9]|1[0-4][0-9]|15[01])\b/ig
-              })} 
+                pattern: /\b(bulbasaur|ivysaur|venusaur|charmander|charmeleon|charizard|squirtle|wartortle|blastoise|caterpie|metapod|butterfree|weedle|kakuna|beedrill|pidgey|pidgeotto|pidgeot|rattata|raticate|spearow|fearow|ekans|arbok|pikachu|raichu|sandshrew|sandslash|nidoran-f|nidorina|nidoqueen|nidoran-m|nidorino|nidoking|clefairy|clefable|vulpix|ninetales|jigglypuff|wigglytuff|zubat|golbat|oddish|gloom|vileplume|paras|parasect|venonat|venomoth|diglett|dugtrio|meowth|persian|psyduck|golduck|mankey|primeape|growlithe|arcanine|poliwag|poliwhirl|poliwrath|abra|kadabra|alakazam|machop|machoke|machamp|bellsprout|weepinbell|victreebel|tentacool|tentacruel|geodude|graveler|golem|ponyta|rapidash|slowpoke|slowbro|magnemite|magneton|farfetchd|doduo|dodrio|seel|dewgong|grimer|muk|shellder|cloyster|gastly|haunter|gengar|onix|drowzee|hypno|krabby|kingler|voltorb|electrode|exeggcute|exeggutor|cubone|marowak|hitmonlee|hitmonchan|lickitung|koffing|weezing|rhyhorn|rhydon|chansey|tangela|kangaskhan|horsea|seadra|goldeen|seaking|staryu|starmie|mr-mime|scyther|jynx|electabuzz|magmar|pinsir|tauros|magikarp|gyarados|lapras|ditto|eevee|vaporeon|jolteon|flareon|porygon|omanyte|omastar|kabuto|kabutops|aerodactyl|snorlax|articuno|zapdos|moltres|dratini|dragonair|dragonite|mewtwo|mew)\b|\b([1-9]|[1-9][0-9]|1[0-4][0-9]|15[0-1])\b/i
+              })}
               />
               {errors.pokemon?.type === "required" && <ErrorMessage>A NAME or ID is required.</ErrorMessage>}
               {errors.pokemon?.type === "pattern" && <ErrorMessage>A valid NAME or ID is required.</ErrorMessage>}
-            <FormInputSubmit type="submit" name="submit" disabled={formState.isSubmitting || !formState.isValid} onClick={handleSubmitOnClick}>Search Database!</FormInputSubmit>
+            <FormInputSubmit type="submit" name="submit" disabled={formState.isSubmitting || !formState.isValid}>Search Database!</FormInputSubmit>
           </FormInputContainer>
       </SearchContainer>
-      {!hideTutorial && <TutorialContainer>
+      {!hideTutorial && 
+      <TutorialContainer>
         <TutorialText>To use our free database search, enter either the valid name or ID of the Pokemon you would like to look up!</TutorialText>
         <TutorialText>To start getting detailed search results, please sign up to one of our <TutorialLink to="/pricing">subscription</TutorialLink> options.</TutorialText>
         <TutorialText>To get more information, you are always more than welcome to <TutorialLink to="/contact">contact</TutorialLink> our support agents.</TutorialText>
