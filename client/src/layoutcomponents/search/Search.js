@@ -127,7 +127,7 @@ const ErrorMessage = styled.div`
   }
 `;
 
-const Search = ({ selectedPokemon, initiateAPICall, tutorial, hideTutorial }) => {
+const Search = ({ selectedPokemon, tutorial, hideTutorial }) => {
   const { register, handleSubmit, errors, formState } = useForm({
     mode: "onChange"
   });
@@ -135,12 +135,11 @@ const Search = ({ selectedPokemon, initiateAPICall, tutorial, hideTutorial }) =>
   const onSubmit = (data, event) => {
     console.log(`This is what you searched for - ${data.pokemon}`);
     selectedPokemon(data.pokemon);
-    initiateAPICall(true);
     event.target.reset();
     
     if (!hideTutorial) {
-      tutorial();
-    };
+      tutorial(true);
+    }
   };
   
   return (

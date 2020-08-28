@@ -145,7 +145,7 @@ const Result = ({ pokemonData }) => {
   return (
     <ComponentContainer>
       <PokemonImageContainer type={pokemonData.typeOne}>
-        <PokemonImage src={`https://pokeres.bastionbot.org/images/pokemon/${pokemonData.id}.png`} alt="random pokemon image" />
+        {pokemonData.id !== null ? <PokemonImage src={`https://pokeres.bastionbot.org/images/pokemon/${pokemonData.id}.png`} alt="random pokemon image" /> : null}
       </PokemonImageContainer>
       <DataContainer type={pokemonData.typeOne}>
         <DataTitle>Main Information:</DataTitle>

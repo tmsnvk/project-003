@@ -17,9 +17,8 @@ const LayoutContainer = styled.div`
 `;
 
 const SearchLayout = () => {
-  const [initiateAPICall, setInitiateAPICall] = useState(false);
-  const [selectedPokemon, setSelectedPokemon] = useState("");
-  const [pokemonData, setPokemonData] = useState({ name: "", id: "", typeOne: [], typeTwo: [], statistics: ["", "", "", "", "", ""] });
+  const [selectedPokemon, setSelectedPokemon] = useState(null);
+  const [pokemonData, setPokemonData] = useState({ name: "", id: null, typeOne: [], typeTwo: [], statistics: ["", "", "", "", "", ""] });
   const [hideTutorial, setHideTutorial] = useState(false);
 
   useEffect(() => {
@@ -34,29 +33,25 @@ const SearchLayout = () => {
       } catch (error) {
         console.log(error);
       }
-    }
-
-    if (initiateAPICall) {
-      response();
-      setInitiateAPICall(false);
     };
-  }, [selectedPokemon, pokemonData, initiateAPICall]);
+
+    if (selectedPokemon !== null) {
+      response();
+      setSelectedPokemon(null);
+    }
+  }, [selectedPokemon]);
 
   const handleSelectedPokemon = (selectedPokemon) => {
     setSelectedPokemon(selectedPokemon.toLowerCase());
   };
 
-  const handleInitiateData = (initiateAPICall) => {
-    setInitiateAPICall(initiateAPICall);
-  };
-
-  const tutorial = () => {
-    setHideTutorial(true);
+  const handleTutorial = (tutorial) => {
+    setHideTutorial(tutorial);
   };
 
   return (
     <LayoutContainer>
-      <Search selectedPokemon={handleSelectedPokemon} initiateAPICall={handleInitiateData} hideTutorial={hideTutorial} tutorial={tutorial} />
+      <Search selectedPokemon={handleSelectedPokemon} tutorial={handleTutorial} hideTutorial={hideTutorial} />
       {hideTutorial && <Result pokemonData={pokemonData} />}
     </LayoutContainer>
   );
