@@ -8,7 +8,7 @@
   +  OR visit the live heroku deployed version [here](https://BLANK.herokuapp.com/).
 
 #### project structure
-```
+```JSON
 *
 |- .env_sample
 |- .gitignore
@@ -41,45 +41,45 @@
       |- ItemContainer.js
       |- RequiredFields.js
       |- StyledIcon.js
-		|- HELPERFUNCTIONS
-		  |- ScrollToTop.js
+    |- HELPERFUNCTIONS
+      |- ScrollToTop.js
     |- LAYOUTCOMPONENTS
-		  |- CONTACT
-			  |- ContactForm.js
-				|- FaqContainer.js
-				|- FaqItem.js
-				|- Header.js
-			|- ERROR
-			  |- 
-			|- HOME
-			  |- Header.js
-				|- HowImage.js
-				|- HowText.js
-				|- Options.js
-				|- PokemonCards.js
-				|- Statistics.js
-				|- SummaryCards.js
-			|- PRICING
-			  |- Header.js
-				|- SignupForm.js
-				|- SubscriptionOptions.js
-			|- SEARCH
-			  |- Header.js
-				|- Result.js
-				|- Search.js
-			|- SUCCESS
-			  |- 
-		|- LAYOUTS
-		  |- ContactLayout.js
-			|- ErrorLayout.js
-			|- HomeLayout.js
-			|- PricingLayout.js
-			|- SearchLayout.js
-			|- SuccessLayout.js
-		|- MAINCOMPONENTS
-		  |- App.js
-			|- Footer.js
-			|- Navbar.js
+      |- CONTACT
+        |- ContactForm.js
+        |- FaqContainer.js
+        |- FaqItem.js
+        |- Header.js
+      |- ERROR
+        |- 
+      |- HOME
+        |- Header.js
+        |- HowImage.js
+        |- HowText.js
+        |- Options.js
+        |- PokemonCards.js
+        |- Statistics.js
+        |- SummaryCards.js
+      |- PRICING
+        |- Header.js
+        |- SignupForm.js
+        |- SubscriptionOptions.js
+      |- SEARCH
+        |- Header.js
+        |- Result.js
+        |- Search.js
+      |- SUCCESS
+        |- 
+    |- LAYOUTS
+      |- ContactLayout.js
+      |- ErrorLayout.js
+      |- HomeLayout.js
+      |- PricingLayout.js
+      |- SearchLayout.js
+      |- SuccessLayout.js
+    |- MAINCOMPONENTS
+      |- App.js
+      |- Footer.js
+      |- Navbar.js
 |- MODELS
   |- ContactForm.js
   |- SignupForm.js
