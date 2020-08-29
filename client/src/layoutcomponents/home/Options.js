@@ -1,7 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 import ElementContainer from "../../commoncomponents/ElementContainer";
+import InformationText from "../../commoncomponents/InformationText";
+import InformationLink from "../../commoncomponents/InformationLink";
 
 const ComponentContainer = styled(ElementContainer)`
   grid-column-start: 1;
@@ -15,44 +16,23 @@ const ComponentContainer = styled(ElementContainer)`
     grid-column-end: 3;
     grid-row-start: 6;
     grid-row-end: 7;
-    width: auto;
   }
 
   @media only screen and (min-width: ${props => props.theme.mediaQueries.large}) {
     grid-column-end: 5;
   }
-`;
 
-const TextTitle = styled.h2`
-  font-size: ${props => props.theme.fontSize.small};
-  padding: 1rem 0 1rem 0;
-  text-align: center;
-
-  @media only screen and (min-width: ${props => props.theme.mediaQueries.medium}) {
-    font-size: ${props => props.theme.fontSize.medium};
-  }
-`;
-
-const TextLink = styled(Link)`
-  color: ${props => props.theme.fontColor.secondary};
-  font-size: inherit;
-  text-decoration: none;
-  cursor: pointer;
-
-  &:hover {
-    color: ${props => props.theme.fontColor.alternate};
-  }
-
-  @media only screen and (min-width: ${props => props.theme.mediaQueries.medium}) {
-    font-size: ${props => props.theme.fontSize.medium};
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.xLarge}) {
+    width: auto;
   }
 `;
 
 const Options = () => {
   return (
     <ComponentContainer>
-      <TextTitle>Like what you see? - Subscribe on our <TextLink to="/pricing">Pricing</TextLink> page and join our community immediately!</TextTitle>
-      <TextTitle>Have further questions? - Get in touch with one of our customer agents on our <TextLink to="/contact">Contact</TextLink> page!</TextTitle>
+      <InformationText>Want to know what we offer?<br />Read the following paragraphs and visit the appropriate link to get an answer for your questions!</InformationText>
+      <InformationText>Like what you see? - Subscribe on our <InformationLink to="/pricing">Pricing</InformationLink> page and join our community immediately!</InformationText>
+      <InformationText>Have further questions? - Visit our FAQ or get in touch with one of our customer agents on our <InformationLink to="/contact">Contact</InformationLink> page!</InformationText>
     </ComponentContainer>
   );
 };

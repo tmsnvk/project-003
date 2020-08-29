@@ -1,9 +1,14 @@
 import React from "react";
 import styled from "styled-components";
-import { color, font, fontsize, mediaq } from "../../variables/styling";
+import { useForm } from "react-hook-form";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
-import { useForm } from "react-hook-form";
+// import ElementContainer from "../../commoncomponents/ElementContainer";
+// import InputField from "../../commoncomponents/InputField";
+// import FormSubmitButton from "../../commoncomponents/FormSubmitButton";
+// import RequiredFields from "../../commoncomponents/RequiredFields";
+// import InputFormLabel from "../../commoncomponents/InputFormLabel";
+// import ItemContainer from "../../commoncomponents/ItemContainer";
 
 const ComponentContainer = styled.section`
   grid-column-start: 1;
@@ -13,11 +18,11 @@ const ComponentContainer = styled.section`
   width: 90%;
   margin: 0 auto;
   padding: 1rem 1rem 1rem 1rem;
-  background-color: ${color.background.mainDark};
-  box-shadow: 1px 2px 5px 1px ${color.shadow.main};
+  background-color: ${props => props.theme.backgroundColor.mainDark};
+  box-shadow: 1px 2px 5px 1px ${props => props.theme.shadowColor.main};
   border-radius: 1rem;
 
-  @media only screen and (min-width: ${mediaq.medium}) {
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.medium}) {
     grid-column-end: 4;
     width: 60%;
   }
@@ -29,8 +34,8 @@ const FormContainer = styled.form`
 `;
 
 const FormLabel = styled.label`
-  font-size: ${fontsize.medium};
-  color: ${color.font.mainDark};
+  font-size: ${props => props.theme.fontSize.medium};
+  color: ${props => props.theme.fontColor.mainDark};
   font-weight: bold;
   text-transform: uppercase;
   text-align: center;
@@ -40,17 +45,17 @@ const FormLabel = styled.label`
     content: " ";
     padding: 3rem 0 0 0;
   	width: 80%;
-    border-bottom: 2px solid ${color.font.mainDark};
+    border-bottom: 2px solid ${props => props.theme.fontColor.mainDark};
     display: block;
 		margin: 0 auto;
   }
 
-  @media only screen and (min-width: ${mediaq.medium}) {
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.medium}) {
     align-self: center;
   }
 
-  @media only screen and (min-width: ${mediaq.large}) {
-    font-size: ${fontsize.large};
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.large}) {
+    font-size: ${props => props.theme.fontSize.large};
   }
 `;
 
@@ -61,41 +66,41 @@ const IndividualInputFieldContainer = styled.div`
 const InputField = styled.input`
   width: 25rem;
   height: 5rem;
-  font-size: ${fontsize.small};
+  font-size: ${props => props.theme.fontSize.small};
   padding: 0.5rem 0.5rem 0.5rem 2rem;
-  background-color: ${color.background.mainDark};
-  border: 1px solid ${color.font.secondary};
-  box-shadow: 0px 2px 2px 0px ${color.shadow.main};
+  background-color: ${props => props.theme.backgroundColor.mainDark};
+  border: 1px solid ${props => props.theme.fontColor.secondary};
+  box-shadow: 0px 2px 2px 0px ${props => props.theme.shadowColor.main};
   border-radius: 1rem;
 
   &:hover {
-    background-color: ${color.background.mainLight};
+    background-color: ${props => props.theme.backgroundColor.mainLight};
   }
 
   &:focus {
 		outline: none;
-		background-color: ${color.background.mainLight};
+		background-color: ${props => props.theme.backgroundColor.mainLight};
   }
 `;
 
 const TextareaInputField = styled.textarea`
   width: 25rem;
   height: 5rem;
-  font-family: ${font.main};
-  font-size: ${fontsize.small};
+  font-family: ${props => props.theme.fontFamily.main};
+  font-size: ${props => props.theme.fontSize.small};
   padding: 1.5rem 0.5rem 0.5rem 2rem;
-  background-color: ${color.background.mainDark};
-  border: 1px solid ${color.font.secondary};
-  box-shadow: 0px 2px 2px 0px ${color.shadow.main};
+  background-color: ${props => props.theme.backgroundColor.mainDark};
+  border: 1px solid ${props => props.theme.fontColor.secondary};
+  box-shadow: 0px 2px 2px 0px ${props => props.theme.shadowColor.main};
   border-radius: 1rem;
 
   &:hover {
-    background-color: ${color.background.mainLight};
+    background-color: ${props => props.theme.backgroundColor.mainLight};
   }
 
   &:focus {
 		outline: none;
-		background-color: ${color.background.mainLight};
+		background-color: ${props => props.theme.backgroundColor.mainLight};
   }
 `;
 
@@ -106,7 +111,7 @@ const MainCheckboxContainer = styled(IndividualInputFieldContainer)`
     content: " ";
     display: block;
     padding: 2.5rem 0 0 0;
-    border-bottom: 2px solid ${color.font.secondary};
+    border-bottom: 2px solid ${props => props.theme.fontColor.secondary};
     width: 50%;
     margin: 0 auto;
   }
@@ -124,25 +129,25 @@ const Checkbox = styled.input`
 
 const FormLink = styled(Link)`
   text-decoration: none;
-  color: ${color.font.mainDark};
-  font-size: ${fontsize.small};
+  color: ${props => props.theme.fontColor.mainDark};
+  font-size: ${props => props.theme.fontSize.small};
 `;
 
 const ErrorMessage = styled.div`
-  color: ${color.font.warning};
-  font-size: ${fontsize.default};
+  color: ${props => props.theme.fontColor.warning};
+  font-size: ${props => props.theme.fontSize.default};
   padding: 1rem 0 0 0;
 `;
 
 const CheckboxFormLabel = styled.label`
   display: block;
-  color: ${color.font.secondary};
-  font-size: ${fontsize.small};
+  color: ${props => props.theme.fontColor.secondary};
+  font-size: ${props => props.theme.fontSize.small};
 `;
 
 const RequiredFieldsText = styled.div`
-  font-size: ${fontsize.small};
-  color: ${color.font.secondary};
+  font-size: ${props => props.theme.fontSize.small};
+  color: ${props => props.theme.fontColor.secondary};
   margin: 2.5rem 0 0 0;
   align-self: center;
   padding: 0 0 2rem 0;
@@ -150,18 +155,18 @@ const RequiredFieldsText = styled.div`
 
 const FormInputSubmit = styled.input`
   align-self: center;
-  font-size: ${fontsize.medium};
+  font-size: ${props => props.theme.fontSize.medium};
   text-align: center;
   width: 20rem;
   height: 5rem;
   padding: 1rem 1rem 1rem 1rem;
-  box-shadow: 0px 2px 2px 0px ${color.shadow.main};
-  border: 1px solid ${color.font.secondary};
+  box-shadow: 0px 2px 2px 0px ${props => props.theme.shadowColor.main};
+  border: 1px solid ${props => props.theme.fontColor.secondary};
   border-radius: 1rem;
   cursor: pointer;
 
   &:hover {
-    background-color: ${color.background.mainDark};
+    background-color: ${props => props.theme.backgroundColor.mainDark};
   }
   
   &:focus {

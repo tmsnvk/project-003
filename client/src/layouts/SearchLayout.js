@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import Header from "../layoutcomponents/search/Header";
 import Search from "../layoutcomponents/search/Search";
 import Result from "../layoutcomponents/search/Result";
 import axios from "axios";
 
-const LayoutContainer = styled.div`
+const LayoutContainer = styled.main`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto;
@@ -51,6 +52,7 @@ const SearchLayout = () => {
 
   return (
     <LayoutContainer>
+      <Header />
       <Search selectedPokemon={handleSelectedPokemon} tutorial={handleTutorial} hideTutorial={hideTutorial} />
       {hideTutorial && <Result pokemonData={pokemonData} />}
     </LayoutContainer>

@@ -1,15 +1,16 @@
 import React from "react";
-import { BrowserRouter as Router, Link } from "react-router-dom";
 import styled from "styled-components";
-import { color, font, fontsize, mediaq } from "../variables/styling";
+import { BrowserRouter as Router, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const FooterContainer = styled.section`
-  color: ${color.font.mainLight};
-  background-color: ${color.background.secondary};
+const FooterContainer = styled.footer`
+  color: ${props => props.theme.fontColor.mainLight};
+  background-color: ${props => props.theme.backgroundColor.secondary};
   text-align: center;
   margin: 5rem 0 0 0;
   padding: 1rem 0 1rem 0;
+  width: 100%;
+  height: 20rem;
 `;
 
 const SocialLinks = styled.div`
@@ -20,7 +21,7 @@ const SocialLinks = styled.div`
 
 const FooterLinks = styled(Link)`
   color: inherit;
-  padding: 0 2rem 0 2rem;
+  margin: 2rem 2rem 4rem 2rem;
   text-decoration: none;
   cursor: pointer;
   opacity: 0.7;
@@ -30,22 +31,17 @@ const FooterLinks = styled(Link)`
   }
 `;
 
-const StyledIcon = styled(FontAwesomeIcon)`
-  font-size: ${fontsize.large};
-  margin: 1rem 0 1rem 0;
-
-  @media only screen and (min-width: ${mediaq.small}) {
-    font-size: ${fontsize.extraLarge};
-  }
+const FooterIcon = styled(FontAwesomeIcon)`
+  display: inline-block;
+  font-size: ${props => props.theme.fontSize.xLarge};
 `;
 
 const Copyright = styled.div`
-  color: ${color.font.mainLight};
-  font-family: ${font.secondary};
-  font-size: ${fontsize.small};
+  color: ${props => props.theme.fontColor.mainLight};
+  font-family: ${props => props.theme.fontFamily.secondary};
+  font-size: ${props => props.theme.fontSize.small};
   font-weight: bold;
   letter-spacing: 0.2rem;
-  margin: 2rem 0 0 0;
 `;
 
 const CopyrightDiv = styled.p`
@@ -57,10 +53,10 @@ const Footer = () => {
     <FooterContainer>
       <Router>
         <SocialLinks>
-          <FooterLinks to="/"><StyledIcon icon={["fab", "facebook"]}></StyledIcon></FooterLinks>
-          <FooterLinks to="/"><StyledIcon icon={["fab", "twitter"]}></StyledIcon></FooterLinks>
-          <FooterLinks to="/"><StyledIcon icon={["fab", "instagram"]}></StyledIcon></FooterLinks>
-          <FooterLinks to="/"><StyledIcon icon={["fab", "youtube"]}></StyledIcon></FooterLinks>
+          <FooterLinks to="/"><FooterIcon icon={["fab", "facebook"]}></FooterIcon></FooterLinks>
+          <FooterLinks to="/"><FooterIcon icon={["fab", "twitter"]}></FooterIcon></FooterLinks>
+          <FooterLinks to="/"><FooterIcon icon={["fab", "instagram"]}></FooterIcon></FooterLinks>
+          <FooterLinks to="/"><FooterIcon icon={["fab", "youtube"]}></FooterIcon></FooterLinks>
         </SocialLinks>
       </Router>
       <Copyright>

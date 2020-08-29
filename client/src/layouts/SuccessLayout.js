@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import GridSuccessTextContainer from "../layoutcomponents/success/GridSuccessTextContainer";
 
-const GridMainContainer = styled.section`
+const GridMainContainer = styled.main`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr auto;

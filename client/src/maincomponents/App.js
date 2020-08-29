@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
-import ScrollToTop from "./ScrollToTop";
+import ScrollToTop from "../helperfunctions/ScrollToTop";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import HomeLayout from "../layouts/HomeLayout";
@@ -19,16 +19,17 @@ library.add(faFacebook,faTwitter, faYoutube, faInstagram, faDotCircle, faInfinit
 const theme = {
   fontColor: {
     mainDark: "#3f3b3b", // almost black
-    mainLight: "#e6e6e6", // light gray
+    mainLight: "#e6e7e4", // light gray
     secondary: "#0c2cbb", // dark blue
-    alternate: "#e79727", // orange
+    alternate: "#dc8b18", // orange
     warning: "#d90e00" // red
   },
   backgroundColor: {
     mainDark: "#d2d0d0", // gray
-    mainLight: "#e6e7e4", // light gray/green
+    mainLight: "#e6e7e4", // light gray
     secondary: "#0c2cbb", // dark blue
-    alternate: "#e79727", // orange
+    alternate: "#dc8b18", // orange
+    gradient: "radial-gradient(circle, #e6e7e4, #d2d0d0)"
   },
   shadowColor: {
     main: "#424242" // almost black
@@ -48,7 +49,9 @@ const theme = {
   elementBorder: {
     padding: "1rem 1rem 1rem 1rem",
     boxShadow: "1px 2px 5px 1px",
-    borderRadius: "1rem"
+    border: "solid 1px #e1e2df",
+    borderRadius: "1rem",
+
   },
   mediaQueries: {
     extraSmall: "320px",

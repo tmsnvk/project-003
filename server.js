@@ -14,8 +14,11 @@ require("dotenv").config();
 const publicPath = path.join(__dirname, "..", "client/public");
 
 const app = express();
+
+app.use(helmet({
+  contentSecurityPolicy: false,
+}));
 app.use(cors());
-app.use(helmet());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(publicPath));

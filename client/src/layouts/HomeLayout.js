@@ -8,7 +8,7 @@ import HowText from "../layoutcomponents/home/HowText";
 import Statistics from "../layoutcomponents/home/Statistics";
 import Options from "../layoutcomponents/home/Options";
 
-const LayoutContainer = styled.section`
+const LayoutContainer = styled.main`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto;

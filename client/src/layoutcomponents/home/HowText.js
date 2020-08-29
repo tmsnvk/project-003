@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ElementContainer from "../../commoncomponents/ElementContainer";
+import StyledIcon from "../../commoncomponents/StyledIcon";
 
 const ComponentContainer = styled(ElementContainer)`
   grid-column-start: 1;
@@ -29,7 +29,7 @@ const ComponentContainer = styled(ElementContainer)`
 
 const ItemContainer = styled.div`
   text-align: left;
-  padding: 0 0 2rem 0;
+  padding: 0 0 1.5rem 0;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -57,12 +57,6 @@ const ItemTitle = styled.h2`
   @media only screen and (min-width: ${props => props.theme.mediaQueries.large}) {
     font-size: ${props => props.theme.fontSize.large};
   }
-`;
-
-const ItemIcon = styled(FontAwesomeIcon)`
-  color: ${props => props.theme.fontColor.secondary};
-  margin: 0 1rem 0 1.5rem;
-  font-size: ${props => props.theme.fontSize.large};
 `;
 
 const ItemText = styled.p`
@@ -100,7 +94,7 @@ const HowText = () => {
   const renderComponentData = ComponentData.map(({ text, id }) => {
     return (
       <ItemContainer key={id}>
-        <ItemIcon icon={["fas", "angle-double-right"]}></ItemIcon>
+        <StyledIcon icon={["fas", "angle-double-right"]}></StyledIcon>
         <ItemText>{text}</ItemText>
       </ItemContainer>
     );

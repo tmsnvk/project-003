@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import GridErrorContainer from "../layoutcomponents/error/GridErrorContainer";
 
-const GridMainContainer = styled.section`
+const LayoutContainer = styled.main`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr auto;
@@ -14,9 +14,9 @@ const GridMainContainer = styled.section`
 
 const ErrorLayout = () => {
   return (
-    <GridMainContainer>
+    <LayoutContainer>
       <GridErrorContainer />
-    </GridMainContainer>
+    </LayoutContainer>
   );
 };
 

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ElementContainer from "../../commoncomponents/ElementContainer";
+import StyledIcon from "../../commoncomponents/StyledIcon";
 
 const ComponentContainer = styled.div`
   grid-column-start: 1;
@@ -37,7 +37,7 @@ const ComponentContainer = styled.div`
 
 const ItemContainer = styled(ElementContainer)`
   width: 95%;
-  margin: 0 auto 2rem;
+  margin: 0 auto 2.5rem;
   text-align: center;
 
   &:hover {
@@ -63,15 +63,8 @@ const ItemContainer = styled(ElementContainer)`
   }
 `;
 
-const ItemIcon = styled(FontAwesomeIcon)`
-  display: inline-block;
-  color: ${props => props.theme.fontColor.secondary};
-  font-size: ${props => props.theme.fontSize.xLarge};
-  margin: 1rem 0 1rem 0;
-`;
-
 const ItemTitle = styled.h3`
-  font-size: ${props => props.theme.fontSize.medium};
+  font-size: ${props => props.theme.fontSize.large};
   font-family: ${props => props.theme.fontFamily.secondary};
   padding: 0 0 2rem 0;
 
@@ -87,6 +80,7 @@ const ItemTitle = styled.h3`
 
 const ItemParagraph = styled.p`
   font-size: ${props => props.theme.fontSize.small};
+  padding: 0 0 1rem 0;
 `;
 
 const Summary = () => {
@@ -104,7 +98,7 @@ const Summary = () => {
       title: "Neat & clear data presentation",
       paragraphs: {
         one: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A amet ratione omnis, voluptate facere commodi rerum optio. Magnam perspiciatis odit nisi sit asperiores sunt deseruntmagni saepe, quo ipsam maxime!",
-        two: ""
+        two: null
       }
     },
     {
@@ -120,7 +114,7 @@ const Summary = () => {
       title: "Email, chat & phone support",
       paragraphs: {
         one: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A amet ratione omnis, voluptate facere commodi rerum optio. Magnam perspiciatis odit nisi sit asperiores sunt deseruntmagni saepe, quo ipsam maxime!",
-        two: ""
+        two: null
       }
     }
   ];
@@ -128,7 +122,7 @@ const Summary = () => {
   const renderComponentData = componentData.map(({ icon, title, paragraphs }) => {
     return (
       <ItemContainer key={icon}>
-        <ItemIcon icon={icon}></ItemIcon>
+        <StyledIcon icon={icon}></StyledIcon>
         <ItemTitle>{title}</ItemTitle>
         <ItemParagraph>{paragraphs.one}</ItemParagraph>
         <ItemParagraph>{paragraphs?.two}</ItemParagraph>

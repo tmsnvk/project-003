@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { color, mediaq } from "../../variables/styling";
 import FaqItem from "./FaqItem";
 
-const ComponentContainer = styled.section`
+const ComponentContainer = styled.div`
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 2;
@@ -11,15 +10,15 @@ const ComponentContainer = styled.section`
   width: 90%;
   margin: 0 auto;
   padding: 1rem 1rem 1rem 1rem;
-  background-color: ${color.background.mainDark};
-  box-shadow: 1px 2px 5px 1px ${color.shadow.main};
+  background-color: ${props => props.theme.backgroundColor.mainDark};
+  box-shadow: 1px 2px 5px 1px ${props => props.theme.shadowColor.main};
   border-radius: 1rem;
 
-  @media only screen and (min-width: ${mediaq.small}) {
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.small}) {
     width: 60%;
   }
 
-  @media only screen and (min-width: ${mediaq.medium}) {
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.medium}) {
     grid-column-end: 4;
     width: 60%;
   }

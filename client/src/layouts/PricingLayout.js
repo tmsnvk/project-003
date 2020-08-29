@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import Overview from "../layoutcomponents/pricing/Overview";
+import Header from "../layoutcomponents/pricing/Header";
 import SubscriptionOptions from "../layoutcomponents/pricing/SubscriptionOptions";
 import SignupForm from "../layoutcomponents/pricing/SignupForm";
 
-const LayoutContainer = styled.section`
+const LayoutContainer = styled.main`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto;
@@ -23,7 +23,7 @@ const LayoutContainer = styled.section`
 const PricingLayout = () => {
   return (
     <LayoutContainer>
-      <Overview />
+      <Header />
       <SubscriptionOptions />
       <SignupForm />
     </LayoutContainer>

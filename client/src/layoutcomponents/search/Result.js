@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import ElementContainer from "../../commoncomponents/ElementContainer";
 
-const ComponentContainer = styled.section`
+const ComponentContainer = styled.div`
   grid-column-start: 1;
   grid-column-end: 2;
-  grid-row-start: 2;
-  grid-row-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 4;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,12 +20,15 @@ const ComponentContainer = styled.section`
   }
 `;
 
-const PokemonImageContainer = styled.div`
+const PokemonImageContainer = styled(ElementContainer)`
   width: 90%;
-  background-color: ${({ type }) => handleType(type)};
-  padding: 2rem 2rem 2rem 2rem;
-  box-shadow: 0px 2px 2px 0px ${props => props.theme.shadowColor.main};
-  border-radius: 1rem;
+  background-image: ${({ type }) => handleType(type)};
+  margin: 1rem 1rem 1rem 1rem;
+
+  &:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s;
+  }
 
   @media only screen and (min-width: ${props => props.theme.mediaQueries.extraSmall}) {
     width: 60%;
@@ -55,7 +59,6 @@ const DataContainer = styled(PokemonImageContainer)`
   font-size: ${props => props.theme.fontSize.small};
   font-weight: bold;
   letter-spacing: 0.2rem;
-  margin: 2.5rem 0 0 0;
 
   @media only screen and (min-width: ${props => props.theme.mediaQueries.extraSmall}) {
     width: 80%;
@@ -73,13 +76,13 @@ const DataContainer = styled(PokemonImageContainer)`
 
 const DataTitle = styled.div`
   font-family: ${props => props.theme.fontFamily.secondary};
-  font-size: ${props => props.theme.fontSize.large};
+  font-size: ${props => props.theme.fontSize.xLarge};
   color: ${props => props.theme.fontColor.secondary};
 `;
 
 const DataRow = styled.div`
   font-family: ${props => props.theme.fontFamily.secondary};
-  font-size: ${props => props.theme.fontSize.medium};
+  font-size: ${props => props.theme.fontSize.large};
   color: ${props => props.theme.fontColor.secondary};
   padding: 0.5rem 0 0.5rem 0;
 
@@ -90,16 +93,16 @@ const DataRow = styled.div`
 
 const DataSpan = styled.span`
   font-family: ${props => props.theme.fontFamily.main};
-  font-size: ${props => props.theme.fontSize.small};
+  font-size: ${props => props.theme.fontSize.medium};
   color: ${props => props.theme.fontColor.mainDark};
 
-  @media only screen and (min-width: ${props => props.theme.mediaQueries.large}) {
-    font-size: ${props => props.theme.fontSize.medium};
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.medium}) {
+    font-size: ${props => props.theme.fontSize.large};
   }
 `;
 
-const StyledIcon = styled(FontAwesomeIcon)`
-  font-size: ${props => props.theme.fontSize.medium};
+const DataIcon = styled(FontAwesomeIcon)`
+  font-size: ${props => props.theme.fontSize.large};
   margin: 0 1rem 0 0;
   vertical-align: middle;
 `;
@@ -107,37 +110,43 @@ const StyledIcon = styled(FontAwesomeIcon)`
 const handleType = (type) => {
   switch (type) {
     case "bug":
-      return "rgba(225, 175, 0, 0.1)"; // orange
+      return "radial-gradient(ellipse, #e6e7e4, rgba(198, 210, 112, 0.5))"; // dark green
+    case "dark":
+      return "radial-gradient(ellipse, #e6e7e4, rgba(162, 146, 136, 0.5))"; // brown
     case "dragon":
-      return "rgba(170, 65, 0, 0.1)"; // brownish
+      return "radial-gradient(ellipse, #e6e7e4, rgba(162, 125, 250, 0.5))"; // light purple
     case "electric":
-      return "rgba(225, 210, 0, 0.1)"; // yellow
+      return "radial-gradient(ellipse, #e6e7e4, rgba(250, 224, 120, 0.5))"; // yellow
     case "fairy":
-      return "rgba(235, 0, 235, 0.1)"; // pink
+      return "radial-gradient(ellipse, #e6e7e4, rgba(244, 189, 201, 0.5))"; // light pink
     case "fighting":
-      return "rgba(135, 135, 135, 0.1)"; // gray
+      return "radial-gradient(ellipse, #e6e7e4, rgba(214, 120, 115, 0.5))"; // light red
     case "fire":
-      return "rgba(225, 55, 0, 0.1)"; // red
+      return "radial-gradient(ellipse, #e6e7e4, rgba(245, 172, 120, 0.5))"; // orange
     case "flying":
-      return "rgba(0, 135, 175, 0.1)"; // cyan
+      return "radial-gradient(ellipse, #e6e7e4, rgba(198, 183, 245, 0.5))"; // blue/purple
+    case "ghost":
+      return "radial-gradient(ellipse, #e6e7e4, rgba(162, 146, 188, 0.5))"; // dark purple
     case "grass":
-      return "rgba(0, 155, 15, 0.1)"; // green
+      return "radial-gradient(ellipse, #e6e7e4, rgba(167, 219, 141, 0.5))"; // light green
     case "ground":
-      return "rgba(110, 55, 0, 0.1)"; // brown
+      return "radial-gradient(ellipse, #e6e7e4, rgba(235, 214, 157, 0.5))"; // beige
     case "ice":
-      return "rgba(20, 80, 230, 0.1)"; // light blue
+      return "radial-gradient(ellipse, #e6e7e4, rgba(188, 230, 230, 0.5))"; // cyan
     case "normal":
-      return "rgba(0, 0, 0, 0.1)"; // black
+      return "radial-gradient(ellipse, #e6e7e4, rgba(198, 198, 167, 0.5))"; // khaki
     case "poison":
-      return "rgba(100, 245, 0, 0.1)"; // neon green
+      return "radial-gradient(ellipse, #e6e7e4, rgba(193, 131, 193, 0.5))"; // light purple
     case "psychic":
-      return "rgba(135, 0, 105, 0.1)"; // purple
+      return "radial-gradient(ellipse, #e6e7e4, rgba(250, 146, 178, 0.5))"; // dark pink
     case "rock":
-      return "rgba(190, 135, 0, 0.1)"; // tan
+      return "radial-gradient(ellipse, #e6e7e4, rgba(209, 193, 125, 0.5))"; // tan
+    case "steel":
+      return "radial-gradient(ellipse, #e6e7e4, rgba(209, 209, 224, 0.5))"; // grayish blue
     case "water":
-      return "rgba(0, 30, 205, 0.1)"; // blue
+      return "radial-gradient(ellipse, #e6e7e4, rgba(157, 183, 245, 0.5))"; // blue
     default:
-      return "white";
+      return "#d2d0d0";
   };
 };
 
@@ -148,19 +157,19 @@ const Result = ({ pokemonData }) => {
         {pokemonData.id !== null ? <PokemonImage src={`https://pokeres.bastionbot.org/images/pokemon/${pokemonData.id}.png`} alt="random pokemon image" /> : null}
       </PokemonImageContainer>
       <DataContainer type={pokemonData.typeOne}>
-        <DataTitle>Main Information:</DataTitle>
-        <DataRow><StyledIcon icon={["fas", "id-card"]}></StyledIcon>Name:&nbsp;<DataSpan>{pokemonData.name}</DataSpan></DataRow>
-        <DataRow><StyledIcon icon={["fas", "tag"]}></StyledIcon>ID:&nbsp;<DataSpan>{pokemonData.id}</DataSpan></DataRow>
-        {pokemonData.typeTwo ? 
-        <DataRow><StyledIcon icon={["fas", "code-branch"]}></StyledIcon>Type:&nbsp;<DataSpan>{pokemonData.typeOne}</DataSpan> / <DataSpan>{pokemonData.typeTwo}</DataSpan></DataRow> : 
-        <DataRow><StyledIcon icon={["fas", "code-branch"]}></StyledIcon>Type:&nbsp;<DataSpan>{pokemonData.typeOne}</DataSpan></DataRow>}
+        <DataTitle>Identity:</DataTitle>
+        <DataRow><DataIcon icon={["fas", "id-card"]}></DataIcon>Name:&nbsp;<DataSpan>{pokemonData.name}</DataSpan></DataRow>
+        <DataRow><DataIcon icon={["fas", "tag"]}></DataIcon>ID:&nbsp;<DataSpan>{pokemonData.id}</DataSpan></DataRow>
+        {!pokemonData.typeTwo ? 
+        <DataRow><DataIcon icon={["fas", "code-branch"]}></DataIcon>Type:&nbsp;<DataSpan>{pokemonData.typeOne}</DataSpan></DataRow> :
+        <DataRow><DataIcon icon={["fas", "code-branch"]}></DataIcon>Type:&nbsp;<DataSpan>{pokemonData.typeOne}</DataSpan> / <DataSpan>{pokemonData.typeTwo}</DataSpan></DataRow>}
       </DataContainer>
       <DataContainer type={pokemonData.typeOne}>
       <DataTitle>Statistics:</DataTitle>
-        <DataRow><StyledIcon icon={["fas", "heart"]}></StyledIcon>HP:&nbsp;<DataSpan>{pokemonData.statistics[0].base_stat}</DataSpan></DataRow>
-        <DataRow><StyledIcon icon={["fas", "hamsa"]}></StyledIcon>Attack:&nbsp;<DataSpan>{pokemonData.statistics[1].base_stat}</DataSpan></DataRow>
-        <DataRow><StyledIcon icon={["fas", "scroll"]}></StyledIcon>Defense:&nbsp;<DataSpan>{pokemonData.statistics[2].base_stat}</DataSpan></DataRow>
-        <DataRow><StyledIcon icon={["fas", "rocket"]}></StyledIcon>Speed:&nbsp;<DataSpan>{pokemonData.statistics[5].base_stat}</DataSpan></DataRow>
+        <DataRow><DataIcon icon={["fas", "heart"]}></DataIcon>HP:&nbsp;<DataSpan>{pokemonData.statistics[0].base_stat}</DataSpan></DataRow>
+        <DataRow><DataIcon icon={["fas", "hamsa"]}></DataIcon>Attack:&nbsp;<DataSpan>{pokemonData.statistics[1].base_stat}</DataSpan></DataRow>
+        <DataRow><DataIcon icon={["fas", "scroll"]}></DataIcon>Defense:&nbsp;<DataSpan>{pokemonData.statistics[2].base_stat}</DataSpan></DataRow>
+        <DataRow><DataIcon icon={["fas", "rocket"]}></DataIcon>Speed:&nbsp;<DataSpan>{pokemonData.statistics[5].base_stat}</DataSpan></DataRow>
       </DataContainer>
     </ComponentContainer>
   );

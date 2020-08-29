@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import ElementContainer from "../../commoncomponents/ElementContainer";
 
-const ComponentContainer = styled.section`
+const ComponentContainer = styled.div`
   display: none;
 
   @media only screen and (min-width: ${props => props.theme.mediaQueries.medium}) {

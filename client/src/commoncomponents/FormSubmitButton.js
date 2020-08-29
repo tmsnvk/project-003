@@ -3,6 +3,7 @@ import styled from "styled-components";
 const FormSubmitButton = styled.input`
   align-self: center;
   font-size: ${props => props.theme.fontSize.medium};
+  color: ${props => props.theme.fontColor.mainDark};
   text-align: center;
   width: 20rem;
   height: 5rem;

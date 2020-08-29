@@ -1,11 +1,14 @@
 import React from "react";
 import styled from "styled-components";
-import ElementContainer from "../../commoncomponents/ElementContainer";
-import InputField from "../../commoncomponents/InputField";
-import FormSubmitButton from "../../commoncomponents/FormSubmitButton";
 import { Link, useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import ElementContainer from "../../commoncomponents/ElementContainer";
+import InputField from "../../commoncomponents/InputField";
+import FormSubmitButton from "../../commoncomponents/FormSubmitButton";
+import RequiredFields from "../../commoncomponents/RequiredFields";
+import InputFormLabel from "../../commoncomponents/InputFormLabel";
+import ItemContainer from "../../commoncomponents/ItemContainer";
 
 const ComponentContainer = styled(ElementContainer)`
   grid-column-start: 1;
@@ -41,36 +44,6 @@ const FormContainer = styled.form`
   flex-direction: column;
 `;
 
-const InputFormLabel = styled.label`
-  font-size: ${props => props.theme.fontSize.medium};
-  color: ${props => props.theme.fontColor.mainDark};
-  font-weight: bold;
-  text-transform: uppercase;
-  text-align: center;
-  margin: 0 0 1rem 0;
-
-  &:after {
-    content: " ";
-    padding: 3rem 0 0 0;
-  	width: 80%;
-    border-bottom: 2px solid ${props => props.theme.fontColor.mainDark};
-    display: block;
-		margin: 0 auto;
-  }
-
-  @media only screen and (min-width: ${props => props.theme.mediaQueries.medium}) {
-    align-self: center;
-  }
-
-  @media only screen and (min-width: ${props => props.theme.mediaQueries.large}) {
-    font-size: ${props => props.theme.fontSize.large};
-  }
-`;
-
-const ItemContainer = styled.div`
-  margin: 2rem 0 0 0;
-`;
-
 const RadioTitle = styled.div`
   font-size: ${props => props.theme.fontSize.small};
   color: ${props => props.theme.fontColor.secondary};
@@ -101,14 +74,6 @@ const RadioFormLabel = styled.label`
   display: block;
   color: ${props => props.theme.fontColor.secondary};
   font-size: ${props => props.theme.fontSize.small};
-`;
-
-const ItemRequiredFields = styled.div`
-  font-size: ${props => props.theme.fontSize.small};
-  color: ${props => props.theme.fontColor.secondary};
-  margin: 2.5rem 0 0 0;
-  align-self: center;
-  padding: 0 0 2rem 0;
 `;
 
 const ItemErrorMessage = styled.div`
@@ -282,8 +247,8 @@ const SignupForm = () => {
           </ItemRadioContainer>
           {errors.checkbox && <ItemErrorMessage>{errors.checkbox.message}</ItemErrorMessage>}
         </MainRadioContainer>
-        <ItemRequiredFields>* Required fields.</ItemRequiredFields>
-        <FormSubmitButton type="submit" name="submit" disabled={formState.isSubmitting} />
+        <RequiredFields>* Required fields.</RequiredFields>
+        <FormSubmitButton type="submit" name="submit" value="Submit Form!" disabled={formState.isSubmitting} />
       </FormContainer>
     </ComponentContainer>
   );
