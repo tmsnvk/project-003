@@ -1,21 +1,23 @@
 import React from "react";
 import styled from "styled-components";
-import GridErrorContainer from "../layoutcomponents/error/GridErrorContainer";
+import ErrorContainer from "components/layoutcomponents/error/ErrorContainer";
 
 const LayoutContainer = styled.main`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr auto;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
   grid-column-gap: 5em;
   grid-row-gap: 5rem;
-  grid-template-areas:
-  ". grid-error grid-error .";
+  
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.medium}) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 `;
 
 const ErrorLayout = () => {
   return (
     <LayoutContainer>
-      <GridErrorContainer />
+      <ErrorContainer />
     </LayoutContainer>
   );
 };

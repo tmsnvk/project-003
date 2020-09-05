@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import Header from "../layoutcomponents/search/Header";
-import Search from "../layoutcomponents/search/Search";
-import Result from "../layoutcomponents/search/Result";
+import Header from "components/layoutcomponents/search/Header";
+import Search from "components/layoutcomponents/search/Search";
+import Result from "components/layoutcomponents/search/Result";
 import axios from "axios";
 
 const LayoutContainer = styled.main`
