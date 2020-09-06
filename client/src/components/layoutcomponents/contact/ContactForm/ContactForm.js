@@ -3,19 +3,7 @@ import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
-import ElementContainer from "components/commoncomponents/ElementContainer";
-import FormContainer from "components/commoncomponents/FormContainer";
-import InputFormLabel from "components/commoncomponents/InputFormLabel";
-import InputField from "components/commoncomponents/InputField";
-import FormSubmitButton from "components/commoncomponents/FormSubmitButton";
-import RequiredFields from "components/commoncomponents/RequiredFields";
-import ItemContainer from "components/commoncomponents/ItemContainer";
-import MainRadioContainer from "components/commoncomponents/MainRadioContainer";
-import ItemRadioContainer from "components/commoncomponents/ItemRadioContainer";
-import ItemRadioButton from "components/commoncomponents/ItemRadioButton";
-import RadioFormLabel from "components/commoncomponents/RadioFormLabel";
-import InputErrorMessage from "components/commoncomponents/InputErrorMessage";
-import FormLink from "components/commoncomponents/FormLink";
+import { ElementContainer, FormContainer, FormLink, FormSubmitButton, InputErrorMessage, InputField, InputFormLabel, ItemContainer, ItemRadioButton, ItemRadioContainer, MainRadioContainer, RadioFormLabel, RequiredFields } from "components/commoncomponents";
 
 const ComponentContainer = styled(ElementContainer)`
   grid-column-start: 1;

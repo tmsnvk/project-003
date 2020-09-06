@@ -3,11 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const helmet = require("helmet");
-const axios = require("axios");
-
 const mongoose = require("mongoose");
-const SignupForm = require("./models/SignupForm");
-const ContactForm = require("./models/ContactForm");
 
 require("dotenv").config();
 
@@ -27,42 +23,9 @@ mongoose.connect(process.env.DB_CONNECTION, { useUnifiedTopology: true, useNewUr
   console.log("Connected to MongoDB database");
 });
 
-app.post("/signupform", async (request, response) => {
-  const newForm = new SignupForm({
-    name: request.body.name,
-    pokedex: request.body.pokedex,
-    email: request.body.email,
-    phone: request.body.phone,
-    radio: request.body.radio,
-    checkbox: request.body.checkbox
-  });
-  
-  try {
-    const savedForm = await newForm.save();
-    response.json(savedForm);
-  } catch (error) {
-    response.json(error);
-    console.log(error);
-  }
-});
-
-app.post("/contactform", async (request, response) => {
-  const newForm = new ContactForm({
-    name: request.body.name,
-    pokedex: request.body.pokedex,
-    email: request.body.email,
-    textarea: request.body.textarea,
-    checkbox: request.body.checkbox
-  });
-  
-  try {
-    const savedForm = await newForm.save();
-    response.json(savedForm);
-  } catch (error) {
-    response.json(error);
-    console.log(error);
-  }
-});
+app.use("/", require("./routes/mongodb/signupForm"));
+app.use("/", require("./routes/mongodb/contactForm"));
+app.use("/", require("./routes/api/getPokemonData"));
 
 // app.get("/pokemonnames", async (request, response) => {
 //   try {
@@ -72,15 +35,6 @@ app.post("/contactform", async (request, response) => {
 //     console.log(error);
 //   }
 // });
-
-app.get("/pokemon/:pokeId", async (request, response) => {
-  try {
-    const getPokemonData = await axios.get(`https://pokeapi.co/api/v2/pokemon/${request.params.pokeId}`);
-    response.send(getPokemonData.data);
-  } catch (error) {
-    console.log(error);
-  }
-});
 
 const port = process.env.PORT || 3011;
 app.listen(port, () => {

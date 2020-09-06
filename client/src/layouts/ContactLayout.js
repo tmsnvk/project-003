@@ -1,8 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Header from "components/layoutcomponents/contact/Header";
-import ContactForm from "components/layoutcomponents/contact/ContactForm";
-import FaqContainer from "components/layoutcomponents/contact/FaqContainer";
+import { ContactForm, FaqContainer, Header } from "components/layoutcomponents/contact";
 
 const LayoutContainer = styled.main`
   display: grid;

@@ -3,18 +3,13 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import HomeLayout from "layouts/HomeLayout";
-import PricingLayout from "layouts/PricingLayout";
-import SearchLayout from "layouts/SearchLayout";
-import ContactLayout from "layouts/ContactLayout";
-import SuccessLayout from "layouts/SuccessLayout";
-import ErrorLayout from "layouts/ErrorLayout";
+import { ContactLayout, ErrorLayout, HomeLayout, PricingLayout, SearchLayout, SuccessLayout } from "layouts";
 import ScrollToTop from "utilities/ScrollToTop";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faFacebook, faTwitter, faYoutube, faInstagram } from "@fortawesome/free-brands-svg-icons";
-import { faInfinity, faServer, faComments, faLifeRing, faAngleDoubleRight, faCaretUp, faAngleRight, faEuroSign, faIdCard, faTag, faCodeBranch, faHeart, faHamsa, faScroll, faRocket, faSpinner, faReply } from "@fortawesome/free-solid-svg-icons";
+import { faInfinity, faServer, faComments, faLifeRing, faAngleDoubleRight, faCaretUp, faAngleRight, faEuroSign, faIdCard, faTag, faCodeBranch, faHeart, faHamsa, faScroll, faRocket, faCircleNotch, faReply } from "@fortawesome/free-solid-svg-icons";
 import { faDotCircle } from "@fortawesome/free-regular-svg-icons";
-library.add(faFacebook, faTwitter, faYoutube, faInstagram, faDotCircle, faInfinity, faServer, faComments, faLifeRing, faAngleDoubleRight, faCaretUp, faAngleRight, faEuroSign, faIdCard, faTag, faCodeBranch, faHeart, faHamsa, faScroll, faRocket, faSpinner, faReply);
+library.add(faFacebook, faTwitter, faYoutube, faInstagram, faDotCircle, faInfinity, faServer, faComments, faLifeRing, faAngleDoubleRight, faCaretUp, faAngleRight, faEuroSign, faIdCard, faTag, faCodeBranch, faHeart, faHamsa, faScroll, faRocket, faCircleNotch, faReply);
 
 const theme = {
   fontColor: {

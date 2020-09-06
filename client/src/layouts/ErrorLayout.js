@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import ErrorContainer from "components/layoutcomponents/error/ErrorContainer";
+import { ErrorContainer } from "components/layoutcomponents/error";
 
 const LayoutContainer = styled.main`
   display: grid;

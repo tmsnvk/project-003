@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import Header from "components/layoutcomponents/search/Header";
-import Search from "components/layoutcomponents/search/Search";
-import Result from "components/layoutcomponents/search/Result";
 import axios from "axios";
+import { Header, Result, Search } from "components/layoutcomponents/search";
+import { LoadingSpinner } from "components/commoncomponents";
 
 const LayoutContainer = styled.main`
   display: grid;
@@ -18,29 +17,30 @@ const LayoutContainer = styled.main`
 `;
 
 const SearchLayout = () => {
-  const [selectedPokemon, setSelectedPokemon] = useState(null);
-  const [pokemonData, setPokemonData] = useState({ name: "", id: null, typeOne: [], typeTwo: [], statistics: ["", "", "", "", "", ""] });
+  const [selectedPokemon, setSelectedPokemon] = useState(undefined);
+  const [pokemonData, setPokemonData] = useState({ name: "", id: null, typeOne: "", typeTwo: "", hp: null, attack: null, defense: null, speed: null, src: "" });
+  const [loading, setLoading] = useState(false);
   const [hideTutorial, setHideTutorial] = useState(false);
 
   useEffect(() => {
     const response = async () => {
       try {
+        setLoading(true);
         const { data } = await axios.get(`/pokemon/${selectedPokemon}`);
-        if (data.types.length === 1) {
-          setPokemonData({ name: data.name, id: data.id, typeOne: data.types[0].type.name, statistics: data.stats });
-        } else {
-          setPokemonData({ name: data.name, id: data.id, typeOne: data.types[0].type.name, typeTwo: data.types[1].type.name, statistics: data.stats });
-        }
+        setPokemonData({ name: data.name, id: data.id, typeOne: data.types[0].type.name, typeTwo: data.types[1]?.type.name, hp: data.stats[0].base_stat, attack: data.stats[1].base_stat,defense: data.stats[4].base_stat, speed: data.stats[5].base_stat, src: `https://pokeres.bastionbot.org/images/pokemon/${data.id}.png` });
+
+        setTimeout(() => setLoading(false), 1500);
       } catch (error) {
         console.log(error);
+        setLoading(false);
       }
     };
 
-    if (selectedPokemon !== null) {
+    if (selectedPokemon !== undefined) {
       response();
-      setSelectedPokemon(null);
+      setSelectedPokemon(undefined);
     }
-  }, [selectedPokemon]);
+  }, [selectedPokemon, setLoading]);
 
   const handleSelectedPokemon = (selectedPokemon) => {
     setSelectedPokemon(selectedPokemon.toLowerCase());
@@ -54,7 +54,7 @@ const SearchLayout = () => {
     <LayoutContainer>
       <Header />
       <Search selectedPokemon={handleSelectedPokemon} tutorial={handleTutorial} hideTutorial={hideTutorial} />
-      {hideTutorial && <Result pokemonData={pokemonData} />}
+      {loading ? hideTutorial && <LoadingSpinner message={"Searching Database... Please wait!"} /> : hideTutorial && <Result pokemonData={pokemonData} />}
     </LayoutContainer>
   );
 };

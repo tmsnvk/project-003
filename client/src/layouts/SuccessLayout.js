@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import SuccessContainer from "components/layoutcomponents/success/SuccessContainer";
+import { SuccessContainer } from "components/layoutcomponents/success";
 
 const LayoutContainer = styled.main`
   display: grid;

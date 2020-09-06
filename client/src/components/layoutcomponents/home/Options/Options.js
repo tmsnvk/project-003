@@ -1,8 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import ElementContainer from "components/commoncomponents/ElementContainer";
-import InformationText from "components/commoncomponents/InformationText";
-import InformationLink from "components/commoncomponents/InformationLink";
+import { ElementContainer, InformationLink, InformationText } from "components/commoncomponents";
 
 const ComponentContainer = styled(ElementContainer)`
   grid-column-start: 1;

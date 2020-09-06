@@ -1,14 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
-import ElementContainer from "components/commoncomponents/ElementContainer";
-import InputField from "components/commoncomponents/InputField";
-import FormSubmitButton from "components/commoncomponents/FormSubmitButton";
-import RequiredFields from "components/commoncomponents/RequiredFields";
-import InputFormLabel from "components/commoncomponents/InputFormLabel";
-import ItemContainer from "components/commoncomponents/ItemContainer";
-import InformationText from "components/commoncomponents/InformationText";
-import InformationLink from "components/commoncomponents/InformationLink";
+import { ElementContainer, FormSubmitButton, InformationLink, InformationText, InputField, InputFormLabel, ItemContainer, RequiredFields } from "components/commoncomponents";
 
 const ComponentContainer = styled.div`
   grid-column-start: 1;
@@ -71,7 +64,6 @@ const Search = ({ selectedPokemon, tutorial, hideTutorial }) => {
   });
 
   const onSubmit = (data, event) => {
-    console.log(`This is what you searched for - ${data.pokemon}`);
     selectedPokemon(data.pokemon);
     event.target.reset();
 

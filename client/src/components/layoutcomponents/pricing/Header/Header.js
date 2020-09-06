@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import ElementContainer from "components/commoncomponents/ElementContainer";
-import HeaderMainTitle from "components/commoncomponents/HeaderMainTitle";
+import { ElementContainer, HeaderMainTitle } from "components/commoncomponents";
 
 const ComponentContainer = styled(ElementContainer)`
   grid-column-start: 1;

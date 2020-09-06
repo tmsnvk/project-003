@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import FaqItem from "./FaqItem";
-import ElementContainer from "components/commoncomponents/ElementContainer";
+import { ElementContainer } from "components/commoncomponents";
 import componentData from "./componentData";
 
 const ComponentContainer = styled(ElementContainer)`

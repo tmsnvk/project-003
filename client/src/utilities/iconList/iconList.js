@@ -20,7 +20,7 @@ const iconList = {
   scroll: ["fas", "scroll"],
   rocket: ["fas", "rocket"],
   reply: ["fas", "reply"],
-  spinner: ["fas", "spinner"]
+  spinner: ["fas", "circle-notch"]
 };
 
 export default iconList;

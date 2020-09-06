@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import ElementContainer from "components/commoncomponents/ElementContainer";
+import { ElementContainer } from "components/commoncomponents";
 import iconList from "utilities/iconList";
 
 const ComponentContainer = styled.div`
@@ -9,6 +9,8 @@ const ComponentContainer = styled.div`
   grid-column-end: 2;
   grid-row-start: 3;
   grid-row-end: 4;
+  width: 90%;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,6 +20,10 @@ const ComponentContainer = styled.div`
     grid-column-end: 4;
     flex-direction: row;
     justify-content: space-evenly;
+  }
+
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.xLarge}) {
+    width: 80%;
   }
 `;
 
@@ -155,7 +161,7 @@ const Result = ({ pokemonData }) => {
   return (
     <ComponentContainer>
       <PokemonImageContainer type={pokemonData.typeOne}>
-        {pokemonData.id !== null ? <PokemonImage src={`https://pokeres.bastionbot.org/images/pokemon/${pokemonData.id}.png`} alt="random pokemon image" /> : null}
+        <PokemonImage src={pokemonData.src} alt="random pokemon image" />
       </PokemonImageContainer>
       <DataContainer type={pokemonData.typeOne}>
         <DataTitle>Identity:</DataTitle>
@@ -163,14 +169,14 @@ const Result = ({ pokemonData }) => {
         <DataRow><DataIcon icon={iconList.tag}></DataIcon>ID:&nbsp;<DataSpan>{pokemonData.id}</DataSpan></DataRow>
         {!pokemonData.typeTwo ? 
         <DataRow><DataIcon icon={iconList.codeBranch}></DataIcon>Type:&nbsp;<DataSpan>{pokemonData.typeOne}</DataSpan></DataRow> :
-        <DataRow><DataIcon icon={[iconList.codeBranch]}></DataIcon>Type:&nbsp;<DataSpan>{pokemonData.typeOne}</DataSpan> / <DataSpan>{pokemonData.typeTwo}</DataSpan></DataRow>}
+        <DataRow><DataIcon icon={iconList.codeBranch}></DataIcon>Type:&nbsp;<DataSpan>{pokemonData.typeOne}</DataSpan> / <DataSpan>{pokemonData.typeTwo}</DataSpan></DataRow>}
       </DataContainer>
       <DataContainer type={pokemonData.typeOne}>
-      <DataTitle>Statistics:</DataTitle>
-        <DataRow><DataIcon icon={iconList.heart}></DataIcon>HP:&nbsp;<DataSpan>{pokemonData.statistics[0].base_stat}</DataSpan></DataRow>
-        <DataRow><DataIcon icon={iconList.hamsa}></DataIcon>Attack:&nbsp;<DataSpan>{pokemonData.statistics[1].base_stat}</DataSpan></DataRow>
-        <DataRow><DataIcon icon={iconList.scroll}></DataIcon>Defense:&nbsp;<DataSpan>{pokemonData.statistics[2].base_stat}</DataSpan></DataRow>
-        <DataRow><DataIcon icon={iconList.rocket}></DataIcon>Speed:&nbsp;<DataSpan>{pokemonData.statistics[5].base_stat}</DataSpan></DataRow>
+        <DataTitle>Statistics:</DataTitle>
+        <DataRow><DataIcon icon={iconList.heart}></DataIcon>HP:&nbsp;<DataSpan>{pokemonData.hp}</DataSpan></DataRow>
+        <DataRow><DataIcon icon={iconList.hamsa}></DataIcon>Attack:&nbsp;<DataSpan>{pokemonData.attack}</DataSpan></DataRow>
+        <DataRow><DataIcon icon={iconList.scroll}></DataIcon>Defense:&nbsp;<DataSpan>{pokemonData.defense}</DataSpan></DataRow>
+        <DataRow><DataIcon icon={iconList.rocket}></DataIcon>Speed:&nbsp;<DataSpan>{pokemonData.speed}</DataSpan></DataRow>
       </DataContainer>
     </ComponentContainer>
   );

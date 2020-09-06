@@ -1,8 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Header from "components/layoutcomponents/pricing/Header";
-import SubscriptionOptions from "components/layoutcomponents/pricing/SubscriptionOptions";
-import SignupForm from "components/layoutcomponents/pricing/SignupForm";
+import { Header, SignupForm, SubscriptionOptions } from "components/layoutcomponents/pricing";
 
 const LayoutContainer = styled.main`
   display: grid;

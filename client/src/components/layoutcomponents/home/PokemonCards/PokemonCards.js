@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import ElementContainer from "components/commoncomponents/ElementContainer";
+import { ElementContainer } from "components/commoncomponents";
 import componentData from "./componentData";
 
 const ComponentContainer = styled.div`

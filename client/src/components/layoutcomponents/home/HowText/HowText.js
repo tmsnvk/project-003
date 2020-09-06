@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import ElementContainer from "components/commoncomponents/ElementContainer";
-import StyledIcon from "components/commoncomponents/StyledIcon";
+import { ElementContainer, StyledIcon } from "components/commoncomponents";
 import componentData from "./componentData";
 import iconList from "utilities/iconList";
 

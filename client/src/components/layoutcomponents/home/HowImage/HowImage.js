@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import ElementContainer from "components/commoncomponents/ElementContainer";
+import { ElementContainer } from "components/commoncomponents";
 
 const ComponentContainer = styled(ElementContainer)`
   display: none;

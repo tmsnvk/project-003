@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import ElementContainer from "components/commoncomponents/ElementContainer";
+import { ElementContainer } from "components/commoncomponents";
 import componentData from "./componentData";
 
 const ComponentContainer = styled(ElementContainer)`

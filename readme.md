@@ -85,6 +85,9 @@
         |- ITEMRADIOCONTAINER
           |- index.js
           |- ItemRadioContainer.js
+        |- LOADINGSPINNER
+          |- index.js
+          |- LoadingSpinner.js
         |- MAINRADIOCONTAINER
           |- index.js
           |- MainRadioContainer.js
@@ -99,22 +102,27 @@
           |- StyledIcon.js
       |- LAYOUTCOMPONENTS
         |- CONTACT
+          |- index.js
           |- CONTACTFORM
             |- ContactForm.js
             |- index.js
           |- FAQCONTAINER
             |- componentData.js
             |- FaqContainer.js
-            |- FaqItem.js
             |- index.js
+            |- FAQITEM
+              |- FaqItem.js
+              |- index.js
           |- HEADER
             |- Header.js
             |- index.js
         |- ERROR
+          |- index.js
           |- ERRORCONTAINER
             |- ErrorContainer.js
             |- index.js
         |- HOME
+          |- index.js
           |- HEADER
             |- Header.js
             |- index.js
@@ -141,6 +149,7 @@
             |- index.js
             |- SummaryCards.js
         |- PRICING
+          |- index.js
           |- HEADER
             |- Header.js
             |- index.js
@@ -152,6 +161,7 @@
             |- index.js
             |- SubscriptionOptions.js
         |- SEARCH
+          |- index.js
           |- HEADER
             |- Header.js
             |- index.js
@@ -162,6 +172,7 @@
             |- index.js
             |- Search.js
         |- SUCCESS
+          |- index.js
           |- SUCCESSCONTAINER
             |- index.js
             |- SuccessContainer.js
@@ -173,6 +184,7 @@
       |- ContactLayout.js
       |- ErrorLayout.js
       |- HomeLayout.js
+      |- index.js
       |- PricingLayout.js
       |- SearchLayout.js
       |- SuccessLayout.js
@@ -187,6 +199,11 @@
   |- ContactForm.js
   |- SignupForm.js
 |- ROUTES
+  |- API
+    |- getPokemonData.js
+  |- MONGODB
+    |- contactForm.js
+    |- signupForm.js
 ```
 
 #### used packages
@@ -205,13 +222,13 @@ FRONTEND
 + fontawesome              - using various icons as styling.
 + react                    - front-end framework.
 + react-ga                 - google analytics package.
-+ react-hook-form          - handling forms & submission validation.
++ react-hook-form          - handling forms & form submission validation.
 + react-router-dom         - routing.
 + react-router-hash-link   - hash-based routing.
 + styled-components        - css-in-js styling.
 ```
 
-#### screenshot
+#### screenshots
 <!-- ![Screenshot](screenshot_one.png) -->
 <!-- ![Screenshot](screenshot_two.png) -->
 <!-- ![Screenshot](screenshot_three.png) -->

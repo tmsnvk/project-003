@@ -1,12 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Header from "components/layoutcomponents/home/Header";
-import SummaryCards from "components/layoutcomponents/home/SummaryCards";
-import PokemonCards from "components/layoutcomponents/home/PokemonCards";
-import HowImage from "components/layoutcomponents/home/HowImage";
-import HowText from "components/layoutcomponents/home/HowText";
-import Statistics from "components/layoutcomponents/home/Statistics";
-import Options from "components/layoutcomponents/home/Options";
+import { Header, HowImage, HowText, Options, PokemonCards, Statistics, SummaryCards } from "components/layoutcomponents/home";
 
 const LayoutContainer = styled.main`
   display: grid;
