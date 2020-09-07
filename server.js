@@ -36,6 +36,13 @@ app.use("/", require("./routes/api/getPokemonData"));
 //   }
 // });
 
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, 'client/build')));
+  app.get('*', function(req, res) {
+    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+  });
+}
+
 const port = process.env.PORT || 3011;
 app.listen(port, () => {
   console.log(`central_kanto_pokemon_database project @ port ${port}!`);

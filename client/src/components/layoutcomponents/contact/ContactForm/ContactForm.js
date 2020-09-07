@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
-import { ElementContainer, FormContainer, FormLink, FormSubmitButton, InputErrorMessage, InputField, InputFormLabel, ItemContainer, ItemRadioButton, ItemRadioContainer, MainRadioContainer, RadioFormLabel, RequiredFields } from "components/commoncomponents";
+import { ElementContainer, FormContainer, FormLink, FormSubmitButton, InputErrorMessage, InputField, InputFormLabel, ItemContainer, ItemRadioButton, ItemRadioContainer, LoadingSpinner, MainRadioContainer, RadioFormLabel, RequiredFields } from "components/commoncomponents";
 
 const ComponentContainer = styled(ElementContainer)`
   grid-column-start: 1;
@@ -78,7 +78,7 @@ const ContactForm = () => {
       placeholder: "* Your Name",
       ref: {
         value: true,
-        requiredMessage: "NAME is required.",
+        requiredMessage: "NAME is required. Enter only alphabetic characters",
         pattern: /^[A-Za-z ]+$/i,
         maxLength: 30,
         maxLengthMessage: "Enter maximum 30 characters."
@@ -185,7 +185,7 @@ const ContactForm = () => {
           {errors.checkbox && <InputErrorMessage>{errors.checkbox.message}</InputErrorMessage>}
         </MainRadioContainer>
         <RequiredFields>* Required fields.</RequiredFields>
-        <FormSubmitButton type="submit" name="submit" value="Submit Form" disabled={formState.isSubmitting} />
+        {formState.isSubmitting ? <LoadingSpinner message={"Submitting form... Please wait!"} /> : <FormSubmitButton type="submit" name="submit" value="Submit Form" />}
       </FormContainer>
     </ComponentContainer>
   );

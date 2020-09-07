@@ -10,6 +10,7 @@ import { faFacebook, faTwitter, faYoutube, faInstagram } from "@fortawesome/free
 import { faInfinity, faServer, faComments, faLifeRing, faAngleDoubleRight, faCaretUp, faAngleRight, faEuroSign, faIdCard, faTag, faCodeBranch, faHeart, faHamsa, faScroll, faRocket, faCircleNotch, faReply } from "@fortawesome/free-solid-svg-icons";
 import { faDotCircle } from "@fortawesome/free-regular-svg-icons";
 library.add(faFacebook, faTwitter, faYoutube, faInstagram, faDotCircle, faInfinity, faServer, faComments, faLifeRing, faAngleDoubleRight, faCaretUp, faAngleRight, faEuroSign, faIdCard, faTag, faCodeBranch, faHeart, faHamsa, faScroll, faRocket, faCircleNotch, faReply);
+import ReactGA from "react-ga";
 
 const theme = {
   fontColor: {
@@ -90,6 +91,9 @@ const GlobalStyle = createGlobalStyle`
     list-style: none;
   }
 `;
+
+ReactGA.initialize(process.env.REACT_APP_GA_KEY);
+ReactGA.pageview("/");
 
 const App = () => {
   return (
