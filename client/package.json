@@ -1,6 +1,7 @@
 {
   "name": "project_frontend",
   "version": "2.3.0",
+  "private": true,
   "description": "project-003 || tmsnvk",
   "proxy": "http://127.0.0.1:3011",
   "dependencies": {

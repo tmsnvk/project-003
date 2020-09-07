@@ -5,12 +5,12 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import { ContactLayout, ErrorLayout, HomeLayout, PricingLayout, SearchLayout, SuccessLayout } from "layouts";
 import ScrollToTop from "utilities/ScrollToTop";
+import ReactGA from "react-ga";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faFacebook, faTwitter, faYoutube, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faInfinity, faServer, faComments, faLifeRing, faAngleDoubleRight, faCaretUp, faAngleRight, faEuroSign, faIdCard, faTag, faCodeBranch, faHeart, faHamsa, faScroll, faRocket, faCircleNotch, faReply } from "@fortawesome/free-solid-svg-icons";
 import { faDotCircle } from "@fortawesome/free-regular-svg-icons";
 library.add(faFacebook, faTwitter, faYoutube, faInstagram, faDotCircle, faInfinity, faServer, faComments, faLifeRing, faAngleDoubleRight, faCaretUp, faAngleRight, faEuroSign, faIdCard, faTag, faCodeBranch, faHeart, faHamsa, faScroll, faRocket, faCircleNotch, faReply);
-import ReactGA from "react-ga";
 
 const theme = {
   fontColor: {
