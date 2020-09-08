@@ -7,9 +7,13 @@ const ComponentContainer = styled(ElementContainer)`
   grid-column-end: 2;
   grid-row-start: 1;
   grid-row-end: 2;
-  margin: 10rem auto 0;
+  margin: 15rem auto 0;
   width: 90%;
   text-align: center;
+
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.small}) {
+    margin: 10rem auto 0;
+  }
 
   @media only screen and (min-width: ${props => props.theme.mediaQueries.medium}) {
     grid-column-end: 3;

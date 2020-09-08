@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import FaqItem from "./FaqItem";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ElementContainer } from "components/commoncomponents";
+import iconList from "utilities/iconList";
 import componentData from "./componentData";
 
 const ComponentContainer = styled(ElementContainer)`
@@ -30,24 +31,49 @@ const ComponentContainer = styled(ElementContainer)`
   }
 `;
 
+const FaqItemContainer = styled.div`
+  padding: 0.5rem 0.5rem 2rem 0.5rem;
+`;
+
+const Question = styled.h2`
+  font-family: ${props => props.theme.fontFamily.secondary};
+  font-size: ${props => props.theme.fontSize.medium};
+  cursor: pointer;
+`;
+
+const Answer = styled.p`
+  padding: 0.5rem 0 0 0;
+  font-size: ${props => props.theme.fontSize.small};
+  color: ${props => props.theme.fontColor.secondary};
+
+  @media only screen and (min-width: ${props => props.theme.mediaQueries.medium}) {
+    font-size: ${props => props.theme.fontSize.medium};
+  }
+`;
+
+const AnswerIcon = styled(FontAwesomeIcon)`
+  font-size: ${props => props.theme.fontSize.medium};
+  margin: 0 1rem 0 0;
+  transform: scaleX(-1);
+`;
+
 const FaqContainer = () => {
-  const [faqs, setFaqs] = useState(componentData);
+  const [activeQuestion, setActiveQuestion] = useState(null);
 
-  const toggle = (index) => {
-    setFaqs(faqs.map((faq, i) => {
-      if (i === index) {
-        faq.open = !faq.open;
-      } else {
-        faq.open = false;
-      }
-
-      return faq;
-    }));
+  const onTitleClick = (index) => {
+    setActiveQuestion(index);
   };
+  
+  const renderComponentData = componentData.map((faq, index) => {
+    const active = index === activeQuestion ? true : "hidden";
 
-  const renderComponentData = faqs.map((faq, i) => (
-    <FaqItem faq={faq} key={faq.id} i={i} toggle={toggle} />
-  ));
+    return (
+      <FaqItemContainer key={faq.id} onClick={() => onTitleClick(index)}>
+        <Question>{faq.question}</Question>
+        <Answer hidden={active}><AnswerIcon icon={iconList.reply}></AnswerIcon>{faq.answer}</Answer>
+      </FaqItemContainer>
+    )
+  });
 
   return (
     <ComponentContainer id="faq">

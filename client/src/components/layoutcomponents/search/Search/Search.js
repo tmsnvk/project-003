@@ -107,29 +107,3 @@ const Search = ({ selectedPokemon, tutorial, hideTutorial }) => {
 };
 
 export default Search;
-
-// import axios from "axios";
-// const [pokemonNames, setPokemonNames] = useState([]);
-
-// useEffect(() => {
-  //   const response = async () => {
-    //     try {
-      //       const { data } = await axios.get(`/pokemonnames`);
-      //       const final = [];
-      //       console.log(data.results);
-      //        data.results.map((item) => {
-        //         const { name } = item;
-        //         final.push(name);
-        //       });
-        //       const myregex = final.toString().replace(/,/ig, "|");
-        //       console.log(myregex);
-        
-        //       const finalreg = new RegExp("/\b(" + myregex + ")\b|\b([1-9]|[1-8][0-9]|9[0-9]|1[0-4][0-9]|15[01])\b/ig");
-        //       setPokemonNames(finalreg);
-        //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   }
-
-  //   response();
-  // }, []);

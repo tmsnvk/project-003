@@ -27,19 +27,10 @@ app.use("/", require("./routes/mongodb/signupForm"));
 app.use("/", require("./routes/mongodb/contactForm"));
 app.use("/", require("./routes/api/getPokemonData"));
 
-// app.get("/pokemonnames", async (request, response) => {
-//   try {
-//     const getPokemonData = await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=151`);
-//     response.send(getPokemonData.data);
-//   } catch (error) {
-//     console.log(error);
-//   }
-// });
-
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, 'client/build')));
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "client/build")));
   app.get('*', function(req, res) {
-    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+    res.sendFile(path.join(__dirname, "client/build", "index.html"));
   });
 }
 

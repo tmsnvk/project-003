@@ -84,7 +84,7 @@ const SignupForm = () => {
       placeholder: "* Your Email",
       ref: {
         requiredMessage: "EMAIL is required. Enter a valid email address.",
-        pattern: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
+        pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
         maxLength: 40,
         maxLengthMessage: "Enter maximum 40 characters."
       }
@@ -138,8 +138,11 @@ const SignupForm = () => {
             required: {
               value: true,
               message: ref.requiredMessage
-            }, 
-            pattern: ref?.pattern,
+            },
+            pattern: {
+              value: ref?.pattern,
+              message: ref.requiredMessage
+            },
             minLength: {
               value: ref?.minLength,
               message: ref?.minLengthMessage

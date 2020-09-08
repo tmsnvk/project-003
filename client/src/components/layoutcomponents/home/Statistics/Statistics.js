@@ -51,10 +51,11 @@ const ItemContainer = styled.div`
   padding: 0 2rem 0 2rem;
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  text-align: center;
 
   @media only screen and (min-width: ${props => props.theme.mediaQueries.small}) {
     display: block;
-    text-align: center;
     padding: 0 1rem 0 1rem;
   }
 

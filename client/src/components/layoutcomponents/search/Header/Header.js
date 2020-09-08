@@ -7,14 +7,15 @@ const ComponentContainer = styled(ElementContainer)`
   grid-row-start: 1;
   grid-row-end: 2;
   width: 90%;
-  margin: 10rem auto 0;
+  margin: 15rem auto 0;
   text-align: center;
 
   @media only screen and (min-width: ${props => props.theme.mediaQueries.small}) {
-    width: auto;
+    margin: 10rem auto 0;
   }
 
   @media only screen and (min-width: ${props => props.theme.mediaQueries.medium}) {
+    width: auto;
     grid-column-end: 4;
   }
 `;

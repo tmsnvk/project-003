@@ -110,9 +110,6 @@
             |- componentData.js
             |- FaqContainer.js
             |- index.js
-            |- FAQITEM
-              |- FaqItem.js
-              |- index.js
           |- HEADER
             |- Header.js
             |- index.js
