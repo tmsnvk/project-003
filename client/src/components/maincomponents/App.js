@@ -94,6 +94,11 @@ const GlobalStyle = createGlobalStyle`
 
 ReactGA.initialize(process.env.REACT_APP_GA_KEY);
 ReactGA.pageview("/");
+ReactGA.pageview("/pricing");
+ReactGA.pageview("/search");
+ReactGA.pageview("/contact");
+ReactGA.pageview("/error");
+ReactGA.pageview("/success");
 
 const App = () => {
   return (

@@ -28,10 +28,10 @@ const SearchLayout = () => {
         setLoading(true);
         const { data } = await axios.get(`/pokemon/${selectedPokemon}`);
         setPokemonData({ name: data.name, id: data.id, typeOne: data.types[0].type.name, typeTwo: data.types[1]?.type.name, hp: data.stats[0].base_stat, attack: data.stats[1].base_stat,defense: data.stats[4].base_stat, speed: data.stats[5].base_stat, src: `https://pokeres.bastionbot.org/images/pokemon/${data.id}.png` });
-
+        console.log("*****************\n**Data fetched!**\n*****************");
         setTimeout(() => setLoading(false), 1500);
       } catch (error) {
-        console.log(error);
+        console.log(`Data fetch has failed. Please check the following error message - ${error}`);
         setLoading(false);
       }
     };

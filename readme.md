@@ -1,11 +1,11 @@
 ### central_kanto_pokemon_database || project-003 || tmsnvk
 #### description
-+ a Mongo/Express/React/Node application that imitates a subscription-based service site with two form submit pages and an API search functionality.
++ a Mongo/Express/React/Node application that imitates a subscription-based service site with two form submit pages and a search functionality serving a public API database.
 + the API is served from [pokeapi.co](https://pokeapi.co/).
 + to run the application:
-  +  the github version is fully functional as the used API doesn't require registration.
+  +  the github version is fully functional as the used API doesn't require registration/key.
   +  only the MongoDB connection requires entering a valid database cluster address in the .env_sample file; once that's done, rename the file to .env.
-  +  OR visit the live heroku deployed version [here](https://BLANK.herokuapp.com/).
+  +  OR visit the live heroku deployed version [here](https://ckpd.herokuapp.com/).
 
 #### project structure
 ```
@@ -16,11 +16,10 @@
 |- package.json
 |- package-lock.json
 |- readme.md
-|- screenshot_one.png
-|- screenshot_two.png
-|- screenshot_three.png
 |- screenshot_four.png
-|- screenshot_five.png
+|- screenshot_one.png
+|- screenshot_three.png
+|- screenshot_two.png
 |- server.js
 |- CLIENT
   |- .gitignore
@@ -226,8 +225,7 @@ FRONTEND
 ```
 
 #### screenshots
-<!-- ![Screenshot](screenshot_one.png) -->
-<!-- ![Screenshot](screenshot_two.png) -->
-<!-- ![Screenshot](screenshot_three.png) -->
-<!-- ![Screenshot](screenshot_four.png) -->
-<!-- ![Screenshot](screenshot_five.png) -->
+[Screenshot](screenshot_one.png)
+[Screenshot](screenshot_two.png)
+[Screenshot](screenshot_three.png)
+[Screenshot](screenshot_four.png)

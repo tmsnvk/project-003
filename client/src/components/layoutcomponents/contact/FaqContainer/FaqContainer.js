@@ -65,7 +65,7 @@ const FaqContainer = () => {
   };
   
   const renderComponentData = componentData.map((faq, index) => {
-    const active = index === activeQuestion ? true : "hidden";
+    const active = index === activeQuestion ? "" : "hidden";
 
     return (
       <FaqItemContainer key={faq.id} onClick={() => onTitleClick(index)}>

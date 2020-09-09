@@ -78,7 +78,7 @@ const ContactForm = () => {
       placeholder: "* Your Name",
       ref: {
         value: true,
-        requiredMessage: "NAME is required. Enter only alphabetic characters",
+        requiredMessage: "NAME is required. Enter only alphabetic characters.",
         pattern: /^[A-Za-z ]+$/i,
         maxLength: 30,
         maxLengthMessage: "Enter maximum 30 characters."
