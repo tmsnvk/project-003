@@ -7,212 +7,8 @@
   +  only the MongoDB connection requires entering a valid database cluster address in the .env_sample file; once that's done, rename the file to .env.
   +  OR visit the live heroku deployed version [here](https://ckpd.herokuapp.com/).
 
-#### project structure
-```
-*
-|- .env_sample
-|- .gitignore
-|- license.md
-|- package.json
-|- package-lock.json
-|- readme.md
-|- screenshot_four.png
-|- screenshot_one.png
-|- screenshot_three.png
-|- screenshot_two.png
-|- server.js
-|- CLIENT
-  |- .gitignore
-  |- jsconfig.json
-  |- package.json
-  |- package-lock.json
-  |- PUBLIC
-    |- favicon.ico
-    |- index.html
-  |- SRC
-    |- index.js
-    |- COMPONENTS
-      |- COMMONCOMPONENTS
-        |- ELEMENTCONTAINER
-          |- ElementContainer.js
-          |- index.js
-        |- FORMCONTAINER
-          |- FormContainer.js
-          |- index.js
-        |- FORMLINK
-          |- FormLink.js
-          |- index.js
-        |- FORMSUBMITBUTTON
-          |- FormSubmitButton.js
-          |- index.js
-        |- HEADERMAINTITLE
-          |- HeaderMainTitle.js
-          |- index.js
-        |- HEADERMESSAGE
-          |- HeaderMessage.js
-          |- index.js
-        |- HEADERSUBTITLE
-          |- HeaderSubTitle.js
-          |- index.js
-        |- IMAGE
-          |- Image.js
-          |- index.js
-        |- INFORMATIONHASHLINK
-          |- index.js
-          |- InformationHashLink.js
-        |- INFORMATIONLINK
-          |- index.js
-          |- InformationLink.js
-        |- INFORMATIONTEXT
-          |- index.js
-          |- InformationText.js
-        |- INPUTERRORMESSAGE
-          |- index.js
-          |- InputErrorMessage.js
-        |- INPUTFIELD
-          |- index.js
-          |- InputField.js
-        |- INPUTFORMLABEL
-          |- index.js
-          |- InputFormLabel.js
-        |- ITEMCONTAINER
-          |- index.js
-          |- ItemContainer.js
-        |- ITEMRADIOBUTTON
-          |- index.js
-          |- ItemRadioButton.js
-        |- ITEMRADIOCONTAINER
-          |- index.js
-          |- ItemRadioContainer.js
-        |- LOADINGSPINNER
-          |- index.js
-          |- LoadingSpinner.js
-        |- MAINRADIOCONTAINER
-          |- index.js
-          |- MainRadioContainer.js
-        |- RADIOFORMLABEL
-          |- index.js
-          |- RadioFormLabel.js
-        |- REQUIREDFIELDS
-          |- index.js
-          |- RequiredFields.js
-        |- STYLEDICON
-          |- index.js
-          |- StyledIcon.js
-      |- LAYOUTCOMPONENTS
-        |- CONTACT
-          |- index.js
-          |- CONTACTFORM
-            |- ContactForm.js
-            |- index.js
-          |- FAQCONTAINER
-            |- componentData.js
-            |- FaqContainer.js
-            |- index.js
-          |- HEADER
-            |- Header.js
-            |- index.js
-        |- ERROR
-          |- index.js
-          |- ERRORCONTAINER
-            |- ErrorContainer.js
-            |- index.js
-        |- HOME
-          |- index.js
-          |- HEADER
-            |- Header.js
-            |- index.js
-          |- HOWIMAGE
-            |- HowImage.js
-            |- index.js
-          |- HOWTEXT
-            |- componentData.js
-            |- HowText.js
-            |- index.js
-          |- OPTIONS
-            |- index.js
-            |- Options.js
-          |- POKEMONCARDS
-            |- componentData
-            |- index.js
-            |- PokemonCards.js
-          |- STATISTICS
-            |- componentData
-            |- index.js
-            |- Statistics.js
-          |- SUMMARYCARDS
-            |- componentData.js
-            |- index.js
-            |- SummaryCards.js
-        |- PRICING
-          |- index.js
-          |- HEADER
-            |- Header.js
-            |- index.js
-          |- SIGNUPFORM
-            |- index.js
-            |- SignupForm.js
-          |- SUBSCRIPTIONOPTIONS
-            |- componentData.js
-            |- index.js
-            |- SubscriptionOptions.js
-        |- SEARCH
-          |- index.js
-          |- HEADER
-            |- Header.js
-            |- index.js
-          |- RESULT
-            |- index.js
-            |- Result.js
-          |- SEARCH
-            |- index.js
-            |- Search.js
-        |- SUCCESS
-          |- index.js
-          |- SUCCESSCONTAINER
-            |- index.js
-            |- SuccessContainer.js
-      |- MAINCOMPONENTS
-        |- App.js
-        |- Footer.js
-        |- Navbar.js
-    |- LAYOUTS
-      |- ContactLayout.js
-      |- ErrorLayout.js
-      |- HomeLayout.js
-      |- index.js
-      |- PricingLayout.js
-      |- SearchLayout.js
-      |- SuccessLayout.js
-    |- UTILITIES
-      |- ICONLIST
-        |- iconList.js
-        |- index.js
-      |- SCROLLTOTOP
-        |- index.js
-        |- ScrollToTop.js
-|- MODELS
-  |- ContactForm.js
-  |- SignupForm.js
-|- ROUTES
-  |- API
-    |- getPokemonData.js
-  |- MONGODB
-    |- contactForm.js
-    |- signupForm.js
-```
-
 #### used packages
 ```
-BACKEND
-+ axios                    - making api calls.
-+ body-parser              - body parsing middleware.
-+ cors                     - cors enabling middleware.
-+ dotenv                   - loading an .env variable to store not-public configuration data.
-+ express                  - server framework.
-+ helmet                   - securing express.
-+ mongoose                 - schema-based solution to model data. 
-
 FRONTEND
 + axios                    - making api calls.
 + fontawesome              - using various icons as styling.
@@ -222,6 +18,15 @@ FRONTEND
 + react-router-dom         - routing.
 + react-router-hash-link   - hash-based routing.
 + styled-components        - css-in-js styling.
+
+BACKEND
++ axios                    - making api calls.
++ body-parser              - body parsing middleware.
++ cors                     - cors enabling middleware.
++ dotenv                   - loading an .env variable to store not-public configuration data.
++ express                  - server framework.
++ helmet                   - securing express.
++ mongoose                 - schema-based solution to model data. 
 ```
 
 #### screenshots
