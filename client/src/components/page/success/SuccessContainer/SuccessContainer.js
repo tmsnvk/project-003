@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { ElementContainer } from "components/shared/layout";
-import { Image, InformationLink, InformationText } from "components/shared";
+import { Image } from "components/shared";
+import { InformationLink, InformationText } from "components/shared/information";
 
 const ComponentContainer = styled(ElementContainer)`
   grid-column-start: 1;

@@ -2,7 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ElementContainer } from "components/shared/layout";
-import componentData from "./componentData";
+import iconList from "utilities/iconList/iconList";
+import data from "./data";
 
 const ComponentContainer = styled(ElementContainer)`
   grid-column-start: 1;
@@ -13,7 +14,7 @@ const ComponentContainer = styled(ElementContainer)`
   width: auto;
   display: flex;
   flex-direction: column;
-  font-weight: bold;
+  font-weight: 600;
   font-family: ${({ theme }) => theme.fontFamily.secondary};
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.small}) {
@@ -31,7 +32,7 @@ const ComponentContainer = styled(ElementContainer)`
   }
 `;
 
-const YearUpdate = styled.div`
+const YearUpdate = styled.p`
   color: ${({ theme }) => theme.color.alternate};
   font-size: ${({ theme }) => theme.fontSize.large};
   text-align: center;
@@ -51,8 +52,6 @@ const Container = styled.div`
   padding: 0 2rem 0 2rem;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  text-align: center;
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.small}) {
     display: block;
@@ -60,12 +59,14 @@ const Container = styled.div`
   }
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
+    justify-content: center;
+    text-align: center;
     padding: 0 2rem 0 2rem;
   }
 `;
 
 const Icon = styled(FontAwesomeIcon)`
-  font-size: ${({ theme }) => theme.fontSize.xxLarge};
+  font-size: ${({ theme }) => theme.fontSize.xLarge};
   color: ${({ theme }) => theme.color.secondary};
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
@@ -73,7 +74,7 @@ const Icon = styled(FontAwesomeIcon)`
   }
 `;
 
-const Figure = styled.div`
+const Figure = styled.p`
   font-size: ${({ theme }) => theme.fontSize.large};
   padding: 0 0 1rem 1rem;
 
@@ -91,7 +92,7 @@ const Figure = styled.div`
   }
 `;
   
-const Text = styled.div`
+const Text = styled.p`
   font-size: ${({ theme }) => theme.fontSize.large};
   color: ${({ theme }) => theme.color.primaryDark};
   padding: 0 0 0 2rem;
@@ -107,10 +108,10 @@ const Text = styled.div`
 `;
 
 const Statistics = () => {
-  const renderComponentData = componentData.map(({ icon, text, number }) => {
+  const renderComponentData = data.map(({ id, number, text }) => {
     return (
-       <Container key={text}>
-        <Icon icon={icon}></Icon>
+       <Container key={id}>
+        <Icon icon={iconList.caretUp}></Icon>
          <Figure>{number}</Figure>
          <Text>{text}</Text>
       </Container>

@@ -12,10 +12,10 @@ const ComponentContainer = styled.div`
     grid-row-start: 3;
     grid-row-end: 4;
     width: 95%;
-    margin: 0 auto;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin: 0 auto;
   }
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.large}) {
@@ -53,7 +53,7 @@ const PokemonCards = () => {
   const renderComponentData = data.map(({ id, url }) => {
     return (
       <Container key={id}>
-        <Image src={url} alt="random pokemon image" />
+        <Image src={url} alt="random pokemon image" loading="lazy" />
       </Container>
     );
   });

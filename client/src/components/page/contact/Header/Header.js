@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { ElementContainer } from "components/shared/layout";
 import { Title } from "components/shared/header";
-import { InformationHashLink } from "components/shared";
+import { InformationHashLink } from "components/shared/information";
 import data from "components/page/contact/Header/data.json";
 
 const ComponentContainer = styled(ElementContainer)`

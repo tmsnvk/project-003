@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { ElementContainer } from "components/shared/layout";
-import { InformationText } from "components/shared";
+import { InformationText } from "components/shared/information";
 import { StyledIcon } from "components/shared/utilities";
 import iconList from "utilities/iconList/iconList";
 

@@ -2,12 +2,12 @@ import styled from "styled-components";
 
 const InformationText = styled.p`
   font-size: ${({ theme }) => theme.fontSize.small};
-  font-weight: bold;
   padding: 1rem 0 1rem 0;
   text-align: center;
 
   &:first-of-type {
     font-size: ${({ theme }) => theme.fontSize.medium};
+    font-weight: 600;
     &:after {
     content: " ";
     display: block;

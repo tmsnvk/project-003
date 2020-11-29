@@ -12,11 +12,11 @@ const ComponentContainer = styled(ElementContainer)`
     grid-row-end: 5;
     width: 95%;
     height: auto;
-    margin: 0 0 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
     align-self: center;
+    margin: 0 0 0 auto;
   }
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.large}) {

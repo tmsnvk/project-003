@@ -3,7 +3,8 @@ import styled from "styled-components";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ElementContainer } from "components/shared/layout";
-import { Image, InformationLink, InformationText } from "components/shared";
+import { Image } from "components/shared";
+import { InformationLink, InformationText } from "components/shared/information";
 
 const ComponentContainer = styled(ElementContainer)`
   grid-column-start: 1;

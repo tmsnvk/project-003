@@ -3,7 +3,8 @@ import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import { ElementContainer } from "components/shared/layout";
 import { FormSubmitButton, InputField, InputFormLabel, RequiredFields } from "components/shared/form";
-import { InformationLink, InformationText, ItemContainer } from "components/shared";
+import { ItemContainer } from "components/shared";
+import { InformationLink, InformationText } from "components/shared/information";
 
 const ComponentContainer = styled.div`
   grid-column-start: 1;
