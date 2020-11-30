@@ -2,8 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import { ElementContainer } from "components/shared/layout";
-import { FormSubmitButton, InputField, InputFormLabel, RequiredFields } from "components/shared/form";
-import { ItemContainer } from "components/shared";
+import { Submit, InputField, FormLabel, RequiredFields } from "components/shared/form";
 import { InformationLink, InformationText } from "components/shared/information";
 
 const ComponentContainer = styled.div`
@@ -77,10 +76,9 @@ const Search = ({ selectedPokemon, tutorial, hideTutorial }) => {
 
   return (
     <ComponentContainer>
-      <SearchContainer id="pokemondata" onSubmit={handleSubmit(onSubmit)}>
+      {/* <SearchContainer id="pokemondata" onSubmit={handleSubmit(onSubmit)}>
           <FormInputContainer>
-            <InputFormLabel htmlFor="pokemondata">Which Kanto Pokemon are you interested in?</InputFormLabel>
-            <ItemContainer>
+            <FormLabel htmlFor="pokemondata">Which Kanto Pokemon are you interested in?</FormLabel>
               <InputField
                 type="text"
                 id="pokemon"
@@ -94,9 +92,8 @@ const Search = ({ selectedPokemon, tutorial, hideTutorial }) => {
                 />
                 {errors.pokemon?.type === "required" && <ErrorMessage>A NAME or ID is required.</ErrorMessage>}
                 {errors.pokemon?.type === "pattern" && <ErrorMessage>A valid NAME or ID is required.</ErrorMessage>}
-            </ItemContainer>
             <RequiredFields>* Required fields.</RequiredFields>
-            <FormSubmitButton type="submit" name="submit" value="Search Database" disabled={formState.isSubmitting || !formState.isValid}></FormSubmitButton>
+            <Submit type="submit" name="submit" value="Search Database" disabled={formState.isSubmitting || !formState.isValid}></Submit>
           </FormInputContainer>
       </SearchContainer>
       {!hideTutorial && 
@@ -104,7 +101,7 @@ const Search = ({ selectedPokemon, tutorial, hideTutorial }) => {
         <InformationText>How to use our free database search?<br />Enter either the valid name or ID of the Pokemon you would like to look up!</InformationText>
         <InformationText>To start getting more detailed search results, please sign up for one of our <InformationLink to="/pricing">subscription</InformationLink> options.</InformationText>
         <InformationText>To get more information, you are always more than welcome to <InformationLink to="/contact">contact</InformationLink> our support agents.</InformationText>
-      </TutorialContainer>}
+      </TutorialContainer>} */}
     </ComponentContainer>
   );
 };

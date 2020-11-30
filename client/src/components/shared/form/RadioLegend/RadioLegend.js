@@ -1,19 +1,18 @@
 import React from "react";
 import styled from "styled-components";
 
-const ComponentContainer = styled.p`
+const ComponentContainer = styled.legend`
   font-size: ${({ theme }) => theme.fontSize.small};
   color: ${({ theme }) => theme.color.secondary};
-  margin: 2.5rem 0 0 0;
-  padding: 0 0 2rem 0;
+  margin: 5rem 0 1rem 0;
 `;
 
-const RequiredFields = ({ requiredData }) => {
+const RadioLegend = ({ legendData }) => {
   return (
     <ComponentContainer>
-      {requiredData}
+      {legendData}
     </ComponentContainer>
   );
 };
 
-export default RequiredFields;
+export default RadioLegend;

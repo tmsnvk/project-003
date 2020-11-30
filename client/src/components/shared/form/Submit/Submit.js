@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const FormSubmitButton = styled.input`
+const Submit = styled.input`
   align-self: center;
   font-size: ${({ theme }) => theme.fontSize.medium};
   color: ${({ theme }) => theme.color.primaryDark};
@@ -14,7 +14,7 @@ const FormSubmitButton = styled.input`
   cursor: pointer;
 
   &:hover {
-    background-color: ${({ theme }) => theme.color.secondaryAlt};
+    background-color: ${({ theme }) => theme.color.primaryMid};
   }
   
   &:focus {
@@ -22,4 +22,4 @@ const FormSubmitButton = styled.input`
   }
 `;
 
-export default FormSubmitButton;
+export default Submit;

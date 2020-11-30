@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-const InputFormLabel = styled.label`
+const FormLabel = styled.label`
   font-size: ${({ theme }) => theme.fontSize.medium};
   color: ${({ theme }) => theme.color.primaryDark};
-  font-weight: bold;
+  font-weight: 600;
   text-transform: uppercase;
   text-align: center;
   margin: 0 0 1rem 0;
@@ -26,4 +26,4 @@ const InputFormLabel = styled.label`
   }
 `;
 
-export default InputFormLabel;
+export default FormLabel;

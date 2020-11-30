@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { ElementContainer } from "components/shared/layout";
 import { Title } from "components/shared/header";
-import data from "components/page/home/Header/data";
+import data from "components/page/pricing/Header/data";
 
 const ComponentContainer = styled(ElementContainer)`
   grid-column-start: 1;
@@ -33,7 +33,7 @@ const Image = styled.img`
   display: none;
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
-    display: flex;
+    display: inline-block;
     width: 25%;
     transform: scaleX(-1);
     padding: 0 0 0 3rem;
@@ -47,8 +47,8 @@ const Image = styled.img`
 const Header = () => {
   return (
     <ComponentContainer>
-        <Image src="https://pokeres.bastionbot.org/images/pokemon/133.png" alt="eevee image" />
-        <Title data={data.title} />
+      <Image src="https://pokeres.bastionbot.org/images/pokemon/133.png" alt="eevee image" loading="lazy" />
+      <Title data={data.title} />
     </ComponentContainer>
   );
 };

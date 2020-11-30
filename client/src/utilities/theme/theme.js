@@ -1,9 +1,9 @@
 const theme = {
   color: {
     primaryDark: "#3f3b3b", // almost black
+    primaryMid: "#c7c8cc", // gray/blue-ish
     primaryLight: "#f3f3f1", // light gray
     secondary: "#0c2cbb", // dark blue
-    secondaryAlt: "#c7c8cc", //gray-blue-ish
     alternate: "#dc8b18", // orange
     warning: "#d90e00", // red
     shadow: "#424242", // almost black

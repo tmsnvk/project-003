@@ -4,8 +4,7 @@ import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { ElementContainer } from "components/shared/layout";
-import { FormContainer, FormLink, FormSubmitButton, InputErrorMessage, InputField, InputFormLabel, ItemRadioButton, ItemRadioContainer, MainRadioContainer, RadioFormLabel, RequiredFields } from "components/shared/form";
-import { ItemContainer } from "components/shared";
+import { FormContainer, FormLink, Submit, ErrorMessage, InputField, FormLabel, RadioButton, RadioContainer, RadioLabel, RequiredFields } from "components/shared/form";
 import { LoadingSpinner } from "components/shared/utilities";
 
 const ComponentContainer = styled(ElementContainer)`
@@ -116,47 +115,46 @@ const ContactForm = () => {
     }
   ];
 
-  const renderComponentInputData = componentInputData.map(({ type, id, name, placeholder, ref }) => {
-    return (
-      <ItemContainer key={id}>
-        <InputField 
-          type={type}
-          id={id}
-          name={name}
-          placeholder={placeholder}
-          autoComplete="off"
-          ref={register({
-            required: {
-              value: ref.value,
-              message: ref?.requiredMessage
-            }, 
-            pattern: {
-              value: ref?.pattern,
-              message: ref.requiredMessage
-            },
-            minLength: {
-              value: ref?.minLength,
-              message: ref?.minLengthMessage
-            },
-            maxLength: {
-              value: ref?.maxLength,
-              message: ref?.maxLengthMessage
-            }
-          })}
-        />
-        {name === "name" ? errors.name && <InputErrorMessage>{errors.name.message}</InputErrorMessage> : null}
-        {name === "pokedex" ? errors.pokedex && <InputErrorMessage>{errors.pokedex.message}</InputErrorMessage> : null}
-        {name === "email" ? errors.email && <InputErrorMessage>{errors.email.message}</InputErrorMessage> : null}
-      </ItemContainer>
-    );
-  });
+  // const renderComponentInputData = componentInputData.map(({ type, id, name, placeholder, ref }) => {
+  //   return (
+  //     <ItemContainer key={id}>
+  //       <InputField 
+  //         type={type}
+  //         id={id}
+  //         name={name}
+  //         placeholder={placeholder}
+  //         autoComplete="off"
+  //         ref={register({
+  //           required: {
+  //             value: ref.value,
+  //             message: ref?.requiredMessage
+  //           }, 
+  //           pattern: {
+  //             value: ref?.pattern,
+  //             message: ref.requiredMessage
+  //           },
+  //           minLength: {
+  //             value: ref?.minLength,
+  //             message: ref?.minLengthMessage
+  //           },
+  //           maxLength: {
+  //             value: ref?.maxLength,
+  //             message: ref?.maxLengthMessage
+  //           }
+  //         })}
+  //       />
+  //       {name === "name" ? errors.name && <ErrorMessage>{errors.name.message}</ErrorMessage> : null}
+  //       {name === "pokedex" ? errors.pokedex && <ErrorMessage>{errors.pokedex.message}</ErrorMessage> : null}
+  //       {name === "email" ? errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage> : null}
+  //     </ItemContainer>
+  //   );
+  // });
 
   return (
     <ComponentContainer>
-      <FormContainer method="POST" action="/contactform" id="contactform" onSubmit={handleSubmit(onSubmit)}>
-        <InputFormLabel htmlFor="contactform">Have a question you didn't find in the FAQ? - Tell us!</InputFormLabel>
+      {/* <FormContainer method="POST" action="/contactform" id="contactform" onSubmit={handleSubmit(onSubmit)}>
+        <FormLabel htmlFor="contactform">Have a question you didn't find in the FAQ? - Tell us!</FormLabel>
        {renderComponentInputData}
-        <ItemContainer>
           <TextareaInputField
             id="textarea"
             name="textarea"
@@ -172,11 +170,9 @@ const ContactForm = () => {
                 message: "Enter maximum 1000 characters."
               } 
             })} />
-          {errors.textarea && <InputErrorMessage>{errors.textarea.message}</InputErrorMessage>}
-        </ItemContainer>
-        <MainRadioContainer>
-          <ItemRadioContainer>
-            <ItemRadioButton
+          {errors.textarea && <ErrorMessage>{errors.textarea.message}</ErrorMessage>}
+          <RadioContainer>
+            <RadioButton
               type="checkbox"
               id="checkbox"
               name="checkbox"
@@ -186,13 +182,12 @@ const ContactForm = () => {
                   message: "CONSENT is required."
                 }
               })} />
-            <RadioFormLabel htmlFor="checkbox">* By submitting data to us you give your consent that data you submit may be processed for the purposes described in the <FormLink to="/contact">Terms & Conditions</FormLink> & <FormLink to="/contact">Privacy Policy</FormLink>.</RadioFormLabel>
-          </ItemRadioContainer>
-          {errors.checkbox && <InputErrorMessage>{errors.checkbox.message}</InputErrorMessage>}
-        </MainRadioContainer>
+            <RadioLabel htmlFor="checkbox">* By submitting data to us you give your consent that data you submit may be processed for the purposes described in the <FormLink to="/contact">Terms & Conditions</FormLink> & <FormLink to="/contact">Privacy Policy</FormLink>.</RadioLabel>
+          </RadioContainer>
+          {errors.checkbox && <ErrorMessage>{errors.checkbox.message}</ErrorMessage>}
         <RequiredFields>* Required fields.</RequiredFields>
-        {formState.isSubmitting ? <LoadingSpinner message={"Submitting form... Please wait!"} /> : <FormSubmitButton type="submit" name="submit" value="Submit Form" />}
-      </FormContainer>
+        {formState.isSubmitting ? <LoadingSpinner message={"Submitting form... Please wait!"} /> : <Submit type="submit" name="submit" value="Submit Form" />}
+      </FormContainer> */}
     </ComponentContainer>
   );
 };

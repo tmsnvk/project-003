@@ -1,11 +1,10 @@
 import React from "react";
-import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import styled from "styled-components";
 import axios from "axios";
 import { ElementContainer } from "components/shared/layout";
-import { FormContainer, FormLink, FormSubmitButton, InputErrorMessage, InputField, InputFormLabel, ItemRadioButton, ItemRadioContainer, MainRadioContainer, RadioFormLabel, RequiredFields } from "components/shared/form";
-import { ItemContainer } from "components/shared";
+import { ErrorMessage, FormContainer, FormLabel, FormLink, InputField, RadioButton, RadioContainer, RadioLabel, RadioLegend, RequiredFields, Submit } from "components/shared/form";
 import { LoadingSpinner } from "components/shared/utilities";
 
 const ComponentContainer = styled(ElementContainer)`
@@ -37,182 +36,122 @@ const ComponentContainer = styled(ElementContainer)`
   }
 `;
 
-const RadioTitle = styled.div`
-  font-size: ${({ theme }) => theme.fontSize.small};
-  color: ${({ theme }) => theme.color.secondary};
-  margin: 2.5rem 0 0 0;
-`;
-
 const SignupForm = () => {
   const { register, handleSubmit, errors, formState } = useForm();
-  
   const history = useHistory();
 
   const onSubmit = async (data) => {
     await axios.post("/signupform", data);
-
     history.push("/success");
   };
-
-  const componentInputData = [
-    {
-      type: "text",
-      id: "name",
-      name: "name",
-      placeholder: "* Your Name",
-      ref: {
-        requiredMessage: "NAME is required. Enter only alphabetic characters",
-        pattern: /^[A-Za-z ]+$/i,
-        maxLength: 30,
-        maxLengthMessage: "Enter maximum 30 characters."
-      }
-    },
-    {
-      type: "number",
-      id: "pokedex",
-      name: "pokedex",
-      placeholder: "* Your PokedexID number",
-      ref: {
-        requiredMessage: "POKEDEX ID is required.",
-        minLength: 14,
-        minLengthMessage: "Your POKEDEX ID must be 14 characters long.",
-        maxLength: 14,
-        maxLengthMessage: "Your POKEDEX ID must be 14 characters long."
-      }
-    },
-    {
-      type: "email",
-      id: "email",
-      name: "email",
-      placeholder: "* Your Email",
-      ref: {
-        requiredMessage: "EMAIL is required. Enter a valid email address.",
-        pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-        maxLength: 40,
-        maxLengthMessage: "Enter maximum 40 characters."
-      }
-    },
-    {
-      type: "number",
-      id: "phone",
-      name: "phone",
-      placeholder: "* Your Phone Number",
-      ref: {
-        requiredMessage: "PHONE NUMBER is required. Use only numbers.",
-        maxLength: 20,
-        maxLengthMessage: "Enter maximum 20 characters. Use only numbers."
-      }
-    }
-  ];
-
-  const componentRadioData = [
-    {
-      type: "radio",
-      id: "radiosolo",
-      name: "radio",
-      value: "solo",
-      placeholder: "Solo.",
-      ref: {
-        requiredMessage: "PLAN is required."
-      }
-    },
-    {
-      type: "radio",
-      id: "radioduo",
-      name: "radio",
-      value: "duo",
-      placeholder: "Duo.",
-      ref: {
-        requiredMessage: "PLAN is required."
-      }
-    }
-  ];
-
-  const renderComponentInputData = componentInputData.map(({ type, id, name, placeholder, ref }) => {
-    return (
-      <ItemContainer key={id}>
-        <InputField 
-          type={type}
-          id={id}
-          name={name}
-          placeholder={placeholder}
-          autoComplete="off"
-          ref={register({
-            required: {
-              value: true,
-              message: ref.requiredMessage
-            },
-            pattern: {
-              value: ref?.pattern,
-              message: ref.requiredMessage
-            },
-            minLength: {
-              value: ref?.minLength,
-              message: ref?.minLengthMessage
-            },
-            maxLength: {
-              value: ref?.maxLength,
-              message: ref?.maxLengthMessage
-            }
-          })}
-        />
-        {name === "name" ? errors.name && <InputErrorMessage>{errors.name.message}</InputErrorMessage> : null}
-        {name === "pokedex" ? errors.pokedex && <InputErrorMessage>{errors.pokedex.message}</InputErrorMessage> : null}
-        {name === "email" ? errors.email && <InputErrorMessage>{errors.email.message}</InputErrorMessage> : null}
-        {name === "phone" ? errors.phone && <InputErrorMessage>{errors.phone.message}</InputErrorMessage> : null}
-      </ItemContainer>
-    );
-  });
-
-  const renderComponentRadioData = componentRadioData.map(({ type, id, name, value, placeholder, ref }) => {
-    return (
-      <ItemRadioContainer key={id}>
-        <ItemRadioButton 
-          type={type}
-          id={id}
-          name={name}
-          value={value}
-          ref={register({
-            required: {
-              value: true,
-              message: ref.requiredMessage
-            }
-          })} 
-        />
-        <RadioFormLabel htmlFor="radio">{placeholder}</RadioFormLabel>
-      </ItemRadioContainer>
-    );
-  });
 
   return (
     <ComponentContainer>
       <FormContainer method="POST" action="/signupform" id="signupform" onSubmit={handleSubmit(onSubmit)}>
-        <InputFormLabel htmlFor="signupform">Ready to get into action? - Subscribe here!</InputFormLabel>
-        {renderComponentInputData}
-        <MainRadioContainer>
-          <RadioTitle>* Which plan would you like to subscribe to?</RadioTitle>
-          {renderComponentRadioData}
-          {errors.radio && <InputErrorMessage>{errors.radio.message}</InputErrorMessage>}
-        </MainRadioContainer>
-        <MainRadioContainer>
-          <ItemRadioContainer>
-            <ItemRadioButton 
-              type="checkbox"
-              id="checkbox"
-              name="checkbox"
-              ref={register({
-                required: {
-                  value: true,
-                  message: "CONSENT is required."
-                }
-              })} 
-            />
-            <RadioFormLabel htmlFor="checkbox">* By submitting data to us you give your consent that data you submit may be processed for the purposes described in the <FormLink to="/pricing">Terms & Conditions</FormLink> & <FormLink to="/pricing">Privacy Policy</FormLink>.</RadioFormLabel>
-          </ItemRadioContainer>
-          {errors.checkbox && <InputErrorMessage>{errors.checkbox.message}</InputErrorMessage>}
-        </MainRadioContainer>
-        <RequiredFields>* Required fields.</RequiredFields>
-        {formState.isSubmitting ? <LoadingSpinner message={"Submitting form... Please wait!"} /> : <FormSubmitButton type="submit" name="submit" value="Submit Form" />}
+        <FormLabel htmlFor="signupform">
+          Ready to get into action? - Subscribe here!
+        </FormLabel>
+        <InputField 
+          type="text"
+          id="name"
+          name="name"
+          placeholder="* Your Name"
+          autoComplete="off"
+          maxLength="40"
+          ref={register({
+            required: { value: true, message: "NAME is required. Enter only letters." },
+            pattern: { value: /^[A-Za-z ]+$/i, message: "Enter only letters." },
+            minLength: { value: 4, message: "Enter minimum 4 characters." },
+            maxLength: { value: 40, message: "Enter maximum 40 characters." }
+          })}
+        />
+        {errors.name && <ErrorMessage errorMessage={errors.name.message} />}
+        <InputField 
+          type="text"
+          id="pokedex"
+          name="pokedex"
+          placeholder="* Your PokedexID number"
+          autoComplete="off"
+          maxLength="14"
+          ref={register({
+            required: { value: true, message: "POKEDEX ID is required. Enter only numbers." },
+            pattern: { value: /^[0-9]+$/i, message: "Enter only numbers." },
+            minLength: { value: 14, message: "Enter 14 characters." },
+            maxLength: { value: 14, message: "Enter 14 characters." }
+          })}
+        />
+        {errors.pokedex && <ErrorMessage errorMessage={errors.pokedex.message} />}
+        <InputField 
+          type="email"
+          id="email"
+          name="email"
+          placeholder="* Your Email"
+          autoComplete="off"
+          ref={register({
+            required: { value: true, message: "EMAIL is required. Enter a valid email address." },
+            pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i, message: "Enter a valid email address." }
+          })}
+        />
+        {errors.email && <ErrorMessage errorMessage={errors.email.message} />}
+        <InputField 
+          type="text"
+          id="phone"
+          name="phone"
+          placeholder="* Your Phone Number"
+          autoComplete="off"
+          minLength="8"
+          maxLength="25"
+          ref={register({
+            required: { value: true, message: "PHONE NUMBER is required. Enter only numbers." },
+            pattern: { value: /^[0-9]+$/i, message: "Enter only numbers." },
+            minLength: { value: 8, message: "Enter minimum 8 characters." },
+            maxLength: { value: 25, message: "Enter maximum 25 characters." }
+          })}
+        />
+        {errors.phone && <ErrorMessage errorMessage={errors.phone.message} />}
+        <RadioLegend legendData={"* Which plan would you like to subscribe to?"} />
+        <RadioContainer>
+          <RadioButton
+            type="radio"
+            id="radiosolo"
+            name="radio"
+            value="solo"
+            ref={register({
+              required: { value: true, message: "PLAN is required." }
+            })}
+          />
+          <RadioLabel htmlFor="radiosolo">Solo.</RadioLabel>
+        </RadioContainer>
+        <RadioContainer>
+          <RadioButton
+            type="radio"
+            id="radioduo"
+            name="radio"
+            value="duo"
+            ref={register({
+              required: { value: true, message: "PLAN is required." }
+            })}
+          />
+          <RadioLabel htmlFor="radioduo">Duo.</RadioLabel>
+        </RadioContainer>
+        {errors.radio && <ErrorMessage errorMessage={errors.radio.message} />}
+        <RadioLegend legendData={"* Data submission agreement."} />
+        <RadioContainer>
+          <RadioButton
+            type="checkbox"
+            id="checkbox"
+            name="checkbox"
+            ref={register({
+              required: { value: true, message: "CONSENT is required." }
+            })}
+          />
+          <RadioLabel htmlFor="checkbox">
+            By submitting data to CKPD you give your consent that your data may be processed for purposes described in the <FormLink to="/pricing">Terms & Conditions</FormLink> & <FormLink to="/pricing">Privacy Policy</FormLink>.
+          </RadioLabel>
+        </RadioContainer>
+        {errors.checkbox && <ErrorMessage errorMessage={errors.checkbox.message} />}
+        <RequiredFields requiredData={"* Required fields."} />
+        {formState.isSubmitting ? <LoadingSpinner loadingMessage={"Submitting form... Please wait!"} /> : <Submit type="submit" name="submit" value="Submit" />}
       </FormContainer>
     </ComponentContainer>
   );

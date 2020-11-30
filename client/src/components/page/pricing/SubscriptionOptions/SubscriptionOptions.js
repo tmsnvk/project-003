@@ -31,7 +31,7 @@ const ComponentContainer = styled.div`
   }
 `;
 
-const ItemContainer = styled.div`
+const OptionContainer = styled.div`
   width: 90%;
   align-self: baseline;
   margin: 0 auto 2rem;
@@ -42,7 +42,6 @@ const ItemContainer = styled.div`
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.xSmall}) {
     width: 80%;
-    transform: ${({ alternate }) => alternate ? "scale(1.05)" : null};
   }
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.small}) {
@@ -63,7 +62,7 @@ const ItemContainer = styled.div`
   }
 `;
 
-const ItemTitle = styled.h3`
+const OptionTitle = styled.h3`
   font-size: ${({ theme }) => theme.fontSize.xLarge};
   color: ${({ theme }) => theme.color.primaryLight};
   text-shadow: 3px 3px 1px ${({ theme }) => theme.color.primaryDark};
@@ -78,24 +77,24 @@ const ItemTitle = styled.h3`
   }
 `;
 
-const ItemPricingContainer = styled.div`
+const OptionPricingContainer = styled.div`
   text-align: center;
   padding: 2rem 0 2rem 0;
   font-size: ${({ theme }) => theme.fontSize.small};
 `;
 
-const ItemPriceTagSpan = styled.span`
+const OptionPriceTagSpan = styled.span`
   font-size: ${({ theme }) => theme.fontSize.large};
   padding: 0 0.5rem 0 0;
 `;
 
-const ItemPricingIcon = styled(FontAwesomeIcon)`
+const OptionPricingIcon = styled(FontAwesomeIcon)`
   font-size: ${({ theme }) => theme.fontSize.medium};
   vertical-align: super;
   margin: 0 0.5rem 0 0;
 `;
 
-const ItemParagraph = styled.p`
+const OptionParagraph = styled.p`
   font-size: ${({ theme }) => theme.fontSize.small};
   padding: 0 0 1rem 2rem;
 
@@ -104,7 +103,7 @@ const ItemParagraph = styled.p`
   }
 `;
 
-const ItemParagraphIcon = styled(FontAwesomeIcon)`
+const OptionParagraphIcon = styled(FontAwesomeIcon)`
   font-size: ${({ theme }) => theme.fontSize.small};
   vertical-align: middle;
   margin: 0 1rem 0 0;
@@ -114,7 +113,7 @@ const ItemParagraphIcon = styled(FontAwesomeIcon)`
   }
 `;
 
-const ItemButton = styled.button`
+const OptionButton = styled(Link)`
   display: block;
   width: 50%;
   color: ${({ theme }) => theme.color.primaryLight};
@@ -142,7 +141,7 @@ const ItemButton = styled.button`
   }
 `;
 
-const ItemBottomParagraph = styled.p`
+const OptionBottomParagraph = styled.p`
   font-size: ${({ theme }) => theme.fontSize.small};
   padding: 0 0 2rem 0;
   text-align: center;
@@ -152,7 +151,7 @@ const ItemBottomParagraph = styled.p`
   }
 `;
 
-const ItemPopular = styled.div`
+const OptionPopular = styled.div`
   background-color: ${({ theme }) => theme.color.alternate};
   font-size: ${({ theme }) => theme.fontSize.medium};
   font-weight: bold;
@@ -166,22 +165,22 @@ const ItemPopular = styled.div`
 const SubscriptionOptions = () => {
   const renderComponentData = data.map(({ optionTitle, priceIcon, priceTag, month, icon, paragraphs, link, bottomParagraph, mostPopular, alternate }) => {
     return (
-      <ItemContainer key={optionTitle} alternate={alternate ? 1 : 0}>
-        <ItemTitle alternate={alternate ? 1 : 0}>{optionTitle}</ItemTitle>
-        <ItemPricingContainer>
-          <ItemPriceTagSpan>
-            {priceIcon !== null ? <ItemPricingIcon icon={priceIcon}></ItemPricingIcon> : null}{priceTag}
-          </ItemPriceTagSpan>
+      <OptionContainer key={optionTitle} alternate={alternate ? 1 : 0}>
+        <OptionTitle alternate={alternate ? 1 : 0}>{optionTitle}</OptionTitle>
+        <OptionPricingContainer>
+          <OptionPriceTagSpan>
+            {priceIcon !== "" ? <OptionPricingIcon icon={priceIcon}></OptionPricingIcon> : null}{priceTag}
+          </OptionPriceTagSpan>
           {month}
-        </ItemPricingContainer>
-        <ItemParagraph><ItemParagraphIcon icon={icon}></ItemParagraphIcon>{paragraphs.one}</ItemParagraph>
-        <ItemParagraph><ItemParagraphIcon icon={icon}></ItemParagraphIcon>{paragraphs.two}</ItemParagraph>
-        <ItemParagraph><ItemParagraphIcon icon={icon}></ItemParagraphIcon>{paragraphs.three}</ItemParagraph>
-        <ItemParagraph><ItemParagraphIcon icon={icon}></ItemParagraphIcon>{paragraphs.four}</ItemParagraph>
-        <ItemButton as={Link} to={link.to} alternate={alternate ? 1 : 0}>{link.text}</ItemButton>
-        <ItemBottomParagraph>{bottomParagraph}</ItemBottomParagraph>
-        {mostPopular !== null ? <ItemPopular>{mostPopular}</ItemPopular> : null}
-      </ItemContainer>
+        </OptionPricingContainer>
+        <OptionParagraph><OptionParagraphIcon icon={icon}></OptionParagraphIcon>{paragraphs.one}</OptionParagraph>
+        <OptionParagraph><OptionParagraphIcon icon={icon}></OptionParagraphIcon>{paragraphs.two}</OptionParagraph>
+        <OptionParagraph><OptionParagraphIcon icon={icon}></OptionParagraphIcon>{paragraphs.three}</OptionParagraph>
+        <OptionParagraph><OptionParagraphIcon icon={icon}></OptionParagraphIcon>{paragraphs.four}</OptionParagraph>
+        <OptionButton to={link.to} alternate={alternate ? 1 : 0}>{link.text}</OptionButton>
+        <OptionBottomParagraph>{bottomParagraph}</OptionBottomParagraph>
+        {mostPopular !== "" ? <OptionPopular>{mostPopular}</OptionPopular> : null}
+      </OptionContainer>
     );
   });
 

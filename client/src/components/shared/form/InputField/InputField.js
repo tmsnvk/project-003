@@ -4,8 +4,9 @@ const InputField = styled.input`
   width: 25rem;
   height: 5rem;
   font-size: ${({ theme }) => theme.fontSize.small};
+  margin: 2rem 0 0 0;
   padding: 0.5rem 0.5rem 0.5rem 2rem;
-  background-color: ${({ theme }) => theme.color.secondaryAlt};
+  background-color: ${({ theme }) => theme.color.primaryMid};
   border: 1px solid ${({ theme }) => theme.color.secondary};
   box-shadow: 0px 2px 2px 0px ${({ theme }) => theme.color.shadow};
   border-radius: 1rem;

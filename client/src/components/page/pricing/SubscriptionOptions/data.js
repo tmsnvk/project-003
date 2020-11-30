@@ -17,8 +17,8 @@ const data = [
       to: "/search",
       text: "Search now!"
     },
-    bottomParagraph: "",
-    mostPopular: null,
+    bottomParagraph: "Start using our service for free!",
+    mostPopular: "",
     alternate: false
   },
   {
@@ -38,7 +38,7 @@ const data = [
       text: "Sign me up!"
     },
     bottomParagraph: "30-day money back guarantee.",
-    mostPopular: null,
+    mostPopular: "",
     alternate: false
   },
   {
@@ -63,7 +63,7 @@ const data = [
   },
   {
     optionTitle: "Gym",
-    priceIcon: null,
+    priceIcon: "",
     priceTag: "Gym tailored! *",
     month: "",
     icon: iconList.angleRight,
@@ -77,8 +77,8 @@ const data = [
       to: "/contact",
       text: "Contact us!"
     },
-    bottomParagraph: "30-day money back guarantee.",
-    mostPopular: null,
+    bottomParagraph: "Contact us for a personalised gym offer.",
+    mostPopular: "",
     alternate: false
   }
 ];

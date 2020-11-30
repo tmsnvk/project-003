@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { ElementContainer } from "components/shared/layout";
 import { Title, Message, SubTitle } from "components/shared/header";
-import data from "components/page/home/Header/data.js";
+import data from "components/page/home/Header/data";
 
 const ComponentContainer = styled(ElementContainer)`
   grid-column-start: 1;
