@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
-import styled from "styled-components";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import styled from "styled-components";
 import { ElementContainer } from "components/shared/layout";
-import { Image } from "components/shared";
 import { InformationLink, InformationText } from "components/shared/information";
+import { Image } from "components/shared/utilities";
+import getPokemonId from "utilities/helpers/getPokemonId";
 
 const ComponentContainer = styled(ElementContainer)`
   grid-column-start: 1;
@@ -28,22 +28,12 @@ const ComponentContainer = styled(ElementContainer)`
   }
 `;
 
-const StyledIcon = styled(FontAwesomeIcon)`
-  font-size: ${({ theme }) => theme.fontSize.xLarge};
-  margin: 1rem 0 1rem 0;
-`;
-
-const ErrorContainer = () => {
+const Message = () => {
   const [pokemonId, setPokemonId] = useState(0);
   const [pokemonName, setPokemonName] = useState("");
 
   useEffect(() => {
-    const getPokemonId = (min = 1, max = 151) => {
-      const number = Math.floor(Math.random() * (max - min) + min);
-      setPokemonId(number);
-    };
-
-    getPokemonId();
+    setPokemonId(getPokemonId());
   }, []);
 
   useEffect(() => {
@@ -53,21 +43,21 @@ const ErrorContainer = () => {
           const { data } = await axios.get(`/pokemon/${pokemonId}`);
           setPokemonName(data.name);
         } catch (error) {
-          return console.log("Something is not good - data fetch has failed!");
+          return console.log(`Data fetch has failed. Please check the following error message - ${error}`);
         }
-      };
-    }
+      }
+    };
 
     getPokemonName();
   }, [pokemonId]);
 
   return (
     <ComponentContainer>
-      <InformationText>{pokemonName.toUpperCase()} says the page you tried to enter doesn't exist.</InformationText>
+      <InformationText>{pokemonName.toUpperCase()} says the page you tried to visit doesn't exist.</InformationText>
       <InformationText>Click <InformationLink to="/">here</InformationLink> to return to our home page!</InformationText>
-      {pokemonId !== 0 ? <Image src={`https://pokeres.bastionbot.org/images/pokemon/${pokemonId}.png`} alt="random pokemon img" /> : <StyledIcon icon={["fas", "spinner"]}></StyledIcon>}
+      {pokemonId !== 0 ? <Image src={`https://pokeres.bastionbot.org/images/pokemon/${pokemonId}.png`} alt="random pokemon img" loading="lazy" /> : null}
     </ComponentContainer>
   );
 };
 
-export default ErrorContainer;
+export default Message;

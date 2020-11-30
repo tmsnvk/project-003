@@ -1,5 +1,5 @@
 import Header from "./Header";
 import Result from "./Result";
-import Search from "./Search";
+import SearchForm from "./SearchForm";
 
-export { Header, Result, Search };
+export { Header, Result, SearchForm };

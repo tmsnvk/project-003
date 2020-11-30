@@ -1,3 +1,3 @@
-import SuccessContainer from "./SuccessContainer";
+import Message from "./Message";
 
-export { SuccessContainer };
+export { Message };

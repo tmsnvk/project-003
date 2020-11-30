@@ -27,7 +27,7 @@ const ComponentContainer = styled.div`
   }
 `;
 
-const PokemonImageContainer = styled(ElementContainer)`
+const ImageContainer = styled(ElementContainer)`
   width: 90%;
   background-image: ${({ type }) => handleType(type)};
   margin: 1rem 1rem 1rem 1rem;
@@ -59,12 +59,12 @@ const PokemonImage = styled.img`
   width: 100%;
 `;
 
-const DataContainer = styled(PokemonImageContainer)`
-  text-transform: uppercase;
+const DataContainer = styled(ImageContainer)`
   display: flex;
   flex-direction: column;
   font-size: ${({ theme }) => theme.fontSize.small};
-  font-weight: bold;
+  font-weight: 600;
+  text-transform: uppercase;
   letter-spacing: 0.2rem;
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.xSmall}) {
@@ -81,35 +81,27 @@ const DataContainer = styled(PokemonImageContainer)`
   }
 `;
 
-const DataTitle = styled.div`
+const Title = styled.h2`
   font-family: ${({ theme }) => theme.fontFamily.secondary};
   font-size: ${({ theme }) => theme.fontSize.xLarge};
   color: ${({ theme }) => theme.color.secondary};
 `;
 
-const DataRow = styled.div`
+const Item = styled.h3`
   font-family: ${({ theme }) => theme.fontFamily.secondary};
-  font-size: ${({ theme }) => theme.fontSize.large};
+  font-size: ${({ theme }) => theme.fontSize.medium};
   color: ${({ theme }) => theme.color.secondary};
   padding: 0.5rem 0 0.5rem 0;
-
-  @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.large}) {
-    font-size: ${props => props.theme.fontSize.large};
-  }
 `;
 
-const DataSpan = styled.span`
+const Span = styled.span`
   font-family: ${({ theme }) => theme.fontFamily.main};
   font-size: ${({ theme }) => theme.fontSize.medium};
   color: ${({ theme }) => theme.color.primaryDark};
-
-  @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
-    font-size: ${({ theme }) => theme.fontSize.xLarge};
-  }
 `;
 
-const DataIcon = styled(FontAwesomeIcon)`
-  font-size: ${({ theme }) => theme.fontSize.large};
+const Icon = styled(FontAwesomeIcon)`
+  font-size: ${({ theme }) => theme.fontSize.medium};
   margin: 0 1rem 0 0;
   vertical-align: middle;
 `;
@@ -160,23 +152,23 @@ const handleType = (type) => {
 const Result = ({ pokemonData }) => {
   return (
     <ComponentContainer>
-      <PokemonImageContainer type={pokemonData.typeOne}>
-        <PokemonImage src={pokemonData.src} alt="random pokemon image" />
-      </PokemonImageContainer>
+      <ImageContainer type={pokemonData.typeOne}>
+        <PokemonImage src={pokemonData.src} alt="random pokemon image" loading="lazy" />
+      </ImageContainer>
       <DataContainer type={pokemonData.typeOne}>
-        <DataTitle>Identity:</DataTitle>
-        <DataRow><DataIcon icon={iconList.idCard}></DataIcon>Name:&nbsp;<DataSpan>{pokemonData.name}</DataSpan></DataRow>
-        <DataRow><DataIcon icon={iconList.tag}></DataIcon>ID:&nbsp;<DataSpan>{pokemonData.id}</DataSpan></DataRow>
+        <Title>Identity:</Title>
+        <Item><Icon icon={iconList.idCard}></Icon>Name:&nbsp;<Span>{pokemonData.name}</Span></Item>
+        <Item><Icon icon={iconList.tag}></Icon>ID:&nbsp;<Span>{pokemonData.id}</Span></Item>
         {!pokemonData.typeTwo ? 
-        <DataRow><DataIcon icon={iconList.codeBranch}></DataIcon>Type:&nbsp;<DataSpan>{pokemonData.typeOne}</DataSpan></DataRow> :
-        <DataRow><DataIcon icon={iconList.codeBranch}></DataIcon>Type:&nbsp;<DataSpan>{pokemonData.typeOne}</DataSpan> / <DataSpan>{pokemonData.typeTwo}</DataSpan></DataRow>}
+        <Item><Icon icon={iconList.codeBranch}></Icon>Type:&nbsp;<Span>{pokemonData.typeOne}</Span></Item> :
+        <Item><Icon icon={iconList.codeBranch}></Icon>Type:&nbsp;<Span>{pokemonData.typeOne}</Span> / <Span>{pokemonData.typeTwo}</Span></Item>}
       </DataContainer>
       <DataContainer type={pokemonData.typeOne}>
-        <DataTitle>Statistics:</DataTitle>
-        <DataRow><DataIcon icon={iconList.heart}></DataIcon>HP:&nbsp;<DataSpan>{pokemonData.hp}</DataSpan></DataRow>
-        <DataRow><DataIcon icon={iconList.hamsa}></DataIcon>Attack:&nbsp;<DataSpan>{pokemonData.attack}</DataSpan></DataRow>
-        <DataRow><DataIcon icon={iconList.scroll}></DataIcon>Defense:&nbsp;<DataSpan>{pokemonData.defense}</DataSpan></DataRow>
-        <DataRow><DataIcon icon={iconList.rocket}></DataIcon>Speed:&nbsp;<DataSpan>{pokemonData.speed}</DataSpan></DataRow>
+        <Title>Statistics:</Title>
+        <Item><Icon icon={iconList.heart}></Icon>HP:&nbsp;<Span>{pokemonData.hp}</Span></Item>
+        <Item><Icon icon={iconList.hamsa}></Icon>Attack:&nbsp;<Span>{pokemonData.attack}</Span></Item>
+        <Item><Icon icon={iconList.scroll}></Icon>Defense:&nbsp;<Span>{pokemonData.defense}</Span></Item>
+        <Item><Icon icon={iconList.rocket}></Icon>Speed:&nbsp;<Span>{pokemonData.speed}</Span></Item>
       </DataContainer>
     </ComponentContainer>
   );

@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { ElementContainer } from "components/shared/layout";
-import { Image } from "components/shared";
 import { InformationLink, InformationText } from "components/shared/information";
+import { Image } from "components/shared/utilities";
 
 const ComponentContainer = styled(ElementContainer)`
   grid-column-start: 1;
@@ -26,15 +26,15 @@ const ComponentContainer = styled(ElementContainer)`
   }
 `;
 
-const SuccessContainer = () => {
+const Message = () => {
   return (
     <ComponentContainer>
-      <InformationText>Your form submission was successful. Shortly, you will receive an email regarding your payment and login details.</InformationText>
+      <InformationText>Your form submission was successful. You will shortly receive an email regarding your payment and login details.</InformationText>
       <InformationText>Happy hunting!</InformationText>
       <InformationText>Click <InformationLink to="/">here</InformationLink> to return to our home page!</InformationText>
-      <Image src="https://pokeres.bastionbot.org/images/pokemon/66.png" alt="machop" />
+      <Image src="https://pokeres.bastionbot.org/images/pokemon/66.png" alt="machop" loading="lazy" />
     </ComponentContainer>
   );
 };
 
-export default SuccessContainer;
+export default Message;

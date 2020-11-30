@@ -77,7 +77,7 @@ const data = [
       to: "/contact",
       text: "Contact us!"
     },
-    bottomParagraph: "Contact us for a personalised gym offer.",
+    bottomParagraph: "Contact us for a personalised gym offer!",
     mostPopular: "",
     alternate: false
   }

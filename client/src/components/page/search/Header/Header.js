@@ -28,7 +28,7 @@ const Header = () => {
     <ComponentContainer>
       <Title data={data.title} />
     </ComponentContainer>
-  )
+  );
 };
 
 export default Header;
