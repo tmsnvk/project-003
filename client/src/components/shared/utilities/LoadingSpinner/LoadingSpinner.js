@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { ElementContainer } from "components/shared/layout";
-import { InformationText } from "components/shared/information";
+import { InfoTitle } from "components/shared/information";
 import { StyledIcon } from "components/shared/utilities";
 import iconList from "utilities/iconList/iconList";
 
@@ -31,7 +31,7 @@ const LoadingSpinner = ({ loadingMessage }) => {
   return (
     <ComponentContainer>
       <StyledIcon icon={iconList.spinner} spin></StyledIcon>
-      <InformationText>{loadingMessage}</InformationText>
+      <InfoTitle>{loadingMessage}</InfoTitle>
     </ComponentContainer>
   );
 };

@@ -38,16 +38,11 @@ const ImageContainer = styled(ElementContainer)`
   }
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.xSmall}) {
-    width: 60%;
+    width: 80%;
   }
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.small}) {
-    width: 40%;
-  }
-
-  @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
-    width: 30%;
-    margin: 1rem;
+    width: 50%;
   }
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.xLarge}) {
@@ -83,7 +78,7 @@ const DataContainer = styled(ImageContainer)`
 
 const Title = styled.h2`
   font-family: ${({ theme }) => theme.fontFamily.secondary};
-  font-size: ${({ theme }) => theme.fontSize.xLarge};
+  font-size: ${({ theme }) => theme.fontSize.large};
   color: ${({ theme }) => theme.color.secondary};
 `;
 

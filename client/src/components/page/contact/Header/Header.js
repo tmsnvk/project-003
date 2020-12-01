@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { ElementContainer } from "components/shared/layout";
 import { Title } from "components/shared/header";
-import { InformationHashLink } from "components/shared/information";
-import data from "components/page/contact/Header/data.json";
+import { InfoHashLink, InfoText } from "components/shared/information";
+import data from "components/page/contact/Header/data";
 
 const ComponentContainer = styled(ElementContainer)`
   grid-column-start: 1;
@@ -24,19 +24,13 @@ const ComponentContainer = styled(ElementContainer)`
   }
 `;
 
-const Message = styled.div`
-  font-size: ${({ theme }) => theme.fontSize.small};
-
-  @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.large}) {
-    font-size: ${({ theme }) => theme.fontSize.medium};
-  }
-`;
-
 const Header = () => {
   return (
     <ComponentContainer>
       <Title data={data.title} />
-      <Message>Take a look at our <InformationHashLink to="/contact/#faq">FAQ</InformationHashLink> or <InformationHashLink to="/contact/#contactform">submit</InformationHashLink> your own question!</Message>
+      <InfoText>
+        Take a look at our <InfoHashLink to="/contact/#faq">FAQ</InfoHashLink> or <InfoHashLink to="/contact/#contactform">submit</InfoHashLink> your own question!
+      </InfoText>
     </ComponentContainer>
   )
 };

@@ -1,13 +1,13 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
+import ReactGA from "react-ga";
 import ScrollToTop from "utilities/ScrollToTop/ScrollToTop";
 import GlobalStyle from "utilities/theme/GlobalStyle";
 import theme from "utilities/theme/theme";
-import Navbar from "./Navbar";
 import Footer from "./Footer";
+import Navbar from "./Navbar";
 import { Contact, Home, NotFound, Pricing, Search, Success } from "pages";
-import ReactGA from "react-ga";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faFacebook, faTwitter, faYoutube, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faInfinity, faServer, faComments, faLifeRing, faAngleDoubleRight, faCaretUp, faAngleRight, faEuroSign, faIdCard, faTag, faCodeBranch, faHeart, faHamsa, faScroll, faRocket, faCircleNotch, faReply } from "@fortawesome/free-solid-svg-icons";

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
 import axios from "axios";
+import styled from "styled-components";
 import { Header, Result, SearchForm } from "components/page/search";
 import { LayoutContainerDefault } from "components/shared/layout";
 import { LoadingSpinner } from "components/shared/utilities";

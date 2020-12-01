@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-const InformationLink = styled(Link)`
+const InfoLink = styled(Link)`
   color: ${({ theme }) => theme.color.secondary};
   font-size: inherit;
   cursor: pointer;
@@ -15,4 +15,4 @@ const InformationLink = styled(Link)`
   }
 `;
 
-export default InformationLink;
+export default InfoLink;

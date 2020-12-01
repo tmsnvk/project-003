@@ -1,9 +1,9 @@
 import React from "react";
-import styled from "styled-components";
 import { useForm } from "react-hook-form";
+import styled from "styled-components";
 import { ElementContainer } from "components/shared/layout";
 import { ErrorMessage, FormLabel, InputField, RequiredFields, Submit } from "components/shared/form";
-import { InformationLink, InformationText } from "components/shared/information";
+import { InfoLink, InfoText, InfoTitle } from "components/shared/information";
 
 const ComponentContainer = styled.div`
   grid-column-start: 1;
@@ -50,17 +50,13 @@ const TutorialContainer = styled(ElementContainer)`
 `;
 
 const SearchForm = ({ selectedPokemon, tutorial, hideTutorial }) => {
-  const { errors, formState, handleSubmit, register } = useForm({
-    mode: "onChange"
-  });
+  const { errors, formState, handleSubmit, register } = useForm({ mode: "onChange" });
 
   const onSubmit = (data, event) => {
     selectedPokemon(data.pokemon);
     event.target.reset();
 
-    if (!hideTutorial) {
-      tutorial(true);
-    }
+    if (!hideTutorial) tutorial(true);
   };
 
   return (
@@ -92,9 +88,15 @@ const SearchForm = ({ selectedPokemon, tutorial, hideTutorial }) => {
       </FormContainer>
       {!hideTutorial && 
       <TutorialContainer>
-        <InformationText>How to use our free database?<br />Enter either the valid name or ID of the Pokemon you would like to look up!</InformationText>
-        <InformationText>To start getting more detailed search results, please sign up for one of our <InformationLink to="/pricing">subscription</InformationLink> options.</InformationText>
-        <InformationText>To get more information, you are always more than welcome to <InformationLink to="/contact">contact</InformationLink> our support agents.</InformationText>
+        <InfoTitle>
+          How to use our free database?<br />Enter either the valid name or ID of the Pokemon you would like to look up!
+        </InfoTitle>
+        <InfoText>
+          To start getting more detailed search results, please sign up for one of our <InfoLink to="/pricing">subscription</InfoLink> options.
+        </InfoText>
+        <InfoText>
+          To get more information, you are always more than welcome to <InfoLink to="/contact">contact</InfoLink> our support agents.
+        </InfoText>
       </TutorialContainer>}
     </ComponentContainer>
   );

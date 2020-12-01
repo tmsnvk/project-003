@@ -1,8 +1,8 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import styled from "styled-components";
 import axios from "axios";
+import styled from "styled-components";
 import { ElementContainer } from "components/shared/layout";
 import { ErrorMessage, FormContainer, FormLabel, FormLink, InputField, RadioButton, RadioContainer, RadioLabel, RadioLegend, RequiredFields, Submit } from "components/shared/form";
 import { LoadingSpinner } from "components/shared/utilities";
@@ -37,8 +37,8 @@ const ComponentContainer = styled(ElementContainer)`
 `;
 
 const SignupForm = () => {
-  const { register, handleSubmit, errors, formState } = useForm();
   const history = useHistory();
+  const { register, handleSubmit, errors, formState } = useForm();
 
   const onSubmit = async (data) => {
     await axios.post("/signupform", data);

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import { ElementContainer } from "components/shared/layout";
-import { InformationLink, InformationText } from "components/shared/information";
+import { InfoLink, InfoText, InfoTitle } from "components/shared/information";
 import { Image } from "components/shared/utilities";
 import getPokemonId from "utilities/helpers/getPokemonId";
 
@@ -53,9 +53,13 @@ const Message = () => {
 
   return (
     <ComponentContainer>
-      <InformationText>{pokemonName.toUpperCase()} says the page you tried to visit doesn't exist.</InformationText>
-      <InformationText>Click <InformationLink to="/">here</InformationLink> to return to our home page!</InformationText>
-      {pokemonId !== 0 ? <Image src={`https://pokeres.bastionbot.org/images/pokemon/${pokemonId}.png`} alt="random pokemon img" loading="lazy" /> : null}
+      <InfoTitle>
+        {pokemonName.toUpperCase()} says the page you tried to visit doesn't exist.
+      </InfoTitle>
+      <InfoText>
+        Click <InfoLink to="/">here</InfoLink> to return to our home page!
+      </InfoText>
+      {pokemonName !== "" ? <Image src={`https://pokeres.bastionbot.org/images/pokemon/${pokemonId}.png`} alt="random pokemon img" loading="lazy" /> : null}
     </ComponentContainer>
   );
 };

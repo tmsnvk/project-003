@@ -1,5 +1,6 @@
-import InformationHashLink from "./InformationHashLink";
-import InformationLink from "./InformationLink";
-import InformationText from "./InformationText";
+import InfoHashLink from "./InfoHashLink";
+import InfoLink from "./InfoLink";
+import InfoText from "./InfoText";
+import InfoTitle from "./InfoTitle";
 
-export { InformationHashLink, InformationLink, InformationText };
+export { InfoHashLink, InfoLink, InfoText, InfoTitle };

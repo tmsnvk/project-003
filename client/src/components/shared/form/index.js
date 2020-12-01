@@ -9,5 +9,6 @@ import RadioLabel from "./RadioLabel";
 import RadioLegend from "./RadioLegend";
 import RequiredFields from "./RequiredFields";
 import Submit from "./Submit";
+import Textarea from "./Textarea";
 
-export { FormContainer, FormLink, ErrorMessage, InputField, FormLabel, RadioButton, RadioContainer, RadioLabel, RadioLegend, RequiredFields, Submit };
+export { ErrorMessage, FormContainer, FormLabel, FormLink, InputField, RadioButton, RadioContainer, RadioLabel, RadioLegend, RequiredFields, Submit, Textarea };

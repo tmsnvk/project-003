@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { HashLink as Link } from "react-router-hash-link";
 
-const InformationHashLink = styled(Link)`
+const InfoHashLink = styled(Link)`
   color: ${({ theme }) => theme.color.secondary};
   font-size: inherit;
   cursor: pointer;
@@ -15,4 +15,4 @@ const InformationHashLink = styled(Link)`
   }
 `;
 
-export default InformationHashLink;
+export default InfoHashLink;

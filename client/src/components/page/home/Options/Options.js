@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { ElementContainer } from "components/shared/layout";
-import { InformationLink, InformationText } from "components/shared/information";
+import { InfoLink, InfoText, InfoTitle } from "components/shared/information";
 
 const ComponentContainer = styled(ElementContainer)`
   grid-column-start: 1;
@@ -29,9 +29,15 @@ const ComponentContainer = styled(ElementContainer)`
 const Options = () => {
   return (
     <ComponentContainer>
-      <InformationText>Want to know what we offer?<br />Take a look at the following paragraphs and visit the appropriate link to get an answer for your questions!</InformationText>
-      <InformationText>Like what you see? - Subscribe on our <InformationLink to="/pricing">Pricing</InformationLink> page and join our community immediately!</InformationText>
-      <InformationText>Have further questions? - Visit our FAQ or get in touch with one of our customer agents on our <InformationLink to="/contact">Contact</InformationLink> page!</InformationText>
+      <InfoTitle>
+        Want to know what we offer?<br />Take a look at the following paragraphs and visit the appropriate link to get an answer for your questions!
+      </InfoTitle>
+      <InfoText>
+        Like what you see? - Subscribe on our <InfoLink to="/pricing">Pricing</InfoLink> page and join our community immediately!
+      </InfoText>
+      <InfoText>
+        Have further questions? - Visit our FAQ or get in touch with one of our customer agents on our <InfoLink to="/contact">Contact</InfoLink> page!
+      </InfoText>
     </ComponentContainer>
   );
 };

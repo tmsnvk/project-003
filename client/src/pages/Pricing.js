@@ -4,7 +4,7 @@ import { LayoutContainerDefault } from "components/shared/layout";
 import { Header, SignupForm, SubscriptionOptions } from "components/page/pricing";
 
 const LayoutContainer = styled(LayoutContainerDefault)`
-@media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
+  @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
     grid-template-columns: 1fr 1fr;
   }
 

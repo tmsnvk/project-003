@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ElementContainer } from "components/shared/layout";
 import iconList from "utilities/iconList/iconList";
-import componentData from "./componentData";
+import data from "./data";
 
 const ComponentContainer = styled(ElementContainer)`
   grid-column-start: 1;
@@ -31,7 +31,7 @@ const ComponentContainer = styled(ElementContainer)`
   }
 `;
 
-const FaqItemContainer = styled.div`
+const ItemContainer = styled.div`
   padding: 0.5rem 0.5rem 2rem 0.5rem;
 `;
 
@@ -60,18 +60,21 @@ const AnswerIcon = styled(FontAwesomeIcon)`
 const FaqContainer = () => {
   const [activeQuestion, setActiveQuestion] = useState(null);
 
-  const onTitleClick = (index) => {
-    setActiveQuestion(index);
-  };
-  
-  const renderComponentData = componentData.map((faq, index) => {
+  const onTitleClick = (index) => setActiveQuestion(index);
+
+  const renderComponentData = data.map(({ id, question, answer }, index) => {
     const active = index === activeQuestion ? "" : "hidden";
 
     return (
-      <FaqItemContainer key={faq.id} onClick={() => onTitleClick(index)}>
-        <Question>{faq.question}</Question>
-        <Answer hidden={active}><AnswerIcon icon={iconList.reply}></AnswerIcon>{faq.answer}</Answer>
-      </FaqItemContainer>
+      <ItemContainer key={id} onClick={() => onTitleClick(index)}>
+        <Question>
+          {question}
+        </Question>
+        <Answer hidden={active}>
+          <AnswerIcon icon={iconList.reply}></AnswerIcon>
+          {answer}
+        </Answer>
+      </ItemContainer>
     );
   });
 
