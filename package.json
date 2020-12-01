@@ -2,6 +2,9 @@
   "name": "project-003",
   "description": "project-003",
   "main": "server.js",
+  "engines": {
+    "node": "14.4.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js",
