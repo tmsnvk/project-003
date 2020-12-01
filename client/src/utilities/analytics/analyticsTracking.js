@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import ReactGA from "react-ga";
 
-export const trackUserNavigation = () => {
+export const useNavigationTracking = () => {
   const location = useLocation();
 
   useEffect(() => {
@@ -14,6 +14,6 @@ export const trackUserNavigation = () => {
 export const trackUserEvent = (category, action) => {
   ReactGA.event({
     category: category,
-    action: action,
+    action: action
   });
 };
