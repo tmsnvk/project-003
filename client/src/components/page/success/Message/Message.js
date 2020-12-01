@@ -38,7 +38,7 @@ const Message = () => {
       <InfoText>
         Click <InfoLink to="/">here</InfoLink> to return to our home page!
       </InfoText>
-      <Image src="https://pokeres.bastionbot.org/images/pokemon/66.png" alt="machop" loading="lazy" />
+      <Image src="https://pokeres.bastionbot.org/images/pokemon/66.png" alt="machop image" loading="lazy" />
     </ComponentContainer>
   );
 };

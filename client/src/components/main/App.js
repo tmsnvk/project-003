@@ -1,28 +1,22 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
-import ReactGA from "react-ga";
 import ScrollToTop from "utilities/ScrollToTop/ScrollToTop";
 import GlobalStyle from "utilities/theme/GlobalStyle";
 import theme from "utilities/theme/theme";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 import { Contact, Home, NotFound, Pricing, Search, Success } from "pages";
+import { trackUserNavigation } from "utilities/analytics/analyticsTracking";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faFacebook, faTwitter, faYoutube, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faInfinity, faServer, faComments, faLifeRing, faAngleDoubleRight, faCaretUp, faAngleRight, faEuroSign, faIdCard, faTag, faCodeBranch, faHeart, faHamsa, faScroll, faRocket, faCircleNotch, faReply } from "@fortawesome/free-solid-svg-icons";
 import { faDotCircle } from "@fortawesome/free-regular-svg-icons";
 library.add(faFacebook, faTwitter, faYoutube, faInstagram, faDotCircle, faInfinity, faServer, faComments, faLifeRing, faAngleDoubleRight, faCaretUp, faAngleRight, faEuroSign, faIdCard, faTag, faCodeBranch, faHeart, faHamsa, faScroll, faRocket, faCircleNotch, faReply);
 
-ReactGA.initialize(process.env.REACT_APP_GA_KEY);
-ReactGA.pageview("/");
-ReactGA.pageview("/pricing");
-ReactGA.pageview("/search");
-ReactGA.pageview("/contact");
-ReactGA.pageview("/error");
-ReactGA.pageview("/success");
-
 const App = () => {
+  trackUserNavigation();
+
   return (
     <Router>
       <ScrollToTop />

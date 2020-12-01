@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import axios from "axios";
 import styled from "styled-components";
 import { Header, Result, SearchForm } from "components/page/search";
@@ -25,18 +26,18 @@ const Search = () => {
         setPokemonData({
           name: data.name,
           id: data.id,
-          typeOne: data.types[0].type.name,
-          typeTwo: data.types[1]?.type.name,
-          hp: data.stats[0].base_stat,
-          attack: data.stats[1].base_stat,
-          defense: data.stats[4].base_stat,
-          speed: data.stats[5].base_stat,
+          typeOne: data.typeOne,
+          typeTwo: data?.typeTwo,
+          hp: data.hp,
+          attack: data.attack,
+          defense: data.defense,
+          speed: data.speed,
           src: `https://pokeres.bastionbot.org/images/pokemon/${data.id}.png`
         });
-        setTimeout(() => setLoading(false), 1500);
+        setTimeout(() => setLoading(false), 1000);
       } catch (error) {
         setLoading(false);
-        return console.log(`Data fetch has failed. Please check the following error message - ${error}`);
+        console.log(`Data fetch has failed. Please check the following error message - ${error}`);
       }
     };
 
@@ -52,6 +53,9 @@ const Search = () => {
 
   return (
     <LayoutContainer>
+      <Helmet>
+        <title>Search Database</title>
+      </Helmet>
       <Header />
       <SearchForm selectedPokemon={handleSelectedPokemon} tutorial={handleTutorial} hideTutorial={hideTutorial} />
       {loading ? hideTutorial && <LoadingSpinner loadingMessage={"Searching database... Please wait!"} /> : hideTutorial && <Result pokemonData={pokemonData} />}

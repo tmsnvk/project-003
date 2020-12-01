@@ -43,7 +43,7 @@ const Message = () => {
           const { data } = await axios.get(`/pokemon/${pokemonId}`);
           setPokemonName(data.name);
         } catch (error) {
-          return console.log(`Data fetch has failed. Please check the following error message - ${error}`);
+          console.log(`Data fetch has failed. Please check the following error message - ${error}`);
         }
       }
     };
@@ -59,7 +59,7 @@ const Message = () => {
       <InfoText>
         Click <InfoLink to="/">here</InfoLink> to return to our home page!
       </InfoText>
-      {pokemonName !== "" ? <Image src={`https://pokeres.bastionbot.org/images/pokemon/${pokemonId}.png`} alt="random pokemon img" loading="lazy" /> : null}
+      {pokemonName !== "" ? <Image src={`https://pokeres.bastionbot.org/images/pokemon/${pokemonId}.png`} alt="random pokemon image" loading="lazy" /> : null}
     </ComponentContainer>
   );
 };

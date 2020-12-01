@@ -1,6 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { trackUserEvent } from "utilities/analytics/analyticsTracking";
 import axios from "axios";
 import styled from "styled-components";
 import { ElementContainer } from "components/shared/layout";
@@ -36,6 +37,7 @@ const ContactForm = () => {
 
   const onSubmit = async (data) => {
     await axios.post("/contactform", data);
+    trackUserEvent("contact form", "submit");
     history.push("/success");
   };
 

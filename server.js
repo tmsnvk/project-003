@@ -1,40 +1,40 @@
 const path = require("path");
 const express = require("express");
-const cors = require("cors");
-const bodyParser = require("body-parser");
 const helmet = require("helmet");
+const cors = require("cors");
 const mongoose = require("mongoose");
-
-require("dotenv").config();
+const dotenv = require("dotenv");
+const compression = require("compression");
 
 const publicPath = path.join(__dirname, "..", "client/public");
 
+dotenv.config();
+
 const app = express();
 
-app.use(helmet({
-  contentSecurityPolicy: false,
-}));
-app.use(cors());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static(publicPath));
+app.use(helmet({ contentSecurityPolicy: false }));
+app.use(cors());
+app.use(compression());
 
-mongoose.connect(process.env.MONGODB_URI, { useUnifiedTopology: true, useNewUrlParser: true }, () => {
-  console.log("Connected to MongoDB database");
+mongoose.connect(process.env.MONGODB_URI, { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true }, (error) => {
+  if (error) {
+    throw error;
+  } else {
+    console.log("The application is now connected to mongoDB via moongose.");
+  }
 });
 
+app.use("/", require("./routes/api/getPokemonData"));
 app.use("/", require("./routes/mongodb/signupForm"));
 app.use("/", require("./routes/mongodb/contactForm"));
-app.use("/", require("./routes/api/getPokemonData"));
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "client/build")));
-  app.get('*', function(req, res) {
-    res.sendFile(path.join(__dirname, "client/build", "index.html"));
-  });
+  app.get('*', (request, response) => response.sendFile(path.join(__dirname, "client/build", "index.html")));
 }
 
 const port = process.env.PORT || 3011;
-app.listen(port, () => {
-  console.log(`central_kanto_pokemon_database project @ port ${port}!`);
-});
+app.listen(port, () => console.log(`The application is listening @ port ${port}!`));

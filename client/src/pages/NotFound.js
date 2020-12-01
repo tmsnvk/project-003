@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import styled from "styled-components";
 import { LayoutContainerDefault } from "components/shared/layout";
 import { Message } from "components/page/error";
@@ -12,6 +13,9 @@ const LayoutContainer = styled(LayoutContainerDefault)`
 const NotFound = () => {
   return (
     <LayoutContainer>
+      <Helmet>
+        <title>404 - Page Not Found</title>
+      </Helmet>
       <Message />
     </LayoutContainer>
   );

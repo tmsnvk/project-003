@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import styled from "styled-components";
 import { LayoutContainerDefault } from "components/shared/layout";
 import { Message } from "components/page/success";
@@ -12,6 +13,9 @@ const LayoutContainer = styled(LayoutContainerDefault)`
 const Success = () => {
   return (
     <LayoutContainer>
+      <Helmet>
+        <title>Succesful Data Upload</title>
+      </Helmet>
       <Message />
     </LayoutContainer>
   );

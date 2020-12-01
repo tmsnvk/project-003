@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { trackUserEvent } from "utilities/analytics/analyticsTracking";
 import styled from "styled-components";
 import { ElementContainer } from "components/shared/layout";
 import { ErrorMessage, FormLabel, InputField, RequiredFields, Submit } from "components/shared/form";
@@ -55,6 +56,7 @@ const SearchForm = ({ selectedPokemon, tutorial, hideTutorial }) => {
   const onSubmit = (data, event) => {
     selectedPokemon(data.pokemon);
     event.target.reset();
+    trackUserEvent("search form", "submit");
 
     if (!hideTutorial) tutorial(true);
   };

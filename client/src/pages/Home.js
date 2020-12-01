@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import styled from "styled-components";
 import { LayoutContainerDefault } from "components/shared/layout";
 import { Header, HowImage, HowText, Options, PokemonCards, Statistics, SummaryCards } from "components/page/home";
@@ -16,6 +17,9 @@ const LayoutContainer = styled(LayoutContainerDefault)`
 const Home = () => {
   return (
     <LayoutContainer>
+      <Helmet>
+        <title>Home</title>
+      </Helmet>
       <Header />
       <SummaryCards />
       <PokemonCards />

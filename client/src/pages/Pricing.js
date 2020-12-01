@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import styled from "styled-components";
 import { LayoutContainerDefault } from "components/shared/layout";
 import { Header, SignupForm, SubscriptionOptions } from "components/page/pricing";
@@ -16,6 +17,9 @@ const LayoutContainer = styled(LayoutContainerDefault)`
 const Pricing = () => {
   return (
     <LayoutContainer>
+      <Helmet>
+        <title>Pricing Options</title>
+      </Helmet>
       <Header />
       <SubscriptionOptions />
       <SignupForm />

@@ -110,7 +110,7 @@ const Text = styled.p`
 const Statistics = () => {
   const renderComponentData = data.map(({ id, number, text }) => {
     return (
-       <Container key={id}>
+      <Container key={id}>
         <Icon icon={iconList.caretUp}></Icon>
          <Figure>{number}</Figure>
          <Text>{text}</Text>
