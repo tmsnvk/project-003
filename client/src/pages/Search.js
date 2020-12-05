@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { Header, Result, SearchForm } from "components/page/search";
 import { LayoutContainerDefault } from "components/shared/layout";
 import { LoadingSpinner } from "components/shared/utilities";
+import { usePageTracking } from "utilities/analytics/analyticsTracking";
 
 const LayoutContainer = styled(LayoutContainerDefault)`
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.large}) {
@@ -13,6 +14,8 @@ const LayoutContainer = styled(LayoutContainerDefault)`
 `;
 
 const Search = () => {
+  usePageTracking("Search");
+
   const [selectedPokemon, setSelectedPokemon] = useState(undefined);
   const [pokemonData, setPokemonData] = useState({ name: "", id: 0, typeOne: "", typeTwo: "", hp: 0, attack: 0, defense: 0, speed: 0, src: "" });
   const [loading, setLoading] = useState(false);

@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet";
 import styled from "styled-components";
 import { LayoutContainerDefault } from "components/shared/layout";
 import { ContactForm, FaqContainer, Header } from "components/page/contact";
+import { usePageTracking } from "utilities/analytics/analyticsTracking";
 
 const LayoutContainer = styled(LayoutContainerDefault)`
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
@@ -11,6 +12,8 @@ const LayoutContainer = styled(LayoutContainerDefault)`
 `;
 
 const Contact = () => {
+  usePageTracking("Contact");
+
   return (
     <LayoutContainer>
       <Helmet>

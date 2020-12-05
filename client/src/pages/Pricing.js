@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet";
 import styled from "styled-components";
 import { LayoutContainerDefault } from "components/shared/layout";
 import { Header, SignupForm, SubscriptionOptions } from "components/page/pricing";
+import { usePageTracking } from "utilities/analytics/analyticsTracking";
 
 const LayoutContainer = styled(LayoutContainerDefault)`
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
@@ -15,6 +16,8 @@ const LayoutContainer = styled(LayoutContainerDefault)`
 `;
 
 const Pricing = () => {
+  usePageTracking("Pricing");
+
   return (
     <LayoutContainer>
       <Helmet>

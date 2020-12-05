@@ -7,7 +7,6 @@ import theme from "utilities/theme/theme";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 import { Contact, Home, NotFound, Pricing, Search, Success } from "pages";
-import { useNavigationTracking } from "utilities/analytics/analyticsTracking";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faFacebook, faTwitter, faYoutube, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faInfinity, faServer, faComments, faLifeRing, faAngleDoubleRight, faCaretUp, faAngleRight, faEuroSign, faIdCard, faTag, faCodeBranch, faHeart, faHamsa, faScroll, faRocket, faCircleNotch, faReply } from "@fortawesome/free-solid-svg-icons";
@@ -15,8 +14,6 @@ import { faDotCircle } from "@fortawesome/free-regular-svg-icons";
 library.add(faFacebook, faTwitter, faYoutube, faInstagram, faDotCircle, faInfinity, faServer, faComments, faLifeRing, faAngleDoubleRight, faCaretUp, faAngleRight, faEuroSign, faIdCard, faTag, faCodeBranch, faHeart, faHamsa, faScroll, faRocket, faCircleNotch, faReply);
 
 const App = () => {
-  useNavigationTracking();
-
   return (
     <Router>
       <ScrollToTop />
