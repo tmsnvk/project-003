@@ -21,7 +21,7 @@ const ComponentContainer = styled.h1`
   }
 `;
 
-const Title = ({ data }) => {
+const PageTitle = ({ data }) => {
   return (
     <ComponentContainer>
       {data}
@@ -29,4 +29,4 @@ const Title = ({ data }) => {
   );
 };
 
-export default Title;
+export default PageTitle;

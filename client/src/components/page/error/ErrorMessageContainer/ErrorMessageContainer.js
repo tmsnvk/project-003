@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import { ElementContainer } from "components/shared/layout";
-import { InfoLink, InfoText, InfoTitle } from "components/shared/information";
+import { PageTitle, Paragraph } from "components/shared/text";
+import { LinkElement } from "components/shared/link";
 import { Image } from "components/shared/utilities";
 import getPokemonId from "utilities/helpers/getPokemonId";
 
@@ -11,24 +12,23 @@ const ComponentContainer = styled(ElementContainer)`
   grid-column-end: 2;
   grid-row-start: 1;
   grid-row-end: 2;
-  width: 90%;
-  margin: 15rem auto 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-content: center;
+  width: 90%;
+  margin: 15rem auto 0;
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.small}) {
     margin: 10rem auto 0;
   }
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
-    grid-column-start: 2;
-    grid-column-end: 4;
+    grid-column-end: 5;
   }
 `;
 
-const Message = () => {
+const ErrorMessageContainer = () => {
   const [pokemonId, setPokemonId] = useState(0);
   const [pokemonName, setPokemonName] = useState("");
 
@@ -43,7 +43,7 @@ const Message = () => {
           const { data } = await axios.get(`/pokemon/${pokemonId}`);
           setPokemonName(data.name);
         } catch (error) {
-          console.log(`Data fetch has failed. Please check the following error message - ${error}`);
+          console.log(`===> Data fetch has failed. Please check the following error message - ${error} <===`);
         }
       }
     };
@@ -53,15 +53,11 @@ const Message = () => {
 
   return (
     <ComponentContainer>
-      <InfoTitle>
-        {pokemonName.toUpperCase()} says the page you tried to visit doesn't exist.
-      </InfoTitle>
-      <InfoText>
-        Click <InfoLink to="/">here</InfoLink> to return to our home page!
-      </InfoText>
-      {pokemonName !== "" ? <Image src={`https://pokeres.bastionbot.org/images/pokemon/${pokemonId}.png`} alt="random pokemon image" loading="lazy" /> : null}
+      <PageTitle data={`${pokemonName.toUpperCase()} says the page you tried to visit doesn't exist.`} />
+      <Paragraph data={<>Click <LinkElement to={"/"} text={"here"} /> to return to our home page!</>} align={"center"} fontsize={"medium"} />
+      {pokemonName !== "" ? <Image src={`https://pokeres.bastionbot.org/images/pokemon/${pokemonId}.png`} alt={"random pokemon image"} loading={"lazy"} /> : null}
     </ComponentContainer>
   );
 };
 
-export default Message;
+export default ErrorMessageContainer;

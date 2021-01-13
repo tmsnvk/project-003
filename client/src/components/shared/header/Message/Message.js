@@ -4,7 +4,7 @@ import styled from "styled-components";
 const ComponentContainer = styled.div`
   font-size: ${({ theme }) => theme.fontSize.small};
 
-  @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.large}) {
+  @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
     font-size: ${({ theme }) => theme.fontSize.medium};
   }
 `;

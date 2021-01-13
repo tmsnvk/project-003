@@ -1,16 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 import { ElementContainer } from "components/shared/layout";
-import { Title, Message, SubTitle } from "components/shared/header";
-import data from "components/page/home/Header/data";
+import { PageSubTitle, PageTitle, Paragraph } from "components/shared/text";
+import data from "./data";
 
 const ComponentContainer = styled(ElementContainer)`
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 1;
   grid-row-end: 2;
-  margin: 15rem auto 0;
   width: 90%;
+  margin: 15rem auto 0;
   text-align: center;
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.small}) {
@@ -32,9 +32,9 @@ const ComponentContainer = styled(ElementContainer)`
 const Header = () => {
   return (
     <ComponentContainer>
-      <Title data={data.title} />
-      <SubTitle data={data.subtitle} />
-      <Message data={data.message} />
+      <PageTitle data={data.title} />
+      <PageSubTitle data={data.subtitle} />
+      <Paragraph data={data.message} align={"center"} fontsize />
     </ComponentContainer>
   );
 };

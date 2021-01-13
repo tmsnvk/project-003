@@ -2,7 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import styled from "styled-components";
 import { LayoutContainerDefault } from "components/shared/layout";
-import { Message } from "components/page/error";
+import { ErrorMessageContainer } from "components/page/error";
 import { usePageTracking } from "utilities/analytics/analyticsTracking";
 
 const LayoutContainer = styled(LayoutContainerDefault)`
@@ -19,7 +19,7 @@ const NotFound = () => {
       <Helmet>
         <title>404 - Page Not Found</title>
       </Helmet>
-      <Message />
+      <ErrorMessageContainer />
     </LayoutContainer>
   );
 };

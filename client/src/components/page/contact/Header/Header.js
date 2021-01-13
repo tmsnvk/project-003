@@ -2,8 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { ElementContainer } from "components/shared/layout";
 import { Title } from "components/shared/header";
-import { InfoHashLink, InfoText } from "components/shared/information";
-import data from "components/page/contact/Header/data";
+import { Paragraph } from "components/shared/text";
+import { HashLinkElement } from "components/shared/link";
+import data from "./data";
 
 const ComponentContainer = styled(ElementContainer)`
   grid-column-start: 1;
@@ -15,8 +16,8 @@ const ComponentContainer = styled(ElementContainer)`
   text-align: center;
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.small}) {
-    margin: 10rem auto 0;
     width: auto;
+    margin: 10rem auto 0;
   }
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
@@ -28,9 +29,7 @@ const Header = () => {
   return (
     <ComponentContainer>
       <Title data={data.title} />
-      <InfoText>
-        Take a look at our <InfoHashLink to="/contact/#faq">FAQ</InfoHashLink> or <InfoHashLink to="/contact/#contactform">submit</InfoHashLink> your own question!
-      </InfoText>
+      <Paragraph data={<>Take a look at our <HashLinkElement to={"/contact/#faq"} text={"FAQ"} /> or <HashLinkElement to={"/contact/#contactform"} text={"submit"} /> your own question!</>} align={"center"} fontsize />
     </ComponentContainer>
   )
 };

@@ -1,4 +1,4 @@
-import iconList from "utilities/iconList/iconList";
+import iconList from "utilities/icons/iconList";
 
 const data = [
   {

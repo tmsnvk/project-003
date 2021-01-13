@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ElementContainer } from "components/shared/layout";
-import iconList from "utilities/iconList/iconList";
+import iconList from "utilities/icons/iconList";
 import data from "./data";
 
 const ComponentContainer = styled(ElementContainer)`
@@ -12,10 +12,7 @@ const ComponentContainer = styled(ElementContainer)`
   grid-row-end: 3;
   width: 90%;
   margin: 0 auto;
-
-  @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.small}) {
-    width: 60%;
-  }
+  padding: 2rem 2rem 2rem 2rem;
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
     grid-column-end: 4;
@@ -32,7 +29,7 @@ const ComponentContainer = styled(ElementContainer)`
 `;
 
 const ItemContainer = styled.div`
-  padding: 0.5rem 0.5rem 2rem 0.5rem;
+  padding: 0.5rem 0 2rem 0;
 `;
 
 const Question = styled.h2`
@@ -44,7 +41,7 @@ const Question = styled.h2`
 const Answer = styled.p`
   padding: 0.5rem 0 0 0;
   font-size: ${({ theme }) => theme.fontSize.small};
-  color: ${({ theme }) => theme.color.secondary};
+  color: ${({ theme }) => theme.color.blueDark};
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
     font-size: ${({ theme }) => theme.fontSize.medium};
@@ -79,7 +76,7 @@ const FaqContainer = () => {
   });
 
   return (
-    <ComponentContainer id="faq">
+    <ComponentContainer id={"faq"}>
       {renderComponentData}
     </ComponentContainer>
   );

@@ -1,12 +1,12 @@
 const theme = {
   color: {
-    primaryDark: "#3f3b3b", // almost black
-    primaryMid: "#c7c8cc", // gray/blue-ish
-    primaryLight: "#f3f3f1", // light gray
-    secondary: "#0c2cbb", // dark blue
-    alternate: "#dc8b18", // orange
-    warning: "#d90e00", // red
-    shadow: "#424242", // almost black
+    grayDark: "#3f3b3b",
+    grayMid: "#c7c8cc",
+    grayLight: "#f3f3f1",
+    blueDark: "#0c2cbb",
+    orangeDark: "#dc8b18",
+    redDark: "#d90e00",
+    shadow: "#424242",
     gradient: "radial-gradient(circle, #f3f3f1, #c7c8cc)"
   },
   fontFamily: {

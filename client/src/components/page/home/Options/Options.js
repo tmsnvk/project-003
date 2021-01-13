@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { ElementContainer } from "components/shared/layout";
-import { InfoLink, InfoText, InfoTitle } from "components/shared/information";
+import { Paragraph } from "components/shared/text";
+import { LinkElement } from "components/shared/link";
 
 const ComponentContainer = styled(ElementContainer)`
   grid-column-start: 1;
@@ -29,15 +30,9 @@ const ComponentContainer = styled(ElementContainer)`
 const Options = () => {
   return (
     <ComponentContainer>
-      <InfoTitle>
-        Want to know what we offer?<br />Take a look at the following paragraphs and visit the appropriate link to get an answer for your questions!
-      </InfoTitle>
-      <InfoText>
-        Like what you see? - Subscribe on our <InfoLink to="/pricing">Pricing</InfoLink> page and join our community immediately!
-      </InfoText>
-      <InfoText>
-        Have further questions? - Visit our FAQ or get in touch with one of our customer agents on our <InfoLink to="/contact">Contact</InfoLink> page!
-      </InfoText>
+      <Paragraph data={<>Want to know what we offer?<br />Read below and visit the appropriate link to get an answer for your questions!</>} align={"center"} fontsize padding={"0 0 1rem 0"} />
+      <Paragraph data={<>Like what you see? - Subscribe on our <LinkElement to={"/pricing"} text={"Pricing"} /> page and join our community immediately!</>} align={"center"} fontsize padding={"0 0 1rem 0"} />
+      <Paragraph data={<>Have further questions? - Visit our FAQ or get in touch with one of our customer agents on our <LinkElement to={"/contact"} text={"Contact"} /> page!</>} align={"center"} fontsize />
     </ComponentContainer>
   );
 };

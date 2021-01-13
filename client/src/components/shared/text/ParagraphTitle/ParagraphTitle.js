@@ -1,26 +1,28 @@
+import React from "react";
 import styled from "styled-components";
 
 const ComponentContainer = styled.p`
-  padding: 1rem 0 1rem 0;
-  text-align: center;
+  padding: 0 0 2rem 0;
   font-size: ${({ theme }) => theme.fontSize.medium};
   font-weight: 600;
-  
+  text-align: center;
+  text-transform: uppercase;
+
   &:after {
     content: " ";
     display: block;
-    border-bottom: 2px solid ${({ theme }) => theme.color.grayDark};
-    width: 30%;
+    padding: 2rem 0 0 0;
+    border-bottom: 2px solid ${({ theme }) => theme.color.blueDark};
+    width: 50%;
     margin: 0 auto;
-    padding: 1rem 0 1rem 0;
   }
 
-  @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
+  @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.large}) {
     font-size: ${({ theme }) => theme.fontSize.large};
   }
 `;
 
-const InfoTitle = ({ data }) => {
+const ParagraphTitle = ({ data }) => {
   return (
     <ComponentContainer>
       {data}
@@ -28,4 +30,4 @@ const InfoTitle = ({ data }) => {
   );
 };
 
-export default InfoTitle;
+export default ParagraphTitle;

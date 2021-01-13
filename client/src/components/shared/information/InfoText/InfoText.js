@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const InfoText = styled.p`
+const ComponentContainer = styled.p`
   font-size: ${({ theme }) => theme.fontSize.small};
   padding: 1rem 0 1rem 0;
   text-align: center;
@@ -9,5 +9,13 @@ const InfoText = styled.p`
     font-size: ${({ theme }) => theme.fontSize.medium};
   }
 `;
+
+const InfoText = ({ data }) => {
+  return (
+    <ComponentContainer>
+      {data}
+    </ComponentContainer>
+  );
+};
 
 export default InfoText;

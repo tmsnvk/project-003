@@ -10,12 +10,12 @@ const ComponentContainer = styled(ElementContainer)`
     grid-column-end: 2;
     grid-row-start: 4;
     grid-row-end: 5;
-    width: 95%;
-    height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
     align-self: center;
+    width: 95%;
+    height: auto;
     margin: 0 0 0 auto;
   }
 
@@ -38,7 +38,7 @@ const Image = styled.img`
 const HowImage = () => {
   return (
     <ComponentContainer>
-      <Image src="https://pokeres.bastionbot.org/images/pokemon/25.png" alt="pikachu image" loading="lazy" />
+      <Image src={"https://pokeres.bastionbot.org/images/pokemon/25.png"} alt={"pikachu image" } loading={"lazy"} />
     </ComponentContainer>
   );
 };

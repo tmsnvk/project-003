@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ElementContainer } from "components/shared/layout";
-import iconList from "utilities/iconList/iconList";
+import iconList from "utilities/icons/iconList";
 
 const ComponentContainer = styled.div`
   grid-column-start: 1;

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { ElementContainer } from "components/shared/layout";
+import { Paragraph } from "components/shared/text";
 import { StyledIcon } from "components/shared/utilities";
 import data from "./data";
 
@@ -65,33 +66,28 @@ const Container = styled(ElementContainer)`
 `;
 
 const Title = styled.h3`
+  padding: 0 0 2rem 0;
   font-size: ${({ theme }) => theme.fontSize.large};
   font-family: ${({ theme }) => theme.fontFamily.secondary};
-  padding: 0 0 2rem 0;
 
   &:after {
     content: " ";
     display: block;
     padding: 1.5rem 0 0 0;
-    border-bottom: 2px solid ${({ theme }) => theme.color.secondary};
+    border-bottom: 2px solid ${({ theme }) => theme.color.blueDark};
     width: 25%;
     margin: 0 auto;
   }
-`;
-
-const Paragraph = styled.p`
-  font-size: ${({ theme }) => theme.fontSize.small};
-  padding: 0 0 1rem 0;
 `;
 
 const Summary = () => {
   const renderComponentData = data.map(({ id, icon, title, paragraphs }) => {
     return (
       <Container key={id}>
-        <StyledIcon icon={icon}></StyledIcon>
+        <StyledIcon icon={icon} />
         <Title>{title}</Title>
-        <Paragraph>{paragraphs.one}</Paragraph>
-        {paragraphs.two !== "" ? <Paragraph>{paragraphs?.two}</Paragraph> : null}
+        <Paragraph data={paragraphs.one} padding={"0 0 1rem 0"} />
+        {paragraphs.two !== "" ? <Paragraph data={paragraphs.two} padding={"0 0 1rem 0"} /> : null}
       </Container>
     );
   });

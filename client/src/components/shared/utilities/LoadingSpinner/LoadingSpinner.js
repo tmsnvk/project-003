@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { ElementContainer } from "components/shared/layout";
 import { InfoTitle } from "components/shared/information";
 import { StyledIcon } from "components/shared/utilities";
-import iconList from "utilities/iconList/iconList";
+import iconList from "utilities/icons/iconList";
 
 const ComponentContainer = styled(ElementContainer)`
   grid-column-start: 1;

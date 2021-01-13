@@ -14,7 +14,7 @@ const ComponentContainer = styled(Link)`
   }
 `;
 
-const InfoLink = ({ to, text }) => {
+const LinkElement = ({ to, text }) => {
   return (
     <ComponentContainer to={to}>
       {text}
@@ -22,4 +22,4 @@ const InfoLink = ({ to, text }) => {
   );
 };
 
-export default InfoLink;
+export default LinkElement;

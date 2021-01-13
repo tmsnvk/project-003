@@ -53,7 +53,7 @@ const PokemonCards = () => {
   const renderComponentData = data.map(({ id, url }) => {
     return (
       <Container key={id}>
-        <Image src={url} alt="random pokemon image" loading="lazy" />
+        <Image src={url} alt={"random pokemon image"} loading={"lazy"} />
       </Container>
     );
   });

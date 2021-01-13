@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
 
 const ComponentContainer = styled(Link)`
   color: ${({ theme }) => theme.color.blueDark};
@@ -14,7 +14,7 @@ const ComponentContainer = styled(Link)`
   }
 `;
 
-const InfoLink = ({ to, text }) => {
+const HashLinkElement = ({ to, text }) => {
   return (
     <ComponentContainer to={to}>
       {text}
@@ -22,4 +22,4 @@ const InfoLink = ({ to, text }) => {
   );
 };
 
-export default InfoLink;
+export default HashLinkElement;

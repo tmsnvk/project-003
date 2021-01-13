@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import iconList from "utilities/iconList/iconList";
+import iconList from "utilities/icons/iconList";
 
 const ComponentContainer = styled.header`
   display: flex;
@@ -12,12 +12,12 @@ const ComponentContainer = styled.header`
 	width: 100%;
 	position: fixed;
   z-index: 1;
-  color: ${({ theme }) => theme.color.secondary};
+  padding: 2rem 0 2rem 0;
+  color: ${({ theme }) => theme.color.blueDark};
   font-size: ${({ theme }) => theme.fontSize.small};
   font-weight: 600;
   background-image: ${({ theme }) => theme.color.gradient};
   box-shadow: 0px 2px 5px 0px ${({ theme }) => theme.color.shadow};
-  padding: 2rem 0 2rem 0;
   opacity: 0.8;
 
   &:hover {
@@ -32,6 +32,7 @@ const ComponentContainer = styled.header`
 
 const LogoContainer = styled(Link)`
   padding: 0 0 1rem 0;
+  letter-spacing: 0.1rem;
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
     padding: 0 0 0 5rem;
@@ -48,21 +49,17 @@ const StyledIcon = styled(FontAwesomeIcon)`
   }
 `;
 
-const LanguageLinksListContainer = styled.ul`
+const LinkContainer = styled.div`
+  letter-spacing: 0.3rem;
 `;
 
-const LanguageListItem = styled.li`
+const LinkElement = styled(Link)`
+  padding: 2rem 1rem 2rem 1rem;
   display: inline;
 
   &:nth-child(2) {
-    color: ${({ theme }) => theme.color.alternate};
+    color: ${({ theme }) => theme.color.orangeDark};
   }
-`;
-
-const LanguageLinks = styled(Link)`
-  color: inherit;
-  padding: 2rem 1rem 2rem 1rem;
-  letter-spacing: 0.2rem;
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
     font-size: ${({ theme }) => theme.fontSize.large};
@@ -72,15 +69,15 @@ const LanguageLinks = styled(Link)`
 const Navbar = () => {
   return (
     <ComponentContainer>
-      <LogoContainer to="/">
+      <LogoContainer to={"/"}>
         <StyledIcon icon={iconList.dotCircle}></StyledIcon>CKPD - Your New Home
       </LogoContainer>
-      <LanguageLinksListContainer> 
-        <LanguageListItem><LanguageLinks to="/">Home</LanguageLinks></LanguageListItem>
-        <LanguageListItem><LanguageLinks to="/pricing">Pricing</LanguageLinks></LanguageListItem>
-        <LanguageListItem><LanguageLinks to="/search">Search</LanguageLinks></LanguageListItem>
-        <LanguageListItem><LanguageLinks to="/contact">Contact</LanguageLinks></LanguageListItem>
-      </LanguageLinksListContainer>
+      <LinkContainer> 
+        <LinkElement to={"/"}>Home</LinkElement>
+        <LinkElement to={"/pricing"}>Pricing</LinkElement>
+        <LinkElement to={"/search"}>Search</LinkElement>
+        <LinkElement to={"/contact"}>Contact</LinkElement>
+      </LinkContainer>
     </ComponentContainer>
   );
 };

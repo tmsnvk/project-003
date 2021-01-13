@@ -3,9 +3,9 @@
 + a React front-end and Node.JS/Express back-end application using MongoDB to store site-specific data. The application imitates a subscription-based service site with two form submit pages and a search functionality serving a public API database.
 + the third-party API is served from [pokeapi.co](https://pokeapi.co/).
 + to run the application:
-  +  check .env_sample to see what is needed for the application to be fully functional. 
-  +  rename the file to .env, install the project dependencies and start the application.
-  +  OR visit the live heroku deployed version [here](https://ckpd.herokuapp.com/). The application is currently running on a free tier option, so it might need a minute or two to boot up.
+  + check .env_sample to see what is needed for the application to be fully functional. 
+  + rename the file to .env, install the project dependencies and start the application.
+  + OR visit the live heroku deployed version [here](https://ckpd.herokuapp.com/). The application is currently running on a free tier option, so it might need a minute or two to boot up.
 
 #### used packages
 ```

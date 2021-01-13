@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ElementContainer } from "components/shared/layout";
-import iconList from "utilities/iconList/iconList";
+import iconList from "utilities/icons/iconList";
 import data from "./data";
 
 const ComponentContainer = styled(ElementContainer)`
@@ -10,12 +10,12 @@ const ComponentContainer = styled(ElementContainer)`
   grid-column-end: 2;
   grid-row-start: 4;
   grid-row-end: 5;
-  margin: 0 auto;
-  width: auto;
   display: flex;
   flex-direction: column;
-  font-weight: 600;
+  width: auto;
+  margin: 0 auto;
   font-family: ${({ theme }) => theme.fontFamily.secondary};
+  font-weight: 600;
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.small}) {
     flex-direction: row;
@@ -33,14 +33,14 @@ const ComponentContainer = styled(ElementContainer)`
 `;
 
 const YearUpdate = styled.p`
-  color: ${({ theme }) => theme.color.alternate};
-  font-size: ${({ theme }) => theme.fontSize.large};
-  text-align: center;
   margin: auto;
+  font-size: ${({ theme }) => theme.fontSize.large};
+  color: ${({ theme }) => theme.color.orangeDark};
+  text-align: center;
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
-    font-size: ${({ theme }) => theme.fontSize.xLarge};
     padding: 0 5rem 0 2rem;
+    font-size: ${({ theme }) => theme.fontSize.xLarge};
   }
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.xLarge}) {
@@ -49,9 +49,9 @@ const YearUpdate = styled.p`
 `;
 
 const Container = styled.div`
-  padding: 0 2rem 0 2rem;
   display: flex;
   flex-direction: row;
+  padding: 0 2rem 0 2rem;
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.small}) {
     display: block;
@@ -60,14 +60,14 @@ const Container = styled.div`
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
     justify-content: center;
-    text-align: center;
     padding: 0 2rem 0 2rem;
+    text-align: center;
   }
 `;
 
 const Icon = styled(FontAwesomeIcon)`
   font-size: ${({ theme }) => theme.fontSize.xLarge};
-  color: ${({ theme }) => theme.color.secondary};
+  color: ${({ theme }) => theme.color.blueDark};
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
     font-size: ${({ theme }) => theme.fontSize.xxLarge};
@@ -75,12 +75,12 @@ const Icon = styled(FontAwesomeIcon)`
 `;
 
 const Figure = styled.p`
-  font-size: ${({ theme }) => theme.fontSize.large};
   padding: 0 0 1rem 1rem;
+  font-size: ${({ theme }) => theme.fontSize.large};
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.small}) {
+    padding: 0 0 0 0;
     font-size: ${({ theme }) => theme.fontSize.medium};
-    padding: 0;
   }
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
@@ -91,15 +91,15 @@ const Figure = styled.p`
     font-size: ${({ theme }) => theme.fontSize.xxLarge};
   }
 `;
-  
+
 const Text = styled.p`
-  font-size: ${({ theme }) => theme.fontSize.large};
-  color: ${({ theme }) => theme.color.primaryDark};
   padding: 0 0 0 2rem;
+  font-size: ${({ theme }) => theme.fontSize.large};
+  color: ${({ theme }) => theme.color.grayDark};
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.small}) {
+    padding: 0 0 0 0;
     font-size: ${({ theme }) => theme.fontSize.medium};
-    padding: 0;
   }
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {

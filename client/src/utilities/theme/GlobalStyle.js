@@ -17,8 +17,8 @@ const GlobalStyle = createGlobalStyle`
   body {
     width: 100vw;
     height: 100vh;
-    color: ${({ theme }) => theme.color.primaryDark};
-    background-color: ${({ theme }) => theme.color.primaryLight};
+    color: ${({ theme }) => theme.color.grayDark};
+    background-color: ${({ theme }) => theme.color.grayLight};
     font-family: ${({ theme }) => theme.fontFamily.main};
     font-size: 62.5%;
     line-height: 1.5;
