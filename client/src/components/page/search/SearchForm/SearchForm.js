@@ -4,7 +4,8 @@ import { trackUserEvent } from "utilities/analytics/analyticsTracking";
 import styled from "styled-components";
 import { ElementContainer } from "components/shared/layout";
 import { ErrorMessage, FormLabel, InputField, RequiredFields, Submit } from "components/shared/form";
-import { InfoLink, InfoText, InfoTitle } from "components/shared/information";
+import { Paragraph } from "components/shared/text";
+import { LinkElement } from "components/shared/link";
 
 const ComponentContainer = styled.div`
   grid-column-start: 1;
@@ -36,10 +37,10 @@ const InputContainer = styled(ElementContainer)`
 `;
 
 const TutorialContainer = styled(ElementContainer)`
+  width: 90%;
+  margin: 5rem 0 0 0;
   font-size: ${({ theme }) => theme.fontSize.small};
   text-align: center;
-  margin: 5rem 0 0 0;
-  width: 90%;
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
     width: auto;
@@ -63,18 +64,18 @@ const SearchForm = ({ selectedPokemon, tutorial, hideTutorial }) => {
 
   return (
     <ComponentContainer>
-      <FormContainer id="pokemondata" onSubmit={handleSubmit(onSubmit)}>
+      <FormContainer id={"pokemondata"} onSubmit={handleSubmit(onSubmit)}>
         <InputContainer>
-          <FormLabel htmlFor="pokemondata">
+          <FormLabel htmlFor={"pokemondata"}>
             Which Kanto Pokemon are you interested in?
           </FormLabel>
           <InputField
-            type="text"
-            id="pokemon"
-            name="pokemon"
-            placeholder="* Pokemon Name or ID"
-            autoComplete="off"
-            maxLength="10"
+            type={"text"}
+            id={"pokemon"}
+            name={"pokemon"}
+            placeholder={"* Pokemon Name or ID"}
+            autoComplete={"off"}
+            maxLength={"10"}
             ref={register({
               required: true,
               pattern: {
@@ -85,20 +86,14 @@ const SearchForm = ({ selectedPokemon, tutorial, hideTutorial }) => {
           />
           {errors.pokemon && <ErrorMessage errorMessage={errors.pokemon.message} />}
           <RequiredFields requiredData={"* Required field."} />
-          <Submit type="submit" name="submit" value="Search Database" disabled={formState.isSubmitting || !formState.isValid} />
+          <Submit type={"submit"} name={"submit"} value={"Search Database"} disabled={formState.isSubmitting || !formState.isValid} />
         </InputContainer>
       </FormContainer>
       {!hideTutorial && 
       <TutorialContainer>
-        <InfoTitle>
-          How to use our free database?<br />Enter either the valid name or ID of the Pokemon you would like to look up!
-        </InfoTitle>
-        <InfoText>
-          To start getting more detailed search results, please sign up for one of our <InfoLink to="/pricing">subscription</InfoLink> options.
-        </InfoText>
-        <InfoText>
-          To get more information, you are always more than welcome to <InfoLink to="/contact">contact</InfoLink> our support agents.
-        </InfoText>
+        <Paragraph data={<>How to use our free database?<br />Enter either the valid name or ID of the Pokemon you would like to look up!</>} align={"center"} fontsize padding={"0 0 1rem 0"} />
+        <Paragraph data={<>To start getting more detailed search results, please sign up for one of our <LinkElement to={"/pricing"} text={"subscription"} /> options.</>} align={"center"} fontsize padding={"0 0 1rem 0"} />
+        <Paragraph data={<>To get more information, you are always more than welcome to <LinkElement to={"/contact"} text={"contact"} /> our support agents.</>} align={"center"} fontsize />
       </TutorialContainer>}
     </ComponentContainer>
   );

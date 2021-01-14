@@ -9,12 +9,12 @@ const ComponentContainer = styled.div`
   grid-column-end: 2;
   grid-row-start: 3;
   grid-row-end: 4;
-  width: 90%;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 90%;
+  margin: 0 auto;
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
     grid-column-end: 4;
@@ -29,8 +29,8 @@ const ComponentContainer = styled.div`
 
 const ImageContainer = styled(ElementContainer)`
   width: 90%;
-  background-image: ${({ type }) => handleType(type)};
   margin: 1rem 1rem 1rem 1rem;
+  background-image: ${({ type }) => handleType(type)};
 
   &:hover {
     transform: scale(1.05);
@@ -79,25 +79,25 @@ const DataContainer = styled(ImageContainer)`
 const Title = styled.h2`
   font-family: ${({ theme }) => theme.fontFamily.secondary};
   font-size: ${({ theme }) => theme.fontSize.large};
-  color: ${({ theme }) => theme.color.secondary};
+  color: ${({ theme }) => theme.color.blueDark};
 `;
 
 const Item = styled.h3`
+  padding: 0.5rem 0 0.5rem 0;
   font-family: ${({ theme }) => theme.fontFamily.secondary};
   font-size: ${({ theme }) => theme.fontSize.medium};
-  color: ${({ theme }) => theme.color.secondary};
-  padding: 0.5rem 0 0.5rem 0;
+  color: ${({ theme }) => theme.color.blueDark};
 `;
 
 const Span = styled.span`
   font-family: ${({ theme }) => theme.fontFamily.main};
   font-size: ${({ theme }) => theme.fontSize.medium};
-  color: ${({ theme }) => theme.color.primaryDark};
+  color: ${({ theme }) => theme.color.grayDark};
 `;
 
 const Icon = styled(FontAwesomeIcon)`
-  font-size: ${({ theme }) => theme.fontSize.medium};
   margin: 0 1rem 0 0;
+  font-size: ${({ theme }) => theme.fontSize.medium};
   vertical-align: middle;
 `;
 
@@ -148,7 +148,7 @@ const Result = ({ pokemonData }) => {
   return (
     <ComponentContainer>
       <ImageContainer type={pokemonData.typeOne}>
-        <PokemonImage src={pokemonData.src} alt="random pokemon image" loading="lazy" />
+        <PokemonImage src={pokemonData.src} alt={"random pokemon image"} loading={"lazy"} />
       </ImageContainer>
       <DataContainer type={pokemonData.typeOne}>
         <Title>Identity:</Title>

@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { LinkElement } from "components/shared/link"; 
+import { StyledIcon } from "components/shared/utilities";
 import iconList from "utilities/icons/iconList";
+import data from "./data";
 
 const ComponentContainer = styled.header`
   display: flex;
@@ -30,21 +32,13 @@ const ComponentContainer = styled.header`
   }
 `;
 
-const LogoContainer = styled(Link)`
+const LogoLink = styled(Link)`
   padding: 0 0 1rem 0;
   letter-spacing: 0.1rem;
+  font-size: ${({ theme }) => theme.fontSize.small};
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
     padding: 0 0 0 5rem;
-    font-size: ${({ theme }) => theme.fontSize.large};
-  }
-`;
-
-const StyledIcon = styled(FontAwesomeIcon)`
-  display: inline-block;
-  margin: 0 0.5rem 0 0;
-
-  @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
     font-size: ${({ theme }) => theme.fontSize.large};
   }
 `;
@@ -53,30 +47,21 @@ const LinkContainer = styled.div`
   letter-spacing: 0.3rem;
 `;
 
-const LinkElement = styled(Link)`
-  padding: 2rem 1rem 2rem 1rem;
-  display: inline;
-
-  &:nth-child(2) {
-    color: ${({ theme }) => theme.color.orangeDark};
-  }
-
-  @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
-    font-size: ${({ theme }) => theme.fontSize.large};
-  }
-`;
-
 const Navbar = () => {
+  const renderLinks = data.navbar.links.map(({ color, id, link, text }) => {
+    return (
+      <LinkElement key={id} to={link} text={text} color={color} dimension={"large"} hover={"nohover"} padding={"2rem 1rem 2rem 1rem"} />
+    );
+  });
+
   return (
     <ComponentContainer>
-      <LogoContainer to={"/"}>
-        <StyledIcon icon={iconList.dotCircle}></StyledIcon>CKPD - Your New Home
-      </LogoContainer>
-      <LinkContainer> 
-        <LinkElement to={"/"}>Home</LinkElement>
-        <LinkElement to={"/pricing"}>Pricing</LinkElement>
-        <LinkElement to={"/search"}>Search</LinkElement>
-        <LinkElement to={"/contact"}>Contact</LinkElement>
+      <LogoLink to={"/"}>
+        <StyledIcon icon={iconList.dotCircle} dimension={"large"} margin={"0 0.5rem 0 0"} />
+        {data.navbar.title}
+      </LogoLink>
+      <LinkContainer>
+        {renderLinks}
       </LinkContainer>
     </ComponentContainer>
   );

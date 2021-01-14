@@ -1,12 +1,12 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { trackUserEvent } from "utilities/analytics/analyticsTracking";
 import axios from "axios";
 import styled from "styled-components";
 import { ElementContainer } from "components/shared/layout";
 import { ErrorMessage, FormContainer, FormLabel, FormLink, InputField, RadioButton, RadioContainer, RadioLabel, RadioLegend, RequiredFields, Submit } from "components/shared/form";
 import { LoadingSpinner } from "components/shared/utilities";
+import { trackUserEvent } from "utilities/analytics/analyticsTracking";
 
 const ComponentContainer = styled(ElementContainer)`
   grid-column-start: 1;
@@ -49,17 +49,17 @@ const SignupForm = () => {
 
   return (
     <ComponentContainer>
-      <FormContainer method="POST" action="/signupform" id="signupform" onSubmit={handleSubmit(onSubmit)}>
-        <FormLabel htmlFor="signupform">
+      <FormContainer method={"POST"} action={"/signupform"} id={"signupform"} onSubmit={handleSubmit(onSubmit)}>
+        <FormLabel htmlFor={"signupform"}>
           Ready to get into action? - Subscribe here!
         </FormLabel>
         <InputField 
-          type="text"
-          id="name"
-          name="name"
-          placeholder="* Your Name"
-          autoComplete="off"
-          maxLength="40"
+          type={"text"}
+          id={"name"}
+          name={"name"}
+          placeholder={"* Your Name"}
+          autoComplete={"off"}
+          maxLength={"40"}
           ref={register({
             required: { value: true, message: "NAME is required. Enter only letters." },
             pattern: { value: /^[A-Za-z ]+$/i, message: "Enter only letters." },
@@ -69,12 +69,12 @@ const SignupForm = () => {
         />
         {errors.name && <ErrorMessage errorMessage={errors.name.message} />}
         <InputField 
-          type="text"
-          id="pokedex"
-          name="pokedex"
-          placeholder="* Your PokedexID number"
-          autoComplete="off"
-          maxLength="14"
+          type={"text"}
+          id={"pokedex"}
+          name={"pokedex"}
+          placeholder={"* Your PokedexID number"}
+          autoComplete={"off"}
+          maxLength={"14"}
           ref={register({
             required: { value: true, message: "POKEDEX ID is required. Enter only numbers." },
             pattern: { value: /^[0-9]+$/i, message: "Enter only numbers." },
@@ -84,11 +84,11 @@ const SignupForm = () => {
         />
         {errors.pokedex && <ErrorMessage errorMessage={errors.pokedex.message} />}
         <InputField 
-          type="email"
-          id="email"
-          name="email"
-          placeholder="* Your Email"
-          autoComplete="off"
+          type={"email"}
+          id={"email"}
+          name={"email"}
+          placeholder={"* Your Email"}
+          autoComplete={"off"}
           ref={register({
             required: { value: true, message: "EMAIL is required. Enter a valid email address." },
             pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i, message: "Enter a valid email address." }
@@ -96,13 +96,13 @@ const SignupForm = () => {
         />
         {errors.email && <ErrorMessage errorMessage={errors.email.message} />}
         <InputField 
-          type="text"
-          id="phone"
-          name="phone"
-          placeholder="* Your Phone Number"
-          autoComplete="off"
-          minLength="8"
-          maxLength="25"
+          type={"text"}
+          id={"phone"}
+          name={"phone"}
+          placeholder={"* Your Phone Number"}
+          autoComplete={"off"}
+          minLength={"8"}
+          maxLength={"25"}
           ref={register({
             required: { value: true, message: "PHONE NUMBER is required. Enter only numbers." },
             pattern: { value: /^[0-9]+$/i, message: "Enter only numbers." },
@@ -114,46 +114,46 @@ const SignupForm = () => {
         <RadioLegend legendData={"* Which plan would you like to subscribe to?"} />
         <RadioContainer>
           <RadioButton
-            type="radio"
-            id="radiosolo"
-            name="radio"
-            value="solo"
+            type={"radio"}
+            id={"radiosolo"}
+            name={"radio"}
+            value={"solo"}
             ref={register({
               required: { value: true, message: "PLAN is required." }
             })}
           />
-          <RadioLabel htmlFor="radiosolo">Solo.</RadioLabel>
+          <RadioLabel htmlFor={"radiosolo"}>Solo.</RadioLabel>
         </RadioContainer>
         <RadioContainer>
           <RadioButton
-            type="radio"
-            id="radioduo"
-            name="radio"
-            value="duo"
+            type={"radio"}
+            id={"radioduo"}
+            name={"radio"}
+            value={"duo"}
             ref={register({
               required: { value: true, message: "PLAN is required." }
             })}
           />
-          <RadioLabel htmlFor="radioduo">Duo.</RadioLabel>
+          <RadioLabel htmlFor={"radioduo"}>Duo.</RadioLabel>
         </RadioContainer>
         {errors.radio && <ErrorMessage errorMessage={errors.radio.message} />}
         <RadioLegend legendData={"* Data submission agreement."} />
         <RadioContainer>
           <RadioButton
-            type="checkbox"
-            id="checkbox"
-            name="checkbox"
+            type={"checkbox"}
+            id={"checkbox"}
+            name={"checkbox"}
             ref={register({
               required: { value: true, message: "CONSENT is required." }
             })}
           />
-          <RadioLabel htmlFor="checkbox">
-            By submitting data to CKPD you give your consent that your data may be processed for purposes described in the <FormLink to="/pricing">Terms & Conditions</FormLink> & <FormLink to="/pricing">Privacy Policy</FormLink>.
+          <RadioLabel htmlFor={"checkbox"}>
+            By submitting data to CKPD you give your consent that your data may be processed for purposes described in the <FormLink to={"/pricing"}>Terms & Conditions</FormLink> & <FormLink to={"/pricing"}>Privacy Policy</FormLink>.
           </RadioLabel>
         </RadioContainer>
         {errors.checkbox && <ErrorMessage errorMessage={errors.checkbox.message} />}
         <RequiredFields requiredData={"* Required fields."} />
-        {formState.isSubmitting ? <LoadingSpinner loadingMessage={"Submitting form... Please wait!"} /> : <Submit type="submit" name="submit" value="Submit" />}
+        {formState.isSubmitting ? <LoadingSpinner loadingMessage={"Submitting form... Please wait!"} /> : <Submit type={"submit"} name={"submit"} value={"Submit"} />}
       </FormContainer>
     </ComponentContainer>
   );

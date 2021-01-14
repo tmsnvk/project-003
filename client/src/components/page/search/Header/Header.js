@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { ElementContainer } from "components/shared/layout";
-import { Title } from "components/shared/header";
-import data from "components/page/search/Header/data";
+import { PageTitle } from "components/shared/text";
+import data from "./data";
 
 const ComponentContainer = styled(ElementContainer)`
   grid-column-start: 1;
@@ -26,7 +26,7 @@ const ComponentContainer = styled(ElementContainer)`
 const Header = () => {
   return (
     <ComponentContainer>
-      <Title data={data.title} />
+      <PageTitle data={data.title} />
     </ComponentContainer>
   );
 };

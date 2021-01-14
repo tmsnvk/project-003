@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { LayoutContainerDefault } from "components/shared/layout";
 import { Message } from "components/page/success";
 import { usePageTracking } from "utilities/analytics/analyticsTracking";
+import data from "./data";
 
 const LayoutContainer = styled(LayoutContainerDefault)`
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
@@ -17,7 +18,7 @@ const Success = () => {
   return (
     <LayoutContainer>
       <Helmet>
-        <title>Succesful Data Upload</title>
+        <title>{data.title.success}</title>
       </Helmet>
       <Message />
     </LayoutContainer>

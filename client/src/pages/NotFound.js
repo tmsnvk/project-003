@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { LayoutContainerDefault } from "components/shared/layout";
 import { ErrorMessageContainer } from "components/page/error";
 import { usePageTracking } from "utilities/analytics/analyticsTracking";
+import data from "./data";
 
 const LayoutContainer = styled(LayoutContainerDefault)`
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
@@ -17,7 +18,7 @@ const NotFound = () => {
   return (
     <LayoutContainer>
       <Helmet>
-        <title>404 - Page Not Found</title>
+        <title>{data.title.notfound}</title>
       </Helmet>
       <ErrorMessageContainer />
     </LayoutContainer>

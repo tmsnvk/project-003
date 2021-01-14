@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const FormLabel = styled.label`
   font-size: ${({ theme }) => theme.fontSize.medium};
-  color: ${({ theme }) => theme.color.primaryDark};
+  color: ${({ theme }) => theme.color.grayDark};
   font-weight: 600;
   text-transform: uppercase;
   text-align: center;
@@ -12,7 +12,7 @@ const FormLabel = styled.label`
     content: " ";
     padding: 3rem 0 0 0;
   	width: 80%;
-    border-bottom: 2px solid ${({ theme }) => theme.color.primaryDark};
+    border-bottom: 2px solid ${({ theme }) => theme.color.grayDark};
     display: block;
 		margin: 0 auto;
   }

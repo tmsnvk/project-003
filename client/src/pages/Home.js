@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { LayoutContainerDefault } from "components/shared/layout";
 import { Header, HowImage, HowText, Options, PokemonCards, Statistics, SummaryCards } from "components/page/home";
 import { usePageTracking } from "utilities/analytics/analyticsTracking";
+import data from "./data";
 
 const LayoutContainer = styled(LayoutContainerDefault)`
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
@@ -21,7 +22,7 @@ const Home = () => {
   return (
     <LayoutContainer>
       <Helmet>
-        <title>Home</title>
+        <title>{data.title.home}</title>
       </Helmet>
       <Header />
       <SummaryCards />

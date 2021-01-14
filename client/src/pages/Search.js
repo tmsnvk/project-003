@@ -6,6 +6,7 @@ import { Header, Result, SearchForm } from "components/page/search";
 import { LayoutContainerDefault } from "components/shared/layout";
 import { LoadingSpinner } from "components/shared/utilities";
 import { usePageTracking } from "utilities/analytics/analyticsTracking";
+import data from "./data";
 
 const LayoutContainer = styled(LayoutContainerDefault)`
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.large}) {
@@ -40,7 +41,7 @@ const Search = () => {
         setTimeout(() => setLoading(false), 1000);
       } catch (error) {
         setLoading(false);
-        console.log(`Data fetch has failed. Please check the following error message - ${error}`);
+        console.log(`===> Data fetch has failed. Please check the following error message - ${error} <===`);
       }
     };
 
@@ -57,7 +58,7 @@ const Search = () => {
   return (
     <LayoutContainer>
       <Helmet>
-        <title>Search Database</title>
+        <title>{data.title.search}</title>
       </Helmet>
       <Header />
       <SearchForm selectedPokemon={handleSelectedPokemon} tutorial={handleTutorial} hideTutorial={hideTutorial} />

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { ElementContainer } from "components/shared/layout";
-import { InfoTitle } from "components/shared/information";
+import { ParagraphTitle } from "components/shared/text";
 import { StyledIcon } from "components/shared/utilities";
 import iconList from "utilities/icons/iconList";
 
@@ -10,12 +10,12 @@ const ComponentContainer = styled(ElementContainer)`
   grid-column-end: 2;
   grid-row-start: 3;
   grid-row-end: 4;
-  width: 90%;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 90%;
+  margin: 0 auto;
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.small}) {
     width: auto;
@@ -30,8 +30,8 @@ const ComponentContainer = styled(ElementContainer)`
 const LoadingSpinner = ({ loadingMessage }) => {
   return (
     <ComponentContainer>
-      <StyledIcon icon={iconList.spinner} spin></StyledIcon>
-      <InfoTitle>{loadingMessage}</InfoTitle>
+      <StyledIcon icon={iconList.spinner} spin />
+      <ParagraphTitle data={loadingMessage} />
     </ComponentContainer>
   );
 };

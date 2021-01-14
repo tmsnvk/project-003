@@ -32,8 +32,8 @@ const ComponentContainer = styled.div`
 `;
 
 const OptionContainer = styled.div`
-  width: 90%;
   align-self: baseline;
+  width: 90%;
   margin: 0 auto 2rem;
   background-image: ${({ theme }) => theme.color.gradient};
   box-shadow: ${({ theme }) => theme.elementBorder.boxShadow} ${({ theme }) => theme.color.shadow};
@@ -64,9 +64,9 @@ const OptionContainer = styled.div`
 
 const OptionTitle = styled.h3`
   font-size: ${({ theme }) => theme.fontSize.xLarge};
-  color: ${({ theme }) => theme.color.primaryLight};
-  text-shadow: 3px 3px 1px ${({ theme }) => theme.color.primaryDark};
-  background-color: ${({ alternate, theme: { color } }) => alternate ? color.alternate : color.secondary};
+  color: ${({ theme }) => theme.color.grayLight};
+  text-shadow: 3px 3px 1px ${({ theme }) => theme.color.grayDark};
+  background-color: ${({ alternate, theme: { color } }) => alternate ? color.orangeDark : color.blueDark};
   border-radius: 1rem 1rem 0 0;
   text-align: center;
   text-transform: uppercase;
@@ -78,25 +78,25 @@ const OptionTitle = styled.h3`
 `;
 
 const OptionPricingContainer = styled.div`
-  text-align: center;
   padding: 2rem 0 2rem 0;
+  text-align: center;
   font-size: ${({ theme }) => theme.fontSize.small};
 `;
 
 const OptionPriceTagSpan = styled.span`
-  font-size: ${({ theme }) => theme.fontSize.large};
   padding: 0 0.5rem 0 0;
+  font-size: ${({ theme }) => theme.fontSize.large};
 `;
 
 const OptionPricingIcon = styled(FontAwesomeIcon)`
+  margin: 0 0.5rem 0 0;
   font-size: ${({ theme }) => theme.fontSize.medium};
   vertical-align: super;
-  margin: 0 0.5rem 0 0;
 `;
 
 const OptionParagraph = styled.p`
-  font-size: ${({ theme }) => theme.fontSize.small};
   padding: 0 0 1rem 2rem;
+  font-size: ${({ theme }) => theme.fontSize.small};
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.xLarge}) {
     font-size: ${({ theme }) => theme.fontSize.medium};
@@ -104,9 +104,9 @@ const OptionParagraph = styled.p`
 `;
 
 const OptionParagraphIcon = styled(FontAwesomeIcon)`
+  margin: 0 1rem 0 0;
   font-size: ${({ theme }) => theme.fontSize.small};
   vertical-align: middle;
-  margin: 0 1rem 0 0;
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.xLarge}) {
     font-size: ${({ theme }) => theme.fontSize.medium};
@@ -116,19 +116,19 @@ const OptionParagraphIcon = styled(FontAwesomeIcon)`
 const OptionButton = styled(Link)`
   display: block;
   width: 50%;
-  color: ${({ theme }) => theme.color.primaryLight};
-  font-size: ${({ theme }) => theme.fontSize.small};
-  background-color: ${({ alternate, theme: { color } }) => alternate ? color.alternate : color.secondary};
-  border-radius: ${props => props.theme.elementBorder.borderRadius};
   padding: 1rem 1rem 1rem 1rem;
   margin: 1rem auto;
+  color: ${({ theme }) => theme.color.grayLight};
+  font-size: ${({ theme }) => theme.fontSize.small};
+  background-color: ${({ alternate, theme: { color } }) => alternate ? color.orangeDark : color.blueDark};
+  border-radius: ${props => props.theme.elementBorder.borderRadius};
   text-decoration: none;
   text-align: center;
   opacity: 0.7;
   cursor: pointer;
 
   &:hover {
-    background-color: ${({ theme }) => theme.color.primaryDark};
+    background-color: ${({ theme }) => theme.color.grayDark};
     opacity: 1;
   }
 
@@ -142,8 +142,8 @@ const OptionButton = styled(Link)`
 `;
 
 const OptionBottomParagraph = styled.p`
-  font-size: ${({ theme }) => theme.fontSize.small};
   padding: 0 0 2rem 0;
+  font-size: ${({ theme }) => theme.fontSize.small};
   text-align: center;
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.xLarge}) {
@@ -152,14 +152,14 @@ const OptionBottomParagraph = styled.p`
 `;
 
 const OptionPopular = styled.div`
-  background-color: ${({ theme }) => theme.color.alternate};
+  padding: 1rem 0 1rem 0;
+  background-color: ${({ theme }) => theme.color.orangeDark};
   font-size: ${({ theme }) => theme.fontSize.medium};
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 0.5rem;
   text-align: center;
   border-radius: 0 0 1rem 1rem;
-  padding: 1rem 0 1rem 0;
 `;
 
 const SubscriptionOptions = () => {

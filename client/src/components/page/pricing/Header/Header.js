@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { ElementContainer } from "components/shared/layout";
-import { Title } from "components/shared/header";
+import { PageTitle } from "components/shared/text";
 import data from "components/page/pricing/Header/data";
 
 const ComponentContainer = styled(ElementContainer)`
@@ -9,12 +9,12 @@ const ComponentContainer = styled(ElementContainer)`
   grid-column-end: 2;
   grid-row-start: 1;
   grid-row-end: 2;
-  width: 90%;
-  margin: 15rem auto 0;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  width: 90%;
+  margin: 15rem auto 0;
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.small}) {
     margin: 10rem auto 0;
@@ -47,8 +47,8 @@ const Image = styled.img`
 const Header = () => {
   return (
     <ComponentContainer>
-      <Image src="https://pokeres.bastionbot.org/images/pokemon/133.png" alt="eevee image" loading="lazy" />
-      <Title data={data.title} />
+      <Image src={"https://pokeres.bastionbot.org/images/pokemon/133.png"} alt={"eevee image"} loading={"lazy"} />
+      <PageTitle data={data.title} />
     </ComponentContainer>
   );
 };

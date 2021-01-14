@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { ElementContainer } from "components/shared/layout";
-import { Title } from "components/shared/header";
-import { Paragraph } from "components/shared/text";
+import { PageTitle, Paragraph } from "components/shared/text";
 import { HashLinkElement } from "components/shared/link";
 import data from "./data";
 
@@ -28,7 +27,7 @@ const ComponentContainer = styled(ElementContainer)`
 const Header = () => {
   return (
     <ComponentContainer>
-      <Title data={data.title} />
+      <PageTitle data={data.title} />
       <Paragraph data={<>Take a look at our <HashLinkElement to={"/contact/#faq"} text={"FAQ"} /> or <HashLinkElement to={"/contact/#contactform"} text={"submit"} /> your own question!</>} align={"center"} fontsize />
     </ComponentContainer>
   )
