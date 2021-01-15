@@ -4,11 +4,11 @@ import { useForm } from "react-hook-form";
 import { trackUserEvent } from "utilities/analytics/analyticsTracking";
 import axios from "axios";
 import styled from "styled-components";
-import { ElementContainer } from "components/shared/layout";
+import { SectionElementContainer } from "components/shared/layout";
 import { ErrorMessage, FormContainer, FormLabel, FormLink, InputField, RadioButton, RadioContainer, RadioLabel, RadioLegend, RequiredFields, Submit, Textarea } from "components/shared/form";
 import { LoadingSpinner } from "components/shared/utilities";
 
-const ComponentContainer = styled(ElementContainer)`
+const ComponentContainer = styled(SectionElementContainer)`
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 3;

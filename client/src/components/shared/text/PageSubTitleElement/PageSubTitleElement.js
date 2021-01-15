@@ -7,12 +7,12 @@ const ComponentContainer = styled.h2`
   font-weight: normal;
 `;
 
-const PageSubTitle = ({ data }) => {
+const PageSubTitleElement = ({ render }) => {
   return (
     <ComponentContainer>
-      {data}
+      {render}
     </ComponentContainer>
   );
 };
 
-export default PageSubTitle;
+export default PageSubTitleElement;

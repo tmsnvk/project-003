@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import { ElementContainer } from "components/shared/layout";
-import { ParagraphTitle } from "components/shared/text";
+import { DivElementContainer } from "components/shared/layout";
+import { ParagraphTitleElement } from "components/shared/text";
 import { StyledIcon } from "components/shared/utilities";
 import iconList from "utilities/icons/iconList";
 
-const ComponentContainer = styled(ElementContainer)`
+const ComponentContainer = styled(DivElementContainer)`
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 3;
@@ -31,7 +31,7 @@ const LoadingSpinner = ({ loadingMessage }) => {
   return (
     <ComponentContainer>
       <StyledIcon icon={iconList.spinner} spin />
-      <ParagraphTitle data={loadingMessage} />
+      <ParagraphTitleElement render={loadingMessage} />
     </ComponentContainer>
   );
 };

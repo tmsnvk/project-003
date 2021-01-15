@@ -9,9 +9,9 @@ const data = {
       { id: 4, link: "/", icon: iconList.youtube }
     ],
     copyright: [
-      { id: 1, text: "\u00A9 2020 - 2021 by tamasnvk" },
-      { id: 2, text: "built with \u2764" },
-      { id: 3, text: "using react & pokeapi.co" }
+      { id: 1, render: "\u00A9 2020 - 2021 by tamasnvk" },
+      { id: 2, render: "built with \u2764" },
+      { id: 3, render: "using react & pokeapi.co" }
     ]
   }
 };

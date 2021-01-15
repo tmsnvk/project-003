@@ -1,11 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { ElementContainer } from "components/shared/layout";
-import iconList from "utilities/icons/iconList";
-import data from "./data";
+import { SectionElementContainer } from "components/shared/layout";
+import YearUpdate from "./YearUpdate";
+import DataItems from "./DataItems";
 
-const ComponentContainer = styled(ElementContainer)`
+const ComponentContainer = styled(SectionElementContainer)`
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 4;
@@ -14,8 +13,6 @@ const ComponentContainer = styled(ElementContainer)`
   flex-direction: column;
   width: auto;
   margin: 0 auto;
-  font-family: ${({ theme }) => theme.fontFamily.secondary};
-  font-weight: 600;
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.small}) {
     flex-direction: row;
@@ -32,96 +29,11 @@ const ComponentContainer = styled(ElementContainer)`
   }
 `;
 
-const YearUpdate = styled.p`
-  margin: auto;
-  font-size: ${({ theme }) => theme.fontSize.large};
-  color: ${({ theme }) => theme.color.orangeDark};
-  text-align: center;
-
-  @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
-    padding: 0 5rem 0 2rem;
-    font-size: ${({ theme }) => theme.fontSize.xLarge};
-  }
-
-  @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.xLarge}) {
-    font-size: ${({ theme }) => theme.fontSize.xxLarge};
-  }
-`;
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: row;
-  padding: 0 2rem 0 2rem;
-
-  @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.small}) {
-    display: block;
-    padding: 0 1rem 0 1rem;
-  }
-
-  @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
-    justify-content: center;
-    padding: 0 2rem 0 2rem;
-    text-align: center;
-  }
-`;
-
-const Icon = styled(FontAwesomeIcon)`
-  font-size: ${({ theme }) => theme.fontSize.xLarge};
-  color: ${({ theme }) => theme.color.blueDark};
-
-  @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
-    font-size: ${({ theme }) => theme.fontSize.xxLarge};
-  }
-`;
-
-const Figure = styled.p`
-  padding: 0 0 1rem 1rem;
-  font-size: ${({ theme }) => theme.fontSize.large};
-
-  @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.small}) {
-    padding: 0 0 0 0;
-    font-size: ${({ theme }) => theme.fontSize.medium};
-  }
-
-  @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
-    font-size: ${({ theme }) => theme.fontSize.xLarge};
-  }
-
-  @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.large}) {
-    font-size: ${({ theme }) => theme.fontSize.xxLarge};
-  }
-`;
-
-const Text = styled.p`
-  padding: 0 0 0 2rem;
-  font-size: ${({ theme }) => theme.fontSize.large};
-  color: ${({ theme }) => theme.color.grayDark};
-
-  @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.small}) {
-    padding: 0 0 0 0;
-    font-size: ${({ theme }) => theme.fontSize.medium};
-  }
-
-  @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
-    font-size: ${({ theme }) => theme.fontSize.large};
-  }
-`;
-
 const Statistics = () => {
-  const renderComponentData = data.map(({ id, number, text }) => {
-    return (
-      <Container key={id}>
-        <Icon icon={iconList.caretUp}></Icon>
-         <Figure>{number}</Figure>
-         <Text>{text}</Text>
-      </Container>
-    );
-  });
-
   return (
     <ComponentContainer>
-      <YearUpdate>2020<br />STATS</YearUpdate>
-      {renderComponentData}
+      <YearUpdate />
+      <DataItems />
     </ComponentContainer>
   );
 };

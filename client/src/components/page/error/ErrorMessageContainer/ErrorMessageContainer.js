@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
-import { ElementContainer } from "components/shared/layout";
-import { PageTitle, ParagraphElement } from "components/shared/text";
+import { SectionElementContainer } from "components/shared/layout";
+import { PageTitleElement, ParagraphElement } from "components/shared/text";
 import { LinkElement } from "components/shared/link";
 import { Image } from "components/shared/utilities";
 import getPokemonId from "utilities/helpers/getPokemonId";
 
-const ComponentContainer = styled(ElementContainer)`
+const ComponentContainer = styled(SectionElementContainer)`
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 1;
@@ -53,8 +53,8 @@ const ErrorMessageContainer = () => {
 
   return (
     <ComponentContainer>
-      <PageTitle data={`${pokemonName.toUpperCase()} says the page you tried to visit doesn't exist.`} />
-      <ParagraphElement data={<>Click <LinkElement to={"/"} text={"here"} /> to return to our home page!</>} align={"center"} fontsize={"medium"} />
+      <PageTitleElement render={`${pokemonName.toUpperCase()} says the page you tried to visit doesn't exist.`} />
+      <ParagraphElement render={<>Click <LinkElement to={"/"} text={"here"} /> to return to our home page!</>} align={"center"} fontsize={"medium"} />
       {pokemonName !== "" ? <Image src={`https://pokeres.bastionbot.org/images/pokemon/${pokemonId}.png`} alt={"random pokemon image"} loading={"lazy"} /> : null}
     </ComponentContainer>
   );

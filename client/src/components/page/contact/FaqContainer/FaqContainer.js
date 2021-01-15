@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { ElementContainer } from "components/shared/layout";
+import { SectionElementContainer } from "components/shared/layout";
 import iconList from "utilities/icons/iconList";
 import data from "./data";
 
-const ComponentContainer = styled(ElementContainer)`
+const ComponentContainer = styled(SectionElementContainer)`
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 2;

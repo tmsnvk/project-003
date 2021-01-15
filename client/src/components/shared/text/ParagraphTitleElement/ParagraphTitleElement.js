@@ -6,14 +6,14 @@ const ComponentContainer = styled.p`
   font-size: ${({ theme }) => theme.fontSize.medium};
   font-weight: 600;
   text-align: center;
-  text-transform: uppercase;
+  text-transform: ${({ $titlecase }) => $titlecase ? null : "uppercase"};
 
   &:after {
     content: " ";
     display: block;
     padding: 2rem 0 0 0;
     border-bottom: 2px solid ${({ theme }) => theme.color.blueDark};
-    width: 50%;
+    width: 33%;
     margin: 0 auto;
   }
 
@@ -22,12 +22,12 @@ const ComponentContainer = styled.p`
   }
 `;
 
-const ParagraphTitle = ({ data }) => {
+const ParagraphTitleElement = ({ render, titlecase }) => {
   return (
-    <ComponentContainer>
-      {data}
+    <ComponentContainer $titlecase={titlecase}>
+      {render}
     </ComponentContainer>
   );
 };
 
-export default ParagraphTitle;
+export default ParagraphTitleElement;

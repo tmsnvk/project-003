@@ -9,8 +9,7 @@ const FooterLinkElement = () => {
       <LinkElement
         key={id}
         to={link}
-        text={<><StyledIcon icon={icon} margin={"footerlinks"} /></>}
-        color={"grayLight"}
+        render={<><StyledIcon icon={icon} color={"grayLight"} margin={"footerlinks"} /></>}
         hover={"grayLight"}
         opacity={"0.7"}
         padding={"footerlinks"}

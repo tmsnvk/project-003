@@ -1,4 +1,5 @@
-import ElementContainer from "./ElementContainer";
+import DivElementContainer from "./DivElementContainer"; 
+import SectionElementContainer from "./SectionElementContainer";
 import LayoutContainerDefault from "./LayoutContainerDefault";
 
-export { ElementContainer, LayoutContainerDefault };
+export { DivElementContainer, SectionElementContainer, LayoutContainerDefault };

@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import { ElementContainer } from "components/shared/layout";
-import { ParagraphTitle } from "components/shared/text";
+import { SectionElementContainer } from "components/shared/layout";
+import { ParagraphTitleElement } from "components/shared/text";
 import ListItems from "./ListItems";
 import data from "./data";
 
-const ComponentContainer = styled(ElementContainer)`
+const ComponentContainer = styled(SectionElementContainer)`
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 3;
@@ -32,7 +32,7 @@ const ComponentContainer = styled(ElementContainer)`
 const HowText = () => {
   return (
     <ComponentContainer>
-      <ParagraphTitle data={data.title} />
+      <ParagraphTitleElement render={data.title} />
       <ListItems />
     </ComponentContainer>
   );

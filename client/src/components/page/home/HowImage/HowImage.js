@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { ElementContainer } from "components/shared/layout";
+import { SectionElementContainer } from "components/shared/layout";
 
-const ComponentContainer = styled(ElementContainer)`
+const ComponentContainer = styled(SectionElementContainer)`
   display: none;
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {

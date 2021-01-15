@@ -46,8 +46,6 @@ const handleHoverColor = ($hover) => {
 
 const handleDefaultPadding = ($padding) => {
   switch ($padding) {
-    case "navlogo":
-      return "0 0 1rem 0";
     case "navlinks":
       return "2rem 1rem 2rem 1rem";
     case "footerlinks":
@@ -90,7 +88,7 @@ const ComponentContainer = styled(Link)`
   }
 `;
 
-const LinkElement = ({ to, text, color, fontsize, hover, opacity, padding, letterspacing }) => {
+const LinkElement = ({ to, render, color, fontsize, hover, opacity, padding, letterspacing }) => {
   return (
     <ComponentContainer
       to={to}
@@ -101,7 +99,7 @@ const LinkElement = ({ to, text, color, fontsize, hover, opacity, padding, lette
       $padding={padding}
       $letterspacing={letterspacing}
     >
-      {text}
+      {render}
     </ComponentContainer>
   );
 };

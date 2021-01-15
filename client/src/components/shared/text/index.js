@@ -1,6 +1,7 @@
-import PageSubTitle from "./PageSubTitle";
-import PageTitle from "./PageTitle";
+import PageSubTitleElement from "./PageSubTitleElement";
+import PageTitleElement from "./PageTitleElement";
 import ParagraphElement from "./ParagraphElement";
-import ParagraphTitle from "./ParagraphTitle";
+import ParagraphTitleElement from "./ParagraphTitleElement";
+import SpanElement from "./SpanElement";
 
-export { PageSubTitle, PageTitle, ParagraphElement, ParagraphTitle };
+export { PageSubTitleElement, PageTitleElement, ParagraphElement, ParagraphTitleElement, SpanElement };

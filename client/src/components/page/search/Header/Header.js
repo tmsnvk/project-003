@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import { ElementContainer } from "components/shared/layout";
-import { PageTitle } from "components/shared/text";
+import { SectionElementContainer } from "components/shared/layout";
+import { PageTitleElement } from "components/shared/text";
 import data from "./data";
 
-const ComponentContainer = styled(ElementContainer)`
+const ComponentContainer = styled(SectionElementContainer)`
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 1;
@@ -26,7 +26,7 @@ const ComponentContainer = styled(ElementContainer)`
 const Header = () => {
   return (
     <ComponentContainer>
-      <PageTitle data={data.title} />
+      <PageTitleElement render={data.title} />
     </ComponentContainer>
   );
 };

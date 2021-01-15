@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const ElementContainer = styled.div`
+const DivElementContainer = styled.div`
   color: ${({ theme }) => theme.color.grayDark};
   font-size: ${({ theme }) => theme.fontSize.small};
   background-image: ${({ theme }) => theme.color.gradient};
@@ -10,4 +10,4 @@ const ElementContainer = styled.div`
   box-shadow: ${({ theme }) => theme.elementBorder.boxShadow} ${({ theme }) => theme.color.shadow};
 `;
 
-export default ElementContainer;
+export default DivElementContainer;

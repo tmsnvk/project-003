@@ -21,8 +21,8 @@ const ListItems = () => {
   const renderComponentData = data.steps.map(({ id, text }) => {
     return (
       <Container key={id}>
-        <StyledIcon icon={iconList.doubleRight} />
-        <ParagraphElement data={text} align={"left"} fontsize={"medium"} />
+        <StyledIcon icon={iconList.doubleRight} margin={"homehowtext"} />
+        <ParagraphElement render={text} />
       </Container>
     );
   });

@@ -2,7 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { trackUserEvent } from "utilities/analytics/analyticsTracking";
 import styled from "styled-components";
-import { ElementContainer } from "components/shared/layout";
+import { SectionElementContainer } from "components/shared/layout";
 import { ErrorMessage, FormLabel, InputField, RequiredFields, Submit } from "components/shared/form";
 import { ParagraphElement } from "components/shared/text";
 import { LinkElement } from "components/shared/link";
@@ -29,14 +29,14 @@ const FormContainer = styled.form`
   }
 `;
 
-const InputContainer = styled(ElementContainer)`
+const InputContainer = styled(SectionElementContainer)`
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 2rem 2rem 2rem 2rem;
 `;
 
-const TutorialContainer = styled(ElementContainer)`
+const TutorialContainer = styled(SectionElementContainer)`
   width: 90%;
   margin: 5rem 0 0 0;
   font-size: ${({ theme }) => theme.fontSize.small};

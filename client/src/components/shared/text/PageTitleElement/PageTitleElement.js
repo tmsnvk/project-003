@@ -21,12 +21,12 @@ const ComponentContainer = styled.h1`
   }
 `;
 
-const PageTitle = ({ data }) => {
+const PageTitleElement = ({ render }) => {
   return (
     <ComponentContainer>
-      {data}
+      {render}
     </ComponentContainer>
   );
 };
 
-export default PageTitle;
+export default PageTitleElement;

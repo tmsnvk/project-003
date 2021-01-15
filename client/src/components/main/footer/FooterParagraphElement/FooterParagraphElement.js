@@ -3,11 +3,11 @@ import { ParagraphElement } from "components/shared/text";
 import data from "../data";
 
 const FooterParagraphElement = () => {
-  const renderFooterParagraphElement = data.footer.copyright.map(({ id, text }) => {
+  const renderFooterParagraphElement = data.footer.copyright.map(({ id, render }) => {
     return (
       <ParagraphElement
         key={id}
-        render={text}
+        render={render}
         align
         color={"grayLight"}
         fontfamily

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { ElementContainer } from "components/shared/layout";
+import { DivElementContainer } from "components/shared/layout";
 import iconList from "utilities/icons/iconList";
 
 const ComponentContainer = styled.div`
@@ -27,7 +27,7 @@ const ComponentContainer = styled.div`
   }
 `;
 
-const ImageContainer = styled(ElementContainer)`
+const ImageContainer = styled(DivElementContainer)`
   width: 90%;
   margin: 1rem 1rem 1rem 1rem;
   background-image: ${({ type }) => handleType(type)};
