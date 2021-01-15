@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Paragraph } from "components/shared/text";
+import { ParagraphElement } from "components/shared/text";
 import { StyledIcon } from "components/shared/utilities";
 import iconList from "utilities/icons/iconList";
 import data from "../data";
@@ -22,7 +22,7 @@ const ListItems = () => {
     return (
       <Container key={id}>
         <StyledIcon icon={iconList.doubleRight} />
-        <Paragraph data={text} align={"left"} fontsize={"medium"} />
+        <ParagraphElement data={text} align={"left"} fontsize={"medium"} />
       </Container>
     );
   });

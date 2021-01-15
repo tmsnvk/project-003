@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { ElementContainer } from "components/shared/layout";
-import { PageSubTitle, PageTitle, Paragraph } from "components/shared/text";
+import { PageSubTitle, PageTitle, ParagraphElement } from "components/shared/text";
 import data from "./data";
 
 const ComponentContainer = styled(ElementContainer)`
@@ -34,7 +34,7 @@ const Header = () => {
     <ComponentContainer>
       <PageTitle data={data.title} />
       <PageSubTitle data={data.subtitle} />
-      <Paragraph data={data.message} align={"center"} fontsize />
+      <ParagraphElement data={data.message} align={"center"} fontsize />
     </ComponentContainer>
   );
 };

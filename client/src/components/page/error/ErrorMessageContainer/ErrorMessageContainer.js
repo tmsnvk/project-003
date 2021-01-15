@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import { ElementContainer } from "components/shared/layout";
-import { PageTitle, Paragraph } from "components/shared/text";
+import { PageTitle, ParagraphElement } from "components/shared/text";
 import { LinkElement } from "components/shared/link";
 import { Image } from "components/shared/utilities";
 import getPokemonId from "utilities/helpers/getPokemonId";
@@ -54,7 +54,7 @@ const ErrorMessageContainer = () => {
   return (
     <ComponentContainer>
       <PageTitle data={`${pokemonName.toUpperCase()} says the page you tried to visit doesn't exist.`} />
-      <Paragraph data={<>Click <LinkElement to={"/"} text={"here"} /> to return to our home page!</>} align={"center"} fontsize={"medium"} />
+      <ParagraphElement data={<>Click <LinkElement to={"/"} text={"here"} /> to return to our home page!</>} align={"center"} fontsize={"medium"} />
       {pokemonName !== "" ? <Image src={`https://pokeres.bastionbot.org/images/pokemon/${pokemonId}.png`} alt={"random pokemon image"} loading={"lazy"} /> : null}
     </ComponentContainer>
   );

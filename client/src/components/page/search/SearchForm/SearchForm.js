@@ -4,7 +4,7 @@ import { trackUserEvent } from "utilities/analytics/analyticsTracking";
 import styled from "styled-components";
 import { ElementContainer } from "components/shared/layout";
 import { ErrorMessage, FormLabel, InputField, RequiredFields, Submit } from "components/shared/form";
-import { Paragraph } from "components/shared/text";
+import { ParagraphElement } from "components/shared/text";
 import { LinkElement } from "components/shared/link";
 
 const ComponentContainer = styled.div`
@@ -91,9 +91,9 @@ const SearchForm = ({ selectedPokemon, tutorial, hideTutorial }) => {
       </FormContainer>
       {!hideTutorial && 
       <TutorialContainer>
-        <Paragraph data={<>How to use our free database?<br />Enter either the valid name or ID of the Pokemon you would like to look up!</>} align={"center"} fontsize padding={"0 0 1rem 0"} />
-        <Paragraph data={<>To start getting more detailed search results, please sign up for one of our <LinkElement to={"/pricing"} text={"subscription"} /> options.</>} align={"center"} fontsize padding={"0 0 1rem 0"} />
-        <Paragraph data={<>To get more information, you are always more than welcome to <LinkElement to={"/contact"} text={"contact"} /> our support agents.</>} align={"center"} fontsize />
+        <ParagraphElement data={<>How to use our free database?<br />Enter either the valid name or ID of the Pokemon you would like to look up!</>} align={"center"} fontsize padding={"0 0 1rem 0"} />
+        <ParagraphElement data={<>To start getting more detailed search results, please sign up for one of our <LinkElement to={"/pricing"} text={"subscription"} /> options.</>} align={"center"} fontsize padding={"0 0 1rem 0"} />
+        <ParagraphElement data={<>To get more information, you are always more than welcome to <LinkElement to={"/contact"} text={"contact"} /> our support agents.</>} align={"center"} fontsize />
       </TutorialContainer>}
     </ComponentContainer>
   );

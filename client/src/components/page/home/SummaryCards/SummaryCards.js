@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { ElementContainer } from "components/shared/layout";
-import { Paragraph } from "components/shared/text";
+import { ParagraphElement } from "components/shared/text";
 import { StyledIcon } from "components/shared/utilities";
 import data from "./data";
 
@@ -86,8 +86,8 @@ const Summary = () => {
       <Container key={id}>
         <StyledIcon icon={icon} />
         <Title>{title}</Title>
-        <Paragraph data={paragraphs.one} padding={"0 0 1rem 0"} />
-        {paragraphs.two !== "" ? <Paragraph data={paragraphs.two} padding={"0 0 1rem 0"} /> : null}
+        <ParagraphElement data={paragraphs.one} padding={"0 0 1rem 0"} />
+        {paragraphs.two !== "" ? <ParagraphElement data={paragraphs.two} padding={"0 0 1rem 0"} /> : null}
       </Container>
     );
   });

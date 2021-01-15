@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { ElementContainer } from "components/shared/layout";
-import { PageTitle, Paragraph } from "components/shared/text";
+import { PageTitle, ParagraphElement } from "components/shared/text";
 import { LinkElement } from "components/shared/link";
 import { Image } from "components/shared/utilities";
 
@@ -31,8 +31,8 @@ const Message = () => {
   return (
     <ComponentContainer>
       <PageTitle data={"Your form submission was successful. You will shortly receive an email regarding your payment and login details."} />
-      <Paragraph data={"Happy hunting!"} align fontsize />
-      <Paragraph data={<>Click <LinkElement to={"/"} text={"here"} />here to return to our home page!</>} align fontsize />
+      <ParagraphElement data={"Happy hunting!"} align fontsize />
+      <ParagraphElement data={<>Click <LinkElement to={"/"} text={"here"} />here to return to our home page!</>} align fontsize />
       <Image src={"https://pokeres.bastionbot.org/images/pokemon/66.png"} alt={"machop image"} loading={"lazy"} />
     </ComponentContainer>
   );

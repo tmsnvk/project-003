@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { ElementContainer } from "components/shared/layout";
-import { Paragraph } from "components/shared/text";
+import { ParagraphElement } from "components/shared/text";
 import { LinkElement } from "components/shared/link";
 
 const ComponentContainer = styled(ElementContainer)`
@@ -30,9 +30,9 @@ const ComponentContainer = styled(ElementContainer)`
 const Options = () => {
   return (
     <ComponentContainer>
-      <Paragraph data={<>Want to know what we offer?<br />Read below and visit the appropriate link to get an answer for your questions!</>} align={"center"} fontsize padding={"0 0 1rem 0"} />
-      <Paragraph data={<>Like what you see? - Subscribe on our <LinkElement to={"/pricing"} text={"Pricing"} /> page and join our community immediately!</>} align={"center"} fontsize padding={"0 0 1rem 0"} />
-      <Paragraph data={<>Have further questions? - Visit our FAQ or get in touch with one of our customer agents on our <LinkElement to={"/contact"} text={"Contact"} /> page!</>} align={"center"} fontsize />
+      <ParagraphElement data={<>Want to know what we offer?<br />Read below and visit the appropriate link to get an answer for your questions!</>} align={"center"} fontsize padding={"0 0 1rem 0"} />
+      <ParagraphElement data={<>Like what you see? - Subscribe on our <LinkElement to={"/pricing"} text={"Pricing"} /> page and join our community immediately!</>} align={"center"} fontsize padding={"0 0 1rem 0"} />
+      <ParagraphElement data={<>Have further questions? - Visit our FAQ or get in touch with one of our customer agents on our <LinkElement to={"/contact"} text={"Contact"} /> page!</>} align={"center"} fontsize />
     </ComponentContainer>
   );
 };
