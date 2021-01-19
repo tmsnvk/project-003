@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { SectionElementContainer } from "components/shared/layout";
 import { PageTitleElement, ParagraphElement } from "components/shared/text";
-import { HashLinkElement } from "components/shared/link";
 import data from "./data";
 
 const ComponentContainer = styled(SectionElementContainer)`
@@ -28,7 +27,7 @@ const Header = () => {
   return (
     <ComponentContainer>
       <PageTitleElement render={data.title} />
-      <ParagraphElement data={<>Take a look at our <HashLinkElement to={"/contact/#faq"} text={"FAQ"} /> or <HashLinkElement to={"/contact/#contactform"} text={"submit"} /> your own question!</>} align={"center"} fontsize />
+      <ParagraphElement render={data.message} align={"center"} fontsize />
     </ComponentContainer>
   )
 };

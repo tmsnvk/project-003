@@ -7,13 +7,13 @@ const YearUpdate = () => {
     <>
       <ParagraphElement
         render={data.title}
-        align
-        color={"orangeDark"}
-        fontfamily
-        fontsize={"homestatsyear"}
-        fontweight={"600"}
         margin={"homestatsyear"}
         padding={"homestatsyear"}
+        align
+        fontfamily
+        fontsize={"homestatsyear"}
+        color={"orangeDark"}
+        fontweight={"600"}
       />
     </>
   );

@@ -2,7 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import styled from "styled-components";
 import { LayoutContainerDefault } from "components/shared/layout";
-import { ErrorMessageContainer } from "components/page/error";
+import { Message } from "components/page/error";
 import { usePageTracking } from "utilities/analytics/analyticsTracking";
 import data from "./data";
 
@@ -20,7 +20,7 @@ const NotFound = () => {
       <Helmet>
         <title>{data.title.notfound}</title>
       </Helmet>
-      <ErrorMessageContainer />
+      <Message />
     </LayoutContainer>
   );
 };

@@ -41,7 +41,7 @@ const Search = () => {
         setTimeout(() => setLoading(false), 1000);
       } catch (error) {
         setLoading(false);
-        console.log(`===> Data fetch has failed. Please check the following error message - ${error} <===`);
+        console.log(`===> The error is - ${error} <===`);
       }
     };
 

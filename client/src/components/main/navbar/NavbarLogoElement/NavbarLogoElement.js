@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { LinkElement } from "components/shared/link";
-import { StyledIcon } from "components/shared/utilities";
+import { PROJECT_ROOT } from "utilities/constants/urls";
 import data from "../data";
 
 const ComponentContainer = styled.section`
@@ -15,13 +15,7 @@ const ComponentContainer = styled.section`
 const NavbarLogoElement = () => {
   return (
     <ComponentContainer>
-      <LinkElement
-        to={"/"}
-        render={<><StyledIcon icon={data.navbar.title.icon} fontsize={"navlogo"} margin={"navlogo"} />{data.navbar.title.text}</>}
-        fontsize={"navlogo"}
-        letterspacing={"0.1rem"}
-        padding={"navlogo"}
-      />
+      <LinkElement to={`/${PROJECT_ROOT}`} render={data.navbar.logo} style={"NavbarLogoElement_LinkElement"} />
     </ComponentContainer>
   );
 };

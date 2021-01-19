@@ -7,10 +7,10 @@ const ComponentContainer = styled.section`
   grid-column-end: 2;
   grid-row-start: 2;
   grid-row-end: 3;
-  width: 95%;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
+  width: 95%;
+  margin: 0 auto;
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.small}) {
     width: 80%;

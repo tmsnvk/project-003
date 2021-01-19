@@ -37,10 +37,10 @@ const CardItems = () => {
   const renderSummaryCards = data.map(({ id, icon, title, paragraphs }) => {
     return (
       <Container key={id}>
-        <StyledIcon icon={icon} align margin={"homesummary"} />
+        <StyledIcon icon={icon} margin={"homesummary"} align />
         <ParagraphTitleElement render={title} titlecase />
-        <ParagraphElement render={paragraphs.one} align fontsize={"homesummary"} padding={"homesummary"} />
-        {paragraphs.two !== "" ? <ParagraphElement render={paragraphs.two} align fontsize={"homesummary"} padding={"homesummary"} /> : null}
+        <ParagraphElement render={paragraphs.one} padding={"homesummary"} align fontsize={"homesummary"} />
+        {paragraphs.two !== "" ? <ParagraphElement render={paragraphs.two} padding={"homesummary"} align fontsize={"homesummary"} /> : null}
       </Container>
     );
   });

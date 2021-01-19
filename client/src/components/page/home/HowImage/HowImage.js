@@ -38,7 +38,7 @@ const Image = styled.img`
 const HowImage = () => {
   return (
     <ComponentContainer>
-      <Image src={"https://pokeres.bastionbot.org/images/pokemon/25.png"} alt={"pikachu image" } loading={"lazy"} />
+      <Image src={"https://pokeres.bastionbot.org/images/pokemon/25.png"} alt={"pikachu image"} loading={"lazy"} />
     </ComponentContainer>
   );
 };

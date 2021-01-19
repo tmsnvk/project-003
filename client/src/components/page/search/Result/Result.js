@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { DivElementContainer } from "components/shared/layout";
+import { ParagraphElement, ParagraphTitleElement, SpanElement } from "components/shared/text";
+import { StyledIcon } from "components/shared/utilities";
 import iconList from "utilities/icons/iconList";
 
 const ComponentContainer = styled.div`
@@ -42,7 +43,7 @@ const ImageContainer = styled(DivElementContainer)`
   }
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.small}) {
-    width: 50%;
+    width: 40%;
   }
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.xLarge}) {
@@ -74,31 +75,6 @@ const DataContainer = styled(ImageContainer)`
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.xLarge}) {
     width: 30%;
   }
-`;
-
-const Title = styled.h2`
-  font-family: ${({ theme }) => theme.fontFamily.secondary};
-  font-size: ${({ theme }) => theme.fontSize.large};
-  color: ${({ theme }) => theme.color.blueDark};
-`;
-
-const Item = styled.h3`
-  padding: 0.5rem 0 0.5rem 0;
-  font-family: ${({ theme }) => theme.fontFamily.secondary};
-  font-size: ${({ theme }) => theme.fontSize.medium};
-  color: ${({ theme }) => theme.color.blueDark};
-`;
-
-const Span = styled.span`
-  font-family: ${({ theme }) => theme.fontFamily.main};
-  font-size: ${({ theme }) => theme.fontSize.medium};
-  color: ${({ theme }) => theme.color.grayDark};
-`;
-
-const Icon = styled(FontAwesomeIcon)`
-  margin: 0 1rem 0 0;
-  font-size: ${({ theme }) => theme.fontSize.medium};
-  vertical-align: middle;
 `;
 
 const handleType = (type) => {
@@ -148,22 +124,87 @@ const Result = ({ pokemonData }) => {
   return (
     <ComponentContainer>
       <ImageContainer type={pokemonData.typeOne}>
+        <ParagraphTitleElement render={"Image"} color={"blueDark"} />
         <PokemonImage src={pokemonData.src} alt={"random pokemon image"} loading={"lazy"} />
       </ImageContainer>
       <DataContainer type={pokemonData.typeOne}>
-        <Title>Identity:</Title>
-        <Item><Icon icon={iconList.idCard}></Icon>Name:&nbsp;<Span>{pokemonData.name}</Span></Item>
-        <Item><Icon icon={iconList.tag}></Icon>ID:&nbsp;<Span>{pokemonData.id}</Span></Item>
+        <ParagraphTitleElement render={"Identity"} color={"blueDark"} />
+        <ParagraphElement
+          render={<><StyledIcon icon={iconList.idCard} margin={"searchresult"} fontsize={"searchresult"} />Name: <SpanElement render={pokemonData.name} /></>}
+          padding={"searchresultitem"}
+          fontsize={"searchresultitem"}
+          fontweight
+          fontfamily
+          color={"blueDark"}
+          letterspacing={"0.1rem"}
+        />
+        <ParagraphElement
+          render={<><StyledIcon icon={iconList.tag} margin={"searchresult"} fontsize={"searchresult"} />ID: <SpanElement render={pokemonData.id} /></>}
+          padding={"searchresultitem"}
+          fontsize={"searchresultitem"}
+          fontweight
+          fontfamily
+          color={"blueDark"}
+          letterspacing={"0.1rem"}
+        />
         {!pokemonData.typeTwo ? 
-        <Item><Icon icon={iconList.codeBranch}></Icon>Type:&nbsp;<Span>{pokemonData.typeOne}</Span></Item> :
-        <Item><Icon icon={iconList.codeBranch}></Icon>Type:&nbsp;<Span>{pokemonData.typeOne}</Span> / <Span>{pokemonData.typeTwo}</Span></Item>}
+        <ParagraphElement
+          render={<><StyledIcon icon={iconList.codeBranch} margin={"searchresult"} fontsize={"searchresult"} />Type: <SpanElement render={pokemonData.typeOne} /></>}
+          padding={"searchresultitem"}
+          fontsize={"searchresultitem"}
+          fontweight
+          fontfamily
+          color={"blueDark"}
+          letterspacing={"0.1rem"}
+        /> :
+        <ParagraphElement
+          render={<><StyledIcon icon={iconList.codeBranch} margin={"searchresult"} fontsize={"searchresult"} />Type: <SpanElement render={pokemonData.typeOne} /> / <SpanElement render={pokemonData.typeTwo} /></>}
+          padding={"searchresultitem"}
+          fontsize={"searchresultitem"}
+          fontweight
+          fontfamily
+          color={"blueDark"}
+          letterspacing={"0.1rem"}
+        />}
       </DataContainer>
       <DataContainer type={pokemonData.typeOne}>
-        <Title>Statistics:</Title>
-        <Item><Icon icon={iconList.heart}></Icon>HP:&nbsp;<Span>{pokemonData.hp}</Span></Item>
-        <Item><Icon icon={iconList.hamsa}></Icon>Attack:&nbsp;<Span>{pokemonData.attack}</Span></Item>
-        <Item><Icon icon={iconList.scroll}></Icon>Defense:&nbsp;<Span>{pokemonData.defense}</Span></Item>
-        <Item><Icon icon={iconList.rocket}></Icon>Speed:&nbsp;<Span>{pokemonData.speed}</Span></Item>
+      <ParagraphTitleElement render={"Statistics"} color={"blueDark"} />
+        <ParagraphElement
+          render={<><StyledIcon icon={iconList.heart} margin={"searchresult"} fontsize={"searchresult"} />HP: <SpanElement render={pokemonData.hp} /></>}
+          padding={"searchresultitem"}
+          fontsize={"searchresultitem"}
+          fontweight
+          fontfamily
+          color={"blueDark"}
+          letterspacing={"0.1rem"}
+        />
+        <ParagraphElement
+          render={<><StyledIcon icon={iconList.hamsa} margin={"searchresult"} fontsize={"searchresult"} />Attack: <SpanElement render={pokemonData.attack} /></>}
+          padding={"searchresultitem"}
+          fontsize={"searchresultitem"}
+          fontweight
+          fontfamily
+          color={"blueDark"}
+          letterspacing={"0.1rem"}
+        />
+        <ParagraphElement
+          render={<><StyledIcon icon={iconList.scroll} margin={"searchresult"} fontsize={"searchresult"} />Defense: <SpanElement render={pokemonData.defense} /></>}
+          padding={"searchresultitem"}
+          fontsize={"searchresultitem"}
+          fontweight
+          fontfamily
+          color={"blueDark"}
+          letterspacing={"0.1rem"}
+        />
+        <ParagraphElement
+          render={<><StyledIcon icon={iconList.rocket} margin={"searchresult"} fontsize={"searchresult"} />Speed: <SpanElement render={pokemonData.speed} /></>}
+          padding={"searchresultitem"}
+          fontsize={"searchresultitem"}
+          fontweight
+          fontfamily
+          color={"blueDark"}
+          letterspacing={"0.1rem"}
+        />
       </DataContainer>
     </ComponentContainer>
   );

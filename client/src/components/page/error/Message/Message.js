@@ -28,7 +28,7 @@ const ComponentContainer = styled(SectionElementContainer)`
   }
 `;
 
-const ErrorMessageContainer = () => {
+const Message = () => {
   const [pokemonId, setPokemonId] = useState(0);
   const [pokemonName, setPokemonName] = useState("");
 
@@ -43,7 +43,7 @@ const ErrorMessageContainer = () => {
           const { data } = await axios.get(`/pokemon/${pokemonId}`);
           setPokemonName(data.name);
         } catch (error) {
-          console.log(`===> Data fetch has failed. Please check the following error message - ${error} <===`);
+          console.log(`===> The error is - ${error} <===`);
         }
       }
     };
@@ -54,10 +54,14 @@ const ErrorMessageContainer = () => {
   return (
     <ComponentContainer>
       <PageTitleElement render={`${pokemonName.toUpperCase()} says the page you tried to visit doesn't exist.`} />
-      <ParagraphElement render={<>Click <LinkElement to={"/"} text={"here"} /> to return to our home page!</>} align={"center"} fontsize={"medium"} />
+      <ParagraphElement
+        render={<>Click <LinkElement to={"/"} text={"here"} /> to return to our home page!</>}
+        align
+        fontsize={"errormessage"}
+      />
       {pokemonName !== "" ? <Image src={`https://pokeres.bastionbot.org/images/pokemon/${pokemonId}.png`} alt={"random pokemon image"} loading={"lazy"} /> : null}
     </ComponentContainer>
   );
 };
 
-export default ErrorMessageContainer;
+export default Message;

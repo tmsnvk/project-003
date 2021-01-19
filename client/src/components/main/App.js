@@ -7,6 +7,7 @@ import theme from "utilities/theme/theme";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 import { Contact, Home, NotFound, Pricing, Search, Success } from "pages";
+import { PROJECT_ROOT } from "utilities/constants/urls";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faFacebook, faTwitter, faYoutube, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faInfinity, faServer, faComments, faLifeRing, faAngleDoubleRight, faCaretUp, faAngleRight, faEuroSign, faIdCard, faTag, faCodeBranch, faHeart, faHamsa, faScroll, faRocket, faCircleNotch, faReply } from "@fortawesome/free-solid-svg-icons";
@@ -21,12 +22,12 @@ const App = () => {
       <GlobalStyle />
       <Navbar />
       <Switch>
-        <Route exact path={"/"} component={Home} />
-        <Route exact path={"/pricing"} component={Pricing} />
-        <Route exact path={"/search"} component={Search} />
-        <Route exact path={"/contact"} component={Contact} />
-        <Route exact path={"/success"} component={Success} />
-        <Route path={"*"} component={NotFound} />
+        <Route exact path={`/${PROJECT_ROOT}/`} component={Home} />
+        <Route exact path={`/${PROJECT_ROOT}/pricing`} component={Pricing} />
+        <Route exact path={`/${PROJECT_ROOT}/search`} component={Search} />
+        <Route exact path={`/${PROJECT_ROOT}/contact`} component={Contact} />
+        <Route exact path={`/${PROJECT_ROOT}/success`} component={Success} />
+        <Route component={NotFound} />
       </Switch>
       <Footer />
       </ThemeProvider>

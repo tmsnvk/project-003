@@ -1,3 +1,4 @@
+import { PROJECT_ROOT } from "utilities/constants/urls";
 import iconList from "utilities/icons/iconList";
 
 const data = [
@@ -14,7 +15,7 @@ const data = [
       four: "Limited support."
     },
     link: {
-      to: "/search",
+      to: `${PROJECT_ROOT}/search`,
       text: "Search now!"
     },
     bottomParagraph: "Start using our service for free!",
@@ -34,7 +35,7 @@ const data = [
       four: "Full technical support."
     },
     link: {
-      to: "/pricing/#signupform",
+      to: `${PROJECT_ROOT}/pricing/#signupform`,
       text: "Sign me up!"
     },
     bottomParagraph: "30-day money back guarantee.",
@@ -54,7 +55,7 @@ const data = [
       four: "Full technical support."
     },
     link: {
-      to: "/pricing/#signupform",
+      to: `${PROJECT_ROOT}/pricing/#signupform`,
       text: "Sign me up!"
     },
     bottomParagraph: "30-day money back guarantee.",
@@ -74,10 +75,10 @@ const data = [
       four: "* Dedicated support agent."
     },
     link: {
-      to: "/contact",
+      to: `${PROJECT_ROOT}/contact`,
       text: "Contact us!"
     },
-    bottomParagraph: "Contact us for a personalised gym offer!",
+    bottomParagraph: "Contact us for a gym-tailored offer!",
     mostPopular: "",
     alternate: false
   }

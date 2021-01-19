@@ -1,19 +1,11 @@
 import React from "react";
 import { LinkElement } from "components/shared/link";
-import { StyledIcon } from "components/shared/utilities";
 import data from "../data";
 
 const FooterLinkElement = () => {
-  const renderFooterLinkElement = data.footer.linkIcons.map(({ id, link, icon }) => {
+  const renderFooterLinkElement = data.footer.linkIcons.map(({ id, link, render }) => {
     return (
-      <LinkElement
-        key={id}
-        to={link}
-        render={<><StyledIcon icon={icon} color={"grayLight"} margin={"footerlinks"} /></>}
-        hover={"grayLight"}
-        opacity={"0.7"}
-        padding={"footerlinks"}
-      />
+      <LinkElement key={id} to={link} render={render} style={"FooterParagraphElement_LinkElement"} />
     );
   });
 

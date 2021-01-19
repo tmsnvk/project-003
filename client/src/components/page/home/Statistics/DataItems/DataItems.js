@@ -29,19 +29,19 @@ const DataItems = () => {
         <StyledIcon icon={iconList.caretUp} fontsize={"homestatsicon"} />
           <ParagraphElement
             render={number}
+            padding={"homestatsfigure"}
             align
             fontfamily
             fontsize={"homestatsfigure"}
             fontweight={"600"}
-            padding={"homestatsfigure"}
           />
           <ParagraphElement
             render={text}
+            padding={"homestatstext"}
             align
             fontfamily
             fontsize={"homestatstext"}
             fontweight={"600"}
-            padding={"homestatstext"}
           />
       </Container>
     );

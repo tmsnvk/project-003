@@ -1,15 +1,20 @@
+import React from "react";
+import { StyledIcon } from "components/shared/utilities";
+import { PROJECT_ROOT } from "utilities/constants/urls";
 import iconList from "utilities/icons/iconList";
+
+const currentYear = new Date().getFullYear();
 
 const data = {
   footer: {
     linkIcons: [
-      { id: 1, link: "/", icon: iconList.facebook },
-      { id: 2, link: "/", icon: iconList.twitter },
-      { id: 3, link: "/", icon: iconList.instagram },
-      { id: 4, link: "/", icon: iconList.youtube }
+      { id: 1, link: `/${PROJECT_ROOT}`, render: <><StyledIcon icon={iconList.facebook} style={"FooterParagraphElement_StyledIcon"} /></> },
+      { id: 2, link: `/${PROJECT_ROOT}`, render: <><StyledIcon icon={iconList.twitter} style={"FooterParagraphElement_StyledIcon"} /></> },
+      { id: 3, link: `/${PROJECT_ROOT}`, render: <><StyledIcon icon={iconList.instagram} style={"FooterParagraphElement_StyledIcon"} /></> },
+      { id: 4, link: `/${PROJECT_ROOT}`, render: <><StyledIcon icon={iconList.youtube} style={"FooterParagraphElement_StyledIcon"} /></> }
     ],
     copyright: [
-      { id: 1, render: "\u00A9 2020 - 2021 by tamasnvk" },
+      { id: 1, render: `\u00A9 2020 - ${currentYear} by tamasnvk` },
       { id: 2, render: "built with \u2764" },
       { id: 3, render: "using react & pokeapi.co" }
     ]

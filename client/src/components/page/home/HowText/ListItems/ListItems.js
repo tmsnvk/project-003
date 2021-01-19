@@ -18,11 +18,11 @@ const Container = styled.div`
 `;
 
 const ListItems = () => {
-  const renderComponentData = data.steps.map(({ id, text }) => {
+  const renderComponentData = data.steps.map(({ id, paragraph }) => {
     return (
       <Container key={id}>
         <StyledIcon icon={iconList.doubleRight} margin={"homehowtext"} />
-        <ParagraphElement render={text} />
+        <ParagraphElement render={paragraph} />
       </Container>
     );
   });

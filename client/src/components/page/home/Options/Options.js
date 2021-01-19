@@ -28,13 +28,13 @@ const ComponentContainer = styled(SectionElementContainer)`
 `;
 
 const Options = () => {
-  const renderParagraphElements = data.paragraphs.map(({ id, render, align, padding }) => {
+  const renderParagraphElements = data.paragraphs.map(({ id, render, padding }) => {
     return (
       <ParagraphElement
         key={id}
         render={render}
-        align={align}
         padding={padding} 
+        align
       />
     );
   });

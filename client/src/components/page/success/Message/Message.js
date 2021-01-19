@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { SectionElementContainer } from "components/shared/layout";
 import { PageTitleElement, ParagraphElement } from "components/shared/text";
-import { LinkElement } from "components/shared/link";
 import { Image } from "components/shared/utilities";
+import data from "./data";
 
 const ComponentContainer = styled(SectionElementContainer)`
   grid-column-start: 1;
@@ -30,9 +30,9 @@ const ComponentContainer = styled(SectionElementContainer)`
 const Message = () => {
   return (
     <ComponentContainer>
-      <PageTitleElement render={"Your form submission was successful. You will shortly receive an email regarding your payment and login details."} />
-      <ParagraphElement render={"Happy hunting!"} align fontsize />
-      <ParagraphElement render={<>Click <LinkElement to={"/"} text={"here"} />here to return to our home page!</>} align fontsize />
+      <PageTitleElement render={data.title} />
+      <ParagraphElement render={data.message.pOne} align fontsize />
+      <ParagraphElement render={data.message.pTwo} align fontsize />
       <Image src={"https://pokeres.bastionbot.org/images/pokemon/66.png"} alt={"machop image"} loading={"lazy"} />
     </ComponentContainer>
   );

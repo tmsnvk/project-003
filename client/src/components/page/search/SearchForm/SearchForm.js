@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { SectionElementContainer } from "components/shared/layout";
 import { ErrorMessage, FormLabel, InputField, RequiredFields, Submit } from "components/shared/form";
 import { ParagraphElement } from "components/shared/text";
-import { LinkElement } from "components/shared/link";
+import data from "./data";
 
 const ComponentContainer = styled.div`
   grid-column-start: 1;
@@ -91,9 +91,23 @@ const SearchForm = ({ selectedPokemon, tutorial, hideTutorial }) => {
       </FormContainer>
       {!hideTutorial && 
       <TutorialContainer>
-        <ParagraphElement data={<>How to use our free database?<br />Enter either the valid name or ID of the Pokemon you would like to look up!</>} align={"center"} fontsize padding={"0 0 1rem 0"} />
-        <ParagraphElement data={<>To start getting more detailed search results, please sign up for one of our <LinkElement to={"/pricing"} text={"subscription"} /> options.</>} align={"center"} fontsize padding={"0 0 1rem 0"} />
-        <ParagraphElement data={<>To get more information, you are always more than welcome to <LinkElement to={"/contact"} text={"contact"} /> our support agents.</>} align={"center"} fontsize />
+        <ParagraphElement
+          render={data[0]}
+          align
+          fontsize
+          padding={"0 0 1rem 0"}
+        />
+        <ParagraphElement
+          render={data[1]}
+          align
+          fontsize
+          padding={"0 0 1rem 0"}
+        />
+        <ParagraphElement
+          render={data[2]}
+          align
+          fontsize
+        />
       </TutorialContainer>}
     </ComponentContainer>
   );

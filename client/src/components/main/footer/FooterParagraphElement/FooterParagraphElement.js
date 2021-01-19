@@ -5,16 +5,8 @@ import data from "../data";
 const FooterParagraphElement = () => {
   const renderFooterParagraphElement = data.footer.copyright.map(({ id, render }) => {
     return (
-      <ParagraphElement
-        key={id}
-        render={render}
-        align
-        color={"grayLight"}
-        fontfamily
-        fontsize={"footerparagraphs"}
-        fontweight={"600"}
-        letterspacing={"0.2rem"}
-        padding={"footerparagraphs"}
+      <ParagraphElement key={id} render={render}
+        style={"FooterParagraphElement_ParagraphElement"}
       />
     );
   });

@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { SectionElementContainer } from "components/shared/layout";
 import { PageTitleElement } from "components/shared/text";
-import data from "components/page/pricing/Header/data";
+import data from "./data";
 
 const ComponentContainer = styled(SectionElementContainer)`
   grid-column-start: 1;
@@ -47,7 +47,7 @@ const Image = styled.img`
 const Header = () => {
   return (
     <ComponentContainer>
-      <Image src={"https://pokeres.bastionbot.org/images/pokemon/133.png"} alt={"eevee image"} loading={"lazy"} />
+      <Image src={data.image.src} alt={data.image.alt} loading={"lazy"} />
       <PageTitleElement render={data.title} />
     </ComponentContainer>
   );

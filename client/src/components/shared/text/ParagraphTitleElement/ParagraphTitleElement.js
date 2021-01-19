@@ -1,9 +1,19 @@
 import React from "react";
 import styled from "styled-components";
 
+const handleColor = ($color) => {
+  switch ($color) {
+    case "blueDark":
+      return ({ theme }) => theme.color.blueDark;
+    default:
+      return ({ theme }) => theme.color.grayDark;
+  }
+};
+
 const ComponentContainer = styled.p`
   padding: 0 0 2rem 0;
   font-size: ${({ theme }) => theme.fontSize.medium};
+  color: ${({ $color }) => handleColor($color)};
   font-weight: 600;
   text-align: center;
   text-transform: ${({ $titlecase }) => $titlecase ? null : "uppercase"};
@@ -22,9 +32,12 @@ const ComponentContainer = styled.p`
   }
 `;
 
-const ParagraphTitleElement = ({ render, titlecase }) => {
+const ParagraphTitleElement = ({ render, color, titlecase }) => {
   return (
-    <ComponentContainer $titlecase={titlecase}>
+    <ComponentContainer
+      $color={color}
+      $titlecase={titlecase}
+    >
       {render}
     </ComponentContainer>
   );
