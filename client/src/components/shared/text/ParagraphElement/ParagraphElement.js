@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const handleDefaultMargin = ($style) => {
   switch ($style) {
-    case "homestatsyear":
+    case "HomeStatisticsYear":
       return "auto";
     default:
       return "0 0 0 0";
@@ -12,21 +12,22 @@ const handleDefaultMargin = ($style) => {
 
 const handleDefaultPadding = ($style) => {
   switch ($style) {
-    case "FooterParagraphElement_ParagraphElement":
+    case "FooterParagraph":
       return "0.5rem 0 0 0";
-    case "homesummary":
+    case "HomeSummary":
+    case "PokemonSearch":
       return "0 0 1rem 0";
-    case "homestatstext":
+    case "HomeStatisticsDataText":
       return "0 0 0 2rem";
-    case "homestatsfigure":
+    case "HomeStatisticsDataFigures":
       return "0 0 1rem 1rem";
-    case "homestatsyear":
-    case "homeoptions":
-    case "pricingoptionsbottom":
+    case "HomeStatisticsYear":
+    case "HomeOptions":
+    case "PricingOptionsBottom":
       return "0 0 2rem 0";
-    case "pricingoptions":
+    case "PricingOptions":
       return "0 0 1rem 2rem";
-    case "searchresultitem":
+    case "PokemonResult":
       return "0.5rem 0 0.5rem 0";
     default:
       return "0 0 0 0";
@@ -35,16 +36,17 @@ const handleDefaultPadding = ($style) => {
 
 const handleSmallPadding = ($style) => {
   switch ($style) {
-    case "FooterParagraphElement_ParagraphElement":
+    case "FooterParagraph":
       return "0.5rem 0 0 0";
-    case "homesummary":
+    case "HomeSummary":
+    case "PokemonSearch":
       return "0 0 1rem 0";
-    case "homeoptions":
-    case "pricingoptionsbottom":
+    case "HomeOptions":
+    case "PricingOptionsBottom":
       return "0 0 2rem 0";
-    case "pricingoptions":
+    case "PricingOptions":
       return "0 0 1rem 2rem";
-    case "searchresultitem":
+    case "PokemonResult":
       return "0.5rem 0 0.5rem 0";
     default:
       return "0 0 0 0";
@@ -53,18 +55,19 @@ const handleSmallPadding = ($style) => {
 
 const handleMediumPadding = ($style) => {
   switch ($style) {
-    case "FooterParagraphElement_ParagraphElement":
+    case "FooterParagraph":
       return "0.5rem 0 0 0";
-    case "homesummary":
+    case "HomeSummary":
+    case "PokemonSearch":
       return "0 0 1rem 0";
-    case "homestatsyear":
+    case "HomeStatisticsYear":
       return "0 5rem 0 2rem";
-    case "homeoptions":
-    case "pricingoptionsbottom":
+    case "HomeOptions":
+    case "PricingOptionsBottom":
       return "0 0 2rem 0";
-    case "pricingoptions":
+    case "PricingOptions":
       return "0 0 1rem 2rem";
-    case "searchresultitem":
+    case "PokemonResult":
       return "0.5rem 0 0.5rem 0";
     default:
       return "0 0 0 0";
@@ -74,8 +77,10 @@ const handleMediumPadding = ($style) => {
 const handleFontFamily = ($style) => {
   switch ($style) {
     case "footerparagraphs":
-    case "homesummary":
-    case "FooterParagraphElement_ParagraphElement":
+    case "HomeSummary":
+    case "FooterParagraph":
+    case "HomeStatisticsYear":
+    case "PokemonResult":
       return ({ theme }) => theme.fontFamily.secondary;
     default:
       return ({ theme }) => theme.fontFamily.primary;
@@ -84,12 +89,13 @@ const handleFontFamily = ($style) => {
 
 const handleDefaultFontSize = ($style) => {
   switch ($style) {
-    case "homestatstext":
-    case "homestatsfigure":
-    case "homestatsyear":
+    case "HomeStatisticsDataText":
+    case "HomeStatisticsDataFigures":
+    case "HomeStatisticsYear":
       return ({ theme }) => theme.fontSize.large;
-    case "searchresultitem":
-    case "errormessage":
+    case "PokemonResult":
+    case "ErrorMessage":
+    case "SuccessMessage":
       return ({ theme }) => theme.fontSize.medium;
     default:
       return ({ theme }) => theme.fontSize.small;
@@ -98,15 +104,15 @@ const handleDefaultFontSize = ($style) => {
 
 const handleMediumFontSize = ($style) => {
   switch ($style) {
-    case "FooterParagraphElement_ParagraphElement":
-    case "homesummary":
-    case "pricingoptions":
-    case "pricingoptionsbottom":
+    case "FooterParagraph":
+    case "HomeSummary":
+    case "PricingOptions":
+    case "PricingOptionsBottom":
       return ({ theme }) => theme.fontSize.small;
-    case "homestatstext":
+    case "HomeStatisticsDataText":
       return ({ theme }) => theme.fontSize.large;
-    case "homestatsfigure":
-    case "homestatsyear":
+    case "HomeStatisticsDataFigures":
+    case "HomeStatisticsYear":
       return ({ theme }) => theme.fontSize.xLarge;
     default:
       return ({ theme }) => theme.fontSize.medium;
@@ -115,14 +121,15 @@ const handleMediumFontSize = ($style) => {
 
 const handleLargeFontSize = ($style) => {
   switch ($style) {
-    case "FooterParagraphElement_ParagraphElement":
-    case "homesummary":
-    case "pricingoptions":
+    case "FooterParagraph":
+    case "HomeSummary":
+    case "PricingOptions":
       return ({ theme }) => theme.fontSize.small;
-    case "homestatstext":
+    case "HomeStatisticsDataText":
+    case "PokemonResult":
       return ({ theme }) => theme.fontSize.large;
-    case "homestatsfigure":
-    case "homestatsyear":
+    case "HomeStatisticsDataFigures":
+    case "HomeStatisticsYear":
       return ({ theme }) => theme.fontSize.xxLarge;
     default:
       return ({ theme }) => theme.fontSize.medium;
@@ -131,11 +138,11 @@ const handleLargeFontSize = ($style) => {
 
 const handleColor = ($style) => {
   switch ($style) {
-    case "FooterParagraphElement_ParagraphElement":
+    case "FooterParagraph":
       return ({ theme }) => theme.color.grayLight;
-    case "orangeDark":
+    case "HomeStatisticsYear":
       return ({ theme }) => theme.color.orangeDark;
-    case "blueDark":
+    case "PokemonResult":
       return ({ theme }) => theme.color.blueDark;
     default:
       return ({ theme }) => theme.color.grayDark;
@@ -144,7 +151,12 @@ const handleColor = ($style) => {
 
 const handleFontWeight = ($style) => {
   switch ($style) {
-    case "FooterParagraphElement_ParagraphElement":
+    case "FooterParagraph":
+    case "HomeStatisticsYear":
+    case "HomeStatisticsDataFigures":
+    case "HomeStatisticsDataText":
+    case "PricingOptionsBottom":
+    case "PokemonResult":
       return "600";
     default:
       return "400";
@@ -153,7 +165,18 @@ const handleFontWeight = ($style) => {
 
 const handleTextAlign = ($style) => {
   switch ($style) {
-    case "FooterParagraphElement_ParagraphElement":
+    case "FooterParagraph":
+    case "HomeHeader":
+    case "HomeOptions":
+    case "HomeStatisticsYear":
+    case "HomeStatisticsDataFigures":
+    case "HomeStatisticsDataText":
+    case "HomeSummary":
+    case "PricingOptionsBottom":
+    case "PokemonSearch":
+    case "ContactHeader":
+    case "ErrorMessage":
+    case "SuccessMessage":
       return "center";
     default:
       return "left";
@@ -162,8 +185,11 @@ const handleTextAlign = ($style) => {
 
 const handleLetterSpacing = ($style) => {
   switch ($style) {
-    case "FooterParagraphElement_ParagraphElement":
+    case "FooterParagraph":
       return "0.2rem";
+    case "PricingOptionsBottom":
+    case "PokemonResult":
+      return "0.1rem";
     default:
       return "0";
   }

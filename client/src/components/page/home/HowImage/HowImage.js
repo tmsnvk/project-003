@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { SectionElementContainer } from "components/shared/layout";
+import data from "./data";
 
 const ComponentContainer = styled(SectionElementContainer)`
   display: none;
@@ -38,7 +39,7 @@ const Image = styled.img`
 const HowImage = () => {
   return (
     <ComponentContainer>
-      <Image src={"https://pokeres.bastionbot.org/images/pokemon/25.png"} alt={"pikachu image"} loading={"lazy"} />
+      <Image src={data.image.link} alt={data.image.alt} loading={"lazy"} />
     </ComponentContainer>
   );
 };

@@ -3,9 +3,9 @@ import axios from "axios";
 import styled from "styled-components";
 import { SectionElementContainer } from "components/shared/layout";
 import { PageTitleElement, ParagraphElement } from "components/shared/text";
-import { LinkElement } from "components/shared/link";
 import { Image } from "components/shared/utilities";
-import getPokemonId from "utilities/helpers/getPokemonId";
+import getPokemonId from "utilities/helpers/functions/getPokemonId";
+import data from "./data";
 
 const ComponentContainer = styled(SectionElementContainer)`
   grid-column-start: 1;
@@ -54,11 +54,7 @@ const Message = () => {
   return (
     <ComponentContainer>
       <PageTitleElement render={`${pokemonName.toUpperCase()} says the page you tried to visit doesn't exist.`} />
-      <ParagraphElement
-        render={<>Click <LinkElement to={"/"} text={"here"} /> to return to our home page!</>}
-        align
-        fontsize={"errormessage"}
-      />
+      <ParagraphElement render={data.message} style={"ErrorMessage"} />
       {pokemonName !== "" ? <Image src={`https://pokeres.bastionbot.org/images/pokemon/${pokemonId}.png`} alt={"random pokemon image"} loading={"lazy"} /> : null}
     </ComponentContainer>
   );

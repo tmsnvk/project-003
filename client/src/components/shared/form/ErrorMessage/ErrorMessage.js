@@ -7,10 +7,10 @@ const ComponentContainer = styled.p`
   padding: 1rem 0 0 0;
 `;
 
-const ErrorMessage = ({ errorMessage }) => {
+const ErrorMessage = ({ render }) => {
   return (
     <ComponentContainer>
-      {errorMessage}
+      {render}
     </ComponentContainer>
   );
 };

@@ -15,7 +15,7 @@ const data = [
       four: "Limited support."
     },
     link: {
-      to: `${PROJECT_ROOT}/search`,
+      to: `/${PROJECT_ROOT}/search`,
       text: "Search now!"
     },
     bottomParagraph: "Start using our service for free!",
@@ -35,7 +35,7 @@ const data = [
       four: "Full technical support."
     },
     link: {
-      to: `${PROJECT_ROOT}/pricing/#signupform`,
+      to: `/${PROJECT_ROOT}/pricing/#signupform`,
       text: "Sign me up!"
     },
     bottomParagraph: "30-day money back guarantee.",
@@ -55,7 +55,7 @@ const data = [
       four: "Full technical support."
     },
     link: {
-      to: `${PROJECT_ROOT}/pricing/#signupform`,
+      to: `/${PROJECT_ROOT}/pricing/#signupform`,
       text: "Sign me up!"
     },
     bottomParagraph: "30-day money back guarantee.",
@@ -75,7 +75,7 @@ const data = [
       four: "* Dedicated support agent."
     },
     link: {
-      to: `${PROJECT_ROOT}/contact`,
+      to: `/${PROJECT_ROOT}/contact`,
       text: "Contact us!"
     },
     bottomParagraph: "Contact us for a gym-tailored offer!",

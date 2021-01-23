@@ -8,10 +8,10 @@ const currentYear = new Date().getFullYear();
 const data = {
   footer: {
     linkIcons: [
-      { id: 1, link: `/${PROJECT_ROOT}`, render: <><StyledIcon icon={iconList.facebook} style={"FooterParagraphElement_StyledIcon"} /></> },
-      { id: 2, link: `/${PROJECT_ROOT}`, render: <><StyledIcon icon={iconList.twitter} style={"FooterParagraphElement_StyledIcon"} /></> },
-      { id: 3, link: `/${PROJECT_ROOT}`, render: <><StyledIcon icon={iconList.instagram} style={"FooterParagraphElement_StyledIcon"} /></> },
-      { id: 4, link: `/${PROJECT_ROOT}`, render: <><StyledIcon icon={iconList.youtube} style={"FooterParagraphElement_StyledIcon"} /></> }
+      { id: 1, link: `/${PROJECT_ROOT}`, render: <><StyledIcon icon={iconList.facebook} style={"FooterParagraph"} /></> },
+      { id: 2, link: `/${PROJECT_ROOT}`, render: <><StyledIcon icon={iconList.twitter} style={"FooterParagraph"} /></> },
+      { id: 3, link: `/${PROJECT_ROOT}`, render: <><StyledIcon icon={iconList.instagram} style={"FooterParagraph"} /></> },
+      { id: 4, link: `/${PROJECT_ROOT}`, render: <><StyledIcon icon={iconList.youtube} style={"FooterParagraph"} /></> }
     ],
     copyright: [
       { id: 1, render: `\u00A9 2020 - ${currentYear} by tamasnvk` },

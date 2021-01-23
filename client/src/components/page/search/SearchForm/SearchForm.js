@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { SectionElementContainer } from "components/shared/layout";
 import { ErrorMessage, FormLabel, InputField, RequiredFields, Submit } from "components/shared/form";
 import { ParagraphElement } from "components/shared/text";
+import { searchPokemon } from "utilities/helpers/regex/forms";
 import data from "./data";
 
 const ComponentContainer = styled.div`
@@ -64,11 +65,9 @@ const SearchForm = ({ selectedPokemon, tutorial, hideTutorial }) => {
 
   return (
     <ComponentContainer>
-      <FormContainer id={"pokemondata"} onSubmit={handleSubmit(onSubmit)}>
+      <FormContainer method={"GET"} onSubmit={handleSubmit(onSubmit)} id={"pokemondata"}>
         <InputContainer>
-          <FormLabel htmlFor={"pokemondata"}>
-            Which Kanto Pokemon are you interested in?
-          </FormLabel>
+          <FormLabel htmlFor={"pokemondata"} render={"Which Kanto Pokemon are you interested in?"} />
           <InputField
             type={"text"}
             id={"pokemon"}
@@ -79,35 +78,21 @@ const SearchForm = ({ selectedPokemon, tutorial, hideTutorial }) => {
             ref={register({
               required: true,
               pattern: {
-                value: /\b(bulbasaur|ivysaur|venusaur|charmander|charmeleon|charizard|squirtle|wartortle|blastoise|caterpie|metapod|butterfree|weedle|kakuna|beedrill|pidgey|pidgeotto|pidgeot|rattata|raticate|spearow|fearow|ekans|arbok|pikachu|raichu|sandshrew|sandslash|nidoran-f|nidorina|nidoqueen|nidoran-m|nidorino|nidoking|clefairy|clefable|vulpix|ninetales|jigglypuff|wigglytuff|zubat|golbat|oddish|gloom|vileplume|paras|parasect|venonat|venomoth|diglett|dugtrio|meowth|persian|psyduck|golduck|mankey|primeape|growlithe|arcanine|poliwag|poliwhirl|poliwrath|abra|kadabra|alakazam|machop|machoke|machamp|bellsprout|weepinbell|victreebel|tentacool|tentacruel|geodude|graveler|golem|ponyta|rapidash|slowpoke|slowbro|magnemite|magneton|farfetchd|doduo|dodrio|seel|dewgong|grimer|muk|shellder|cloyster|gastly|haunter|gengar|onix|drowzee|hypno|krabby|kingler|voltorb|electrode|exeggcute|exeggutor|cubone|marowak|hitmonlee|hitmonchan|lickitung|koffing|weezing|rhyhorn|rhydon|chansey|tangela|kangaskhan|horsea|seadra|goldeen|seaking|staryu|starmie|mr-mime|scyther|jynx|electabuzz|magmar|pinsir|tauros|magikarp|gyarados|lapras|ditto|eevee|vaporeon|jolteon|flareon|porygon|omanyte|omastar|kabuto|kabutops|aerodactyl|snorlax|articuno|zapdos|moltres|dratini|dragonair|dragonite|mewtwo|mew)\b|\b([1-9]|[1-9][0-9]|1[0-4][0-9]|15[0-1])\b/i,
+                value: searchPokemon,
                 message: "A valid NAME or ID is required."
               }
             })}
           />
-          {errors.pokemon && <ErrorMessage errorMessage={errors.pokemon.message} />}
-          <RequiredFields requiredData={"* Required field."} />
+          {errors.pokemon && <ErrorMessage render={errors.pokemon.message} />}
+          <RequiredFields render={"* Required field."} />
           <Submit type={"submit"} name={"submit"} value={"Search Database"} disabled={formState.isSubmitting || !formState.isValid} />
         </InputContainer>
       </FormContainer>
-      {!hideTutorial && 
+      {!hideTutorial &&
       <TutorialContainer>
-        <ParagraphElement
-          render={data[0]}
-          align
-          fontsize
-          padding={"0 0 1rem 0"}
-        />
-        <ParagraphElement
-          render={data[1]}
-          align
-          fontsize
-          padding={"0 0 1rem 0"}
-        />
-        <ParagraphElement
-          render={data[2]}
-          align
-          fontsize
-        />
+        <ParagraphElement render={data[0]} style={"PokemonSearch"} />
+        <ParagraphElement render={data[1]} style={"PokemonSearch"} />
+        <ParagraphElement render={data[2]} style={"PokemonSearch"} />
       </TutorialContainer>}
     </ComponentContainer>
   );

@@ -4,10 +4,10 @@ import styled from "styled-components";
 
 const handleDefaultPadding = ($style) => {
   switch ($style) {
-    case "NavbarLinkElement_LinkElement":
-    case "NavbarLinkElement_LinkElement_Alternate":
+    case "NavbarLink":
+    case "NavbarLink_Alternate":
       return "2rem 1rem 2rem 1rem";
-    case "FooterParagraphElement_LinkElement":
+    case "FooterLink":
       return "1rem 1.5rem 1.5rem 1.5rem";
     default:
       return "0 0 0 0";
@@ -16,12 +16,12 @@ const handleDefaultPadding = ($style) => {
 
 const handleMediumPadding = ($style) => {
   switch ($style) {
-    case "NavbarLogoElement_LinkElement":
+    case "NavbarLogo":
       return "0 0 0 5rem";
-    case "NavbarLinkElement_LinkElement":
-    case "NavbarLinkElement_LinkElement_Alternate":
+    case "NavbarLink":
+    case "NavbarLink_Alternate":
       return "2rem 2.5rem 2rem 0";
-    case "FooterParagraphElement_LinkElement":
+    case "FooterLink":
       return "1rem 1.5rem 1.5rem 1.5rem";
     default:
       return "0 0 0 0";
@@ -37,9 +37,9 @@ const handleDefaultFontSize = ($style) => {
 
 const handleMediumFontSize = ($style) => {
   switch ($style) {
-    case "NavbarLinkElement_LinkElement":
-    case "NavbarLinkElement_LinkElement_Alternate":
-    case "NavbarLogoElement_LinkElement":
+    case "NavbarLink":
+    case "NavbarLink_Alternate":
+    case "NavbarLogo":
       return ({ theme }) => theme.fontSize.large;
     default:
       return ({ theme }) => theme.fontSize.medium;
@@ -48,12 +48,15 @@ const handleMediumFontSize = ($style) => {
 
 const handleColor = ($style) => {
   switch ($style) {
-    case "FooterParagraphElement_LinkElement":
+    case "FooterLink":
       return ({ theme }) => theme.color.grayLight;
-    case "NavbarLogoElement_LinkElement":
-    case "NavbarLinkElement_LinkElement":
+    case "NavbarLogo":
+    case "NavbarLink":
+    case "HomeOptions":
+    case "PokemonSearch":
+    case "ErrorMessage":
       return ({ theme }) => theme.color.blueDark;
-    case "NavbarLinkElement_LinkElement_Alternate":
+    case "NavbarLink_Alternate":
       return ({ theme }) => theme.color.orangeDark;
     default:
       return ({ theme }) => theme.color.grayDark;
@@ -62,12 +65,11 @@ const handleColor = ($style) => {
 
 const handleHoverColor = ($style) => {
   switch ($style) {
-    case "NavbarLinkElement_LinkElement":
-    case "NavbarLinkElement_LinkElement_Alternate":
+    case "NavbarLink":
+    case "NavbarLink_Alternate":
       return null;
-    case "grayLight":
-      return ({ theme }) => theme.color.grayLight;
-    case "orangeDark":
+    case "HomeOptions":
+    case "ErrorMessage":
       return ({ theme }) => theme.color.orangeDark;
     default:
       return ({ theme }) => theme.color.blueDark;
@@ -76,10 +78,10 @@ const handleHoverColor = ($style) => {
 
 const handleLetterSpacing = ($style) => {
   switch ($style) {
-    case "NavbarLogoElement_LinkElement":
+    case "NavbarLogo":
       return "0.1rem";
-    case "NavbarLinkElement_LinkElement":
-    case "NavbarLinkElement_LinkElement_Alternate":
+    case "NavbarLink":
+    case "NavbarLink_Alternate":
       return "0.2rem";
     default:
       return "0";
@@ -88,7 +90,7 @@ const handleLetterSpacing = ($style) => {
 
 const handleOpacity = ($style) => {
   switch ($style) {
-    case "FooterParagraphElement_LinkElement":
+    case "FooterLink":
       return "0.7";
     default:
       return "1";

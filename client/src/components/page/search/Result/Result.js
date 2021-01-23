@@ -124,87 +124,23 @@ const Result = ({ pokemonData }) => {
   return (
     <ComponentContainer>
       <ImageContainer type={pokemonData.typeOne}>
-        <ParagraphTitleElement render={"Image"} color={"blueDark"} />
+        <ParagraphTitleElement render={"Image"} style={"PokemonResult"} />
         <PokemonImage src={pokemonData.src} alt={"random pokemon image"} loading={"lazy"} />
       </ImageContainer>
       <DataContainer type={pokemonData.typeOne}>
-        <ParagraphTitleElement render={"Identity"} color={"blueDark"} />
-        <ParagraphElement
-          render={<><StyledIcon icon={iconList.idCard} margin={"searchresult"} fontsize={"searchresult"} />Name: <SpanElement render={pokemonData.name} /></>}
-          padding={"searchresultitem"}
-          fontsize={"searchresultitem"}
-          fontweight
-          fontfamily
-          color={"blueDark"}
-          letterspacing={"0.1rem"}
-        />
-        <ParagraphElement
-          render={<><StyledIcon icon={iconList.tag} margin={"searchresult"} fontsize={"searchresult"} />ID: <SpanElement render={pokemonData.id} /></>}
-          padding={"searchresultitem"}
-          fontsize={"searchresultitem"}
-          fontweight
-          fontfamily
-          color={"blueDark"}
-          letterspacing={"0.1rem"}
-        />
+        <ParagraphTitleElement render={"Identity"} style={"PokemonResult"} />
+        <ParagraphElement render={<><StyledIcon icon={iconList.idCard} style={"PokemonResult"} />Name: <SpanElement render={pokemonData.name} style={"PokemonResult"} /></>} style={"PokemonResult"} />
+        <ParagraphElement render={<><StyledIcon icon={iconList.tag} style={"PokemonResult"} />ID: <SpanElement render={pokemonData.id} style={"PokemonResult"} /></>} style={"PokemonResult"} />
         {!pokemonData.typeTwo ? 
-        <ParagraphElement
-          render={<><StyledIcon icon={iconList.codeBranch} margin={"searchresult"} fontsize={"searchresult"} />Type: <SpanElement render={pokemonData.typeOne} /></>}
-          padding={"searchresultitem"}
-          fontsize={"searchresultitem"}
-          fontweight
-          fontfamily
-          color={"blueDark"}
-          letterspacing={"0.1rem"}
-        /> :
-        <ParagraphElement
-          render={<><StyledIcon icon={iconList.codeBranch} margin={"searchresult"} fontsize={"searchresult"} />Type: <SpanElement render={pokemonData.typeOne} /> / <SpanElement render={pokemonData.typeTwo} /></>}
-          padding={"searchresultitem"}
-          fontsize={"searchresultitem"}
-          fontweight
-          fontfamily
-          color={"blueDark"}
-          letterspacing={"0.1rem"}
-        />}
+        <ParagraphElement render={<><StyledIcon icon={iconList.codeBranch} style={"PokemonResult"} />Type: <SpanElement render={pokemonData.typeOne} style={"PokemonResult"} /></>} style={"PokemonResult"} /> :
+        <ParagraphElement render={<><StyledIcon icon={iconList.codeBranch} style={"PokemonResult"} />Type: <SpanElement render={pokemonData.typeOne} style={"PokemonResult"} /> / <SpanElement render={pokemonData.typeTwo} style={"PokemonResult"} /></>} style={"PokemonResult"} />}
       </DataContainer>
       <DataContainer type={pokemonData.typeOne}>
-      <ParagraphTitleElement render={"Statistics"} color={"blueDark"} />
-        <ParagraphElement
-          render={<><StyledIcon icon={iconList.heart} margin={"searchresult"} fontsize={"searchresult"} />HP: <SpanElement render={pokemonData.hp} /></>}
-          padding={"searchresultitem"}
-          fontsize={"searchresultitem"}
-          fontweight
-          fontfamily
-          color={"blueDark"}
-          letterspacing={"0.1rem"}
-        />
-        <ParagraphElement
-          render={<><StyledIcon icon={iconList.hamsa} margin={"searchresult"} fontsize={"searchresult"} />Attack: <SpanElement render={pokemonData.attack} /></>}
-          padding={"searchresultitem"}
-          fontsize={"searchresultitem"}
-          fontweight
-          fontfamily
-          color={"blueDark"}
-          letterspacing={"0.1rem"}
-        />
-        <ParagraphElement
-          render={<><StyledIcon icon={iconList.scroll} margin={"searchresult"} fontsize={"searchresult"} />Defense: <SpanElement render={pokemonData.defense} /></>}
-          padding={"searchresultitem"}
-          fontsize={"searchresultitem"}
-          fontweight
-          fontfamily
-          color={"blueDark"}
-          letterspacing={"0.1rem"}
-        />
-        <ParagraphElement
-          render={<><StyledIcon icon={iconList.rocket} margin={"searchresult"} fontsize={"searchresult"} />Speed: <SpanElement render={pokemonData.speed} /></>}
-          padding={"searchresultitem"}
-          fontsize={"searchresultitem"}
-          fontweight
-          fontfamily
-          color={"blueDark"}
-          letterspacing={"0.1rem"}
-        />
+      <ParagraphTitleElement render={"Statistics"} style={"PokemonResult"} />
+        <ParagraphElement render={<><StyledIcon icon={iconList.heart} style={"PokemonResult"} />HP: <SpanElement render={pokemonData.hp} style={"PokemonResult"} /></>} style={"PokemonResult"} />
+        <ParagraphElement render={<><StyledIcon icon={iconList.hamsa} style={"PokemonResult"} />Attack: <SpanElement render={pokemonData.attack} style={"PokemonResult"} /></>} style={"PokemonResult"} />
+        <ParagraphElement render={<><StyledIcon icon={iconList.scroll} style={"PokemonResult"} />Defense: <SpanElement render={pokemonData.defense} style={"PokemonResult"} /></>} style={"PokemonResult"} />
+        <ParagraphElement render={<><StyledIcon icon={iconList.rocket} style={"PokemonResult"} />Speed: <SpanElement render={pokemonData.speed} style={"PokemonResult"} /></>} style={"PokemonResult"} />
       </DataContainer>
     </ComponentContainer>
   );

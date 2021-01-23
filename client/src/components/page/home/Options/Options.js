@@ -28,14 +28,9 @@ const ComponentContainer = styled(SectionElementContainer)`
 `;
 
 const Options = () => {
-  const renderParagraphElements = data.paragraphs.map(({ id, render, padding }) => {
+  const renderParagraphElements = data.paragraphs.map(({ id, render }) => {
     return (
-      <ParagraphElement
-        key={id}
-        render={render}
-        padding={padding} 
-        align
-      />
+      <ParagraphElement key={id} render={render} style={"HomeOptions"} />
     );
   });
 

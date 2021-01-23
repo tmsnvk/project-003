@@ -32,9 +32,10 @@ const ItemContainer = styled.div`
   padding: 0.5rem 0 2rem 0;
 `;
 
-const Question = styled.h2`
+const Question = styled.p`
   font-family: ${({ theme }) => theme.fontFamily.secondary};
   font-size: ${({ theme }) => theme.fontSize.medium};
+  font-weight: 600;
   cursor: pointer;
 `;
 

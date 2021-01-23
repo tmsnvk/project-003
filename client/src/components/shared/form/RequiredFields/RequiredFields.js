@@ -8,10 +8,10 @@ const ComponentContainer = styled.p`
   color: ${({ theme }) => theme.color.blueDark};
 `;
 
-const RequiredFields = ({ requiredData }) => {
+const RequiredFields = ({ render }) => {
   return (
     <ComponentContainer>
-      {requiredData}
+      {render}
     </ComponentContainer>
   );
 };

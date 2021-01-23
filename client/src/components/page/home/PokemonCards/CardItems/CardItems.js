@@ -26,10 +26,10 @@ const Image = styled.img`
 `;
 
 const CardItems = () => {
-  const renderPokemonCards = data.map(({ id, url }) => {
+  const renderPokemonCards = data.map(({ id, alt, url }) => {
     return (
       <Container key={id}>
-        <Image src={url} alt={"random pokemon image"} loading={"lazy"} />
+        <Image src={url} alt={alt} loading={"lazy"} />
       </Container>
     );
   });

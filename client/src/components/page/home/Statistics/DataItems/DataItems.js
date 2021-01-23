@@ -26,22 +26,14 @@ const DataItems = () => {
   const renderDataItems = data.items.map(({ id, number, text }) => {
     return (
       <Container key={id}>
-        <StyledIcon icon={iconList.caretUp} fontsize={"homestatsicon"} />
+        <StyledIcon icon={iconList.caretUp} style={"HomeStatisticsData"} />
           <ParagraphElement
             render={number}
-            padding={"homestatsfigure"}
-            align
-            fontfamily
-            fontsize={"homestatsfigure"}
-            fontweight={"600"}
+            style={"HomeStatisticsDataFigures"}
           />
           <ParagraphElement
             render={text}
-            padding={"homestatstext"}
-            align
-            fontfamily
-            fontsize={"homestatstext"}
-            fontweight={"600"}
+            style={"HomeStatisticsDataText"}
           />
       </Container>
     );

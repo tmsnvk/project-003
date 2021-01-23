@@ -7,10 +7,10 @@ const ComponentContainer = styled.legend`
   color: ${({ theme }) => theme.color.blueDark};
 `;
 
-const RadioLegend = ({ legendData }) => {
+const RadioLegend = ({ render }) => {
   return (
     <ComponentContainer>
-      {legendData}
+      {render}
     </ComponentContainer>
   );
 };

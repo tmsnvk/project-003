@@ -14,10 +14,10 @@ const ComponentContainer = styled(Link)`
   }
 `;
 
-const HashLinkElement = ({ to, text }) => {
+const HashLinkElement = ({ to, render }) => {
   return (
     <ComponentContainer to={to}>
-      {text}
+      {render}
     </ComponentContainer>
   );
 };

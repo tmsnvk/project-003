@@ -1,9 +1,18 @@
+import React from "react";
 import styled from "styled-components";
 
-const RadioFormLabel = styled.label`
+const ComponentContainer = styled.label`
   display: block;
   color: ${({ theme }) => theme.color.blueDark};
   font-size: ${({ theme }) => theme.fontSize.small};
 `;
 
-export default RadioFormLabel;
+const RadioLabel = ({ htmlFor, render }) => {
+  return (
+    <ComponentContainer htmlFor={htmlFor}>
+      {render}
+    </ComponentContainer>
+  );
+};
+
+export default RadioLabel;

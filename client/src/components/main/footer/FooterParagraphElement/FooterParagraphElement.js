@@ -6,7 +6,7 @@ const FooterParagraphElement = () => {
   const renderFooterParagraphElement = data.footer.copyright.map(({ id, render }) => {
     return (
       <ParagraphElement key={id} render={render}
-        style={"FooterParagraphElement_ParagraphElement"}
+        style={"FooterParagraph"}
       />
     );
   });

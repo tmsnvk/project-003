@@ -36,5 +36,5 @@ if (process.env.NODE_ENV === "production") {
   app.get('*', (request, response) => response.sendFile(path.join(__dirname, "client/build", "index.html")));
 }
 
-const port = process.env.PORT || 3011;
+const port = process.env.PORT || 301;
 app.listen(port, () => console.log(`The application is listening @ port ${port}!`));

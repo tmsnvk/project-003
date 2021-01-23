@@ -3,10 +3,12 @@ import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import styled from "styled-components";
+import { PROJECT_ROOT } from "utilities/constants/urls";
 import { SectionElementContainer } from "components/shared/layout";
 import { ErrorMessage, FormContainer, FormLabel, FormLink, InputField, RadioButton, RadioContainer, RadioLabel, RadioLegend, RequiredFields, Submit } from "components/shared/form";
 import { LoadingSpinner } from "components/shared/utilities";
 import { trackUserEvent } from "utilities/analytics/analyticsTracking";
+import { email, lettersOnly, numbersOnly } from "utilities/helpers/regex/forms";
 
 const ComponentContainer = styled(SectionElementContainer)`
   grid-column-start: 1;
@@ -49,11 +51,9 @@ const SignupForm = () => {
 
   return (
     <ComponentContainer>
-      <FormContainer method={"POST"} action={"/signupform"} id={"signupform"} onSubmit={handleSubmit(onSubmit)}>
-        <FormLabel htmlFor={"signupform"}>
-          Ready to get into action? - Subscribe here!
-        </FormLabel>
-        <InputField 
+      <FormContainer method={"POST"} action={`/signupform`} onSubmit={handleSubmit(onSubmit)} id={"signupform"}>
+        <FormLabel htmlFor={"signupform"} render={"Ready to plunge into action? - Subscribe here!"} />
+        <InputField
           type={"text"}
           id={"name"}
           name={"name"}
@@ -61,13 +61,13 @@ const SignupForm = () => {
           autoComplete={"off"}
           maxLength={"40"}
           ref={register({
-            required: { value: true, message: "NAME is required. Enter only letters." },
-            pattern: { value: /^[A-Za-z ]+$/i, message: "Enter only letters." },
+            required: { value: true, message: "NAME is required. Enter letters only." },
+            pattern: { value: lettersOnly, message: "Enter letters only." },
             minLength: { value: 4, message: "Enter minimum 4 characters." },
             maxLength: { value: 40, message: "Enter maximum 40 characters." }
           })}
         />
-        {errors.name && <ErrorMessage errorMessage={errors.name.message} />}
+        {errors.name && <ErrorMessage render={errors.name.message} />}
         <InputField 
           type={"text"}
           id={"pokedex"}
@@ -76,14 +76,14 @@ const SignupForm = () => {
           autoComplete={"off"}
           maxLength={"14"}
           ref={register({
-            required: { value: true, message: "POKEDEX ID is required. Enter only numbers." },
-            pattern: { value: /^[0-9]+$/i, message: "Enter only numbers." },
+            required: { value: true, message: "POKEDEX ID is required. Enter numbers only." },
+            pattern: { value: numbersOnly, message: "Enter numbers only." },
             minLength: { value: 14, message: "Enter 14 characters." },
             maxLength: { value: 14, message: "Enter 14 characters." }
           })}
         />
-        {errors.pokedex && <ErrorMessage errorMessage={errors.pokedex.message} />}
-        <InputField 
+        {errors.pokedex && <ErrorMessage render={errors.pokedex.message} />}
+        <InputField
           type={"email"}
           id={"email"}
           name={"email"}
@@ -91,11 +91,11 @@ const SignupForm = () => {
           autoComplete={"off"}
           ref={register({
             required: { value: true, message: "EMAIL is required. Enter a valid email address." },
-            pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i, message: "Enter a valid email address." }
+            pattern: { value: email, message: "Enter a valid email address." }
           })}
         />
-        {errors.email && <ErrorMessage errorMessage={errors.email.message} />}
-        <InputField 
+        {errors.email && <ErrorMessage render={errors.email.message} />}
+        <InputField
           type={"text"}
           id={"phone"}
           name={"phone"}
@@ -104,14 +104,14 @@ const SignupForm = () => {
           minLength={"8"}
           maxLength={"25"}
           ref={register({
-            required: { value: true, message: "PHONE NUMBER is required. Enter only numbers." },
-            pattern: { value: /^[0-9]+$/i, message: "Enter only numbers." },
+            required: { value: true, message: "PHONE NUMBER is required. Enter numbers only." },
+            pattern: { value: numbersOnly, message: "Enter numbers only." },
             minLength: { value: 8, message: "Enter minimum 8 characters." },
             maxLength: { value: 25, message: "Enter maximum 25 characters." }
           })}
         />
-        {errors.phone && <ErrorMessage errorMessage={errors.phone.message} />}
-        <RadioLegend legendData={"* Which plan would you like to subscribe to?"} />
+        {errors.phone && <ErrorMessage render={errors.phone.message} />}
+        <RadioLegend render={"* Which plan would you like to subscribe to?"} />
         <RadioContainer>
           <RadioButton
             type={"radio"}
@@ -122,7 +122,7 @@ const SignupForm = () => {
               required: { value: true, message: "PLAN is required." }
             })}
           />
-          <RadioLabel htmlFor={"radiosolo"}>Solo.</RadioLabel>
+          <RadioLabel htmlFor={"radiosolo"} render={"Solo"} />
         </RadioContainer>
         <RadioContainer>
           <RadioButton
@@ -134,10 +134,10 @@ const SignupForm = () => {
               required: { value: true, message: "PLAN is required." }
             })}
           />
-          <RadioLabel htmlFor={"radioduo"}>Duo.</RadioLabel>
+          <RadioLabel htmlFor={"radioduo"} render={"Duo"} />
         </RadioContainer>
-        {errors.radio && <ErrorMessage errorMessage={errors.radio.message} />}
-        <RadioLegend legendData={"* Data submission agreement."} />
+        {errors.radio && <ErrorMessage render={errors.radio.message} />}
+        <RadioLegend render={"* Data submission agreement."} />
         <RadioContainer>
           <RadioButton
             type={"checkbox"}
@@ -147,13 +147,11 @@ const SignupForm = () => {
               required: { value: true, message: "CONSENT is required." }
             })}
           />
-          <RadioLabel htmlFor={"checkbox"}>
-            By submitting data to CKPD you give your consent that your data may be processed for purposes described in the <FormLink to={"/pricing"}>Terms & Conditions</FormLink> & <FormLink to={"/pricing"}>Privacy Policy</FormLink>.
-          </RadioLabel>
+          <RadioLabel htmlFor={"checkbox"} render={<>By submitting data to CKPD you give your consent that your data may be processed for purposes described in the <FormLink to={`/${PROJECT_ROOT}/pricing`} render={"Terms & Conditions"} /> & <FormLink to={`/${PROJECT_ROOT}/pricing`} render={"Privacy Policy"} />.</>} />
         </RadioContainer>
-        {errors.checkbox && <ErrorMessage errorMessage={errors.checkbox.message} />}
-        <RequiredFields requiredData={"* Required fields."} />
-        {formState.isSubmitting ? <LoadingSpinner loadingMessage={"Submitting form... Please wait!"} /> : <Submit type={"submit"} name={"submit"} value={"Submit"} />}
+        {errors.checkbox && <ErrorMessage render={errors.checkbox.message} />}
+        <RequiredFields render={"* Required fields."} />
+        {formState.isSubmitting ? <LoadingSpinner render={"Submitting your form... Please wait!"} /> : <Submit type={"submit"} name={"submit"} value={"Submit"} />}
       </FormContainer>
     </ComponentContainer>
   );

@@ -1,8 +1,7 @@
 import React from "react";
 import { HashLink as Link } from "react-router-hash-link";
 import styled from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { ParagraphElement } from "components/shared/text";
+import { ParagraphElement, SpanElement } from "components/shared/text";
 import { StyledIcon } from "components/shared/utilities";
 import data from "./data";
 
@@ -50,17 +49,6 @@ const OptionPricingContainer = styled.div`
   font-size: ${({ theme }) => theme.fontSize.small};
 `;
 
-const OptionPriceTagSpan = styled.span`
-  padding: 0 0.5rem 0 0;
-  font-size: ${({ theme }) => theme.fontSize.large};
-`;
-
-const OptionPricingIcon = styled(FontAwesomeIcon)`
-  margin: 0 0.5rem 0 0;
-  font-size: ${({ theme }) => theme.fontSize.medium};
-  vertical-align: super;
-`;
-
 const OptionButton = styled(Link)`
   display: block;
   width: 50%;
@@ -106,38 +94,15 @@ const OptionItems = () => {
       <OptionContainer key={optionTitle} $alternate={alternate}>
         <OptionTitle $alternate={alternate}>{optionTitle}</OptionTitle>
         <OptionPricingContainer>
-          <OptionPriceTagSpan>
-            {priceIcon !== "" ? <OptionPricingIcon icon={priceIcon}></OptionPricingIcon> : null}{priceTag}
-          </OptionPriceTagSpan>
+          <SpanElement render={<>{priceIcon !== "" ? <StyledIcon icon={priceIcon} style={"PricingOptions_Tag"} /> : null}{priceTag}</>} style={"PricingOptions_Tag"} />
           {month}
         </OptionPricingContainer>
-        <ParagraphElement
-          render={<><StyledIcon icon={icon} margin={"pricingoptions"} fontsize={"pricingoptions"} color={"grayDark"} />{paragraphs.one}</>}
-          padding={"pricingoptions"}
-          fontsize={"pricingoptions"}
-        />
-        <ParagraphElement
-          render={<><StyledIcon icon={icon} margin={"pricingoptions"} fontsize={"pricingoptions"} color={"grayDark"} />{paragraphs.two}</>}
-          padding={"pricingoptions"}
-          fontsize={"pricingoptions"}
-        />
-        <ParagraphElement
-          render={<><StyledIcon icon={icon} margin={"pricingoptions"} fontsize={"pricingoptions"} color={"grayDark"} />{paragraphs.three}</>}
-          padding={"pricingoptions"}
-          fontsize={"pricingoptions"}
-        />
-        <ParagraphElement
-          render={<><StyledIcon icon={icon} margin={"pricingoptions"} fontsize={"pricingoptions"} color={"grayDark"} />{paragraphs.four}</>}
-          padding={"pricingoptions"}
-          fontsize={"pricingoptions"}
-        />
+        <ParagraphElement render={<><StyledIcon icon={icon} style={"PricingOptions"} />{paragraphs.one}</>} style={"PricingOptions"} />
+        <ParagraphElement render={<><StyledIcon icon={icon} style={"PricingOptions"} />{paragraphs.two}</>} style={"PricingOptions"} />
+        <ParagraphElement render={<><StyledIcon icon={icon} style={"PricingOptions"} />{paragraphs.three}</>} style={"PricingOptions"} />
+        <ParagraphElement render={<><StyledIcon icon={icon} style={"PricingOptions"} />{paragraphs.four}</>} style={"PricingOptions"} />
         <OptionButton to={link.to} $alternate={alternate}>{link.text}</OptionButton>
-        <ParagraphElement 
-          render={bottomParagraph} 
-          padding={"pricingoptionsbottom"} 
-          align 
-          fontsize={"pricingoptionsbottom"}
-        />
+        <ParagraphElement render={bottomParagraph} style={"PricingOptionsBottom"} />
         {mostPopular !== "" ? <OptionPopular>{mostPopular}</OptionPopular> : null}
       </OptionContainer>
     );

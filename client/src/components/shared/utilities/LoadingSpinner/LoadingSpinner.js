@@ -27,11 +27,11 @@ const ComponentContainer = styled(DivElementContainer)`
   }
 `;
 
-const LoadingSpinner = ({ loadingMessage }) => {
+const LoadingSpinner = ({ render }) => {
   return (
     <ComponentContainer>
-      <StyledIcon icon={iconList.spinner} spin />
-      <ParagraphTitleElement render={loadingMessage} />
+      <StyledIcon icon={iconList.spinner} spin style={"LoadingSpinner"} />
+      <ParagraphTitleElement render={render} />
     </ComponentContainer>
   );
 };

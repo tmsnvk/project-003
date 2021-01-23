@@ -17,7 +17,7 @@ const LayoutContainer = styled(LayoutContainerDefault)`
 const Search = () => {
   usePageTracking("Search");
 
-  const [selectedPokemon, setSelectedPokemon] = useState(undefined);
+  const [selectedPokemon, setSelectedPokemon] = useState(null);
   const [pokemonData, setPokemonData] = useState({ name: "", id: 0, typeOne: "", typeTwo: "", hp: 0, attack: 0, defense: 0, speed: 0, src: "" });
   const [loading, setLoading] = useState(false);
   const [hideTutorial, setHideTutorial] = useState(false);
@@ -45,9 +45,9 @@ const Search = () => {
       }
     };
 
-    if (selectedPokemon !== undefined) response();
+    if (selectedPokemon !== null) response();
     return () => {
-      setSelectedPokemon(undefined);
+      setSelectedPokemon(null);
       setPokemonData({ name: "", id: 0, typeOne: "", typeTwo: "", hp: 0, attack: 0, defense: 0, speed: 0, src: "" });
     };
   }, [selectedPokemon, setLoading]);
@@ -62,7 +62,7 @@ const Search = () => {
       </Helmet>
       <Header />
       <SearchForm selectedPokemon={handleSelectedPokemon} tutorial={handleTutorial} hideTutorial={hideTutorial} />
-      {loading ? hideTutorial && <LoadingSpinner loadingMessage={"Searching database... Please wait!"} /> : hideTutorial && <Result pokemonData={pokemonData} />}
+      {loading ? hideTutorial && <LoadingSpinner render={"Searching our database... Please wait!"} /> : hideTutorial && <Result pokemonData={pokemonData} />}
     </LayoutContainer>
   );
 };

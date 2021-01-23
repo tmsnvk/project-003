@@ -1,7 +1,8 @@
 {
-  "name": "project-003",
-  "description": "project-003",
-  "proxy": "http://127.0.0.1:3011",
+  "name": "project-003-react-frontend",
+  "description": "project-003-react-frontend",
+  "homepage": "https://tamasnovak.net/ckpd",
+  "proxy": "http://127.0.0.1:3001",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
     "@fortawesome/free-brands-svg-icons": "^5.15.2",

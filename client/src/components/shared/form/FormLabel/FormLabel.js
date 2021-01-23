@@ -1,6 +1,7 @@
+import React from "react";
 import styled from "styled-components";
 
-const FormLabel = styled.label`
+const ComponentContainer = styled.label`
   font-size: ${({ theme }) => theme.fontSize.medium};
   color: ${({ theme }) => theme.color.grayDark};
   font-weight: 600;
@@ -25,5 +26,13 @@ const FormLabel = styled.label`
     font-size: ${({ theme }) => theme.fontSize.large};
   }
 `;
+
+const FormLabel = ({ htmlFor, render }) => {
+  return (
+    <ComponentContainer htmlFor={htmlFor}>
+      {render}
+    </ComponentContainer>
+  );
+};
 
 export default FormLabel;
