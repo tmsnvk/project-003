@@ -1,5 +1,6 @@
 import { Controller, Post, Body } from '@nestjs/common';
 import { FormsService } from './forms.service';
+import { CreateFormDto } from "./forms.dto";
 
 @Controller('forms')
 export class FormsController {

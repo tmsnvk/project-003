@@ -1,12 +1,15 @@
-import { Controller, Get, Body, Param } from '@nestjs/common';
-import { DataService } from './data.service';
+import { Controller, Get, Param } from "@nestjs/common";
+import { DataService } from "./data.service";
+import { GetDataParams } from "./data.dto";
 
-@Controller('data')
+@Controller("/pokemon/data/")
 export class DataController {
-  constructor(private readonly dataService: DataService) {}
+  constructor(
+    private readonly dataService: DataService
+    ) {}
 
-  @Get(':id')
-  fetchData(@Param('id') id: string) {
-    return this.dataService.fetchData(+id);
+  @Get(":id")
+  getData(@Param() params: GetDataParams) {
+    return this.dataService.getData(params);
   }
 }

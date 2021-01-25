@@ -26,7 +26,8 @@ const Search = () => {
     const response = async () => {
       try {
         setLoading(true);
-        const { data } = await axios.get(`/pokemon/${selectedPokemon}`);
+
+        const { data } = await axios.get(`/pokemon/data/${selectedPokemon}`);
         setPokemonData({
           name: data.name,
           id: data.id,
@@ -38,6 +39,7 @@ const Search = () => {
           speed: data.speed,
           src: `https://pokeres.bastionbot.org/images/pokemon/${data.id}.png`
         });
+
         setTimeout(() => setLoading(false), 1000);
       } catch (error) {
         setLoading(false);

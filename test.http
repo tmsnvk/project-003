@@ -1,0 +1,10 @@
+@contentType = application/json
+// Content-Type
+
+@pokemonIdOrName = mew
+// either number between 1 and 151 or a valid Kanto Pokemon name;
+
+GET http://localhost:3001/pokemon/data/{{pokemonIdOrName}} HTTP/1.1
+Content-Type: {{contentType}}
+
+###
