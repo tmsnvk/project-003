@@ -1,20 +1,20 @@
-import { Controller, Post, Body } from '@nestjs/common';
-import { FormsService } from './forms.service';
-import { CreateFormDto } from "./forms.dto";
+import { Controller, Post, Body } from "@nestjs/common";
+import { FormsService } from "./forms.service";
+import { ContactFormDto, SignupFormDto } from "./forms.dto";
 
-@Controller('forms')
+@Controller("forms")
 export class FormsController {
   constructor(
     private readonly formsService: FormsService
   ) {}
 
-  @Post()
-  signup(@Body() createFormDto: CreateFormDto) {
-    return this.formsService.signup(createFormDto);
+  @Post("/signup")
+  signupform(@Body() body: SignupFormDto) {
+    return this.formsService.signupform(body);
   }
 
-  @Post()
-  contact(@Body() createFormDto: CreateFormDto) {
-    return this.formsService.contact(createFormDto);
+  @Post("/contact")
+  contactform(@Body() body: ContactFormDto) {
+    return this.formsService.contactform(body);
   }
 }

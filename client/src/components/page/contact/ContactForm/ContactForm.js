@@ -38,14 +38,14 @@ const ContactForm = () => {
   const { register, handleSubmit, errors, formState } = useForm();
 
   const onSubmit = async (data) => {
-    await axios.post("/contactform", data);
+    await axios.post("/forms/contact", data);
     trackUserEvent("contact form", "submit");
-    history.push("/success");
+    history.push(`/${PROJECT_ROOT}/success`);
   };
 
   return (
     <ComponentContainer>
-      <FormContainer method={"POST"} action={"/contactform"} onSubmit={handleSubmit(onSubmit)} id={"contactform"}>
+      <FormContainer method={"POST"} action={"/forms/contact"} onSubmit={handleSubmit(onSubmit)} id={"contactform"}>
         <FormLabel htmlFor={"contactform"} render={"Have a question you didn't find in the FAQ? - Tell us!"} />
         <InputField
           type={"text"}
@@ -53,12 +53,9 @@ const ContactForm = () => {
           name={"name"}
           placeholder={"* Your Name"}
           autoComplete={"off"}
-          maxLength={"40"}
           ref={register({
             required: { value: true, message: "NAME is required. Enter letters only." },
-            pattern: { value: lettersOnly, message: "Enter letters only." },
-            minLength: { value: 4, message: "Enter minimum 4 characters." },
-            maxLength: { value: 40, message: "Enter maximum 40 characters." }
+            pattern: { value: lettersOnly, message: "Enter letters only." }
           })}
         />
         {errors.name && <ErrorMessage render={errors.name.message} />}

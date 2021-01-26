@@ -55,6 +55,7 @@ const handleColor = ($style) => {
     case "HomeOptions":
     case "PokemonSearch":
     case "ErrorMessage":
+    case "SuccessMessage":
       return ({ theme }) => theme.color.blueDark;
     case "NavbarLink_Alternate":
       return ({ theme }) => theme.color.orangeDark;

@@ -7,4 +7,5 @@ import { DataController } from "./data.controller";
   controllers: [DataController],
   providers: [DataService]
 })
+
 export class DataModule {}

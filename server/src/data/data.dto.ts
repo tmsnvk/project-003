@@ -1,5 +1,5 @@
 import { IsInt, IsString, Matches, Max, Min } from "class-validator";
-import { pokemonName } from "utilities/helpers/regex";
+import { pokemonName } from "./data.helpers.regex";
 
 export class GetDataParams {
   @IsString()

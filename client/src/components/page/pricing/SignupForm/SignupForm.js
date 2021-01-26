@@ -44,14 +44,14 @@ const SignupForm = () => {
   const { register, handleSubmit, errors, formState } = useForm();
 
   const onSubmit = async (data) => {
-    await axios.post("/signupform", data);
+    await axios.post("/forms/signup", data);
     trackUserEvent("signup form", "submit");
-    history.push("/success");
+    history.push(`/${PROJECT_ROOT}/success`);
   };
 
   return (
     <ComponentContainer>
-      <FormContainer method={"POST"} action={`/signupform`} onSubmit={handleSubmit(onSubmit)} id={"signupform"}>
+      <FormContainer method={"POST"} action={`/forms/signup`} onSubmit={handleSubmit(onSubmit)} id={"signupform"}>
         <FormLabel htmlFor={"signupform"} render={"Ready to plunge into action? - Subscribe here!"} />
         <InputField
           type={"text"}
@@ -59,12 +59,9 @@ const SignupForm = () => {
           name={"name"}
           placeholder={"* Your Name"}
           autoComplete={"off"}
-          maxLength={"40"}
           ref={register({
             required: { value: true, message: "NAME is required. Enter letters only." },
-            pattern: { value: lettersOnly, message: "Enter letters only." },
-            minLength: { value: 4, message: "Enter minimum 4 characters." },
-            maxLength: { value: 40, message: "Enter maximum 40 characters." }
+            pattern: { value: lettersOnly, message: "Enter letters only." }
           })}
         />
         {errors.name && <ErrorMessage render={errors.name.message} />}
@@ -101,13 +98,9 @@ const SignupForm = () => {
           name={"phone"}
           placeholder={"* Your Phone Number"}
           autoComplete={"off"}
-          minLength={"8"}
-          maxLength={"25"}
           ref={register({
             required: { value: true, message: "PHONE NUMBER is required. Enter numbers only." },
-            pattern: { value: numbersOnly, message: "Enter numbers only." },
-            minLength: { value: 8, message: "Enter minimum 8 characters." },
-            maxLength: { value: 25, message: "Enter maximum 25 characters." }
+            pattern: { value: numbersOnly, message: "Enter numbers only." }
           })}
         />
         {errors.phone && <ErrorMessage render={errors.phone.message} />}
