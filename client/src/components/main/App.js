@@ -16,7 +16,7 @@ import { faDotCircle } from "@fortawesome/free-regular-svg-icons";
 library.add(faFacebook, faTwitter, faYoutube, faInstagram, faDotCircle, faInfinity, faServer, faComments, faLifeRing, faAngleDoubleRight, faCaretUp, faAngleRight, faEuroSign, faIdCard, faTag, faCodeBranch, faHeart, faHamsa, faScroll, faRocket, faCircleNotch, faReply);
 
 const App = () => {
-  useAnalyticsTracking();
+  // useAnalyticsTracking();
 
   return (
     <Router>

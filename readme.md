@@ -1,6 +1,6 @@
 ### central_kanto_pokemon_database || project-003
 #### description
-+ a ReactJS front-end and NodeJS/NestJS back-end application using MongoDB to store site-specific data. The application imitates a subscription-based service site with two form submit pages, automatic email confirmation and a search functionality serving a public API database.
++ a ReactJS front-end and NodeJS/NestJS back-end application using MongoDB to store site/user-specific data. The application imitates a subscription-based service site with two form submit pages, automatic email confirmation and a search functionality serving a public API database.
 + the third-party API is served from [pokeapi.co](https://pokeapi.co/).
 + visit the live site [here](https://tamasnovak.net/ckpd/?utm_source=github). The server-side code might need a minute or two to boot up as it is currently hosted on a free tier option @Heroku.
 

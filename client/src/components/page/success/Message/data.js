@@ -6,7 +6,7 @@ const data = {
   title: "Your form submission was successful. You will shortly receive an email regarding your payment and login details.",
   message: {
     pOne: "Happy hunting!",
-    pTwo: <><LinkElement to={`/${PROJECT_ROOT}`} render={"Click here to return"} /> to our home page!</>
+    pTwo: <><LinkElement to={`/${PROJECT_ROOT}`} render={"Click here to return"} $style={"SuccessMessage"} /> to our home page!</>
   },
   image: {
     src: "https://pokeres.bastionbot.org/images/pokemon/66.png",

@@ -13,9 +13,9 @@ const bootstrap = async (): Promise<void> => {
   }));
   app.use(compression());
 
-  const configService: ConfigService = app.get(ConfigService);
-  const handleListen = (): void => console.log(`===> project-003 server @ port ${configService.get<string>("port")}! <===`);
-  app.listen(configService.get<string>("port"), handleListen);
+  const config: ConfigService = app.get(ConfigService);
+  const handleListen = (): void => console.log(`===> project-003 server @ port ${config.get<string>("port")}! <===`);
+  app.listen(config.get<string>("port"), handleListen);
 };
 
 bootstrap();

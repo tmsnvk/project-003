@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
+import { BACKEND_ROOT } from "utilities/constants/urls";
 import { SectionElementContainer } from "components/shared/layout";
 import { PageTitleElement, ParagraphElement } from "components/shared/text";
 import { Image } from "components/shared/utilities";
@@ -40,7 +41,7 @@ const Message = () => {
     const getPokemonName = async () => {
       if (pokemonId !== 0) {
         try {
-          const { data } = await axios.get(`/pokemon/${pokemonId}`);
+          const { data } = await axios.get(`${BACKEND_ROOT}/pokemon/data/${pokemonId}`);
           setPokemonName(data.name);
         } catch (error) {
           console.log(`===> The error is - ${error} <===`);
