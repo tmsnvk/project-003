@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import styled from "styled-components";
-import { PROJECT_ROOT } from "utilities/constants/urls";
+import { BACKEND_ROOT, PROJECT_ROOT } from "utilities/constants/urls";
 import { trackUserEvent } from "utilities/analytics/analyticsTracking";
 import { SectionElementContainer } from "components/shared/layout";
 import { ErrorMessage, FormContainer, FormLabel, FormLink, InputField, RadioButton, RadioContainer, RadioLabel, RadioLegend, RequiredFields, Submit, Textarea } from "components/shared/form";
@@ -38,7 +38,7 @@ const ContactForm = () => {
   const { register, handleSubmit, errors, formState } = useForm();
 
   const onSubmit = async (data) => {
-    await axios.post("/forms/contact", data);
+    await axios.post(`${BACKEND_ROOT}/forms/contact`, data);
     trackUserEvent("contact form", "submit");
     history.push(`/${PROJECT_ROOT}/success`);
   };

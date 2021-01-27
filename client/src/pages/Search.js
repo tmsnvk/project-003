@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import axios from "axios";
 import styled from "styled-components";
+import { BACKEND_URL } from "utilities/constants/urls";
 import { Header, Result, SearchForm } from "components/page/search";
 import { LayoutContainerDefault } from "components/shared/layout";
 import { LoadingSpinner } from "components/shared/utilities";
@@ -27,7 +28,7 @@ const Search = () => {
       try {
         setLoading(true);
 
-        const { data } = await axios.get(`/pokemon/data/${selectedPokemon}`);
+        const { data } = await axios.get(`${BACKEND_URL}/pokemon/data/${selectedPokemon}`);
         setPokemonData({
           name: data.name,
           id: data.id,

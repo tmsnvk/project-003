@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import styled from "styled-components";
-import { PROJECT_ROOT } from "utilities/constants/urls";
+import { BACKEND_ROOT, PROJECT_ROOT } from "utilities/constants/urls";
 import { SectionElementContainer } from "components/shared/layout";
 import { ErrorMessage, FormContainer, FormLabel, FormLink, InputField, RadioButton, RadioContainer, RadioLabel, RadioLegend, RequiredFields, Submit } from "components/shared/form";
 import { LoadingSpinner } from "components/shared/utilities";
@@ -44,7 +44,7 @@ const SignupForm = () => {
   const { register, handleSubmit, errors, formState } = useForm();
 
   const onSubmit = async (data) => {
-    await axios.post("/forms/signup", data);
+    await axios.post(`${BACKEND_ROOT}/forms/signup`, data);
     trackUserEvent("signup form", "submit");
     history.push(`/${PROJECT_ROOT}/success`);
   };
