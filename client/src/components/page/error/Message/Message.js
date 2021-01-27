@@ -54,7 +54,7 @@ const Message = () => {
   return (
     <ComponentContainer>
       <PageTitleElement render={`${pokemonName.toUpperCase()} says the page you tried to visit doesn't exist.`} />
-      <ParagraphElement render={data.message} style={"ErrorMessage"} />
+      <ParagraphElement render={data.message} $style={"ErrorMessage"} />
       {pokemonName !== "" ? <Image src={`https://pokeres.bastionbot.org/images/pokemon/${pokemonId}.png`} alt={"random pokemon image"} loading={"lazy"} /> : null}
     </ComponentContainer>
   );

@@ -6,10 +6,9 @@ export const databaseProviders = [
   {
     provide: databaseToInject,
     inject: [ConfigService],
-    useFactory: (configService: ConfigService): Promise<typeof mongoose> =>
-      mongoose.connect(configService.get<string>("mongodb"), {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-      }),
-  },
+    useFactory: (configService: ConfigService): Promise<typeof mongoose> => mongoose.connect(configService.get<string>("mongodb"), {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    })
+  }
 ]

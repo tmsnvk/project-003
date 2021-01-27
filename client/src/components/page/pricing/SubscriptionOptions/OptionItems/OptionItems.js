@@ -94,15 +94,15 @@ const OptionItems = () => {
       <OptionContainer key={optionTitle} $alternate={alternate}>
         <OptionTitle $alternate={alternate}>{optionTitle}</OptionTitle>
         <OptionPricingContainer>
-          <SpanElement render={<>{priceIcon !== "" ? <StyledIcon icon={priceIcon} style={"PricingOptions_Tag"} /> : null}{priceTag}</>} style={"PricingOptions_Tag"} />
+          <SpanElement render={<>{priceIcon !== "" ? <StyledIcon icon={priceIcon} $style={"PricingOptions_Tag"} /> : null}{priceTag}</>} $style={"PricingOptions_Tag"} />
           {month}
         </OptionPricingContainer>
-        <ParagraphElement render={<><StyledIcon icon={icon} style={"PricingOptions"} />{paragraphs.one}</>} style={"PricingOptions"} />
-        <ParagraphElement render={<><StyledIcon icon={icon} style={"PricingOptions"} />{paragraphs.two}</>} style={"PricingOptions"} />
-        <ParagraphElement render={<><StyledIcon icon={icon} style={"PricingOptions"} />{paragraphs.three}</>} style={"PricingOptions"} />
-        <ParagraphElement render={<><StyledIcon icon={icon} style={"PricingOptions"} />{paragraphs.four}</>} style={"PricingOptions"} />
+        <ParagraphElement render={<><StyledIcon icon={icon} $style={"PricingOptions"} />{paragraphs.one}</>} $style={"PricingOptions"} />
+        <ParagraphElement render={<><StyledIcon icon={icon} $style={"PricingOptions"} />{paragraphs.two}</>} $style={"PricingOptions"} />
+        <ParagraphElement render={<><StyledIcon icon={icon} $style={"PricingOptions"} />{paragraphs.three}</>} $style={"PricingOptions"} />
+        <ParagraphElement render={<><StyledIcon icon={icon} $style={"PricingOptions"} />{paragraphs.four}</>} $style={"PricingOptions"} />
         <OptionButton to={link.to} $alternate={alternate}>{link.text}</OptionButton>
-        <ParagraphElement render={bottomParagraph} style={"PricingOptionsBottom"} />
+        <ParagraphElement render={bottomParagraph} $style={"PricingOptionsBottom"} />
         {mostPopular !== "" ? <OptionPopular>{mostPopular}</OptionPopular> : null}
       </OptionContainer>
     );

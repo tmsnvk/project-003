@@ -34,7 +34,7 @@ const Header = () => {
     <ComponentContainer>
       <PageTitleElement render={data.title} />
       <PageSubTitleElement render={data.subtitle} />
-      <ParagraphElement render={data.message} style={"HomeHeader"} />
+      <ParagraphElement render={data.message} $style={"HomeHeader"} />
     </ComponentContainer>
   );
 };

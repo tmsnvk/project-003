@@ -123,7 +123,6 @@ const handleLargeFontSize = ($style) => {
   switch ($style) {
     case "FooterParagraph":
     case "HomeSummary":
-    case "PricingOptions":
       return ({ theme }) => theme.fontSize.small;
     case "HomeStatisticsDataText":
     case "PokemonResult":
@@ -223,9 +222,9 @@ const ComponentContainer = styled.p`
   }
 `;
 
-const ParagraphElement = ({ render, style }) => {
+const ParagraphElement = ({ render, $style }) => {
   return (
-    <ComponentContainer $style={style}>
+    <ComponentContainer $style={$style}>
       {render}
     </ComponentContainer>
   );

@@ -1,4 +1,5 @@
 import { HttpService, Injectable } from "@nestjs/common";
+import { Observable } from "rxjs";
 import { catchError, map } from "rxjs/operators";
 import { GetDataDto, GetDataParams } from "./data.dto";
 
@@ -8,7 +9,7 @@ export class DataService {
     private httpService: HttpService,
   ) {}
 
-  getData(params: GetDataParams) {
+  getData(params: GetDataParams): Observable<GetDataDto> {
     return this.httpService.get(`https://pokeapi.co/api/v2/pokemon/${params.id}`).pipe(
       map(({ data }) => {
         const transformedData: GetDataDto = {

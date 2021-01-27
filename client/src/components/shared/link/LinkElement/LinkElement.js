@@ -118,9 +118,9 @@ const ComponentContainer = styled(Link)`
   }
 `;
 
-const LinkElement = ({ to, render, style }) => {
+const LinkElement = ({ to, render, $style }) => {
   return (
-    <ComponentContainer to={to} $style={style}>
+    <ComponentContainer to={to} $style={$style}>
       {render}
     </ComponentContainer>
   );

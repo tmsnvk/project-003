@@ -5,7 +5,7 @@ import data from "../data";
 const NavbarLinkElement = () => {
   const renderNavbarLinkElement = data.navbar.links.map(({ id, link, render, style }) => {
     return (
-      <LinkElement key={id} to={link} render={render} style={style} />
+      <LinkElement key={id} to={link} render={render} $style={style} />
     );
   });
 

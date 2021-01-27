@@ -10,9 +10,9 @@ import { getContactTemplate, getSignupTemplate } from "./forms.helpers.emailTemp
 export class FormsService {
   constructor(
     @Inject(signupFormModel)
-      private signupFormModel: Model<SignupFormInterface>,
+      private readonly signupFormModel: Model<SignupFormInterface>,
     @Inject(contactFormModel)
-    private contactFormModel: Model<ContactFormInterface>,
+    private readonly contactFormModel: Model<ContactFormInterface>,
     private readonly mailerService: MailerService
   ) {}
 

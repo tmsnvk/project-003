@@ -124,23 +124,23 @@ const Result = ({ pokemonData }) => {
   return (
     <ComponentContainer>
       <ImageContainer $type={pokemonData.typeOne}>
-        <ParagraphTitleElement render={"Image"} style={"PokemonResult"} />
+        <ParagraphTitleElement render={"Image"} $style={"PokemonResult"} />
         <PokemonImage src={pokemonData.src} alt={"random pokemon image"} loading={"lazy"} />
       </ImageContainer>
       <DataContainer $type={pokemonData.typeOne}>
-        <ParagraphTitleElement render={"Identity"} style={"PokemonResult"} />
-        <ParagraphElement render={<><StyledIcon icon={iconList.idCard} style={"PokemonResult"} />Name: <SpanElement render={pokemonData.name} style={"PokemonResult"} /></>} style={"PokemonResult"} />
-        <ParagraphElement render={<><StyledIcon icon={iconList.tag} style={"PokemonResult"} />ID: <SpanElement render={pokemonData.id} style={"PokemonResult"} /></>} style={"PokemonResult"} />
+        <ParagraphTitleElement render={"Identity"} $style={"PokemonResult"} />
+        <ParagraphElement render={<><StyledIcon icon={iconList.idCard} $style={"PokemonResult"} />Name: <SpanElement render={pokemonData.name} $style={"PokemonResult"} /></>} $style={"PokemonResult"} />
+        <ParagraphElement render={<><StyledIcon icon={iconList.tag} $style={"PokemonResult"} />ID: <SpanElement render={pokemonData.id} $style={"PokemonResult"} /></>} $style={"PokemonResult"} />
         {!pokemonData.typeTwo ? 
-        <ParagraphElement render={<><StyledIcon icon={iconList.codeBranch} style={"PokemonResult"} />Type: <SpanElement render={pokemonData.typeOne} style={"PokemonResult"} /></>} style={"PokemonResult"} /> :
-        <ParagraphElement render={<><StyledIcon icon={iconList.codeBranch} style={"PokemonResult"} />Type: <SpanElement render={pokemonData.typeOne} style={"PokemonResult"} /> / <SpanElement render={pokemonData.typeTwo} style={"PokemonResult"} /></>} style={"PokemonResult"} />}
+        <ParagraphElement render={<><StyledIcon icon={iconList.codeBranch} $style={"PokemonResult"} />Type: <SpanElement render={pokemonData.typeOne} $style={"PokemonResult"} /></>} $style={"PokemonResult"} /> :
+        <ParagraphElement render={<><StyledIcon icon={iconList.codeBranch} $style={"PokemonResult"} />Type: <SpanElement render={pokemonData.typeOne} $style={"PokemonResult"} /> / <SpanElement render={pokemonData.typeTwo} $style={"PokemonResult"} /></>} $style={"PokemonResult"} />}
       </DataContainer>
       <DataContainer $type={pokemonData.typeOne}>
-      <ParagraphTitleElement render={"Statistics"} style={"PokemonResult"} />
-        <ParagraphElement render={<><StyledIcon icon={iconList.heart} style={"PokemonResult"} />HP: <SpanElement render={pokemonData.hp} style={"PokemonResult"} /></>} style={"PokemonResult"} />
-        <ParagraphElement render={<><StyledIcon icon={iconList.hamsa} style={"PokemonResult"} />Attack: <SpanElement render={pokemonData.attack} style={"PokemonResult"} /></>} style={"PokemonResult"} />
-        <ParagraphElement render={<><StyledIcon icon={iconList.scroll} style={"PokemonResult"} />Defense: <SpanElement render={pokemonData.defense} style={"PokemonResult"} /></>} style={"PokemonResult"} />
-        <ParagraphElement render={<><StyledIcon icon={iconList.rocket} style={"PokemonResult"} />Speed: <SpanElement render={pokemonData.speed} style={"PokemonResult"} /></>} style={"PokemonResult"} />
+      <ParagraphTitleElement render={"Statistics"} $style={"PokemonResult"} />
+        <ParagraphElement render={<><StyledIcon icon={iconList.heart} $style={"PokemonResult"} />HP: <SpanElement render={pokemonData.hp} $style={"PokemonResult"} /></>} $style={"PokemonResult"} />
+        <ParagraphElement render={<><StyledIcon icon={iconList.hamsa} $style={"PokemonResult"} />Attack: <SpanElement render={pokemonData.attack} $style={"PokemonResult"} /></>} $style={"PokemonResult"} />
+        <ParagraphElement render={<><StyledIcon icon={iconList.scroll} $style={"PokemonResult"} />Defense: <SpanElement render={pokemonData.defense} $style={"PokemonResult"} /></>} $style={"PokemonResult"} />
+        <ParagraphElement render={<><StyledIcon icon={iconList.rocket} $style={"PokemonResult"} />Speed: <SpanElement render={pokemonData.speed} $style={"PokemonResult"} /></>} $style={"PokemonResult"} />
       </DataContainer>
     </ComponentContainer>
   );

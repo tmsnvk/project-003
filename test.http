@@ -1,21 +1,18 @@
-@contentType = application/json
-// Content-Type
-
 @pokemonIdOrName = mew
 // either number between 1 and 151 or a valid Kanto Pokemon name;
 
 GET http://localhost:3001/pokemon/data/{{pokemonIdOrName}} HTTP/1.1
-Content-Type: {{contentType}}
+Content-Type: application/json
 
 ###
 
 POST http://localhost:3001/forms/signup HTTP/1.1
-Content-Type: {{contentType}}
+Content-Type: application/json
 
 {
   "name": "Ms. Test SignupForm, MD, PHD",
   "pokedex": 12345678901234,
-  "email": "test@post.test",
+  "email": "enter@existing.email",
   "phone": 123456789101112,
   "radio": "solo",
   "checkbox": true
@@ -24,12 +21,12 @@ Content-Type: {{contentType}}
 ###
 
 POST http://localhost:3001/forms/contact HTTP/1.1
-Content-Type: {{contentType}}
+Content-Type: application/json
 
 {
   "name": "Ms. Test ContactForm, MD, PHD",
   "pokedex": 12345678901234,
-  "email": "test@post.test",
+  "email": "enter@existing.email",
   "textarea": "This is a test message!",
   "checkbox": true
 }

@@ -3,9 +3,15 @@ import { DataService } from "./data.service";
 import { DataController } from "./data.controller";
 
 @Module({
-  imports: [HttpModule],
-  controllers: [DataController],
-  providers: [DataService]
+  imports: [
+    HttpModule
+  ],
+  controllers: [
+    DataController
+  ],
+  providers: [
+    DataService
+  ]
 })
 
 export class DataModule {}

@@ -15,7 +15,7 @@ const ComponentContainer = styled.section`
 const NavbarLogoElement = () => {
   return (
     <ComponentContainer>
-      <LinkElement to={`/${PROJECT_ROOT}`} render={data.navbar.logo} style={"NavbarLogo"} />
+      <LinkElement to={`/${PROJECT_ROOT}`} render={data.navbar.logo} $style={"NavbarLogo"} />
     </ComponentContainer>
   );
 };

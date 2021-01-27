@@ -26,15 +26,9 @@ const DataItems = () => {
   const renderDataItems = data.items.map(({ id, number, text }) => {
     return (
       <Container key={id}>
-        <StyledIcon icon={iconList.caretUp} style={"HomeStatisticsData"} />
-          <ParagraphElement
-            render={number}
-            style={"HomeStatisticsDataFigures"}
-          />
-          <ParagraphElement
-            render={text}
-            style={"HomeStatisticsDataText"}
-          />
+        <StyledIcon icon={iconList.caretUp} $style={"HomeStatisticsData"} />
+        <ParagraphElement render={number} $style={"HomeStatisticsDataFigures"} />
+        <ParagraphElement render={text} $style={"HomeStatisticsDataText"} />
       </Container>
     );
   });

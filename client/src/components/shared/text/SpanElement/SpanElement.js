@@ -34,9 +34,9 @@ const ComponentContainer = styled.span`
   font-weight: ${({ $style }) => handleFontWeight($style)};
 `;
 
-const SpanElement = ({ render, style }) => {
+const SpanElement = ({ render, $style }) => {
   return (
-    <ComponentContainer $style={style}>
+    <ComponentContainer $style={$style}>
       {render}
     </ComponentContainer>
   );

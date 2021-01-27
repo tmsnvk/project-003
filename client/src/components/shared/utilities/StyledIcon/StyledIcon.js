@@ -86,9 +86,9 @@ const ComponentContainer = styled(FontAwesomeIcon)`
   }
 `;
 
-const StyledIcon = ({ icon, spin, style }) => {
+const StyledIcon = ({ icon, spin, $style }) => {
   return (
-    <ComponentContainer icon={icon} spin={spin} $style={style}></ComponentContainer>
+    <ComponentContainer icon={icon} spin={spin} $style={$style}></ComponentContainer>
   );
 };
 

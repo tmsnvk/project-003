@@ -12,5 +12,5 @@ export const formsProviders = [
     provide: contactFormModel,
     useFactory: (connection: Connection) => connection.model("ContactForm", ContactFormSchema),
     inject: [injectedDatabase],
-  },
+  }
 ];

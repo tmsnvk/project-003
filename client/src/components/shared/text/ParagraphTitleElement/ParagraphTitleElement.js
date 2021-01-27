@@ -41,9 +41,9 @@ const ComponentContainer = styled.p`
   }
 `;
 
-const ParagraphTitleElement = ({ render, style }) => {
+const ParagraphTitleElement = ({ render, $style }) => {
   return (
-    <ComponentContainer $style={style}>
+    <ComponentContainer $style={$style}>
       {render}
     </ComponentContainer>
   );

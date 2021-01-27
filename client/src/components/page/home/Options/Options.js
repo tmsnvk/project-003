@@ -30,7 +30,7 @@ const ComponentContainer = styled(SectionElementContainer)`
 const Options = () => {
   const renderParagraphElements = data.paragraphs.map(({ id, render }) => {
     return (
-      <ParagraphElement key={id} render={render} style={"HomeOptions"} />
+      <ParagraphElement key={id} render={render} $style={"HomeOptions"} />
     );
   });
 

@@ -5,7 +5,7 @@ import data from "../data";
 const YearUpdate = () => {
   return (
     <>
-      <ParagraphElement render={data.title} style={"HomeStatisticsYear"} />
+      <ParagraphElement render={data.title} $style={"HomeStatisticsYear"} />
     </>
   );
 };

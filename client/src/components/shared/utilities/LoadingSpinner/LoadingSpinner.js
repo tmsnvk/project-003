@@ -30,7 +30,7 @@ const ComponentContainer = styled(DivElementContainer)`
 const LoadingSpinner = ({ render }) => {
   return (
     <ComponentContainer>
-      <StyledIcon icon={iconList.spinner} spin style={"LoadingSpinner"} />
+      <StyledIcon icon={iconList.spinner} spin $style={"LoadingSpinner"} />
       <ParagraphTitleElement render={render} />
     </ComponentContainer>
   );

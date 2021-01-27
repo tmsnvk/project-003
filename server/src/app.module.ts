@@ -24,7 +24,7 @@ import { MailerConfigModule } from "./email/email.service";
   ],
   providers: [
     AppService
-  ],
+  ]
 })
 
 export class AppModule {}

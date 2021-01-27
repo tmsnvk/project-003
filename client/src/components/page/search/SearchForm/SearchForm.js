@@ -90,9 +90,9 @@ const SearchForm = ({ selectedPokemon, tutorial, hideTutorial }) => {
       </FormContainer>
       {!hideTutorial &&
       <TutorialContainer>
-        <ParagraphElement render={data[0]} style={"PokemonSearch"} />
-        <ParagraphElement render={data[1]} style={"PokemonSearch"} />
-        <ParagraphElement render={data[2]} style={"PokemonSearch"} />
+        <ParagraphElement render={data[0]} $style={"PokemonSearch"} />
+        <ParagraphElement render={data[1]} $style={"PokemonSearch"} />
+        <ParagraphElement render={data[2]} $style={"PokemonSearch"} />
       </TutorialContainer>}
     </ComponentContainer>
   );

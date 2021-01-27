@@ -5,9 +5,7 @@ import data from "../data";
 const FooterParagraphElement = () => {
   const renderFooterParagraphElement = data.footer.copyright.map(({ id, render }) => {
     return (
-      <ParagraphElement key={id} render={render}
-        style={"FooterParagraph"}
-      />
+      <ParagraphElement key={id} render={render} $style={"FooterParagraph"} />
     );
   });
 

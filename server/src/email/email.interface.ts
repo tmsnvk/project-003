@@ -5,12 +5,12 @@ export class MailerModuleOptionsInterface {
     host: string;
     port: string;
     ignoreTLS: {
-        rejectUnauthorized: boolean;
+      rejectUnauthorized: boolean;
     }
     secure: boolean;
     auth: {
-        user: string;
-        pass: string;
+      user: string;
+      pass: string;
     }
   }
 }

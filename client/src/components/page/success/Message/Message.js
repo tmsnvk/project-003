@@ -31,8 +31,8 @@ const Message = () => {
   return (
     <ComponentContainer>
       <PageTitleElement render={data.title} />
-      <ParagraphElement render={data.message.pOne} style={"SuccessMessage"} />
-      <ParagraphElement render={data.message.pTwo} style={"SuccessMessage"} />
+      <ParagraphElement render={data.message.pOne} $style={"SuccessMessage"} />
+      <ParagraphElement render={data.message.pTwo} $style={"SuccessMessage"} />
       <Image src={data.image.src} alt={data.image.alt} loading={"lazy"} />
     </ComponentContainer>
   );

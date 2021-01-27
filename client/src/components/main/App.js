@@ -25,7 +25,7 @@ const App = () => {
       <GlobalStyle />
       <Navbar />
       <Switch>
-        <Route exact path={`/${PROJECT_ROOT}/`} component={Home} />
+        <Route exact path={`/${PROJECT_ROOT}`} component={Home} />
         <Route exact path={`/${PROJECT_ROOT}/pricing`} component={Pricing} />
         <Route exact path={`/${PROJECT_ROOT}/search`} component={Search} />
         <Route exact path={`/${PROJECT_ROOT}/contact`} component={Contact} />

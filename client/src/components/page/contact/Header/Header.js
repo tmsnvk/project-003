@@ -27,7 +27,7 @@ const Header = () => {
   return (
     <ComponentContainer>
       <PageTitleElement render={data.title} />
-      <ParagraphElement render={data.message} style={"ContactHeader"} />
+      <ParagraphElement render={data.message} $style={"ContactHeader"} />
     </ComponentContainer>
   )
 };

@@ -5,7 +5,7 @@ import data from "../data";
 const FooterLinkElement = () => {
   const renderFooterLinkElement = data.footer.linkIcons.map(({ id, link, render }) => {
     return (
-      <LinkElement key={id} to={link} render={render} style={"FooterLink"} />
+      <LinkElement key={id} to={link} render={render} $style={"FooterLink"} />
     );
   });
 
