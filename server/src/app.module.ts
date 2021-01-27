@@ -1,13 +1,12 @@
 import { Module } from "@nestjs/common";
-import { ConfigModule, ConfigService } from "@nestjs/config";
+import { ConfigModule } from "@nestjs/config";
 import { MailerModule } from "@nestjs-modules/mailer";
 import configuration from "./config/configuration";
 import { AppService } from "./app.service";
 import { AppController } from "./app.controller";
 import { DataModule } from "./data/data.module";
 import { FormsModule } from "./forms/forms.module";
-// import { EmailModule } from "./email/email.module";
-// import { MailerConfigService } from "./email/email.service";
+import { MailerConfigService } from "./email/email.service";
 
 @Module({
   imports: [
@@ -15,20 +14,7 @@ import { FormsModule } from "./forms/forms.module";
       load: [configuration]
     }),
     MailerModule.forRootAsync({
-      imports: [ConfigModule],
-      useFactory: async (config: ConfigService) => ({
-        transport: {
-          host: config.get<string>("nodemailer.host"),
-          port: config.get<string>("nodemailer.post"),
-          ignoreTLS: { rejectUnauthorized: false },
-          secure: true,
-          auth: {
-            user: config.get<string>("nodemailer.user"),
-            pass: config.get<string>("nodemailer.pass")
-          }
-        }
-  }),
-  inject: [ConfigService],
+      useClass: MailerConfigService
     }),
     DataModule,
     FormsModule
