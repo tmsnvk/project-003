@@ -10,21 +10,23 @@ import { FormsModule } from "./forms/forms.module";
 @Module({
   imports: [
     ConfigModule.forRoot({
-      load: [configuration]
+      load: [configuration],
+      isGlobal: true
     }),
     MailerModule.forRootAsync({
-      useFactory: () => ({
+      useFactory: async (config: ConfigService) => ({
         transport: {
-          host: process.env.NODEMAILER_AUTH_HOST,
-          port: process.env.NODEMAILER_AUTH_PORT,
+          host: config.get<string>("nodemailer.host"),
+          port: config.get<string>("nodemailer.post"),
           ignoreTLS: { rejectUnauthorized: false },
           secure: true,
           auth: {
-            user: process.env.NODEMAILER_AUTH_USER,
-            pass: process.env.NODEMAILER_AUTH_PASS
+            user: config.get<string>("nodemailer.user"),
+            pass: config.get<string>("nodemailer.pass")
           }
         }
-      })
+      }),
+      inject: [ConfigService],
     }),
     DataModule,
     FormsModule
