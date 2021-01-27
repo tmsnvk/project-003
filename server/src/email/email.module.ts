@@ -1,9 +1,14 @@
 import { Module } from "@nestjs/common";
-import { ConfigModule } from "@nestjs/config";
+import { ConfigModule, ConfigService } from "@nestjs/config";
+import { MailerConfigModule } from "./email.service";
 
 @Module({
   imports: [
-    ConfigModule
+    ConfigModule,
+    ConfigService
+  ],
+  providers: [
+    MailerConfigModule
   ]
 })
 
