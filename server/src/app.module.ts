@@ -13,7 +13,9 @@ import { MailerConfigService } from "./email/email.service";
     ConfigModule.forRoot({
       load: [configuration]
     }),
-    MailerModule.forRoot(),
+    MailerModule.forRootAsync({
+      useClass: MailerConfigService
+    }),
     DataModule,
     FormsModule
   ],

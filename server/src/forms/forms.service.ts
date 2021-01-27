@@ -13,8 +13,7 @@ export class FormsService {
       private readonly signupFormModel: Model<SignupFormInterface>,
     @Inject(contactFormModel)
     private readonly contactFormModel: Model<ContactFormInterface>,
-    @Inject("MailerProvider")
-      private readonly mailerService: MailerService
+    private readonly mailerService: MailerService
   ) {}
 
   async signupform(body: SignupFormDto): Promise<SignupFormInterface> {

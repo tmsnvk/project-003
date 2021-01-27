@@ -9,6 +9,9 @@ import { MailerConfigService } from "./email.service";
   ],
   providers: [
     MailerConfigService
+  ],
+  exports: [
+    MailerConfigService
   ]
 })
 

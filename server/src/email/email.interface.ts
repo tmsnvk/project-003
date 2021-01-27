@@ -1,6 +1,6 @@
 export interface MailerOptionsInterface {}
 
-export class MailerModuleOptionsInterface {
+export class MailerConfigOptionsInterface {
   transport: {
     host: string;
     port: string;

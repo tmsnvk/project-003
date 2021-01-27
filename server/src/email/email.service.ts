@@ -1,6 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
-import { MailerModuleOptionsInterface, MailerOptionsInterface } from "./email.interface";
+import { MailerConfigOptionsInterface, MailerOptionsInterface } from "./email.interface";
 
 @Injectable()
 export class MailerConfigService implements MailerOptionsInterface {
@@ -8,7 +8,7 @@ export class MailerConfigService implements MailerOptionsInterface {
     private readonly config: ConfigService
   ) {}
 
-  createMailerOptions(): MailerModuleOptionsInterface {
+  createMailerOptions(): MailerConfigOptionsInterface {
     return {
       transport: {
         host: this.config.get<string>("nodemailer.host"),
