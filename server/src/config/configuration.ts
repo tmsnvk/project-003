@@ -1,4 +1,4 @@
-const configuration = () => ({
+export default () => ({
   port: process.env.PORT || 3001,
   mongodb: process.env.MONGODB_CONNECTION,
   nodemailer: {
@@ -8,5 +8,3 @@ const configuration = () => ({
     pass: process.env.NODEMAILER_AUTH_PASS
   }
 });
-
-export default configuration;

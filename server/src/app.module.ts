@@ -14,7 +14,7 @@ import { FormsModule } from "./forms/forms.module";
       load: [configuration]
     }),
     MailerModule.forRootAsync({
-      useFactory: async (config: ConfigService) => ({
+      useFactory: (config: ConfigService) => ({
         transport: {
           host: config.get<string>("nodemailer.host"),
           port: config.get<string>("nodemailer.post"),
