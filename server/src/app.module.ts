@@ -6,6 +6,7 @@ import { AppService } from "./app.service";
 import { AppController } from "./app.controller";
 import { DataModule } from "./data/data.module";
 import { FormsModule } from "./forms/forms.module";
+import { EmailModule } from "./email/email.module";
 import { MailerConfigService } from "./email/email.service";
 
 @Module({
@@ -16,6 +17,7 @@ import { MailerConfigService } from "./email/email.service";
     MailerModule.forRootAsync({
       useClass: MailerConfigService
     }),
+    EmailModule,
     DataModule,
     FormsModule
   ],
