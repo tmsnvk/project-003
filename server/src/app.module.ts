@@ -12,7 +12,8 @@ import { FormsModule } from "./forms/forms.module";
     ConfigModule.forRoot({
       load: [configuration]
     }),
-    MailerModule.forRoot({
+    MailerModule.forRootAsync({
+      useFactory: () => ({
         transport: {
           host: process.env.NODEMAILER_AUTH_HOST,
           port: process.env.NODEMAILER_AUTH_PORT,
@@ -23,6 +24,7 @@ import { FormsModule } from "./forms/forms.module";
             pass: process.env.NODEMAILER_AUTH_PASS
           }
         }
+      })
     }),
     DataModule,
     FormsModule
