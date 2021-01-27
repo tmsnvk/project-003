@@ -6,16 +6,14 @@ import { AppService } from "./app.service";
 import { AppController } from "./app.controller";
 import { DataModule } from "./data/data.module";
 import { FormsModule } from "./forms/forms.module";
-import { MailerConfigModule } from "./email/email.service";
+import { MailerConfigService } from "./email/email.service";
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       load: [configuration]
     }),
-    MailerModule.forRootAsync({
-      useClass: MailerConfigModule
-    }),
+    MailerModule.forRoot(),
     DataModule,
     FormsModule
   ],

@@ -3,21 +3,21 @@ import { ConfigService } from "@nestjs/config";
 import { MailerModuleOptionsInterface, MailerOptionsInterface } from "./email.interface";
 
 @Injectable()
-export class MailerConfigModule implements MailerOptionsInterface {
+export class MailerConfigService implements MailerOptionsInterface {
   constructor(
-    private readonly configService: ConfigService
+    private readonly config: ConfigService
   ) {}
 
   createMailerOptions(): MailerModuleOptionsInterface {
     return {
       transport: {
-        host: this.configService.get<string>("nodemailer.host"),
-        port: this.configService.get<string>("nodemailer.post"),
+        host: this.config.get<string>("nodemailer.host"),
+        port: this.config.get<string>("nodemailer.post"),
         ignoreTLS: { rejectUnauthorized: false },
         secure: true,
         auth: {
-          user: this.configService.get<string>("nodemailer.user"),
-          pass: this.configService.get<string>("nodemailer.pass")
+          user: this.config.get<string>("nodemailer.user"),
+          pass: this.config.get<string>("nodemailer.pass")
         }
       }
     }
