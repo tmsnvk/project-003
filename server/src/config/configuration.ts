@@ -1,5 +1,5 @@
-export default () => ({
-  port: process.env.PORT || 3001,
+export const configuration = () => ({
+  port: parseInt(process.env.PORT) || 3001,
   mongodb: process.env.MONGODB_CONNECTION,
   nodemailer: {
     host: process.env.NODEMAILER_AUTH_HOST,

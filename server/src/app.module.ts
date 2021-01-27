@@ -1,7 +1,7 @@
 import { Module } from "@nestjs/common";
 import { ConfigModule, ConfigService } from "@nestjs/config";
 import { MailerModule } from "@nestjs-modules/mailer";
-import configuration from "./config/configuration";
+import { configuration } from "./config/configuration";
 import { AppService } from "./app.service";
 import { AppController } from "./app.controller";
 import { DataModule } from "./data/data.module";
@@ -10,8 +10,8 @@ import { FormsModule } from "./forms/forms.module";
 @Module({
   imports: [
     ConfigModule.forRoot({
-      load: [configuration],
-      isGlobal: true
+      isGlobal: true,
+      load: [configuration]
     }),
     MailerModule.forRootAsync({
       useFactory: async (config: ConfigService) => ({
