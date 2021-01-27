@@ -6,26 +6,23 @@ import { AppService } from "./app.service";
 import { AppController } from "./app.controller";
 import { DataModule } from "./data/data.module";
 import { FormsModule } from "./forms/forms.module";
-// import { EmailService } from "./email/email.service";
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       load: [configuration]
     }),
-    MailerModule.forRootAsync({
-      useFactory: (config: ConfigService) => ({
+    MailerModule.forRoot({
         transport: {
-          host: config.get<string>("nodemailer.host"),
-          port: config.get<string>("nodemailer.post"),
+          host: process.env.NODEMAILER_AUTH_HOST,
+          port: process.env.NODEMAILER_AUTH_PORT,
           ignoreTLS: { rejectUnauthorized: false },
           secure: true,
           auth: {
-            user: config.get<string>("nodemailer.user"),
-            pass: config.get<string>("nodemailer.pass")
+            user: process.env.NODEMAILER_AUTH_USER,
+            pass: process.env.NODEMAILER_AUTH_PASS
           }
         }
-      })
     }),
     DataModule,
     FormsModule
