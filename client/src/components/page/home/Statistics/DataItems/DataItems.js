@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { ParagraphElement } from "components/shared/text";
-import { StyledIcon } from "components/shared/utilities";
+import FiguresParagraphElement from "./FiguresParagraphElement";
+import TextParagraphElement from "./TextParagraphElement";
+import StyledIcon from "./StyledIcon";
 import iconList from "utilities/icons/iconList";
 import data from "../data";
 
@@ -26,9 +27,9 @@ const DataItems = () => {
   const renderDataItems = data.items.map(({ id, number, text }) => {
     return (
       <Container key={id}>
-        <StyledIcon icon={iconList.caretUp} $style={"HomeStatisticsData"} />
-        <ParagraphElement render={number} $style={"HomeStatisticsDataFigures"} />
-        <ParagraphElement render={text} $style={"HomeStatisticsDataText"} />
+        <StyledIcon icon={iconList.caretUp} />
+        <FiguresParagraphElement render={number} />
+        <TextParagraphElement render={text} />
       </Container>
     );
   });

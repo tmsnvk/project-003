@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { LinkElement } from "components/shared/link";
-import { PROJECT_ROOT } from "utilities/constants/urls";
+import LinkElement from "./LinkElement";
 import data from "../data";
 
 const ComponentContainer = styled.section`
@@ -15,7 +14,7 @@ const ComponentContainer = styled.section`
 const NavbarLogoElement = () => {
   return (
     <ComponentContainer>
-      <LinkElement to={`/${PROJECT_ROOT}`} render={data.navbar.logo} $style={"NavbarLogo"} />
+      <LinkElement link={data.logo.link} render={data.logo.render} />
     </ComponentContainer>
   );
 };

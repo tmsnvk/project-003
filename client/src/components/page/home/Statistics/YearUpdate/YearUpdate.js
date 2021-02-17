@@ -1,11 +1,11 @@
 import React from "react";
-import { ParagraphElement } from "components/shared/text";
+import ParagraphElement from "./ParagraphElement";
 import data from "../data";
 
 const YearUpdate = () => {
   return (
     <>
-      <ParagraphElement render={data.title} $style={"HomeStatisticsYear"} />
+      <ParagraphElement render={data.title} />
     </>
   );
 };

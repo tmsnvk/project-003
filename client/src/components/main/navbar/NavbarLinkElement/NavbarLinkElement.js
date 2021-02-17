@@ -1,11 +1,11 @@
 import React from "react";
-import { LinkElement } from "components/shared/link";
+import LinkElement from "./LinkElement";
 import data from "../data";
 
 const NavbarLinkElement = () => {
-  const renderNavbarLinkElement = data.navbar.links.map(({ id, link, render, style }) => {
+  const renderNavbarLinkElement = data.links.map(({ id, link, render, altColor }) => {
     return (
-      <LinkElement key={id} to={link} render={render} $style={style} />
+      <LinkElement key={id} link={link} render={render} altColor={altColor} />
     );
   });
 

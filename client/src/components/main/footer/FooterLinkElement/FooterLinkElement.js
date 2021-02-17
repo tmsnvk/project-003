@@ -1,11 +1,11 @@
 import React from "react";
-import { LinkElement } from "components/shared/link";
+import LinkElement from "./LinkElement";
 import data from "../data";
 
 const FooterLinkElement = () => {
-  const renderFooterLinkElement = data.footer.linkIcons.map(({ id, link, render }) => {
+  const renderFooterLinkElement = data.linkIcons.map(({ id, link, icon }) => {
     return (
-      <LinkElement key={id} to={link} render={render} $style={"FooterLink"} />
+      <LinkElement key={id} link={link} icon={icon} />
     );
   });
 

@@ -1,27 +1,22 @@
 import React from "react";
 import styled from "styled-components";
 
-const ComponentContainer = styled.h1`
-  padding: 2rem 0 2rem 0;
+const ComponentContainer = styled.p`
+  padding: 0 0 1rem 1rem;
   font-size: ${({ theme }) => theme.fontSize.large};
   text-align: center;
-  text-transform: uppercase;
-
-  &:after {
-    content: " ";
-    display: block;
-    padding: 2rem 0 0 0;
-    border-bottom: 2px solid ${({ theme }) => theme.color.primaryDark};
-    width: 30%;
-    margin: 0 auto;
-  }
+  font-weight: 600;
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
     font-size: ${({ theme }) => theme.fontSize.xLarge};
   }
+
+  @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.large}) {
+    font-size: ${({ theme }) => theme.fontSize.xxLarge};
+  }
 `;
 
-const PageTitleElement = ({ render }) => {
+const FiguresParagraphElement = ({ render }) => {
   return (
     <ComponentContainer>
       {render}
@@ -29,4 +24,4 @@ const PageTitleElement = ({ render }) => {
   );
 };
 
-export default PageTitleElement;
+export default FiguresParagraphElement;

@@ -11,6 +11,8 @@ const ComponentContainer = styled.header`
 	position: fixed;
   z-index: 1;
   padding: 2rem 0 2rem 0;
+  color: ${({ theme }) => theme.color.blueDark};
+  font-size: ${({ theme }) => theme.fontSize.small};
   font-weight: 600;
   background-image: ${({ theme }) => theme.color.gradient};
   box-shadow: 0px 2px 5px 0px ${({ theme }) => theme.color.shadow};
@@ -23,6 +25,10 @@ const ComponentContainer = styled.header`
 
   @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.small}) {
     flex-direction: row;
+  }
+
+  @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.medium}) {
+    font-size: ${({ theme }) => theme.fontSize.large};
   }
 `;
 

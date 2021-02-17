@@ -1,31 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
-const handleColor = ($style) => {
-  switch ($style) {
-    case "PokemonResult":
-      return ({ theme }) => theme.color.blueDark;
-    default:
-      return ({ theme }) => theme.color.grayDark;
-  }
-};
-
-const handleTextTransform = ($style) => {
-  switch ($style) {
-    case "PokemonResult":
-      return "uppercase";
-    default:
-      return null;
-  }
-};
-
 const ComponentContainer = styled.p`
   padding: 0 0 2rem 0;
   font-size: ${({ theme }) => theme.fontSize.medium};
-  color: ${({ $style }) => handleColor($style)};
+  color: ${({ theme }) => theme.color.grayDark};
   font-weight: 600;
   text-align: center;
-  text-transform: ${({ $style }) => handleTextTransform($style)};
 
   &:after {
     content: " ";
@@ -41,9 +22,9 @@ const ComponentContainer = styled.p`
   }
 `;
 
-const ParagraphTitleElement = ({ render, $style }) => {
+const ParagraphTitleElement = ({ render }) => {
   return (
-    <ComponentContainer $style={$style}>
+    <ComponentContainer>
       {render}
     </ComponentContainer>
   );

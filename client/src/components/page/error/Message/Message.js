@@ -3,7 +3,7 @@ import axios from "axios";
 import styled from "styled-components";
 import { BACKEND_ROOT } from "utilities/constants/urls";
 import { SectionElementContainer } from "components/shared/layout";
-import { PageTitleElement, ParagraphElement } from "components/shared/text";
+import { HeaderTitleElement, ParagraphElement } from "components/shared/text";
 import { Image } from "components/shared/utilities";
 import getPokemonId from "utilities/helpers/functions/getPokemonId";
 import data from "./data";
@@ -54,7 +54,7 @@ const Message = () => {
 
   return (
     <ComponentContainer>
-      <PageTitleElement render={`${pokemonName.toUpperCase()} says the page you tried to visit doesn't exist.`} />
+      <HeaderTitleElement render={`${pokemonName.toUpperCase()} says the page you tried to visit doesn't exist.`} />
       <ParagraphElement render={data.message} $style={"ErrorMessage"} />
       {pokemonName !== "" ? <Image src={`https://pokeres.bastionbot.org/images/pokemon/${pokemonId}.png`} alt={"random pokemon image"} loading={"lazy"} /> : null}
     </ComponentContainer>

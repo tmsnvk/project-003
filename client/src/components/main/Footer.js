@@ -7,7 +7,9 @@ const FooterContainer = styled.footer`
   height: 15rem;
   margin: 5rem 0 0 0;
   padding: 1rem 0 1rem 0;
+  font-family: ${({ theme }) => theme.fontFamily.secondary};
   background-color: ${({ theme }) => theme.color.blueDark};
+  color: ${({ theme }) => theme.color.grayLight};
   text-align: center;
 `;
 

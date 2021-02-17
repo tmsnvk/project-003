@@ -39,7 +39,7 @@ const Image = styled.img`
 const HowImage = () => {
   return (
     <ComponentContainer>
-      <Image src={data.image.link} alt={data.image.alt} loading={"lazy"} />
+      <Image src={data.image.link} loading={"lazy"} alt={data.image.alt} />
     </ComponentContainer>
   );
 };

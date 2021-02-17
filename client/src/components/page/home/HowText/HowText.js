@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { SectionElementContainer } from "components/shared/layout";
-import { ParagraphTitleElement } from "components/shared/text";
 import ListItems from "./ListItems";
+import { ParagraphTitleElement } from "components/shared/text";
 import data from "./data";
 
 const ComponentContainer = styled(SectionElementContainer)`

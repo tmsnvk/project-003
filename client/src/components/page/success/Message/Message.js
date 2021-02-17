@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { SectionElementContainer } from "components/shared/layout";
-import { PageTitleElement, ParagraphElement } from "components/shared/text";
+import { HeaderTitleElement, ParagraphElement } from "components/shared/text";
 import { Image } from "components/shared/utilities";
 import data from "./data";
 
@@ -30,7 +30,7 @@ const ComponentContainer = styled(SectionElementContainer)`
 const Message = () => {
   return (
     <ComponentContainer>
-      <PageTitleElement render={data.title} />
+      <HeaderTitleElement render={data.title} />
       <ParagraphElement render={data.message.pOne} $style={"SuccessMessage"} />
       <ParagraphElement render={data.message.pTwo} $style={"SuccessMessage"} />
       <Image src={data.image.src} alt={data.image.alt} loading={"lazy"} />
