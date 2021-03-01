@@ -13,7 +13,7 @@ const LayoutContainer = styled(LayoutContainerDefault)`
 `;
 
 const NotFound = () => {
-  usePageTracking("PageNotFound");
+  usePageTracking(data.title.notfound);
 
   return (
     <LayoutContainer>

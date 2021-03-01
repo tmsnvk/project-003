@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { SectionElementContainer } from "components/shared/layout";
-import { HeaderTitleElement, ParagraphElement } from "components/shared/text";
+import { HeaderTitleElement } from "components/shared/text";
+import ParagraphElement from "./ParagraphElement";
 import { Image } from "components/shared/utilities";
 import data from "./data";
 
@@ -31,8 +32,8 @@ const Message = () => {
   return (
     <ComponentContainer>
       <HeaderTitleElement render={data.title} />
-      <ParagraphElement render={data.message.pOne} $style={"SuccessMessage"} />
-      <ParagraphElement render={data.message.pTwo} $style={"SuccessMessage"} />
+      <ParagraphElement render={data.message.pOne} />
+      <ParagraphElement render={data.message.pTwo} />
       <Image src={data.image.src} alt={data.image.alt} loading={"lazy"} />
     </ComponentContainer>
   );

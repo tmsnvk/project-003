@@ -1,8 +1,8 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import axios from "axios";
 import styled from "styled-components";
+import axios from "axios";
 import { BACKEND_ROOT, PROJECT_ROOT } from "utilities/constants/urls";
 import { SectionElementContainer } from "components/shared/layout";
 import { ErrorMessage, FormContainer, FormLabel, FormLink, InputField, RadioButton, RadioContainer, RadioLabel, RadioLegend, RequiredFields, Submit } from "components/shared/form";
@@ -41,7 +41,7 @@ const ComponentContainer = styled(SectionElementContainer)`
 
 const SignupForm = () => {
   const history = useHistory();
-  const { register, handleSubmit, errors, formState } = useForm();
+  const { errors, formState, handleSubmit, register } = useForm();
 
   const onSubmit = async (data) => {
     await axios.post(`${BACKEND_ROOT}/forms/signup`, data);
@@ -144,7 +144,7 @@ const SignupForm = () => {
         </RadioContainer>
         {errors.checkbox && <ErrorMessage render={errors.checkbox.message} />}
         <RequiredFields render={"* Required fields."} />
-        {formState.isSubmitting ? <LoadingSpinner render={"Submitting your form... Please wait!"} /> : <Submit type={"submit"} name={"submit"} value={"Submit"} />}
+        {formState.isSubmitting ? (<LoadingSpinner render={"Submitting your form... Please wait!"} />) : (<Submit type={"submit"} name={"submit"} value={"Submit"} />)}
       </FormContainer>
     </ComponentContainer>
   );

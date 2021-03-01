@@ -1,8 +1,13 @@
 import React from "react";
-import { HashLink as Link } from "react-router-hash-link";
 import styled from "styled-components";
-import { ParagraphElement, SpanElement } from "components/shared/text";
-import { StyledIcon } from "components/shared/utilities";
+import OptionTitle from "./OptionTitle";
+import ParagraphElement from "./ParagraphElement";
+import BottomParagraphElement from "./BottomParagraphElement";
+import OptionButton from "./OptionButton";
+import OptionPopular from "./OptionPopular";
+import SpanElement from "./SpanElement";
+import ParagraphStyledIcon from "./ParagraphStyledIcon";
+import SpanStyledIcon from "./SpanStyledIcon";
 import data from "./data";
 
 const OptionContainer = styled.div`
@@ -28,82 +33,28 @@ const OptionContainer = styled.div`
   }
 `;
 
-const OptionTitle = styled.h3`
-  font-size: ${({ theme }) => theme.fontSize.xLarge};
-  color: ${({ theme }) => theme.color.grayLight};
-  text-shadow: 3px 3px 1px ${({ theme }) => theme.color.grayDark};
-  background-color: ${({ $alternate, theme: { color } }) => $alternate ? color.orangeDark : color.blueDark};
-  border-radius: 1rem 1rem 0 0;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 1rem;
-
-  @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.xLarge}) {
-    font-size: ${({ theme }) => theme.fontSize.xxLarge};
-  }
-`;
-
 const OptionPricingContainer = styled.div`
   padding: 2rem 0 2rem 0;
   text-align: center;
   font-size: ${({ theme }) => theme.fontSize.small};
 `;
 
-const OptionButton = styled(Link)`
-  display: block;
-  width: 50%;
-  padding: 1rem 1rem 1rem 1rem;
-  margin: 1rem auto;
-  color: ${({ theme }) => theme.color.grayLight};
-  font-size: ${({ theme }) => theme.fontSize.small};
-  background-color: ${({ $alternate, theme: { color } }) => $alternate ? color.orangeDark : color.blueDark};
-  border-radius: ${props => props.theme.elementBorder.borderRadius};
-  text-decoration: none;
-  text-align: center;
-  opacity: 0.7;
-  cursor: pointer;
-
-  &:hover {
-    background-color: ${({ theme }) => theme.color.grayDark};
-    opacity: 1;
-  }
-
-  &:focus {
-    outline: none;
-  }
-
-  @media only screen and (min-width: ${({ theme }) => theme.mediaQuery.small}) {
-    font-size: ${({ theme }) => theme.fontSize.medium};
-  }
-`;
-
-const OptionPopular = styled.div`
-  padding: 1rem 0 1rem 0;
-  background-color: ${({ theme }) => theme.color.orangeDark};
-  font-size: ${({ theme }) => theme.fontSize.medium};
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5rem;
-  text-align: center;
-  border-radius: 0 0 1rem 1rem;
-`;
-
 const OptionItems = () => {
   const renderOptionItems = data.map(({ optionTitle, priceIcon, priceTag, month, icon, paragraphs, link, bottomParagraph, mostPopular, alternate }) => {
     return (
       <OptionContainer key={optionTitle} $alternate={alternate}>
-        <OptionTitle $alternate={alternate}>{optionTitle}</OptionTitle>
+        <OptionTitle alternate={alternate} render={optionTitle} />
         <OptionPricingContainer>
-          <SpanElement render={<>{priceIcon !== "" ? <StyledIcon icon={priceIcon} $style={"PricingOptions_Tag"} /> : null}{priceTag}</>} $style={"PricingOptions_Tag"} />
+          <SpanElement render={<>{priceIcon !== "" ? (<SpanStyledIcon icon={priceIcon} />) : (null)}{priceTag}</>} />
           {month}
         </OptionPricingContainer>
-        <ParagraphElement render={<><StyledIcon icon={icon} $style={"PricingOptions"} />{paragraphs.one}</>} $style={"PricingOptions"} />
-        <ParagraphElement render={<><StyledIcon icon={icon} $style={"PricingOptions"} />{paragraphs.two}</>} $style={"PricingOptions"} />
-        <ParagraphElement render={<><StyledIcon icon={icon} $style={"PricingOptions"} />{paragraphs.three}</>} $style={"PricingOptions"} />
-        <ParagraphElement render={<><StyledIcon icon={icon} $style={"PricingOptions"} />{paragraphs.four}</>} $style={"PricingOptions"} />
-        <OptionButton to={link.to} $alternate={alternate}>{link.text}</OptionButton>
-        <ParagraphElement render={bottomParagraph} $style={"PricingOptionsBottom"} />
-        {mostPopular !== "" ? <OptionPopular>{mostPopular}</OptionPopular> : null}
+        <ParagraphElement render={<><ParagraphStyledIcon icon={icon} />{paragraphs.one}</>} />
+        <ParagraphElement render={<><ParagraphStyledIcon icon={icon} />{paragraphs.two}</>} />
+        <ParagraphElement render={<><ParagraphStyledIcon icon={icon} />{paragraphs.three}</>} />
+        <ParagraphElement render={<><ParagraphStyledIcon icon={icon} />{paragraphs.four}</>} />
+        <OptionButton to={link.to} alternate={alternate} render={link.text} />
+        <BottomParagraphElement render={bottomParagraph} />
+        {mostPopular !== "" ? (<OptionPopular render={mostPopular} />) : (null)}
       </OptionContainer>
     );
   });

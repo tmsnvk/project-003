@@ -17,7 +17,7 @@ const LayoutContainer = styled(LayoutContainerDefault)`
 `;
 
 const Home = () => {
-  usePageTracking("Home");
+  usePageTracking(data.title.home);
 
   return (
     <LayoutContainer>

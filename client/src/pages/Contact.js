@@ -13,7 +13,7 @@ const LayoutContainer = styled(LayoutContainerDefault)`
 `;
 
 const Contact = () => {
-  usePageTracking("Contact");
+  usePageTracking(data.title.contact);
 
   return (
     <LayoutContainer>

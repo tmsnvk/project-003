@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { SectionElementContainer } from "components/shared/layout";
-import { ParagraphElement } from "components/shared/text";
+import { AnswerParagraphElement, QuestionParagraphElement } from "components/shared/text";
 import data from "./data";
 
 const ComponentContainer = styled(SectionElementContainer)`
@@ -27,10 +27,22 @@ const ComponentContainer = styled(SectionElementContainer)`
   }
 `;
 
+const ParagraphContainer = styled.div`
+  padding: 1rem 0 1rem 0;
+  text-align: center;
+
+  &:last-of-type {
+    padding: 0 0 1rem 0;
+  }
+`;
+
 const Options = () => {
   const renderParagraphElements = data.paragraphs.map(({ id, render }) => {
     return (
-      <ParagraphElement key={id} render={render} $style={"HomeOptions"} />
+      <ParagraphContainer key={id}>
+        <QuestionParagraphElement render={render.question} />
+        <AnswerParagraphElement render={render.answer} />
+      </ParagraphContainer>
     );
   });
 

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { SectionElementContainer } from "components/shared/layout";
-import { HeaderTitleElement, ParagraphElement } from "components/shared/text";
+import { HeaderParagraphElement, HeaderTitleElement } from "components/shared/text";
 import data from "./data";
 
 const ComponentContainer = styled(SectionElementContainer)`
@@ -27,7 +27,7 @@ const Header = () => {
   return (
     <ComponentContainer>
       <HeaderTitleElement render={data.title} />
-      <ParagraphElement render={data.message} $style={"ContactHeader"} />
+      <HeaderParagraphElement render={data.message} />
     </ComponentContainer>
   )
 };

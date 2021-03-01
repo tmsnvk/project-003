@@ -11,7 +11,7 @@ const ComponentContainer = styled.label`
 
   &:after {
     content: " ";
-    padding: 3rem 0 0 0;
+    padding: 1.5rem 0 0 0;
   	width: 80%;
     border-bottom: 2px solid ${({ theme }) => theme.color.grayDark};
     display: block;

@@ -113,7 +113,7 @@ const ContactForm = () => {
         </RadioContainer>
         {errors.checkbox && <ErrorMessage render={errors.checkbox.message} />}
         <RequiredFields render={"* Required fields."} />
-        {formState.isSubmitting ? <LoadingSpinner render={"Submitting your form... Please wait!"} /> : <Submit type="submit" name="submit" value="Submit" />}
+        {formState.isSubmitting ? (<LoadingSpinner render={"Submitting your form... Please wait!"} />) : (<Submit type="submit" name="submit" value="Submit" />)}
       </FormContainer>
     </ComponentContainer>
   );

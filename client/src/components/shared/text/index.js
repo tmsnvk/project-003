@@ -1,7 +1,7 @@
+import AnswerParagraphElement from "./AnswerParagraphElement";
 import HeaderParagraphElement from "./HeaderParagraphElement";
 import HeaderTitleElement from "./HeaderTitleElement";
-import ParagraphElement from "./ParagraphElement";
+import QuestionParagraphElement from "./QuestionParagraphElement";
 import ParagraphTitleElement from "./ParagraphTitleElement";
-import SpanElement from "./SpanElement";
 
-export { HeaderParagraphElement, HeaderTitleElement, ParagraphElement, ParagraphTitleElement, SpanElement };
+export { AnswerParagraphElement, HeaderParagraphElement, HeaderTitleElement, QuestionParagraphElement, ParagraphTitleElement };

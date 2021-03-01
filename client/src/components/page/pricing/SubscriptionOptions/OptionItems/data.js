@@ -25,7 +25,7 @@ const data = [
   {
     optionTitle: "Solo",
     priceIcon: iconList.euroSign,
-    priceTag: "24.95",
+    priceTag: "24.95 ",
     month: "/ month",
     icon: iconList.angleRight,
     paragraphs: {
@@ -45,7 +45,7 @@ const data = [
   {
     optionTitle: "Duo",
     priceIcon: iconList.euroSign,
-    priceTag: "39.95",
+    priceTag: "39.95 ",
     month: "/ month",
     icon: iconList.angleRight,
     paragraphs: {

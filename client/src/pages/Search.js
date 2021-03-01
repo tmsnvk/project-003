@@ -16,7 +16,7 @@ const LayoutContainer = styled(LayoutContainerDefault)`
 `;
 
 const Search = () => {
-  usePageTracking("Search");
+  usePageTracking(data.title.searc);
 
   const [selectedPokemon, setSelectedPokemon] = useState(null);
   const [pokemonData, setPokemonData] = useState({ name: "", id: 0, typeOne: "", typeTwo: "", hp: 0, attack: 0, defense: 0, speed: 0, src: "" });

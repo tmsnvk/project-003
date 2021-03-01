@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { DivElementContainer } from "components/shared/layout";
 import { ParagraphTitleElement } from "components/shared/text";
-import { StyledIcon } from "components/shared/utilities";
+import StyledIcon from "./StyledIcon";
 import iconList from "utilities/icons/iconList";
 
 const ComponentContainer = styled(DivElementContainer)`
@@ -30,7 +30,7 @@ const ComponentContainer = styled(DivElementContainer)`
 const LoadingSpinner = ({ render }) => {
   return (
     <ComponentContainer>
-      <StyledIcon icon={iconList.spinner} spin $style={"LoadingSpinner"} />
+      <StyledIcon icon={iconList.spinner} />
       <ParagraphTitleElement render={render} />
     </ComponentContainer>
   );

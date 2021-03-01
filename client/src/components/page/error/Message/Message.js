@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React from "react";
 import styled from "styled-components";
-import { BACKEND_ROOT } from "utilities/constants/urls";
 import { SectionElementContainer } from "components/shared/layout";
-import { HeaderTitleElement, ParagraphElement } from "components/shared/text";
+import { HeaderTitleElement } from "components/shared/text";
 import { Image } from "components/shared/utilities";
-import getPokemonId from "utilities/helpers/functions/getPokemonId";
+import ParagraphElement from "./ParagraphElement";
+import { useErrorMessage } from "./Message.hooks";
 import data from "./data";
 
 const ComponentContainer = styled(SectionElementContainer)`
@@ -30,33 +29,13 @@ const ComponentContainer = styled(SectionElementContainer)`
 `;
 
 const Message = () => {
-  const [pokemonId, setPokemonId] = useState(0);
-  const [pokemonName, setPokemonName] = useState("");
-
-  useEffect(() => {
-    setPokemonId(getPokemonId());
-  }, []);
-
-  useEffect(() => {
-    const getPokemonName = async () => {
-      if (pokemonId !== 0) {
-        try {
-          const { data } = await axios.get(`${BACKEND_ROOT}/pokemon/data/${pokemonId}`);
-          setPokemonName(data.name);
-        } catch (error) {
-          console.log(`===> The error is - ${error} <===`);
-        }
-      }
-    };
-
-    getPokemonName();
-  }, [pokemonId]);
+  const { pokemonId, pokemonName } = useErrorMessage();
 
   return (
     <ComponentContainer>
       <HeaderTitleElement render={`${pokemonName.toUpperCase()} says the page you tried to visit doesn't exist.`} />
-      <ParagraphElement render={data.message} $style={"ErrorMessage"} />
-      {pokemonName !== "" ? <Image src={`https://pokeres.bastionbot.org/images/pokemon/${pokemonId}.png`} alt={"random pokemon image"} loading={"lazy"} /> : null}
+      <ParagraphElement render={data.message} />
+      {pokemonName !== "" ? (<Image src={`https://pokeres.bastionbot.org/images/pokemon/${pokemonId}.png`} alt={`${pokemonName} image`} loading={"lazy"} />) : (null)}
     </ComponentContainer>
   );
 };

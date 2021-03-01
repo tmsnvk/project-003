@@ -17,7 +17,7 @@ const LayoutContainer = styled(LayoutContainerDefault)`
 `;
 
 const Pricing = () => {
-  usePageTracking("Pricing");
+  usePageTracking(data.title.pricing);
 
   return (
     <LayoutContainer>

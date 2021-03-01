@@ -4,9 +4,7 @@ import data from "../data";
 
 const YearUpdate = () => {
   return (
-    <>
-      <ParagraphElement render={data.title} />
-    </>
+    <ParagraphElement render={data.title} />
   );
 };
 
